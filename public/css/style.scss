@@ -1682,6 +1682,15 @@ body{
         .search-box{
             background: url("/images/img11.jpg") no-repeat scroll 0 0;
             background-size: cover;
+            .search-box-input{
+                .search_input{
+                    .search_wrapper{
+                        a.search_button:hover{
+                            color:#5C9CF6;
+                        }
+                    }
+                }
+            }
         }
         .case-pagination{
             .pagination.pagination-item{
@@ -1720,6 +1729,8 @@ body{
                 .area-list{
                     background:#f8f8f8 ;
                     display:none;
+                    -webkit-transition: all 300ms ease-in-out 0s;
+                    transition: all 300ms ease-in-out 0s;
                     &.show{
                         display:block;
                     }
@@ -1761,4 +1772,87 @@ body{
             }
         }
     }
+}
+
+/*pictureIndex*/
+.halo-search.picture{
+    &.case{
+        .search-box{
+            background: url("/images/img12.jpg") no-repeat scroll 0 0;
+            background-size: cover;
+                .search-box-input{
+                    .search_input{
+                        .search_wrapper{
+                            a.search_button:hover{
+                               color:#b08dfd;
+                            }
+                        }
+                    }
+                }
+        }
+        .case-pagination{
+            .pagination.pagination-item{
+                li{
+                    a.active{
+                        background: #b08dfd;
+                        border: 1px solid #b08dfd;
+                    }
+                }
+            }
+        }
+        .search-result{
+            p{
+                color:#666666;
+                padding:50px 0;
+                span{
+                    color:#b08dfd;
+                }
+            }
+        }
+        .picture-box{
+            display: block;
+            overflow: hidden;
+            .search-block-content{
+                overflow: hidden;
+                display: block;
+                clear: both;
+                .col-md-2,.col-sm-4{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                .block-content-item{
+                    display: block;
+                    overflow: hidden;
+                    border-radius: 4px;
+                    position: relative;
+                    img{
+                        display: block;
+                        max-width: 100%;
+                        width: 100%;
+                    }
+                    .content-item-text{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        background: #333;
+                        opacity: 0.7;
+                        padding: 5px;
+                        .content-item-text-desc{
+                            .desc-list{
+                                .desc-list-item{
+                                    color: #fff;
+                                    display: inline-block;
+                                    .desc-list-item-num{
+                                        margin-left: 3px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

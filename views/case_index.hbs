@@ -402,24 +402,29 @@
 <script src="/js/lib/jquery-2.1.4.min.js"></script>
 <script src="/js/lib/bootstrap.min.js"></script>
 <script src="/js/lib/jquery.lazyload.min.js"></script>
-<script src="/js/haloBear.core.js"></script>
-<script src="/js/all.js"></script>
+<script src="/js/hb.js"></script>
+<script src="/js/modernizr-custom.js"></script>
+<script src="/js/hb.Modernizr.detects.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/app.index.js"></script>
+<script src="/js/app.caseIndex.js"></script>
+<script src="//cdn.bootcss.com/detectizr/2.2.0/detectizr.min.js"></script>
 <script>
     $(function(){
-        index.lazy();
-        index.nav();
-
-        index.indexInit();
-        index.register();
-        index.zcBtn();
-        index.uiForms();
-        index.login();
-        index.summitHover();
-        index.loginInit();
+        "use strict";
+        app.index.lazy();
+        app.index.nav();
+        app.index.indexInit();
+        app.index.register();
+        app.index.zcBtn();
+        app.index.uiForms();
+        app.index.login();
+        app.index.summitHover();
+        app.index.loginInit();
+        app.index.pagActive();
 
         /*caseIndex*/
-        caseIndex.tab();
-        caseIndex.pagActive();
+        app.caseIndex.tab();
     })
 
 
