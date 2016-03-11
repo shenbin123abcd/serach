@@ -1,3 +1,5 @@
 /node_modules
 /.idea
 /views
+/app/public/css/*.map
+/app/public/css/style.css
