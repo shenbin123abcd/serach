@@ -29,11 +29,11 @@ gulp.task('clearDistVersion',['build'], function () {
 });
 
 gulp.task('sass', function () {
-    return gulp.src(['app/css/main.scss'])
+    return gulp.src(['app/public/css/*.scss'])
         .pipe(sourcemaps.init())
         .pipe(plugins.sass({outputStyle: 'compact'}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('app/css/'));
+        .pipe(gulp.dest('app/public/css'));
 });
 
 gulp.task('less', function () {
@@ -368,9 +368,10 @@ gulp.task('default', ['clean'], function() {
 
 
 
-gulp.task('dev', ['browser-sync','copy:view'], function() {
+gulp.task('dev', ['browser-sync','copy:view','sass'], function() {
     gulp.start('watch:dev');
 });
+
 
 
 gulp.task("watch", function(){
@@ -394,6 +395,7 @@ gulp.task("watch:dev", function(){
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.src(event.path).pipe(gulp.dest('views'));
     });
+    gulp.watch(['app/public/css/*.scss'],['sass']);
 });
 
 
