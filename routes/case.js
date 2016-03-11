@@ -7,8 +7,12 @@ router.get('/', function(req, res, next){
 });
 
 // 详情
-router.get('/:id', function(req, res, next){
+router.get('/detail/:id', function(req, res, next){
     res.render('case_detail', {title: '案例详情'});
 });
 
+//结果
+router.get('/result', function(req, res, next){
+    res.render('case_result', {title: '案例搜索结果'});
+});
 module.exports = router;

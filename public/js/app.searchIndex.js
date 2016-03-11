@@ -39,7 +39,7 @@ app.searchIndex=(function(){
             var width= document.documentElement.clientWidth||document.body.clientWidth;
             if(bIsIpad){
                 if(width>990){
-                    var padText=$(".item-desc-middle > p").text().substr(0,10)+"...";
+                    var padText=$(".item-desc-middle > p").text().substr(0,9)+"...";
                     $(".item-desc-middle > p").text(padText);
                 }
             }else{

@@ -55,13 +55,13 @@ app.index=(function(){
             $("#register-modal").on("submit",function(event){
                 event.preventDefault();
                 var data={
-                    "invite_code": $.trim($("#register_invite_code").val()),
+                    /*"invite_code": $.trim($("#register_invite_code").val()),*/
                     "phone": $.trim($("#register_phone").val())
                 }
-                if(data.invite_code==""){
+                /*if(data.invite_code==""){
                     DIALOG.error("请输入邀请码");
                     return false;
-                }else if(data.phone==""){
+                }else */if(data.phone==""){
                     DIALOG.error("请输入手机号");
                     return false;
                 }
@@ -90,7 +90,7 @@ app.index=(function(){
                 event.preventDefault();
                 var data={
                     "verify_code":$.trim($("#n_register_verify_code").val()),
-                    "invite_code":$.trim($("#n_register_invite_code").val()),
+                    /*"invite_code":$.trim($("#n_register_invite_code").val()),*/
                     "phone":$.trim($("#n_register_phone").val()),
                     "username":$.trim($("#n_register_username").val()),
                     "company":$.trim($("#n_register_company").val()),
@@ -101,10 +101,10 @@ app.index=(function(){
                 if(data.verify_code==""){
                     DIALOG.error("请输入短讯验证码");
                     return false;
-                }else if(data.invite_code==""){
+                }/*else if(data.invite_code==""){
                     DIALOG.error("请输入邀请码");
                     return false;
-                }else if(data.phone==""){
+                }*/else if(data.phone==""){
                     DIALOG.error("请输入手机号");
                     return false;
                 }else if(data.username==""){

@@ -18,6 +18,7 @@ config.route = function(app){
     app.use('/case', require('./routes/case'));
     app.use('/company', require('./routes/company'));
     app.use('/picture', require('./routes/picture'));
+    app.use('/topic', require('./routes/topic'));
     app.use('/api', require('./routes/api'));
 };
 
