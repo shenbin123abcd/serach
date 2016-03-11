@@ -158,13 +158,24 @@ gulp.task('map', function () {
 });
 
 
-gulp.task('build', ['images','haloIcon','sass'], function () {
+gulp.task('build', ['sass'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
     var cssFilter = plugins.filter('**/*.css',{restore: true});
     //var assets;
-    return gulp.src(['app/index.ejs'])
-        //.pipe(assets = plugins.useref.assets())
+    return gulp.src(['app/views/**/*.hbs'])
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "../../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                // Thi
+                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+                '/app/public/css/**/*.css',
+                '/app/public/js/*.js',
+                '/app/public/images/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
         .pipe(plugins.useref())
         .pipe(jsFilter)
         .pipe(plugins.babel({
@@ -173,19 +184,16 @@ gulp.task('build', ['images','haloIcon','sass'], function () {
         .pipe(plugins.uglify())
         .pipe(plugins.rev())
         .pipe(jsFilter.restore)
-        .pipe(gulp.dest('dist'))
-        .pipe(cssFilter)
-        .pipe(plugins.autoprefixer({
-            browsers:  ['> 0%'],
-            cascade: false
-        }))
-        .pipe(plugins.csso())
-        .pipe(plugins.rev())
-        .pipe(cssFilter.restore)
-
-        .pipe(gulp.dest('dist'))
+        //.pipe(cssFilter)
+        //.pipe(plugins.autoprefixer({
+        //    browsers:  ['> 0%'],
+        //    cascade: false
+        //}))
+        //.pipe(plugins.csso())
+        //.pipe(plugins.rev())
+        //.pipe(cssFilter.restore)
         .pipe(plugins.revReplace({
-            replaceInExtensions: ['.js', '.css', '.html', '.ejs']
+            replaceInExtensions: ['.js', '.css', '.html', '.hbs']
         }))
         //.pipe(htmlFilter)
         //.pipe(plugins.minifyHtml({
@@ -196,17 +204,17 @@ gulp.task('build', ['images','haloIcon','sass'], function () {
         //}))
         //.pipe(htmlFilter.restore)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "/qingjian/1/dist",
+            defaultCDNBase: "/public",
             allowRev: true,
             allowMin: true,
             files: [
                 // This file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                'css/**/*.css',
-                'js/*.js',
-                'images/*.{jpg,png,mp3,mp4}',
+                'public2/css/**/*.css',
+                'public/js/*.js',
+                'public/images/*.{jpg,png,mp3,mp4}',
             ]
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('views'))
 });
 
 gulp.task('build:dev', ['map','images','haloIcon','sass'], function () {
@@ -336,6 +344,7 @@ gulp.task('copy:view', function () {
         .src('app/views/**/*.hbs')
         .pipe(plugins.cdnizer({
             defaultCDNBase: "http://localhost:9000",
+            //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
             files: [
@@ -357,13 +366,13 @@ gulp.task('copy:view', function () {
 //});
 
 
-gulp.task('clean', require('del').bind(null, [ 'dist']));
+gulp.task('clean', require('del').bind(null, [ 'views']));
 
 
 
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('copy');
+    gulp.start('build');
 });
 
 

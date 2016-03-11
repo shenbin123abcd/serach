@@ -7,10 +7,11 @@
     <meta name="format-detection" content="telephone=no" />
     <link rel="shortcut icon" href="favicon.ico"/>
     <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="/app/public/css/style.css" rel="stylesheet" type="text/css"/>
-
     <link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- build:css public2/css/main.css -->
+    <link href="/app/public/css/style.css" rel="stylesheet" type="text/css"/>
+    <!-- endbuild -->
     <title>搜索引擎_幻熊科技 - 更智慧的婚礼业</title>
     {{> commonHeaderEnd}}
 </head>
@@ -776,15 +777,19 @@
 <script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 
 
+<!-- build:js public2/js/main.js -->
 
 <script src="/app/public/js/hb.js"></script>
 <script src="/app/public/js/modernizr-custom.js"></script>
 <script src="/app/public/js/hb.Modernizr.detects.js"></script>
+<script src="/app/public/js/hb.jquery.plugins.js"></script>
 
 <script src="/app/public/js/app.js"></script>
 <script src="/app/public/js/app.index.js"></script>
 <script src="/app/public/js/app.searchIndex.js"></script>
 <script src="//cdn.bootcss.com/detectizr/2.2.0/detectizr.min.js"></script>
+<!-- endbuild -->
+
 <script>
     $(function(){
         "use strict";
