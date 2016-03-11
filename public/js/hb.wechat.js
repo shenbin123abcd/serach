@@ -30,7 +30,7 @@ hb.wechat=(function(){
         //var url='http://aien.halobear.cn/qingjian/1/';
         $.get('/api/getWechat?url=' + encodeURIComponent(url))
         .done(function(ret) {
-            console.log(ret);
+            //console.log(ret);
             //console.log($.extend({
             //    debug: 0,
             //    jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ']
@@ -41,9 +41,13 @@ hb.wechat=(function(){
             }, ret));
 
             wx.ready(function() {
-                if(callback){
+                if($.isFunction(callback)){
                     callback();
                 }
+                if($.isPlainObject(callback)){
+                    callback.ready();
+                }
+
                 wx.onMenuShareTimeline({
                     title: data.desc,
                     desc: data.desc,
@@ -72,6 +76,9 @@ hb.wechat=(function(){
                     cancel: function() {}
                 });
 
+                wx.getNetworkType({
+                    success: callback.getNetworkType.success
+                });
 
 
 
