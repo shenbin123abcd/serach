@@ -2083,6 +2083,15 @@ body{
     .topic-list{
         display:block;
         overflow: hidden;
+        .list-content-item{
+            .item-pic{
+                img{
+                    width:100%;
+                    max-width: 100%;
+                }
+            }
+
+        }
     }
 }
 
