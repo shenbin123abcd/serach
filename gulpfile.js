@@ -201,7 +201,7 @@ gulp.task('build', ['sass','images'], function () {
         //.pipe(htmlFilter.restore)
         .pipe(hbsFilter)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "/public",
+            defaultCDNBase: "/",
             allowRev: true,
             allowMin: true,
             //relativeRoot: 'app/public',
@@ -262,6 +262,15 @@ gulp.task('build:dev', ['map','images','haloIcon','sass'], function () {
                 'css/**/*.css',
                 'js/*.js',
                 //'images/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "/",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                '/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('dist'))
@@ -338,7 +347,7 @@ gulp.task('copy:dev:style',['sass'], function () {
 });
 
 
-gulp.task('copy:view',['clean'], function () {
+gulp.task('copy:view', function () {
     return gulp
         .src('app/views/**/*.hbs')
         .pipe(plugins.cdnizer({
@@ -353,6 +362,15 @@ gulp.task('copy:view',['clean'], function () {
                 'public/css/**/*.css',
                 'public/js/**/*.js',
                 //'public/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://localhost:9000/app/public",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                '/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('views'));
@@ -376,7 +394,7 @@ gulp.task('default', ['clean'], function() {
 
 
 
-gulp.task('dev', ['browser-sync','copy:view','sass','images'], function() {
+gulp.task('dev', ['clean'], function() {
     gulp.start('watch:dev');
 });
 
@@ -398,7 +416,7 @@ gulp.task("watch", function(){
 //    });
 //});
 
-gulp.task("watch:dev", function(){
+gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
     gulp.watch(['app/views/**/*.hbs'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.src(['app/views/**/*.hbs'])
@@ -415,9 +433,19 @@ gulp.task("watch:dev", function(){
                     'public/js/**/*.js',
                     //'public/images/**/*.{jpg,png,mp3,mp4}',
                 ]
-            })).pipe(gulp.dest('views'));
+            }))
+            .pipe(plugins.cdnizer({
+                defaultCDNBase: "http://localhost:9000/app/public",
+                //defaultCDNBase: "../",
+                allowRev: true,
+                allowMin: true,
+                files: [
+                    '/images/**/*.{jpg,png,mp3,mp4}',
+                ]
+            }))
+            .pipe(gulp.dest('views'));
     });
-    gulp.watch(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'],['images']);
+    //gulp.watch(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'],['images']);
     gulp.watch(['app/public/css/*.scss'],['sass']);
 });
 //gulp.task("watch:dev", function(){
