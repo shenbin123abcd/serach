@@ -343,16 +343,17 @@ gulp.task('copy:view', function () {
     return gulp
         .src('app/views/**/*.hbs')
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://localhost:9000",
+            defaultCDNBase: "http://localhost:9000/app",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
+            relativeRoot: 'app',
             files: [
                 // Thi
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                '/app/public/css/**/*.css',
-                '/app/public/js/*.js',
-                '/app/public/images/*.{jpg,png,mp3,mp4}',
+                '**/public/css/**/*.css',
+                '**/public/js/**/*.js',
+                '**/public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('views'));
