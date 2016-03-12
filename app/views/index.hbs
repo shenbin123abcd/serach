@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    {{> commonHeader pageTitle="搜索引擎_幻熊科技 - 更智慧的婚礼业"}}
 
-    <!-- build:css css/main.css -->
-    <link href="../public/css/style.css" rel="stylesheet" type="text/css"/>
-    <!-- endbuild -->
-    <title>搜索引擎_幻熊科技 - 更智慧的婚礼业</title>
     {{> commonHeaderEnd}}
 </head>
 <body>
@@ -772,24 +762,8 @@
 </div>
 {{> ModalDialog}}
 {{> footer}}
+{{> commonFooter }}
 
-<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-
-
-<!-- build:js js/main.js -->
-
-<script src="../public/js/hb.js"></script>
-<script src="../public/js/modernizr-custom.js"></script>
-<script src="../public/js/hb.Modernizr.detects.js"></script>
-<script src="../public/js/hb.jquery.plugins.js"></script>
-
-<script src="../public/js/app.js"></script>
-<script src="../public/js/app.index.js"></script>
-<script src="../public/js/app.searchIndex.js"></script>
-<!-- endbuild -->
-<script src="//cdn.bootcss.com/detectizr/2.2.0/detectizr.min.js"></script>
 
 <script>
     $(function(){
@@ -808,10 +782,7 @@
         app.searchIndex.searchForm();
         app.searchIndex.reponsiveGrid();
         app.searchIndex.reponsivePad();
-
-    })
-
-
+    });
 </script>
 </body>
 </html>
