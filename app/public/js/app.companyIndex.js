@@ -7,7 +7,7 @@ app.companyIndex=(function(){
             $('.city-list>li>a').removeClass("active");
             $('.area-list').html();
             $(this).addClass("active");
-            $.getScript("/js/region.js", function (data) {
+            $.getScript("http://localhost:9000/app/public/js/region.js", function (data) {
                 var selectedId = $(_this).attr("data-id");
                 var html = "";
                 var arr = [];
