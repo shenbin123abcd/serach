@@ -8,7 +8,11 @@ router.get('/', function(req, res, next){
 
 // 详情
 router.get('/:id', function(req, res, next){
-  res.render('company_detail', {title: '公司详情'});
+
+  data={
+      pageTitle:'公司详情页',
+  };
+  res.render('company_detail', {data: data});
 });
 
 module.exports = router;

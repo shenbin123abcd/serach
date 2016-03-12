@@ -12,6 +12,6 @@ router.get('/detail/:id', function(req, res, next){
 });
 
 router.get('/list', function(req, res, next){
-    res.render('topic_detail', {title: '专题列表'});
+    res.render('topic_list', {title: '专题列表'});
 });
 module.exports = router;

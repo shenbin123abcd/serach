@@ -11,8 +11,15 @@ app.companyDetail=(function(){
         var num=((WrapperHeight-innerHeight)/2);
         $("."+InnerIndex).css("position","relative").css("top",num);
     };
+    var alignCenter=function(wrapper,inner){
+        var wrapperWidth=parseInt($("."+wrapper).css("width"));
+        var innerWidth=parseInt($("."+inner).css("width"));
+        var num=((wrapperWidth-innerWidth)/2);
+            $("."+inner).css("position","relative").css("left",num);
+    }
     return {
         uiHeight: uiHeight,
-        verticalMiddle:verticalMiddle
+        verticalMiddle:verticalMiddle,
+        alignCenter:alignCenter
     }
 }());
