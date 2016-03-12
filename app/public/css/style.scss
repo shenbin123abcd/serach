@@ -2083,14 +2083,36 @@ body{
     .topic-list{
         display:block;
         overflow: hidden;
+        margin-top:20px;
         .list-content-item{
+            margin-top:20px;
+            overflow: hidden;
             .item-pic{
                 img{
                     width:100%;
                     max-width: 100%;
                 }
             }
-
+            .item-text{
+                background:#fff;
+                padding:20px;
+                .item-text-p{
+                    padding:40px 0;
+                    color:#666666;
+                }
+            }
+            .title-desc-icon{
+                .desc-list{
+                    .desc-list-item{
+                        display: inline-block;
+                        color: #999999;
+                        margin-right: 10px;
+                        .desc-list-item-num{
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
