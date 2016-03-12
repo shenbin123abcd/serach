@@ -160,22 +160,11 @@ gulp.task('map', function () {
 
 gulp.task('build', ['sass'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
+    var hbsFilter = plugins.filter('*.hbs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
     var cssFilter = plugins.filter('**/*.css',{restore: true});
     //var assets;
     return gulp.src(['app/views/**/*.hbs'])
-        .pipe(plugins.cdnizer({
-            defaultCDNBase: "../../",
-            allowRev: true,
-            allowMin: true,
-            files: [
-                // Thi
-                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                '/app/public/css/**/*.css',
-                '/app/public/js/*.js',
-                '/app/public/images/*.{jpg,png,mp3,mp4}',
-            ]
-        }))
         .pipe(plugins.useref())
         .pipe(jsFilter)
         .pipe(plugins.babel({
@@ -183,15 +172,17 @@ gulp.task('build', ['sass'], function () {
         }))
         .pipe(plugins.uglify())
         .pipe(plugins.rev())
+        .pipe(gulp.dest('public2'))
         .pipe(jsFilter.restore)
-        //.pipe(cssFilter)
+        .pipe(cssFilter)
         //.pipe(plugins.autoprefixer({
         //    browsers:  ['> 0%'],
         //    cascade: false
         //}))
         //.pipe(plugins.csso())
-        //.pipe(plugins.rev())
-        //.pipe(cssFilter.restore)
+        .pipe(plugins.rev())
+        .pipe(gulp.dest('public2'))
+        .pipe(cssFilter.restore)
         .pipe(plugins.revReplace({
             replaceInExtensions: ['.js', '.css', '.html', '.hbs']
         }))
@@ -203,15 +194,18 @@ gulp.task('build', ['sass'], function () {
         //    conditionals: true
         //}))
         //.pipe(htmlFilter.restore)
+        .pipe(hbsFilter)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "/public",
+            defaultCDNBase: "/",
             allowRev: true,
             allowMin: true,
+            relativeRoot: 'app',
             files: [
-                // This file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                'public2/css/**/*.css',
-                'public/js/*.js',
-                'public/images/*.{jpg,png,mp3,mp4}',
+                // Thi
+                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+                '**/public2/css/**/*.css',
+                '**/public/js/**/*.js',
+                '**/public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('views'))
@@ -403,7 +397,21 @@ gulp.task("watch", function(){
 gulp.task("watch:dev", function(){
     gulp.watch(['app/views/**/*.hbs']).on("change", function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        gulp.src(event.path).pipe(gulp.dest('views'));
+        gulp.src(event.path)
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://localhost:9000/app",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            relativeRoot: 'app',
+            files: [
+                // Thi
+                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+                '**/public/css/**/*.css',
+                '**/public/js/**/*.js',
+                '**/public/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        })).pipe(gulp.dest('views'));
     });
     gulp.watch(['app/public/css/*.scss'],['sass']);
 });
