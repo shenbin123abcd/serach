@@ -145,11 +145,16 @@ gulp.task('swiper', function () {
 });
 
 
+//
+//gulp.task('images', function () {
+//    return gulp.src(['app/images/*.{png,gif,jpg,mp3,mp4}'])
+//        .pipe(plugins.flatten())
+//        .pipe(gulp.dest('dist/images'))
+//});
 
 gulp.task('images', function () {
-    return gulp.src(['app/images/*.{png,gif,jpg,mp3,mp4}'])
-        .pipe(plugins.flatten())
-        .pipe(gulp.dest('dist/images'))
+    return gulp.src(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'])
+        .pipe(gulp.dest('public/images'))
 });
 
 gulp.task('map', function () {
@@ -158,9 +163,9 @@ gulp.task('map', function () {
 });
 
 
-gulp.task('build', ['sass'], function () {
+gulp.task('build', ['sass','images'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
-    var hbsFilter = plugins.filter('*.hbs',{restore: true});
+    var hbsFilter = plugins.filter('**/*.hbs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
     var cssFilter = plugins.filter('**/*.css',{restore: true});
     //var assets;
@@ -172,7 +177,7 @@ gulp.task('build', ['sass'], function () {
         }))
         .pipe(plugins.uglify())
         .pipe(plugins.rev())
-        .pipe(gulp.dest('public2'))
+        .pipe(gulp.dest('public'))
         .pipe(jsFilter.restore)
         .pipe(cssFilter)
         //.pipe(plugins.autoprefixer({
@@ -181,7 +186,7 @@ gulp.task('build', ['sass'], function () {
         //}))
         //.pipe(plugins.csso())
         .pipe(plugins.rev())
-        .pipe(gulp.dest('public2'))
+        .pipe(gulp.dest('public'))
         .pipe(cssFilter.restore)
         .pipe(plugins.revReplace({
             replaceInExtensions: ['.js', '.css', '.html', '.hbs']
@@ -199,13 +204,13 @@ gulp.task('build', ['sass'], function () {
             defaultCDNBase: "/",
             allowRev: true,
             allowMin: true,
-            relativeRoot: 'app',
+            //relativeRoot: 'app/public',
             files: [
                 // Thi
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                '**/public2/css/**/*.css',
-                '**/public/js/**/*.js',
-                '**/public/images/**/*.{jpg,png,mp3,mp4}',
+                'css/**/*.css',
+                'js/**/*.js',
+                //'/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('views'))
@@ -256,7 +261,16 @@ gulp.task('build:dev', ['map','images','haloIcon','sass'], function () {
                 // This file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'css/**/*.css',
                 'js/*.js',
-                'images/*.{jpg,png,mp3,mp4}',
+                //'images/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "/",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                '/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('dist'))
@@ -319,7 +333,7 @@ gulp.task('build:test', function () {
                 // This file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'css/**/*.css',
                 'js/*.js',
-                'images/*.{jpg,png,mp3,mp4}',
+                //'images/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('dist'))
@@ -347,7 +361,16 @@ gulp.task('copy:view', function () {
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'public/css/**/*.css',
                 'public/js/**/*.js',
-                'public/images/**/*.{jpg,png,mp3,mp4}',
+                //'public/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://localhost:9000/app/public",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                '/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('views'));
@@ -361,8 +384,7 @@ gulp.task('copy:view', function () {
 //});
 
 
-gulp.task('clean', require('del').bind(null, [ 'views']));
-
+gulp.task('clean', require('del').bind(null, [ 'public','views']));
 
 
 
@@ -372,7 +394,7 @@ gulp.task('default', ['clean'], function() {
 
 
 
-gulp.task('dev', ['browser-sync','copy:view','sass'], function() {
+gulp.task('dev', ['clean'], function() {
     gulp.start('watch:dev');
 });
 
@@ -394,7 +416,7 @@ gulp.task("watch", function(){
 //    });
 //});
 
-gulp.task("watch:dev", function(){
+gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
     gulp.watch(['app/views/**/*.hbs'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.src(['app/views/**/*.hbs'])
@@ -409,11 +431,22 @@ gulp.task("watch:dev", function(){
                     // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                     'public/css/**/*.css',
                     'public/js/**/*.js',
-                    'public/images/**/*.{jpg,png,mp3,mp4}',
+                    //'public/images/**/*.{jpg,png,mp3,mp4}',
                 ]
-            })).pipe(gulp.dest('views'));
+            }))
+            .pipe(plugins.cdnizer({
+                defaultCDNBase: "http://localhost:9000/app/public",
+                //defaultCDNBase: "../",
+                allowRev: true,
+                allowMin: true,
+                files: [
+                    '/images/**/*.{jpg,png,mp3,mp4}',
+                ]
+            }))
+            .pipe(gulp.dest('views'));
     });
-    gulp.watch(['app/public/css/*.scss'],['sass']);
+    //gulp.watch(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'],['images']);
+    //gulp.watch(['app/public/css/*.scss'],['sass']);
 });
 //gulp.task("watch:dev", function(){
 //    gulp.watch(['app/views/**/*.hbs']).on("change", function(event) {
