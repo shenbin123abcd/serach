@@ -145,11 +145,16 @@ gulp.task('swiper', function () {
 });
 
 
+//
+//gulp.task('images', function () {
+//    return gulp.src(['app/images/*.{png,gif,jpg,mp3,mp4}'])
+//        .pipe(plugins.flatten())
+//        .pipe(gulp.dest('dist/images'))
+//});
 
 gulp.task('images', function () {
-    return gulp.src(['app/images/*.{png,gif,jpg,mp3,mp4}'])
-        .pipe(plugins.flatten())
-        .pipe(gulp.dest('dist/images'))
+    return gulp.src(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'])
+        .pipe(gulp.dest('public/images'))
 });
 
 gulp.task('map', function () {
