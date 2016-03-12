@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>搜索引擎_幻熊科技 - 更智慧的婚礼业</title>
+    {{> commonHeader pageTitle='搜索引擎_幻熊科技 - 更智慧的婚礼业'}}
+
     {{> commonHeaderEnd}}
 </head>
 <body>
@@ -202,16 +195,10 @@
 {{> ModalDialog}}
 {{> footer}}
 
-<script src="/js/lib/jquery-2.1.4.min.js"></script>
-<script src="/js/lib/bootstrap.min.js"></script>
-<script src="/js/lib/jquery.lazyload.min.js"></script>
-<script src="/js/hb.js"></script>
-<script src="/js/modernizr-custom.js"></script>
-<script src="/js/hb.Modernizr.detects.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/app.index.js"></script>
+{{> commonFooter }}
+
 <script src="/js/app.pictureIndex.js"></script>
-<script src="//cdn.bootcss.com/detectizr/2.2.0/detectizr.min.js"></script>
+
 <script>
     $(function(){
         app.index.lazy();
