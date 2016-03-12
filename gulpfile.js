@@ -345,9 +345,9 @@ gulp.task('copy:view', function () {
             files: [
                 // Thi
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                '**/public/css/**/*.css',
-                '**/public/js/**/*.js',
-                '**/public/images/**/*.{jpg,png,mp3,mp4}',
+                'public/css/**/*.css',
+                'public/js/**/*.js',
+                'public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
         .pipe(gulp.dest('views'));
@@ -395,26 +395,47 @@ gulp.task("watch", function(){
 //});
 
 gulp.task("watch:dev", function(){
-    gulp.watch(['app/views/**/*.hbs']).on("change", function(event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        gulp.src(event.path)
-        .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://localhost:9000/app",
-            //defaultCDNBase: "../",
-            allowRev: true,
-            allowMin: true,
-            relativeRoot: 'app',
-            files: [
-                // Thi
-                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                '**/public/css/**/*.css',
-                '**/public/js/**/*.js',
-                '**/public/images/**/*.{jpg,png,mp3,mp4}',
-            ]
-        })).pipe(gulp.dest('views'));
+    gulp.watch(['app/views/**/*.hbs'],function(event) {
+        //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        gulp.src(['app/views/**/*.hbs'])
+            .pipe(plugins.cdnizer({
+                defaultCDNBase: "http://localhost:9000/app",
+                //defaultCDNBase: "../",
+                allowRev: true,
+                allowMin: true,
+                relativeRoot: 'app',
+                files: [
+                    // Thi
+                    // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+                    'public/css/**/*.css',
+                    'public/js/**/*.js',
+                    'public/images/**/*.{jpg,png,mp3,mp4}',
+                ]
+            })).pipe(gulp.dest('views'));
     });
     gulp.watch(['app/public/css/*.scss'],['sass']);
 });
+//gulp.task("watch:dev", function(){
+//    gulp.watch(['app/views/**/*.hbs']).on("change", function(event) {
+//        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+//        gulp.src(event.path)
+//        .pipe(plugins.cdnizer({
+//            defaultCDNBase: "http://localhost:9000/app",
+//            //defaultCDNBase: "../",
+//            allowRev: true,
+//            allowMin: true,
+//            relativeRoot: 'app',
+//            files: [
+//                // Thi
+//                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+//                '**/public/css/**/*.css',
+//                '**/public/js/**/*.js',
+//                '**/public/images/**/*.{jpg,png,mp3,mp4}',
+//            ]
+//        })).pipe(gulp.dest('views'));
+//    });
+//    gulp.watch(['app/public/css/*.scss'],['sass']);
+//});
 
 
 
