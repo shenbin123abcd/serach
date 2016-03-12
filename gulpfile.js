@@ -446,7 +446,7 @@ gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
             .pipe(gulp.dest('views'));
     });
     //gulp.watch(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'],['images']);
-    gulp.watch(['app/public/css/*.scss'],['sass']);
+    //gulp.watch(['app/public/css/*.scss'],['sass']);
 });
 //gulp.task("watch:dev", function(){
 //    gulp.watch(['app/views/**/*.hbs']).on("change", function(event) {
