@@ -4,8 +4,9 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  data={};
-  data.pageTitle='首页';
+  var data={
+    pageTitle:'首页'
+  }
 
 
   res.render('index', { data: data });
