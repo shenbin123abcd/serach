@@ -25,13 +25,13 @@
         <div class='search-box-input col-md-6 col-md-push-3'>
             <div class="col-md-12 col-sm-12">
                 <div class="search_input">
-                    <form action="">
+                    <form>
                         <span class="search_wrapper">
-                            <input type="text" placeholder="白云">
-                            <a class="search_button" type="submit">
+                            <input type="search" placeholder="请输入关键字" name="keyword" value="<%=data.keyword%>" >
+                            <button class="search_button" type="submit">
                                 <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
-                            </a>
+                            </button>
                         </span>
                     </form>
                 </div>
@@ -60,7 +60,7 @@
 
     <div class="search-result">
         <div class="container">
-            <p>您目前在 婚礼图片 搜索关键字<span>“ 白云 ”</span>，共找到 152 个内容</p>
+            <p>您目前在 婚礼图片 搜索关键字<span>“ <%=data.keyword%> ”</span>，共找到 152 个内容</p>
         </div>
     </div>
 
