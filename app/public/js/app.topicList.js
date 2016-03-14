@@ -5,8 +5,8 @@ app.topicList=(function(){
         var num=((wrapperWidth-innerWidth)/2);
         $("."+inner).css("position","relative").css("left",num);
     };
+
     return{
         alignCenter:alignCenter,
-
     }
 }());

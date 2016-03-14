@@ -226,12 +226,13 @@
 <%- include('Public/ModalDialog'); %>
 <%- include('Public/footer'); %>
 <%- include('Public/common_footer'); %>
-
+<!-- build:js js/app.pictureIndex.js -->
 <script src="../public/js/app.pictureIndex.js"></script>
+<!-- endbuild -->
 <script>
     $(function(){
         "use strict";
-        window.appData= <%- JSON.stringify(data) %>;
+        window.appData = <%- JSON.stringify(data) %>;
 
         app.index.lazy();
         app.index.nav();
