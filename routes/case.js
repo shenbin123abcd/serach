@@ -3,6 +3,10 @@ var router = express.Router();
 
 // 列表
 router.get('/', function(req, res, next){
+    var data={};
+    data.style=[
+        '全部','中国红','玫瑰红','蜜桃粉'
+    ]
     res.render('case_index', {title: '案例列表'});
 });
 

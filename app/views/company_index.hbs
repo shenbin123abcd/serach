@@ -79,64 +79,11 @@
             <div class="tab-list-content-wrapper box-shadow">
                 <div class="tab-list-content-item">
                     <ul class="city-list">
-                        <li><a href="" data-id="0">全国</a></li>
-                        <li><a href="" data-id="793" class="active">上海</a></li>
-                        <li><a href="" data-id="2">北京</a></li>
-                        <li><a href="" data-id="811">江苏</a></li>
-                        <li><a href="" data-id="925">浙江</a></li>
-                        <li><a href="" data-id="19">天津</a></li>
-                        <li><a href="" data-id="36">河北</a></li>
-                        <li><a href="" data-id="220">山西</a></li>
-                        <li><a href="" data-id="351">内蒙古</a></li>
-                        <li><a href="" data-id="466">辽宁</a></li>
-                        <li><a href="" data-id="581">吉林</a></li>
-                        <li><a href="" data-id="651">黑龙江</a></li>
-                        <li><a href="" data-id="1027">安徽</a></li>
-                        <li><a href="" data-id="1149">福建</a></li>
-                        <li><a href="" data-id="1244">江西</a></li>
-
-                        <li><a href="" data-id="1356">山东</a></li>
-                        <li><a href="" data-id="1512">河南</a></li>
-                        <li><a href="" data-id="1690">湖北</a></li>
-                        <li><a href="" data-id="1808">湖南</a></li>
-                        <li><a href="" data-id="1945">广东</a></li>
-                        <li><a href="" data-id="2088">广西</a></li>
-                        <li><a href="" data-id="2213">海南</a></li>
-                        <li><a href="" data-id="2241">重庆</a></li>
-                        <li><a href="" data-id="2280">四川</a></li>
-                        <li><a href="" data-id="2485">贵州</a></li>
-                        <li><a href="" data-id="2583">云南</a></li>
-                        <li><a href="" data-id="2729">西藏</a></li>
-                        <li><a href="" data-id="2811">陕西</a></li>
-                        <li><a href="" data-id="2929">甘肃</a></li>
-                        <li><a href="" data-id="3030">青海</a></li>
-
-                        <li><a href="" data-id="3082">宁夏</a></li>
-                        <li><a href="" data-id="3110">新疆</a></li>
-                        <li><a href="" data-id="3225">台湾</a></li>
-                        <li><a href="" data-id="3226">香港</a></li>
-                        <li><a href="" data-id="3227">澳门</a></li>
+                        {{#each data.region}}
+                            <li><a href="" data-id={{id}}>{{city}}</a></li>
+                        {{/each}}
                     </ul>
-                    <ul class="area-list show">
-                        <li><a href="">黄浦区</a></li>
-                        <li><a href="">徐汇区</a></li>
-                        <li><a href="">长宁区</a></li>
-                        <li><a href="">静安区</a></li>
-                        <li><a href="">普陀区</a></li>
-                        <li><a href="">闸北区</a></li>
-                        <li><a href="">虹口区</a></li>
-                        <li><a href="">杨浦区</a></li>
-                        <li><a href="">闵行区</a></li>
-                        <li><a href="">宝山区</a></li>
-                        <li><a href="">嘉定区</a></li>
-                        <li><a href="">浦东新区</a></li>
-                        <li><a href="">金山区</a></li>
-                        <li><a href="">松江区</a></li>
-                        <li><a href="">青浦区</a></li>
-
-                        <li><a href="">奉贤区</a></li>
-                        <li><a href="">崇明区</a></li>
-                    </ul>
+                    <ul class="area-list show"></ul>
                 </div>
             </div>
         </div>
