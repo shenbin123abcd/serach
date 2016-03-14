@@ -217,18 +217,12 @@
 </div>
     <div class="case-pagination">
         <div class="container">
-            <ul class="pagination pagination-item">
-                <li><a href="#" class="no-margin-left"> < </a></li>
-                <li><a href="#" class="active">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#"> > </a></li>
-            </ul>
+            <ul id="pagination" class="pagination pagination-item"></ul>
         </div>
     </div>
 </div>
+
+
 <%- include('Public/ModalDialog'); %>
 <%- include('Public/footer'); %>
 <%- include('Public/common_footer'); %>
@@ -236,6 +230,9 @@
 <script src="../public/js/app.pictureIndex.js"></script>
 <script>
     $(function(){
+        "use strict";
+        window.appData= <%- JSON.stringify(data) %>;
+
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();
@@ -245,10 +242,11 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-        app.index.pagActive();
+
 
         /*pictureIndex*/
         app.pictureIndex.tab();
+        app.pictureIndex.pagActive();
     })
 
 

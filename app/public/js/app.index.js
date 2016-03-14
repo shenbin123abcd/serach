@@ -355,13 +355,7 @@ app.index=(function(){
                 //}
             }
         },
-        pagActive:function(){
-            $(".pagination-item>li>a").on("click",function(event){
-                event.preventDefault();
-                $(".pagination-item>li>a").removeClass("active");
-                $(this).addClass("active");
-            })
-        }
+
     };
 }());
 

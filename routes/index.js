@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Handlebars = require('hbs');
+//var Handlebars = require('hbs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

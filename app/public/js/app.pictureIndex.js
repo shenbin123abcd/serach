@@ -1,5 +1,8 @@
 app.pictureIndex=(function(){
     "use strict";
+    var searchPara=hb.location.url('?')||{};
+    //console.log(searchPara)
+
     var tab=function(){
         $("a.category").on("click",function(event){
             var id=$(this).attr("id");
@@ -16,8 +19,29 @@ app.pictureIndex=(function(){
             }
         })
     };
+
+    function pagActive(){
+        //$(".pagination-item>li>a").on("click",function(event){
+        //
+        //    event.preventDefault();
+        //    $(".pagination-item>li>a").removeClass("active");
+        //    $(this).addClass("active");
+        //})
+
+        $('#pagination').twbsPagination({
+            totalPages: 15,
+            visiblePages: 5 ,
+            first : '<<',
+            prev :'<',
+            next :'>',
+            last:'>>',
+            href: `?keyword=${searchPara.keyword||''}&page={{number}}` ,
+        });
+    }
+
     return {
-        tab:tab
+        tab:tab,
+        pagActive:pagActive,
     };
 
 }());
