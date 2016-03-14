@@ -86,51 +86,9 @@
         <div class="tab-list-content-wrapper box-shadow">
             <div class="tab-list-content-item">
                 <ul>
-                    <li><a href="">全部</a></li>
-                    <li><a href="">剪影</a></li>
-                    <li><a href="">蝴蝶</a></li>
-                    <li><a href="" class="active">木质</a></li>
-                    <li><a href="">春天</a></li>
-                    <li><a href="">城堡</a></li>
-                    <li><a href="">白云</a></li>
-                    <li><a href="">星星</a></li>
-                    <li><a href="">菱形</a></li>
-                    <li><a href="">三角</a></li>
-                    <li><a href="">雪花</a></li>
-                    <li><a href="">樱花</a></li>
-                    <li><a href="">卡通</a></li>
-                    <li><a href="">纱幔</a></li>
-                    <li><a href="">泡雕</a></li>
-
-                    <li><a href="">纸花</a></li>
-                    <li><a href="">蜡烛</a></li>
-                    <li><a href="">明场</a></li>
-                    <li><a href="">灯珠</a></li>
-                    <li><a href="">渐变</a></li>
-                    <li><a href="">撞色</a></li>
-                    <li><a href="">爱心</a></li>
-                    <li><a href="">气球</a></li>
-                    <li><a href="">飞屋</a></li>
-                    <li><a href="">棉花</a></li>
-                    <li><a href="">蕾丝</a></li>
-                    <li><a href="">花墙</a></li>
-                    <li><a href="">龙柳</a></li>
-                    <li><a href="">拱门</a></li>
-                    <li><a href="">树木</a></li>
-
-                    <li><a href="">镜面</a></li>
-                    <li><a href="">木桩</a></li>
-                    <li><a href="">垂挂</a></li>
-                    <li><a href="">架构</a></li>
-                    <li><a href="">水晶</a></li>
-                    <li><a href="">喷水池</a></li>
-                    <li><a href="">满天星</a></li>
-                    <li><a href="">向日葵</a></li>
-                    <li><a href="">LED屏</a></li>
-                    <li><a href="">地排花</a></li>
-                    <li><a href="">星空幕布</a></li>
-                    <li><a href="">长桌装饰</a></li>
-                    <li><a href="">翻糖蛋糕</a></li>
+                    {{#each data.element}}
+                        <li><a href="">{{this}}</a></li>
+                    {{/each}}
                 </ul>
             </div>
         </div>
@@ -141,36 +99,9 @@
         <div class="tab-list-content-wrapper box-shadow">
             <div class="tab-list-content-item">
                 <ul>
-                    <li><a href="">新娘捧花</a></li>
-                    <li><a href="">婚礼桌花</a></li>
-                    <li><a href="">婚礼路引</a></li>
-                    <li><a href="" class="active">婚礼车花</a></li>
-                    <li><a href="">舞台背景</a></li>
-                    <li><a href="">拍照背景</a></li>
-                    <li><a href="">迎宾区域</a></li>
-                    <li><a href="">迎宾牌示</a></li>
-                    <li><a href="">席位图示</a></li>
-                    <li><a href="">椅背装饰</a></li>
-                    <li><a href="">仪式门亭</a></li>
-                    <li><a href="">签到台饰</a></li>
-                    <li><a href="">甜品蛋糕</a></li>
-                    <li><a href="">婚礼喜糖</a></li>
-                    <li><a href="">婚礼请柬</a></li>
-
-                    <li><a href="">餐桌布置</a></li>
-                    <li><a href="">新郎胸花</a></li>
-                    <li><a href="">婚礼灯光</a></li>
-                    <li><a href="">新娘婚纱</a></li>
-                    <li><a href="">新娘头纱</a></li>
-                    <li><a href="">伴娘礼服</a></li>
-                    <li><a href="">妆面造型</a></li>
-                    <li><a href="">发型配饰</a></li>
-                    <li><a href="">新郎服饰</a></li>
-                    <li><a href="">新娘婚鞋</a></li>
-                    <li><a href="">婚戒首饰</a></li>
-                    <li><a href="">手工捧花</a></li>
-                    <li><a href="">新娘腕花</a></li>
-                    <li><a href="">桌卡设计</a></li>
+                    {{#each data.classify}}
+                        <li><a href="">{{this}}</a></li>
+                    {{/each}}
                 </ul>
             </div>
         </div>
