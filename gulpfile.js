@@ -165,11 +165,11 @@ gulp.task('map', function () {
 
 gulp.task('build', ['sass','images'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
-    var hbsFilter = plugins.filter('**/*.hbs',{restore: true});
+    var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
     var cssFilter = plugins.filter('**/*.css',{restore: true});
     //var assets;
-    return gulp.src(['app/views/**/*.hbs'])
+    return gulp.src(['app/views/**/*.ejs'])
         .pipe(plugins.useref())
         .pipe(jsFilter)
         .pipe(plugins.babel({
@@ -189,7 +189,7 @@ gulp.task('build', ['sass','images'], function () {
         .pipe(gulp.dest('public'))
         .pipe(cssFilter.restore)
         .pipe(plugins.revReplace({
-            replaceInExtensions: ['.js', '.css', '.html', '.hbs']
+            replaceInExtensions: ['.js', '.css', '.html', '.ejs']
         }))
         //.pipe(htmlFilter)
         //.pipe(plugins.minifyHtml({
@@ -199,7 +199,7 @@ gulp.task('build', ['sass','images'], function () {
         //    conditionals: true
         //}))
         //.pipe(htmlFilter.restore)
-        .pipe(hbsFilter)
+        .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
             defaultCDNBase: "/",
             allowRev: true,
@@ -221,7 +221,7 @@ gulp.task('build:dev', ['map','images','haloIcon','sass'], function () {
     var jsFilter = plugins.filter('**/*.js',{restore: true});
     var cssFilter = plugins.filter('**/*.css',{restore: true});
     //var assets;
-    return gulp.src(['app/*.hbs'])
+    return gulp.src(['app/*.ejs'])
         //.pipe(assets = plugins.useref.assets())
         .pipe(plugins.useref())
         .pipe(jsFilter)
@@ -243,7 +243,7 @@ gulp.task('build:dev', ['map','images','haloIcon','sass'], function () {
 
         .pipe(gulp.dest('dist'))
         .pipe(plugins.revReplace({
-            replaceInExtensions: ['.js', '.css', '.html', '.hbs']
+            replaceInExtensions: ['.js', '.css', '.html', '.ejs']
         }))
         //.pipe(htmlFilter)
         //.pipe(plugins.minifyHtml({
@@ -297,7 +297,7 @@ gulp.task('build:test', function () {
     var jsFilter = plugins.filter('**/*.js',{restore: true});
     var cssFilter = plugins.filter('**/*.css',{restore: true});
     //var assets;
-    return gulp.src(['app/views/*.hbs'])
+    return gulp.src(['app/views/*.ejs'])
         .pipe(plugins.useref())
         .pipe(jsFilter)
         //.pipe(plugins.babel({
@@ -315,7 +315,7 @@ gulp.task('build:test', function () {
         .pipe(plugins.rev())
         .pipe(cssFilter.restore)
         .pipe(plugins.revReplace({
-            replaceInExtensions: ['.js', '.css', '.html', '.hbs']
+            replaceInExtensions: ['.js', '.css', '.html', '.ejs']
         }))
         //.pipe(htmlFilter)
         //.pipe(plugins.minifyHtml({
@@ -349,7 +349,7 @@ gulp.task('copy:dev:style',['sass'], function () {
 
 gulp.task('copy:view', function () {
     return gulp
-        .src('app/views/**/*.hbs')
+        .src('app/views/**/*.ejs')
         .pipe(plugins.cdnizer({
             defaultCDNBase: "http://localhost:9000/app",
             //defaultCDNBase: "../",
@@ -410,16 +410,16 @@ gulp.task("watch", function(){
 
 
 //gulp.task("watch:dev", function(){
-//    gulp.watch(['app/views/**/*.hbs'], function(event) {
-//        gulp.src('app/views/**/*.hbs')
+//    gulp.watch(['app/views/**/*.ejs'], function(event) {
+//        gulp.src('app/views/**/*.ejs')
 //        .pipe(gulp.dest('publicTest/css'));
 //    });
 //});
 
 gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
-    gulp.watch(['app/views/**/*.hbs'],function(event) {
+    gulp.watch(['app/views/**/*.ejs'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        gulp.src(['app/views/**/*.hbs'])
+        gulp.src(['app/views/**/*.ejs'])
             .pipe(plugins.cdnizer({
                 defaultCDNBase: "http://localhost:9000/app",
                 //defaultCDNBase: "../",
@@ -449,7 +449,7 @@ gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
     //gulp.watch(['app/public/css/*.scss'],['sass']);
 });
 //gulp.task("watch:dev", function(){
-//    gulp.watch(['app/views/**/*.hbs']).on("change", function(event) {
+//    gulp.watch(['app/views/**/*.ejs']).on("change", function(event) {
 //        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 //        gulp.src(event.path)
 //        .pipe(plugins.cdnizer({

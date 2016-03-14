@@ -6,16 +6,20 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var config = require('./config');
-var hbs = require('hbs');
+//var hbs = require('hbs');
 var app = express();
 
 
 // view engine setup
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'hbs');
+
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
+
 
 //
-hbs.registerPartials(__dirname + '/views/Public');
+//hbs.registerPartials(__dirname + '/views/Public');
 
 
 // uncomment after placing your favicon in /public
