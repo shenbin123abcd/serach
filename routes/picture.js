@@ -16,7 +16,7 @@ router.get(['/','/search'], function(req, res, next){
     }
 
 
-    res.render('picture_index', {data: data});
+    res.render('picture_index_and_search', {data: data});
 });
 
 // 详情
