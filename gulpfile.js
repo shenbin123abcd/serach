@@ -451,31 +451,33 @@ gulp.task("watch", function(){
 gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
     gulp.watch(['app/views/**/*.ejs'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        gulp.src(['app/views/**/*.ejs'])
-            .pipe(plugins.cdnizer({
-                defaultCDNBase: "http://localhost:9000/app",
-                //defaultCDNBase: "../",
-                allowRev: true,
-                allowMin: true,
-                relativeRoot: 'app',
-                files: [
-                    // Thi
-                    // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
-                    'public/css/**/*.css',
-                    'public/js/**/*.js',
-                    //'public/images/**/*.{jpg,png,mp3,mp4}',
-                ]
-            }))
-            .pipe(plugins.cdnizer({
-                defaultCDNBase: "http://localhost:9000/app/public",
-                //defaultCDNBase: "../",
-                allowRev: true,
-                allowMin: true,
-                files: [
-                    '/images/**/*.{jpg,png,mp3,mp4}',
-                ]
-            }))
-            .pipe(gulp.dest('views'));
+
+        gulp.start('copy:view');
+        //gulp.src(['app/views/**/*.ejs'])
+        //    .pipe(plugins.cdnizer({
+        //        defaultCDNBase: "http://localhost:9000/app",
+        //        //defaultCDNBase: "../",
+        //        allowRev: true,
+        //        allowMin: true,
+        //        relativeRoot: 'app',
+        //        files: [
+        //            // Thi
+        //            // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+        //            'public/css/**/*.css',
+        //            'public/js/**/*.js',
+        //            //'public/images/**/*.{jpg,png,mp3,mp4}',
+        //        ]
+        //    }))
+        //    .pipe(plugins.cdnizer({
+        //        defaultCDNBase: "http://localhost:9000/app/public",
+        //        //defaultCDNBase: "../",
+        //        allowRev: true,
+        //        allowMin: true,
+        //        files: [
+        //            '/images/**/*.{jpg,png,mp3,mp4}',
+        //        ]
+        //    }))
+        //    .pipe(gulp.dest('views'));
     });
     //gulp.watch(['app/public/images/**/*.{png,gif,jpg,mp3,mp4}'],['images']);
     //gulp.watch(['app/public/css/*.scss'],['sass']);
