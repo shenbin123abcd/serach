@@ -348,8 +348,11 @@ gulp.task('copy:dev:style',['sass'], function () {
 
 
 gulp.task('copy:view', function () {
+    var ejsFilter = plugins.filter('*.ejs',{restore: true});
+    var ejsFilterPublic = plugins.filter('Public/*.ejs',{restore: true});
     return gulp
         .src('app/views/**/*.ejs')
+        .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
             defaultCDNBase: "http://localhost:9000/app",
             //defaultCDNBase: "../",
@@ -373,7 +376,36 @@ gulp.task('copy:view', function () {
                 '/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
-        .pipe(gulp.dest('views'));
+        .pipe(gulp.dest('views'))
+        .pipe(ejsFilter.restore)
+        .pipe(ejsFilterPublic)
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://localhost:9000/app",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            relativeRoot: 'app/public',
+            files: [
+                // Thi
+                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+                'public/css/**/*.css',
+                'public/js/**/*.js',
+                //'public/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://localhost:9000/app/public",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                '/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+        .pipe(gulp.dest('views'))
+
+
+        ;
 });
 
 //gulp.task('copy:dev',['build:dev'], function () {
