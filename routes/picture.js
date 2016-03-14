@@ -8,9 +8,8 @@ router.get(['/','/search'], function(req, res, next){
     data.urlObj=url.parse(req.originalUrl);
     data.route=data.urlObj.pathname.replace(req.baseUrl,'');
     data.pageTitle='搜索引擎_幻熊科技 - 更智慧的婚礼业';
-    data.v0=0;
-    data.v1=1;
-    data.v2=2;
+
+
     if(data.route=='/search'){
         data.isSearch=true;
     }
