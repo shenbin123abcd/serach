@@ -13,7 +13,7 @@
             <div class="col-md-9 detail-content-wrapper">
                 <div class="detail-content-topic">
                     <div class="detail-content-title">
-                        <h1 class="f-22"><% data. %>汉式情缘</h1>
+                        <h1 class="f-22"><%= data.title %></h1>
                         <div class="content-title-desc">
                             <div class="title-desc-icon inline-style">
                                 <ul class="desc-list">
@@ -24,45 +24,28 @@
                             </div>
                             <div class="title-desc-color inline-style">
                                  <div class="color-liner">
-                                     <span></span>
-                                     <span></span>
-                                     <span></span>
-                                     <span></span>
-                                     <span></span>
-                                     <span></span>
-                                     <span></span>
-                                     <span></span>
+                                     <% data.colorArr.forEach(function(n,i){ %>
+                                     <span style="background:<%= data.colorArr[i] %>"></span>
+                                     <% }) %>
                                  </div>
                             </div>
                             <div class="title-desc-txt inline-style">
-                                 <span class="f-12">汉式</span>
-                                 <span class="f-12">中国红</span>
-                                 <span class="f-12">灯笼</span>
+                                <% data.tagArr.forEach(function(n,i){ %>
+                                <span class="f-12"><%= data.tagArr[i] %></span>
+                                <% }) %>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="detail-content-article">
                     <div class="content-pic-box">
-
-                            <img src="/images/img9.jpg" alt=""/>
-
+                        <img src="<%= data.cover %>" alt=""/>
+                        <% data.attachArr.forEach(function(n,i){%>
+                            <img src="<%= data.attachArr[i] %>">
+                        <%})%>
                     </div>
                     <div class="content-desc-box">
-                        <p>世间自有痴情种，青梅竹马话白头<br/>
-                            若无前世，怎来今生？而我的夙愿，却是三生三世<br/>
-                            你是否，会笑我的贪婪<br/>
-                            这一天，你青丝垂腰，长裙及地<br/>
-                            这一眼，你恍若隔世，又似曾相识<br/>
-                            我想，上辈子一定是用光了自己所有的运气，才遇到了你。才没有错过<br/>
-                            你光着脚丫玩泥巴的时候；你扎着马尾巴疯跑的时候；你笑魇如花初长成的时候<br/>
-                            或许，你就是我的人生<br/>
-                            我所迷恋的，起于，你出现在我眼里的样子；心动于，你在你的世界里的样子<br/>
-                            浓于，你和我在一起的样子；痴于，你和我在一起时，我的样子，我们的样子<br/>
-                            天地证，日月鉴。等沧海变成桑田<br/>
-                            等一眼变万年<br/>
-                            此后，许下我所贪恋的三生三世<br/>
-                            我的姓氏，你的名字</p>
+                        <p><%= data.content%></p>
                     </div>
                 </div>
                 <div class="detail-content-commit">
@@ -123,17 +106,17 @@
                 <div class="other-like-case">
                     <h4 class="f-16">其它相似案例</h4>
                     <div class="other-case-block">
-
+                        <% data.xiangsiImg.forEach(function(n,i){ %>
                             <div class="case-item">
                                 <div class="case-pic">
-                                    <img src="/images/img9.jpg" alt=""/>
+                                    <a href="case/detail/<%= data.xiangsi[i].id %>"><img src="<%= data.xiangsiImg[i] %>" alt=""/></a>
                                 </div>
                                 <div class="case-desc">
-                                    <p class="f-14">拾壹</p>
-                                    <p class="f-14">北京艾恩婚礼</p>
+                                    <a href="case/detail/<%= data.xiangsi[i].id %>"><p class="f-14 desc_title"><%= data.xiangsi[i].title %></p></a>
+                                    <p class="f-14 desc_company"><%= data.xiangsi[i].company %></p>
                                 </div>
                             </div>
-
+                        <% }) %>
                     </div>
                 </div>
                 <div class="other-like-case">
@@ -179,6 +162,7 @@
         app.caseDetail.verticalMiddle("case-item","case-desc");
         app.caseDetail.verticalMiddle("commit-text-item","item-pic");
         app.caseDetail.commitForm();
+        app.caseDetail.omit();
 
     })
 
