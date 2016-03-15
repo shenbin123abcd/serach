@@ -6,7 +6,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var config = require('./config');
-var helper = require('./function');
+var helper = require('./helper');
 var _ = require('lodash/object');
 //var hbs = require('hbs');
 var app = express();
