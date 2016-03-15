@@ -6,7 +6,8 @@ var obj = require('../module/module');
 
 // 首页，列表，搜索
 router.get(['/','/search'], function(req, res, next){
-    var data={},params = {per_page: req.config.perPage.case};
+    var data={};
+    var params = {per_page: req.config.perPage.case};
 
     if(req.query.tag){
         params.tag = req.query.tag;
@@ -22,7 +23,7 @@ router.get(['/','/search'], function(req, res, next){
     }else if(req.query.sort == 2){
         // 最热
         params['order[views]'] = 'DESC';
-    }else if(req.query.sort == 2){
+    }else if(req.query.sort == 3){
         // 最赞
         params['order[points]'] = 'DESC';
     }else{
@@ -30,19 +31,24 @@ router.get(['/','/search'], function(req, res, next){
         params['order[id]'] = 'DESC';
     }
 
-    obj.getList('picture', req, params).then(function(body){
+    obj.getList('picture/tag', req, params).then(function(body){
         if(body.iRet === 1){
             data = body.data;
+
+            data.data.forEach((n,i)=>{
+                n.path=req.config.url.case+'/' +n.path+'?imageView2/1/w/200/h/150';
+            });
 
             var urlObj=url.parse(req.originalUrl);
             data.baseUrl=req.baseUrl;
             data.route=urlObj.pathname.replace(req.baseUrl,'');
             data.tag=req.query.tag;
+            data.sort=req.query.sort;
 
             if(data.route=='/search'){
                 data.pageTitle=`
-        '${req.query.tag}' 的图片搜索结果-图片搜索
-        `;
+                '${req.query.tag}' 的图片搜索结果-图片搜索
+            `;
             }else{
                 data.pageTitle='图片首页';
             }
@@ -57,8 +63,8 @@ router.get(['/','/search'], function(req, res, next){
                 '新娘婚鞋','婚戒首饰','手工捧花','新娘腕花','桌卡设计'
             ];
 
-            res.json(data);
-            //res.render('picture_index_and_search', {data: data});
+            //res.json(data);
+            res.render('picture_index_and_search', {data: data});
         }else{
             res.sendStatus(500);
         }

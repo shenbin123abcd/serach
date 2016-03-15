@@ -351,6 +351,9 @@
     (function(window,document,undefined) {
         "use strict";
         var QueryStringToHash = function QueryStringToHash (query) {
+            if(!query){
+                return {};
+            }
             var query_string = {};
             var vars = query.split("&");
             for (var i=0;i<vars.length;i++) {
