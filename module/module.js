@@ -70,7 +70,7 @@ mod.delete = function(path, id, req){
 // 获取
 mod.getInfo = function(path, id, req){
     var headers = {'x-forwarded-for': req.header('x-forwarded-for') || req.connection.remoteAddress},
-        options = {url: config.apiUrl + '/'+ path +'/' + id, headers: headers};
+        options = {url: config.apiUrl + '/'+ path +'/' + id + '?if_show=1', headers: headers};
     return request.getAsync(options).then(function(res){
         return JSON.parse(res.body);
     }).error(function(err){
