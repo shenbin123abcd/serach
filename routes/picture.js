@@ -3,6 +3,7 @@ var url = require('url');
 var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
+var _ = require('lodash');
 
 
 // 首页，列表，搜索
@@ -72,6 +73,24 @@ router.get(['/','/search'], function(req, res, next){
                 '甜品蛋糕','婚礼喜糖','婚礼请柬','餐桌布置','新郎胸花','婚礼灯光','新娘婚纱','新娘头纱','伴娘礼服','妆面造型','发型配饰','新郎服饰',
                 '新娘婚鞋','婚戒首饰','手工捧花','新娘腕花','桌卡设计'
             ];
+
+
+
+            switch(true){
+                case _.includes(data.element, req.query.tag):
+                    data.isMatchTag=true;
+                    data.activeTab='element';
+                    break;
+                case _.includes(data.classify, req.query.tag):
+                    data.isMatchTag=true
+                    data.activeTab='classify';
+                    break;
+                default:
+                    data.isMatchTag=false;
+                    data.activeTab='element';
+                    break;
+            }
+
 
             //res.json(data);
             res.render('picture_index_and_search', {data: data});
