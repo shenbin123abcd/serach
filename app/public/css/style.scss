@@ -695,6 +695,15 @@ body{
             &.no-margin-left{
                 margin-left:0;
             }
+            a.case-active{
+                color:#f3903e;
+            }
+            a.picture-active{
+                color:#b08dfd;
+            }
+            a.company-active{
+                color:#5C9CF6;
+            }
         }
     }
     .search-box{
