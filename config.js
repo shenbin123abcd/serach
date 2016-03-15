@@ -13,6 +13,13 @@ config.url = {
     crmpri: 'http://7xopem.com2.z0.glb.qiniucdn.com'
 };
 
+config.perPage = {
+    case: 60,
+    picture: 60,
+    company: 60,
+    topic: 15
+};
+
 config.route = function(app){
     app.use('/', require('./routes/index'));
     app.use('/case', require('./routes/case'));
