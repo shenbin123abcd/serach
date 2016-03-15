@@ -7,28 +7,7 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search case">
-<div class="top-tab">
-    <div class="container">
-        <div class="tab-item no-margin-left">
-            <a href="">
-                <span class="item-img"><img src="/images/img1.png" alt=""></span>
-                <span class="item-text">婚礼案例</span>
-            </a>
-        </div>
-        <div class="tab-item">
-            <a href="">
-                <span class="item-img"><img src="/images/img2.png" alt=""></span>
-                <span class="item-text">婚礼图片</span>
-            </a>
-        </div>
-        <div class="tab-item">
-            <a href="">
-                <span class="item-img"><img src="/images/img3.png" alt=""></span>
-                <span class="item-text">婚礼公司</span>
-            </a>
-        </div>
-    </div>
-</div>
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
 <div class="search-box">
     <div class="container">
         <div class="search-box-text">
@@ -38,9 +17,9 @@
         <div class='search-box-input col-md-6 col-md-push-3'>
             <div class="col-md-12 col-sm-12">
                 <div class="search_input">
-                    <form action="">
+                    <form action="<%=data.baseUrl%>/search">
                         <span class="search_wrapper">
-                            <input type="text" placeholder="搜索有关婚礼的一切" value="<% data.keyword %>">
+                            <input type="text" placeholder="搜索有关婚礼的一切" value="<% data.tag %>" name="tag">
                             <button class="search_button" type="submit">
                                <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
@@ -72,7 +51,7 @@
     <% if(data.route=="/search"){ %>
     <div class="search-result">
         <div class="container">
-            <p>您目前在 婚礼案例 搜索关键字<span>“ <%=data.keyword%> ”</span>，共找到 152 个内容</p>
+            <p>您目前在 婚礼案例 搜索关键字<span>“ <%=data.tag%> ”</span>，共找到 152 个内容</p>
         </div>
     </div>
     <% }else{ %>
@@ -120,13 +99,13 @@
     <% } %>
 <div class="case-list-block">
     <div class="container">
-        <% data.caseList.forEach(function(item){ %>
+        <% data.caseList.forEach(function(n,i){ %>
             <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
+                <a href="case/detail/<%= data.caseList[i].id %>" class="block-content-item">
+                    <img src="<%= data.caseList[i].cover %>" alt="">
                     <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
+                        <h4 class="f-16 omit"><%= data.caseList[i].title %></h4>
+                        <p class="f-12 s-title f-black"><%= data.caseList[i].company %></p>
                         <div class="content-item-text-desc">
                             <ul class="desc-list">
                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
@@ -140,19 +119,11 @@
         <% }) %>
     </div>
 </div>
-<div class="case-pagination">
-    <div class="container">
-        <ul class="pagination pagination-item">
-            <li><a href="#" class="no-margin-left"> < </a></li>
-            <li><a href="#" class="active">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"> > </a></li>
-        </ul>
+    <div class="case-pagination">
+        <div class="container">
+            <ul id="pagination" class="pagination pagination-item"></ul>
+        </div>
     </div>
-</div>
     <%- include('Public/ModalDialog'); %>
     <%- include('Public/footer'); %>
     <%- include('Public/common_footer'); %>
@@ -169,10 +140,11 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-        app.index.pagActive();
 
         /*caseIndex*/
         app.caseIndex.tab();
+        app.caseIndex.pagActive();
+        app.caseIndex.omit();
     })
 
 

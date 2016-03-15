@@ -6,36 +6,14 @@
 </head>
 <body>
 <%- include('Public/header'); %>
-
 <div class="halo-search caseDetail">
-    <div class="top-tab">
-        <div class="container">
-            <div class="tab-item no-margin-left">
-                <a href="">
-                    <span class="item-img"><img src="/images/img1.png" alt=""></span>
-                    <span class="item-text">婚礼案例</span>
-                </a>
-            </div>
-            <div class="tab-item">
-                <a href="">
-                    <span class="item-img"><img src="/images/img2.png" alt=""></span>
-                    <span class="item-text">婚礼图片</span>
-                </a>
-            </div>
-            <div class="tab-item">
-                <a href="">
-                    <span class="item-img"><img src="/images/img3.png" alt=""></span>
-                    <span class="item-text">婚礼公司</span>
-                </a>
-            </div>
-        </div>
-    </div>
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="case-detail-block">
         <div class="container">
             <div class="col-md-9 detail-content-wrapper">
                 <div class="detail-content-topic">
                     <div class="detail-content-title">
-                        <h1 class="f-22">汉式情缘</h1>
+                        <h1 class="f-22"><% data. %>汉式情缘</h1>
                         <div class="content-title-desc">
                             <div class="title-desc-icon inline-style">
                                 <ul class="desc-list">
@@ -66,9 +44,9 @@
                 </div>
                 <div class="detail-content-article">
                     <div class="content-pic-box">
-                        <% data.casePic.forEach(function(n,i){ %>
+
                             <img src="/images/img9.jpg" alt=""/>
-                        <% }) %>
+
                     </div>
                     <div class="content-desc-box">
                         <p>世间自有痴情种，青梅竹马话白头<br/>
@@ -101,7 +79,7 @@
                     <div class="commit-box">
                         <p class="commit-num f-14">16条评论</p>
                         <div class="commit-text">
-                            <% data.comments.forEach(function(n,i){ %>
+
                                 <div class="text-item-wrapper">
                                     <div class="commit-text-item">
                                         <div class="item-pic">
@@ -113,7 +91,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <% }) %>
+
                         </div>
                     </div>
                 </div>
@@ -145,7 +123,7 @@
                 <div class="other-like-case">
                     <h4 class="f-16">其它相似案例</h4>
                     <div class="other-case-block">
-                        <% data.otherSamilarCase.forEach(function(n,i){ %>
+
                             <div class="case-item">
                                 <div class="case-pic">
                                     <img src="/images/img9.jpg" alt=""/>
@@ -155,13 +133,13 @@
                                     <p class="f-14">北京艾恩婚礼</p>
                                 </div>
                             </div>
-                        <% }) %>
+
                     </div>
                 </div>
                 <div class="other-like-case">
                     <h4 class="f-16">公司其它案例</h4>
                     <div class="other-case-block">
-                        <% data.otherCompanyCase.forEach(function(n,i){ %>
+
                             <div class="case-item">
                                 <div class="case-pic">
                                     <img src="/images/img9.jpg" alt=""/>
@@ -171,7 +149,7 @@
                                     <p class="f-14">北京艾恩婚礼</p>
                                 </div>
                             </div>
-                        <% }) %>
+
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 app.caseIndex=(function(){
     "use strict";
+    var searchPara = hb.location.url("?") || {};
     var tab=function(){
         $("a.category").on("click",function(event){
             var id=$(this).attr("id");
@@ -13,8 +14,25 @@ app.caseIndex=(function(){
                 $("#list-content-style").addClass("show");
             }
         })
+    };
+    function pagActive(){
+        $('#pagination').twbsPagination({
+            totalPages: 15,
+            visiblePages: 5 ,
+            first : '<<',
+            prev :'<',
+            next :'>',
+            last:'>>',
+            href: `?tag=${searchPara.tag||''}&page={{number}}` ,
+        });
+    }
+    function omit(){
+        var padText=$("h4.omit").text().substr(0,9)+"...";
+        $("h4.omit").text(padText);
     }
     return {
-        tab:tab
+        tab:tab,
+        pagActive:pagActive,
+        omit:omit,
     }
 }());
