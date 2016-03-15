@@ -73,9 +73,9 @@
                     <a href="" id="category-classify" class="category box-shadow ">分类</a>
                 </div>
                 <div class="tab-title-right">
-                    <a href="?sort=1" class="f-12 <% if (data.sort=='1'){ %>active<%}%>">最新<span>|</span></a>
-                    <a href="?sort=2" class="f-12 <% if (data.sort=='2'){ %>active<%}%>">最热<span>|</span></a>
-                    <a href="?sort=3" class="f-12 <% if (data.sort=='3'){ %>active<%}%>">最赞</a>
+                    <a href="?sort=1" class="f-12 <% if (data.sort=='1'){ %>active<%}%>"><span class="text">最新</span><span class="bar">|</span></a>
+                    <a href="?sort=2" class="f-12 <% if (data.sort=='2'){ %>active<%}%>"><span class="text">最热</span><span class="bar">|</span></a>
+                    <a href="?sort=3" class="f-12 <% if (data.sort=='3'){ %>active<%}%>"><span class="text">最赞</span></a>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
                 <div class="tab-list-content-item">
                     <ul>
                         <% data.element.forEach(function(item){ %>
-                        <li><a href=""><%= item %></a></li>
+                        <li><a href="<%= ellipsis(data.sort) %>"><%= item %></a></li>
                         <% }); %>
                     </ul>
                 </div>

@@ -6,6 +6,8 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var config = require('./config');
+var helper = require('./function');
+var _ = require('lodash/object');
 //var hbs = require('hbs');
 var app = express();
 
@@ -16,6 +18,8 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+_.assign(app.locals,helper);
 
 
 //

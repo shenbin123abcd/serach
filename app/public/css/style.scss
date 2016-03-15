@@ -1222,6 +1222,7 @@ body{
             &:hover,&:focus,&:active{
                 background-color: #e0e0e0;
             }
+
         }
     }
     .tab-list{
@@ -1252,14 +1253,19 @@ body{
                 right:0;
                 top:0;
                 a{
-                    height:50px;
-                    line-height:50px;
-                    display: inline-block;
-                    position: relative;
-                    span{
-                        margin-left:15px;
-                        vertical-align: top;
+                  height:50px;
+                  line-height:50px;
+                  display: inline-block;
+                  position: relative;
+                  &.active{
+                    .text{
+                      color: #b08dfd;
                     }
+                  }
+                  .bar{
+                      margin-left:15px;
+                      vertical-align: top;
+                  }
                 }
                 a:nth-child(1){
                     margin-right:15px;
