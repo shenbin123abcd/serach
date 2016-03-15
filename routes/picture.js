@@ -70,8 +70,6 @@ router.get(['/','/search'], function(req, res, next){
 
 // 详情
 router.get('/detail/:id', function(req, res, next){
-    var data={};
-
     var id = parseInt(req.params.id);
 
     if(id <= 0 || isNaN(id)){
@@ -79,24 +77,44 @@ router.get('/detail/:id', function(req, res, next){
         return ;
     }
 
-    obj.getInfo('cases', id, req).then(function(body){
+    obj.getInfo('picture/tag', id, req).then(function(body){
         if(body.iRet === 1){
-            data = body.data;
-            data.cover = req.config.case + '/' + body.data.cover;
-
-            var urlObj=url.parse(req.originalUrl);
-            data.baseUrl=req.baseUrl;
-            data.route=urlObj.pathname.replace(req.baseUrl,'');
-
-            data.pageTitle='图片详情';
-            res.render('picture_detail', {data: data});
+            var data = body.data;
+            return data;
         }else if(body.iRet === 0){
             res.sendStatus(404);
+            return false;
         }else{
             res.sendStatus(500);
+            return false;
         }
     }, function(error){
         res.sendStatus(500);
+    }).then(function(data){
+        // 相似图片
+        data.xiangsi = [];
+        return obj.getList('picture/xiangsi', req, {picture_id: data.id,per_page:12}).then(function(body){
+            if(body.iRet === 1){
+                data.xiangsi = body.data;
+            }
+            return data;
+        }, function(error){
+            return data;
+        });
+    }).then(function(data){
+        // 案例其他图片
+        data.case = [];
+        return obj.getList('picture/tag', req, {'filter[case_id]': data.case_id,per_page:50}).then(function(body){
+            if(body.iRet === 1){
+                data.case = body.data;
+            }
+            return data;
+        }, function(error){
+            return data;
+        });
+    }).then(function(data){
+        res.json(data);
+        //res.render('picture_detail', {data: data});
     });
 });
 
