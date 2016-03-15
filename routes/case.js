@@ -53,10 +53,10 @@ router.get('/detail/:id', function(req, res, next){
         return ;
     }
 
-    obj.getInfo('cases', id, req).then(function(body){
+    return obj.getInfo('cases', id, req).then(function(body){
         if(body.iRet === 1){
             var data = body.data;
-            data.cover = req.config.case + '/' + body.data.cover;
+            data.cover = req.config.url.case + '/' + body.data.cover;
             return data;
         }else if(body.iRet === 0){
             res.sendStatus(404);
