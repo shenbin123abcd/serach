@@ -39,9 +39,18 @@ router.get(['/','/search'], function(req, res, next){
                 n.path=req.config.url.case+'/' +n.path+'?imageView2/1/w/200/h/150';
             });
 
-            var urlObj=url.parse(req.originalUrl);
             data.baseUrl=req.baseUrl;
+            data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+            data.query=req.query;
+            //data.absUrl=url.format({
+            //    protocol: req.protocol,
+            //    host: req.get('host'),
+            //    pathname: req.originalUrl
+            //});
+            var urlObj=url.parse(data.absUrl);
             data.route=urlObj.pathname.replace(req.baseUrl,'');
+
+
             data.tag=req.query.tag;
             data.sort=req.query.sort;
 
