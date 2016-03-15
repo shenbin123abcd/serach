@@ -2,6 +2,7 @@ var express = require('express');
 var url = require('url');
 var router = express.Router();
 var obj = require('../module/module');
+var token = require('../module/token');
 
 
 // 首页，列表，搜索
