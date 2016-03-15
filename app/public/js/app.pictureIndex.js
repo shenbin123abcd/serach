@@ -35,7 +35,7 @@ app.pictureIndex=(function(){
             prev :'<',
             next :'>',
             last:'>>',
-            href: `?tag=${searchPara.keyword||''}&page={{number}}` ,
+            href: `?tag=${searchPara.tag||''}&page={{number}}` ,
         });
     }
 
