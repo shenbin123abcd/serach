@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
+    <%- include('Public/common_header_end'); %>
+</head>
+<body>
+<%- include('Public/header'); %>
+
+<div class="halo-search caseDetail">
+    <div class="top-tab">
+        <div class="container">
+            <div class="tab-item no-margin-left">
+                <a href="">
+                    <span class="item-img"><img src="/images/img1.png" alt=""></span>
+                    <span class="item-text">婚礼案例</span>
+                </a>
+            </div>
+            <div class="tab-item">
+                <a href="">
+                    <span class="item-img"><img src="/images/img2.png" alt=""></span>
+                    <span class="item-text">婚礼图片</span>
+                </a>
+            </div>
+            <div class="tab-item">
+                <a href="">
+                    <span class="item-img"><img src="/images/img3.png" alt=""></span>
+                    <span class="item-text">婚礼公司</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="case-detail-block">
+        <div class="container">
+            <div class="col-md-9 detail-content-wrapper">
+                <div class="detail-content-topic">
+                    <div class="detail-content-title">
+                        <h1 class="f-22">汉式情缘</h1>
+                        <div class="content-title-desc">
+                            <div class="title-desc-icon inline-style">
+                                <ul class="desc-list">
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                </ul>
+                            </div>
+                            <div class="title-desc-color inline-style">
+                                 <div class="color-liner">
+                                     <span></span>
+                                     <span></span>
+                                     <span></span>
+                                     <span></span>
+                                     <span></span>
+                                     <span></span>
+                                     <span></span>
+                                     <span></span>
+                                 </div>
+                            </div>
+                            <div class="title-desc-txt inline-style">
+                                 <span class="f-12">汉式</span>
+                                 <span class="f-12">中国红</span>
+                                 <span class="f-12">灯笼</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-content-article">
+                    <div class="content-pic-box">
+                        <% data.casePic.forEach(function(n,i){ %>
+                            <img src="/images/img9.jpg" alt=""/>
+                        <% }) %>
+                    </div>
+                    <div class="content-desc-box">
+                        <p>世间自有痴情种，青梅竹马话白头<br/>
+                            若无前世，怎来今生？而我的夙愿，却是三生三世<br/>
+                            你是否，会笑我的贪婪<br/>
+                            这一天，你青丝垂腰，长裙及地<br/>
+                            这一眼，你恍若隔世，又似曾相识<br/>
+                            我想，上辈子一定是用光了自己所有的运气，才遇到了你。才没有错过<br/>
+                            你光着脚丫玩泥巴的时候；你扎着马尾巴疯跑的时候；你笑魇如花初长成的时候<br/>
+                            或许，你就是我的人生<br/>
+                            我所迷恋的，起于，你出现在我眼里的样子；心动于，你在你的世界里的样子<br/>
+                            浓于，你和我在一起的样子；痴于，你和我在一起时，我的样子，我们的样子<br/>
+                            天地证，日月鉴。等沧海变成桑田<br/>
+                            等一眼变万年<br/>
+                            此后，许下我所贪恋的三生三世<br/>
+                            我的姓氏，你的名字</p>
+                    </div>
+                </div>
+                <div class="detail-content-commit">
+                    <form action="" id="commit-form">
+                        <div class="textarea-wrapper">
+                            <textarea class="f-14" name="" rows="5"></textarea>
+                            <p class="f-14">还可以输入<span class="num">500</span>个字</p>
+                        </div>
+                        <div class="btn-group">
+                            <a ><span class="glyphicon glyphicon-heart-empty f-22"></span><span>+1</span></a>
+                            <button  class="btn submit-btn" type="submit">评&nbsp;论</button>
+                        </div>
+                    </form>
+                    <div class="commit-box">
+                        <p class="commit-num f-14">16条评论</p>
+                        <div class="commit-text">
+                            <% data.comments.forEach(function(n,i){ %>
+                                <div class="text-item-wrapper">
+                                    <div class="commit-text-item">
+                                        <div class="item-pic">
+                                            <img src="/images/img10.jpg" alt=""/>
+                                        </div>
+                                        <div class="item-desc">
+                                            <p><span class="name f-16">李达键</span><span class="f-12">1天前</span></p>
+                                            <p class="f-16">好有感觉的一场婚礼</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="case-detail-list">
+                    <div class="detail-list-company">
+                        <div class="company-img">
+                            <a href=""><img src="/images/img7.jpg" alt=""/></a>
+                        </div>
+                        <div class="company-desc">
+                            <div>
+                                <p class="f-14"><a href="">北京艾恩婚礼策划</a></p>
+                                <p class="f-12"><a href="">查看全部28个案例</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-list-num">
+                    <div class="desc-like f-14">
+                        <p class="f-12">喜欢</p>
+                        <p class="f-16">1970</p>
+                    </div>
+                    <div class="desc-comment f-14">
+                        <p class="f-12">评论</p>
+                        <p class="f-16">5</p>
+                    </div>
+                </div>
+                <div class="other-like-case">
+                    <h4 class="f-16">其它相似案例</h4>
+                    <div class="other-case-block">
+                        <% data.otherSamilarCase.forEach(function(n,i){ %>
+                            <div class="case-item">
+                                <div class="case-pic">
+                                    <img src="/images/img9.jpg" alt=""/>
+                                </div>
+                                <div class="case-desc">
+                                    <p class="f-14">拾壹</p>
+                                    <p class="f-14">北京艾恩婚礼</p>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+                <div class="other-like-case">
+                    <h4 class="f-16">公司其它案例</h4>
+                    <div class="other-case-block">
+                        <% data.otherCompanyCase.forEach(function(n,i){ %>
+                            <div class="case-item">
+                                <div class="case-pic">
+                                    <img src="/images/img9.jpg" alt=""/>
+                                </div>
+                                <div class="case-desc">
+                                    <p class="f-14">拾壹</p>
+                                    <p class="f-14">北京艾恩婚礼</p>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('Public/ModalDialog'); %>
+    <%- include('Public/footer'); %>
+    <%- include('Public/common_footer'); %>
+<script src="../public/js/app.caseDetail.js"></script>
+
+<script>
+    $(function(){
+        app.index.lazy();
+        app.index.nav();
+
+        app.index.indexInit();
+        app.index.register();
+        app.index.zcBtn();
+        app.index.uiForms();
+        app.index.login();
+        app.index.summitHover();
+        app.index.loginInit();
+
+        /*caseDetail*/
+        app.caseDetail.companyDesc();
+        app.caseDetail.verticalMiddle("case-item","case-desc");
+        app.caseDetail.verticalMiddle("commit-text-item","item-pic");
+        app.caseDetail.commitForm();
+
+    })
+
+
+</script>
+</body>
+</html>
+
+
