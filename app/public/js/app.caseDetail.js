@@ -21,10 +21,17 @@ app.caseDetail=(function(){
             var num = 500-parseInt($(this).val().length);
             $(".num").text(num);
         })
+    };
+    function omit(){
+        var desc_title_text = $(".desc_title").text().substr(0,8)+"...";
+        $(".desc_title").text(desc_title_text);
+        var desc_company_text = $(".desc_company").text().substr(0,8)+"...";
+        $(".desc_company").text(desc_company_text);
     }
     return {
         companyDesc:companyDesc,
         verticalMiddle:verticalMiddle,
-        commitForm:commitForm
+        commitForm:commitForm,
+        omit:omit,
     }
 }());
