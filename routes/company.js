@@ -16,7 +16,7 @@ router.get('/', function(req, res, next){
             if (data.length > 0) {
                 data.forEach(function(val, index){
                     if (val.logo.length > 0) {
-                        val.logo = req.config.url.company + '/' + val.logo;
+                        val.logo = req.config.url.company + '/' + val.logo +"?imageView2/1/w/200/h/200";
                     } else {
                         val.logo = 'img/nopic.png';
                     }
@@ -66,7 +66,7 @@ router.get('/', function(req, res, next){
                 {city: '澳门', id: 3227},
             ];
             data.forEach(function(n,i){
-                n.cover=req.config.url.company + '/'+n.cover+"?imageView2/1/w/200/h/200"
+                n.cover=req.config.url.company + '/'+n.cover+"?imageView2/1/w/200/h/200";
             })
             res.render('company_index', {data: data});
         } else if (body.iRet === 0) {

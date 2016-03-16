@@ -20,6 +20,10 @@ app.common=(function(){
         $("textarea").on("input",function(){
             var num = 500-parseInt($(this).val().length);
             $(".num").text(num);
+            if(num<0){
+                $("textarea").val($("textarea").val().substr(0,499));
+                $(".num").text(0);
+            }
         })
     };
     var alignCenter=function(wrapper,inner){
@@ -28,10 +32,14 @@ app.common=(function(){
         var num=((wrapperWidth-innerWidth)/2);
         $("."+inner).css("position","relative").css("left",num);
     };
+    function omit(text,num){
+        $("."+text).text($("."+text).text().substr(0,num)+"...");
+    }
     return {
         companyDesc:companyDesc,
         verticalMiddle:verticalMiddle,
         commitForm:commitForm,
         alignCenter:alignCenter,
+        omit:omit,
     }
 }());

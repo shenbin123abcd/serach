@@ -45,13 +45,8 @@ app.caseIndex=(function(){
             //href: '?page={{number}}'+'&sort=1&tag=%E6%96%B0%E5%A8%98%E6%8D%A7%E8%8A%B1',
         });
     }
-    function omit(){
-        var padText=$("h4.omit").text().substr(0,8)+"...";
-        $("h4.omit").text(padText);
-    }
     return {
         tab:tab,
         pagActive:pagActive,
-        omit:omit,
     }
 }());
