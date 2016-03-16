@@ -17,22 +17,22 @@
                         <div class="content-title-desc">
                             <div class="title-desc-icon inline-style">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=data.comments%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=data.points%></span></li>
                                 </ul>
                             </div>
                             <div class="title-desc-color inline-style">
                                  <div class="color-liner">
                                      <% data.colorArr.forEach(function(n,i){ %>
-                                     <span style="background:<%= data.colorArr[i] %>"></span>
+                                     <span style="background:<%= n %>"></span>
                                      <% }) %>
                                  </div>
                             </div>
                             <% if(data.tag.length>0) {%>
-                                <div class="title-desc-txt inline-style">
+                                <div class="title-desc-txt block-style">
                                     <% data.tagArr.forEach(function(n,i){ %>
-                                    <span class="f-12"><%= data.tagArr[i] %></span>
+                                    <a class="f-12" href="<%= data.baseUrl %>?tag=<%= n %>"><%= n %></a>
                                     <% }) %>
                                 </div>
                             <% } %>
@@ -44,7 +44,7 @@
                     <div class="content-pic-box">
                         <img src="<%= data.cover %>" alt=""/>
                         <% data.attachArr.forEach(function(n,i){%>
-                            <img src="<%= data.attachArr[i] %>">
+                            <img src="<%= n %>">
                         <%})%>
                     </div>
                     <div class="content-desc-box">
@@ -86,12 +86,12 @@
                 <div class="case-detail-list">
                     <div class="detail-list-company">
                         <div class="company-img">
-                            <a href=""><img src="/images/img7.jpg" alt=""/></a>
+                            <a href=""><img src="<%= data.company.logo %>" alt=""/></a>
                         </div>
                         <div class="company-desc">
                             <div>
-                                <p class="f-14"><a href="">北京艾恩婚礼策划</a></p>
-                                <p class="f-12"><a href="">查看全部28个案例</a></p>
+                                <p class="f-14"><a href=""><%= data.company.name %></a></p>
+                                <p class="f-12"><a href="">查看全部个案例</a></p>
                             </div>
                         </div>
                     </div>
@@ -99,11 +99,11 @@
                 <div class="detail-list-num">
                     <div class="desc-like f-14">
                         <p class="f-12">喜欢</p>
-                        <p class="f-16">1970</p>
+                        <p class="f-16"><%=data.points%></p>
                     </div>
                     <div class="desc-comment f-14">
                         <p class="f-12">评论</p>
-                        <p class="f-16">5</p>
+                        <p class="f-16"><%=data.comments%></p>
                     </div>
                 </div>
                 <% if(data.xiangsi.length>0){ %>
@@ -113,7 +113,7 @@
                         <% data.xiangsiImg.forEach(function(n,i){ %>
                             <div class="case-item">
                                 <div class="case-pic">
-                                    <a href="<%= data.xiangsi[i].id %>"><img src="<%= data.xiangsiImg[i] %>" alt=""/></a>
+                                    <a href="<%= data.xiangsi[i].id %>"><img src="<%= n %>" alt=""/></a>
                                 </div>
                                 <div class="case-desc">
                                     <a href="case/detail/<%= data.xiangsi[i].id %>"><p class="f-14 desc_title"><%= data.xiangsi[i].title %></p></a>
@@ -165,7 +165,7 @@
         /*caseDetail*/
         app.caseDetail.verticalMiddle("case-item","case-desc");
         app.caseDetail.verticalMiddle("commit-text-item","item-pic");
-        app.caseDetail.companyDesc();
+        /*app.caseDetail.companyDesc();*/
         app.caseDetail.commitForm();
         app.caseDetail.omit();
 
