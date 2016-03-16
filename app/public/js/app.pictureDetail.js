@@ -27,17 +27,17 @@ app.picureDetail = (function () {
         });
 
         function markSuccess() {
-            var num = $('#picture-desc-list-item-num').text();
+            var num = $('#picture-desc-list-item-num-points').text();
             num++;
-            $('#picture-desc-list-item-num').text(num);
+            $('#picture-desc-list-item-num-points').text(num);
             $('#markThisPic-sidebar,#markThisPic-comment').hide();
             $('#unMarkThisPic-sidebar,#unMarkThisPic-comment').show();
         }
 
         function unMarkSuccess() {
-            var num = $('#picture-desc-list-item-num').text();
+            var num = $('#picture-desc-list-item-num-points').text();
             num--;
-            $('#picture-desc-list-item-num').text(num);
+            $('#picture-desc-list-item-num-points').text(num);
             $('#markThisPic-sidebar,#markThisPic-comment').show();
             $('#unMarkThisPic-sidebar,#unMarkThisPic-comment').hide();
         }
@@ -74,6 +74,8 @@ app.picureDetail = (function () {
 
 
         app.service.picture.getComments({id: appData.id}).then(function (res) {
+            $('#picture-desc-list-item-num-comments,#picture-comments-sidebar').text(res.data.length);
+
             var perPage = 5;
             var totalPages=Math.ceil(res.data.length/perPage);
             if($('#picture-comment-pagination').data().twbsPagination){
