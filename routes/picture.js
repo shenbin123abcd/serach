@@ -3,7 +3,7 @@ var url = require('url');
 var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
-var _ = require('lodash');
+var _ = require('lodash/collection');
 
 
 // 首页，列表，搜索

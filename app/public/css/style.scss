@@ -1234,6 +1234,24 @@ body{
             overflow: hidden;
             position: relative;
             .tab-title-left{
+                ul.nav-tabs.nav{
+                    li{
+                        height: 50px;
+                        a.category{
+                            border-radius:0;
+                            border:none;
+                        }
+                        &.active{
+                            background: #fff;
+                            border-top:2px solid #f3903e;
+                            a{
+                                background: #fff;
+                                border: none;
+                            }
+                        }
+
+                    }
+                }
                 .category{
                     height:50px;
                     line-height:50px;
@@ -1242,10 +1260,6 @@ body{
                     display: block;
                     float: left;
                     border-top: 2px solid #eeeeee;
-                    &.active{
-                        background: #fff;
-                        border-top:2px solid #f3903e;
-                    }
                 }
             }
             .tab-title-right{

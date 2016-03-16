@@ -1,11 +1,12 @@
 var express = require('express');
-var router = express.Router();
 var url = require("url");
+var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
+var _ = require('lodash');
 
 // 列表
-router.get(['/','/search'], function(req, res, next){
+router.get(['/'], function(req, res, next){
     var data={},params = {per_page: req.config.perPage.case, 'filter[if_show]': 1};
 
     if(req.query.tag){
@@ -34,14 +35,17 @@ router.get(['/','/search'], function(req, res, next){
         if(body.iRet === 1){
             data = body.data;
 
-            var urlObj=url.parse(req.originalUrl);
             data.baseUrl=req.baseUrl;
+            data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+            data.query=req.query;
+            var urlObj=url.parse(data.absUrl);
             data.route=urlObj.pathname.replace(req.baseUrl,'');
             data.tag=req.query.tag;
+            data.sort=req.query.sort;
             if(data.route=='/search'){
                 data.pageTitle=`“${req.query.tag}”的图片搜索结果-图片搜索`;
             }else{
-                data.pageTitle="图片首页";
+                data.pageTitle="案例首页";
             }
             data.listColor=[
                 '全部','中国红','玫瑰红','蜜桃粉','活力橙','樱草黄','青草绿','香槟金','月石灰','摩卡黑','祖母绿','蒂芙尼',
@@ -64,7 +68,21 @@ router.get(['/','/search'], function(req, res, next){
                 obj.company_id=data.data[i].company_id;
                 data.caseList.push(obj);
             });
-
+            switch(true){
+                case _.includes(data.listColor, req.query.tag):
+                    data.isMatchTag=true;
+                    data.activeTab='listColor';
+                    break;
+                case _.includes(data.listStyle, req.query.tag):
+                    data.isMatchTag=true
+                    data.activeTab='listStyle';
+                    break;
+                default:
+                    data.isMatchTag=false;
+                    data.activeTab='listColor';
+                    break;
+            }
+            data.totalPages=Math.ceil(data.total/data.per_page);
             /*res.json(data);*/
             res.render('case_index_and_search', {data:data});
         }else{

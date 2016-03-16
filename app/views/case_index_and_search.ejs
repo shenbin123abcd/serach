@@ -17,7 +17,7 @@
         <div class='search-box-input col-md-6 col-md-push-3'>
             <div class="col-md-12 col-sm-12">
                 <div class="search_input">
-                    <form action="<%=data.baseUrl%>/search">
+                    <form action="<%= data.baseUrl %>">
                         <span class="search_wrapper">
                             <input type="text" placeholder="搜索有关婚礼的一切" value="<% data.tag %>" name="tag">
                             <button class="search_button" type="submit">
@@ -48,54 +48,64 @@
     </div>
 </div>
 
-    <% if(data.route=="/search"){ %>
+    <% if (!data.isMatchTag&&data.tag) { %>
     <div class="search-result">
         <div class="container">
-            <p>您目前在 婚礼案例 搜索关键字<span>“ <%=data.tag%> ”</span>，共找到 152 个内容</p>
+            <p>您目前在 婚礼案例 搜索关键字<span>“ <%=data.tag%> ”</span>，共找到 <%= data.total %> 个内容</p>
         </div>
     </div>
     <% }else{ %>
-<div class="tab-list">
+
     <div class="container">
-        <div class="tab-title">
-            <div class="tab-title-left">
-                <a href="" class="category box-shadow" id="tab-list-color">颜色</a>
-                <a href="" class="category box-shadow active" id="tab-list-style">风格</a>
-            </div>
-            <div class="tab-title-right">
-                <a href="?<%= search(data.query,{sort:1}) %>" class="f-12 <% if (data.sort=='1'){ %>active<%}%>"><span class="text">最新</span><span class="bar">|</span></a>
-                <a href="?<%= search(data.query,{sort:2}) %>" class="f-12 <% if (data.sort=='2'){ %>active<%}%>"><span class="text">最热</span><span class="bar">|</span></a>
-                <a href="?<%= search(data.query,{sort:3}) %>" class="f-12 <% if (data.sort=='3'){ %>active<%}%>"><span class="text">最赞</span></a>
+        <!-- Nav tabs -->
+        <div class="tab-list">
+            <div class="tab-title">
+                <div class="tab-title-left">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="<% if (data.activeTab=='listColor'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab" class="category">颜色</a></li>
+                        <li class="<% if (data.activeTab=='listStyle'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab" class="category">风格</a></li>
+                    </ul>
+                </div>
+                <div class="tab-title-right">
+                    <a href="?<%= search(data.query,{sort:1}) %>" class="f-12 <% if (data.sort=='1'){ %>active<%}%>"><span class="text">最新</span><span class="bar">|</span></a>
+                    <a href="?<%= search(data.query,{sort:2}) %>" class="f-12 <% if (data.sort=='2'){ %>active<%}%>"><span class="text">最热</span><span class="bar">|</span></a>
+                    <a href="?<%= search(data.query,{sort:3}) %>" class="f-12 <% if (data.sort=='3'){ %>active<%}%>"><span class="text">最赞</span></a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="tab-list-content" id="list-content-color">
-    <div class="container">
-        <div class="tab-list-content-wrapper box-shadow">
-            <div class="tab-list-content-item">
-                <ul>
-                    <% data.listColor.forEach(function(n,i){ %>
-                        <li><a href=""><%= data.listColor[i] %></a></li>
-                    <% }) %>
-                </ul>
+        <!-- Tab panes -->
+        <div class="tab-list-content ">
+            <div class="tab-content tab-list-content-wrapper">
+                <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listColor'){ %>active<%}%>" id="tab1">
+                    <ul>
+                        <% data.listColor.forEach(function(item,i){ %>
+                        <li>
+                            <% if (i==0){ %>
+                            <a class="<% if (data.tag==item){ %>active<%}%>"
+                               href="?<%=search(data.query,{page:1},'tag')%>">
+                                <%= item %>
+                            </a>
+                            <%}else{%>
+                            <a class="<% if (data.tag==item){ %>active<%}%>"
+                               href="?<%=search(data.query,{tag:item,page:1}) %>">
+                                <%= item %>
+                            </a>
+                            <%}%>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listStyle'){ %>active<%}%>" id="tab2">
+                    <ul>
+                        <% data.listStyle.forEach(function(item){ %>
+                        <li><a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{tag:item,page:1}) %>"><%= item %></a></li>
+                        <% }); %>
+                    </ul>
+                </div>
             </div>
+
         </div>
     </div>
-</div>
-<div class="tab-list-content show" id="list-content-style">
-    <div class="container">
-        <div class="tab-list-content-wrapper box-shadow">
-            <div class="tab-list-content-item">
-                <ul>
-                    <% data.listStyle.forEach(function(n,i){ %>
-                        <li><a href=""> <%= data.listStyle[i] %> </a></li>
-                    <% }) %>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
     <% } %>
 <div class="case-list-block">
     <div class="container">
@@ -131,6 +141,7 @@
 <script>
     $(function(){
         "use strict";
+        window.appData = <%- JSON.stringify(data) %>;
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();
