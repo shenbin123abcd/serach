@@ -120,43 +120,56 @@
             <div class="other-like-case">
                 <h4 class="f-16">案例所有图片</h4>
                 <div class="other-case-block">
+                    <% for(var i=0;i<data.case.data.length;i+=2){  %>
                     <div class="case-item">
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
+                        <a href="/picture/detail/<%=data.case.data[i].id%>" class="case-pic">
+                            <img src="<%=data.case.data[i].path%>" alt=""/>
+                        </a>
+                        <% if(i<data.case.data.length-1){ %>
+                        <a href="/picture/detail/<%=data.case.data[i+1].id%>" class="case-pic">
+                            <img src="<%=data.case.data[i+1].path%>" alt=""/>
+                        </a>
+                        <%}%>
                     </div>
-                    <div class="case-item">
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
-                    </div>
+                    <%}%>
+                    <!--<div class="case-item">-->
+                        <!--<div class="case-pic">-->
+                            <!--<img src="/images/img9.jpg" alt=""/>-->
+                        <!--</div>-->
+                        <!--<div class="case-pic">-->
+                            <!--<img src="/images/img9.jpg" alt=""/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+
+
                 </div>
             </div>
             <div class="other-like-case">
                 <h4 class="f-16">其它相似图片</h4>
                 <div class="other-case-block">
+                    <% for(var i=0;i<data.xiangsi.length;i+=2){  %>
                     <div class="case-item">
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
+                        <a href="/picture/detail/<%=data.xiangsi[i].id%>" class="case-pic">
+                            <img src="<%=data.xiangsi[i].path%>" alt=""/>
+                        </a>
+                        <% if(i<data.xiangsi.length-1){ %>
+                        <a href="/picture/detail/<%=data.xiangsi[i+1].id%>" class="case-pic">
+                            <img src="<%=data.xiangsi[i+1].path%>" alt=""/>
+                        </a>
+                        <%}%>
                     </div>
-                    <div class="case-item">
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
-                        <div class="case-pic">
-                            <img src="/images/img9.jpg" alt=""/>
-                        </div>
-                    </div>
+                    <%}%>
+
+                    <!--<div class="case-item">-->
+                        <!--<div class="case-pic">-->
+                            <!--<img src="/images/img9.jpg" alt=""/>-->
+                        <!--</div>-->
+                        <!--<div class="case-pic">-->
+                            <!--<img src="/images/img9.jpg" alt=""/>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>

@@ -160,6 +160,13 @@ router.get('/detail/:id', function(req, res, next){
         data.colorArr=data.other_color.split(',');
         data.tagArr=data.tag.split(',');
 
+        data.case.data.forEach((n,i)=>{
+            n.path=`${req.config.url.case}/${n.path}?imageView2/1/w/105/h/78`;
+        });
+        data.xiangsi.forEach((n,i)=>{
+            n.path=`${req.config.url.case}/${n.path}?imageView2/1/w/105/h/78`;
+        });
+
 
 
         res.render('picture_detail', {data: data});
