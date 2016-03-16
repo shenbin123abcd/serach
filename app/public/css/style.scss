@@ -1277,7 +1277,6 @@ body{
         }
     }
     .tab-list-content{
-        display:none;
         &.show{
             display: block;
         }
@@ -1750,8 +1749,8 @@ body{
     .tab-list{
         .tab-title{
             .tab-title-left{
-                .category{
-                    &.active{
+                .nav-tabs{
+                    li.active{
                         border-top: 2px solid #5C9CF6;
                     }
                 }
@@ -1936,8 +1935,16 @@ body{
             .tab-title{
                 .tab-title-left{
                     .category{
+                        border-top:none;
+                    }
+                    li{
+                        height:50px;
                         &.active{
                             border-top: 2px solid #b08dfd;
+                            a{
+                                background: #fff;
+                                border:none;
+                            }
                         }
                     }
                 }
