@@ -58,7 +58,7 @@ mod.edit = function(path, postData, req){
 // 删除
 mod.delete = function(path, id, req){
     var headers = {'x-forwarded-for': req.header('x-forwarded-for') || req.connection.remoteAddress},
-        options = {url: config.apiUrl + '/' + path + '/' + id + '?sid=' + global.sid, headers: headers};
+        options = {url: config.apiUrl + '/' + path + '/' + id + '?uid=' + req.user.id, headers: headers};
     return request.delAsync(options).then(function(res){
         return JSON.parse(res.body);
     }).error(function(err){

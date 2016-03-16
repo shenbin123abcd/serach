@@ -233,6 +233,7 @@ router.post('/collect',token.verifyToken, function(req, res, next){
         res.json({iRet: 0, info: '参数错误'});
     }
     data.module = 'picture';
+    data.uid = req.user.id;
     obj.add('collect', data, req).then(function(body){
         if(body.iRet === 1){
             res.json({iRet: 1, info: '收藏成功'});

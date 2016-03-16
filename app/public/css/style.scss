@@ -1706,7 +1706,13 @@ body{
                     padding:5px 0;
                 }
                 .desc-like{
-                    border-right:1px solid #eeeeee;
+                  border-right:1px solid #eeeeee;
+                  &:hover{
+                    cursor: pointer;
+                    p{
+                      color: $pictureMainColor;
+                    }
+                  }
                 }
                 .desc-comment{
 
