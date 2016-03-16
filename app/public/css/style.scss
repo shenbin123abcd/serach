@@ -35,7 +35,10 @@ h6 {font-size: 18px; line-height: 30px; font-weight: 300;}
 p {font-size: 16px; line-height: 30px; font-weight: 300; color: #9e9e9e;}
 ul li {font-size: 13px; line-height: 16px; font-weight: 300;}
 b {font-weight: 700;}
-
+.loading-box{
+  padding: 30px;
+  text-align: center;
+}
 /*header*/
 header {position: fixed; left: 0px; top: 0px; z-index: 100; width: 100%; height: 60px; background: #000; /* transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out; */}
 .logo {position: relative; float: left; display: inline-block; transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;  /* left: 60px; */}
