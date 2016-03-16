@@ -8,6 +8,7 @@ config.redis = {port: 6379, host: '10.0.1.85'}; // 10.0.1.85
 config.NOT_CHECK_AUTH = ['', 'login', 'public'];
 
 config.url = {
+    company: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
     case: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
     crmpub: 'http://7xopel.com2.z0.glb.qiniucdn.com',
     crmpri: 'http://7xopem.com2.z0.glb.qiniucdn.com'

@@ -9,7 +9,7 @@ var _ = require('lodash');
 // 首页，列表，搜索
 router.get(['/','/search'], function(req, res, next){
     var data={};
-    var params = {per_page: req.config.perPage.case};
+    var params = {per_page: req.config.perPage.picture, 'filter[if_show]': 1};
 
     if(req.query.tag){
         params.tag = req.query.tag;
