@@ -75,12 +75,28 @@ app.picureDetail = (function () {
 
         app.service.picture.getComments({id: appData.id}).then(function (res) {
             var perPage = 5;
+            var totalPages=Math.ceil(res.data.length/perPage);
             if($('#picture-comment-pagination').data().twbsPagination){
                 $('#picture-comment-pagination').twbsPagination('destroy');
             }
+            if(totalPages<=1){
+                $('#picture-comment-pagination').hide();
+            }else{
+                $('#picture-comment-pagination').show();
+            }
             $('#picture-comment-pagination').twbsPagination({
-                totalPages: Math.ceil(res.data.length/perPage)||1,
-                visiblePages: 7,
+                totalPages: totalPages||1,
+                visiblePages: (function(){
+                    if(totalPages>7){
+                        return 7;
+                    }else{
+                        return totalPages||1;
+                    }
+                }()),
+                first:  '<<',
+                prev : '<',
+                next :'>',
+                last :'>>',
                 onPageClick: function (event, page) {
                     //console.log( page);
                     var htmlStr = '';
@@ -93,7 +109,7 @@ app.picureDetail = (function () {
                                         <img src="/images/commet-avatar-sample.png" />
                                     </div>
                                     <div class="item-desc">
-                                        <p><span class="name f-16">${n.username}</span><span class="f-12">1天前</span></p>
+                                        <p><span class="name f-16">${n.username}</span><span class="f-12">${moment(n.created_at).fromNow()}</span></p>
                                         <p class="f-16">${n.content}</p>
                                     </div>
                                 </div>
@@ -103,6 +119,8 @@ app.picureDetail = (function () {
                     });
 
 
+
+
                     $('#picture-commit-box').empty().append(`
                         <p class="commit-num f-14">${res.data.length}条评论</p>
                         <div class="commit-text">
@@ -110,6 +128,8 @@ app.picureDetail = (function () {
                         </div>
 
                     `);
+
+
 
                 }
             });
