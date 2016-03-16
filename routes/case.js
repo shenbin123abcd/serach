@@ -130,9 +130,13 @@ router.get('/detail/:id', function(req, res, next){
         data.colorArr=data.other_color.split(",");
         data.tagArr=data.tag.split(",");
         data.xiangsiImg=[];
+        data.otherImg=[];
         data.xiangsi.forEach(function(n,i){
-            data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/900/h/600";
-        })
+            data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/100/h/70";
+        });
+        data.other.forEach(function(n,i){
+            data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/100/h/70";
+        });
         res.render('case_detail', {data: data});
     });
 

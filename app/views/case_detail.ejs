@@ -29,11 +29,14 @@
                                      <% }) %>
                                  </div>
                             </div>
-                            <div class="title-desc-txt inline-style">
-                                <% data.tagArr.forEach(function(n,i){ %>
-                                <span class="f-12"><%= data.tagArr[i] %></span>
-                                <% }) %>
-                            </div>
+                            <% if(data.tag.length>0) {%>
+                                <div class="title-desc-txt inline-style">
+                                    <% data.tagArr.forEach(function(n,i){ %>
+                                    <span class="f-12"><%= data.tagArr[i] %></span>
+                                    <% }) %>
+                                </div>
+                            <% } %>
+
                         </div>
                     </div>
                 </div>
@@ -103,13 +106,14 @@
                         <p class="f-16">5</p>
                     </div>
                 </div>
+                <% if(data.xiangsi.length>0){ %>
                 <div class="other-like-case">
                     <h4 class="f-16">其它相似案例</h4>
                     <div class="other-case-block">
                         <% data.xiangsiImg.forEach(function(n,i){ %>
                             <div class="case-item">
                                 <div class="case-pic">
-                                    <a href="case/detail/<%= data.xiangsi[i].id %>"><img src="<%= data.xiangsiImg[i] %>" alt=""/></a>
+                                    <a href="<%= data.xiangsi[i].id %>"><img src="<%= data.xiangsiImg[i] %>" alt=""/></a>
                                 </div>
                                 <div class="case-desc">
                                     <a href="case/detail/<%= data.xiangsi[i].id %>"><p class="f-14 desc_title"><%= data.xiangsi[i].title %></p></a>
@@ -119,20 +123,21 @@
                         <% }) %>
                     </div>
                 </div>
+                <% } %>
                 <div class="other-like-case">
                     <h4 class="f-16">公司其它案例</h4>
                     <div class="other-case-block">
-
-                            <div class="case-item">
-                                <div class="case-pic">
-                                    <img src="/images/img9.jpg" alt=""/>
-                                </div>
-                                <div class="case-desc">
-                                    <p class="f-14">拾壹</p>
-                                    <p class="f-14">北京艾恩婚礼</p>
-                                </div>
+                        <% data.otherImg.forEach(function(n,i){ %>
+                        <div class="case-item">
+                            <div class="case-pic">
+                                <a href="<%= data.other[i].id %>"><img src="<%= data.otherImg[i] %>" alt=""/></a>
                             </div>
-
+                            <div class="case-desc">
+                                <a href="case/detail/<%= data.other[i].id %>"><p class="f-14 desc_title"><%= data.other[i].title %></p></a>
+                                <p class="f-14 desc_company"><%= data.other[i].company %></p>
+                            </div>
+                        </div>
+                        <% }) %>
                     </div>
                 </div>
             </div>
@@ -158,9 +163,9 @@
         app.index.loginInit();
 
         /*caseDetail*/
-        app.caseDetail.companyDesc();
         app.caseDetail.verticalMiddle("case-item","case-desc");
         app.caseDetail.verticalMiddle("commit-text-item","item-pic");
+        app.caseDetail.companyDesc();
         app.caseDetail.commitForm();
         app.caseDetail.omit();
 

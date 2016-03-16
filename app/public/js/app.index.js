@@ -52,6 +52,16 @@ app.index=(function(){
         register:function(){
             var userService=window.app.index.userService();
             var DIALOG=window.app.index.DIALOG;
+            $("#register_phone").on("input",function(){
+                var num = parseInt($(this).val().length);
+                if(num===11){
+                    $(".login-btn").css("color",'#fff').css("background",'#e74c3c');
+                }else if(num>11){
+                    DIALOG.error("请输入正确的手机号");
+                    $(this).val("");
+                    $(".login-btn").css("color",'#fff').css("background",'#b4b4b4');
+                }
+            });
             $("#register-modal").on("submit",function(event){
                 event.preventDefault();
                 var data={

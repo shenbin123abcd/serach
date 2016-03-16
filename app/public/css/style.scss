@@ -1505,6 +1505,7 @@ body{
                                 }
                                 max-width: 100%;
                                 margin-top: 8px;
+                                width:100%;
                             }
                         }
                         .content-desc-box{
@@ -1702,6 +1703,10 @@ body{
                             display: inline-block;
                             float:left;
                             padding-left:15px;
+                            a{
+                                display: block;
+                                overflow: hidden;
+                            }
                             p{
                                 line-height: 20px;
                             }
