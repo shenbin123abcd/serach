@@ -3,11 +3,12 @@
  */
 var express = require('express');
 var router = express.Router();
-var config = require('../config');
-var api = require('../module/api');
-var qiniu = require('../module/qiniu');
-var obj = require('../module/module');
+//var api = require('../module/api');
+var token = require('../module/token');
+//var obj = require('../module/module');
 
-
+router.get('/checkLogin', token.verifyToken, function(req, res){
+    req.json({iRet: 1, info: 'success'});
+});
 
 module.exports = router;
