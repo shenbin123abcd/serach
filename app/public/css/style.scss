@@ -1719,8 +1719,15 @@ body{
                   border-right:1px solid #eeeeee;
                   &:hover{
                     cursor: pointer;
-                    p{
-                      color: $pictureMainColor;
+                    &.piuture{
+                      p{
+                        color: $pictureMainColor;
+                      }
+                    }
+                    &.case{
+                      p{
+                        color: $caseMainColor;
+                      }
                     }
                   }
                 }
@@ -2286,7 +2293,26 @@ body{
 
     }
 }
+.detail-comments-page{
+    text-align: center;
+    .piuture-detail{
+        li{
+            a{
+                margin-left: 6px;
+                color:#a0a0a0;
+                border-radius:2px;
+            }
+            &.active{
+                a{
+                    background: #b08dfd;
+                    border: 1px solid #b08dfd;
+                    color:#fff;
+                }
+            }
 
+        }
+    }
+}
 
 /*topicDetail*/
 .halo-search.case{
