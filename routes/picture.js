@@ -44,11 +44,7 @@ router.get(['/'], function(req, res, next){
             data.baseUrl=req.baseUrl;
             data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
             data.query=req.query;
-            //data.absUrl=url.format({
-            //    protocol: req.protocol,
-            //    host: req.get('host'),
-            //    pathname: req.originalUrl
-            //});
+
             var urlObj=url.parse(data.absUrl);
             data.route=urlObj.pathname.replace(req.baseUrl,'');
 
@@ -56,7 +52,7 @@ router.get(['/'], function(req, res, next){
             data.tag=req.query.tag;
             data.sort=req.query.sort;
 
-            if(data.route=='/search'){
+            if(req.query.tag){
                 data.pageTitle=`
                 '${req.query.tag}' 的图片搜索结果-图片搜索
             `;
@@ -82,7 +78,7 @@ router.get(['/'], function(req, res, next){
                     data.activeTab='element';
                     break;
                 case _.includes(data.classify, req.query.tag):
-                    data.isMatchTag=true
+                    data.isMatchTag=true;
                     data.activeTab='classify';
                     break;
                 default:
@@ -149,8 +145,22 @@ router.get('/detail/:id', function(req, res, next){
             return data;
         });
     }).then(function(data){
-        res.json(data);
-        //res.render('picture_detail', {data: data});
+        //res.json(data);
+
+        data.baseUrl=req.baseUrl;
+        data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+        data.query=req.query;
+
+        var urlObj=url.parse(data.absUrl);
+        data.route=urlObj.pathname.replace(req.baseUrl,'');
+
+
+        data.pageTitle=`热门图片 - ${data.tag}`;
+        data.path=`${req.config.url.case}/${data.path}?imageView2/2/w/902/`;
+
+
+
+        res.render('picture_detail', {data: data});
     });
 });
 

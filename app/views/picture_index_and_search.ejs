@@ -155,7 +155,7 @@
 
                 <% data.data.forEach(function(item){ %>
                 <div class="col-md-2 col-sm-4">
-                    <a href="detail/<%= item.id %>" class="block-content-item">
+                    <a href="<%= data.baseUrl %>/detail/<%= item.id %>" class="block-content-item">
                         <img src="<%= item.path %>" alt="<%= item.title %>">
                         <div class="content-item-text">
                             <div class="content-item-text-desc">

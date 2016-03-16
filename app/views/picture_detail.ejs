@@ -7,13 +7,13 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search caseDetail pictureDetail">
-
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
 <div class="case-detail-block">
     <div class="container">
         <div class="col-md-9 detail-content-wrapper">
             <div class="detail-content-article">
                 <div class="content-pic-box">
-                    <img src="/images/img9.jpg" alt="" class="no-margin-top"/>
+                    <img src="<%=data.path%>" alt="" class="no-margin-top"/>
                 </div>
             </div>
             <div class="detail-content-topic">
@@ -21,9 +21,9 @@
                     <div class="content-title-desc">
                         <div class="title-desc-icon inline-style">
                             <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=data.points%></span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=data.comments%></span></li>
                             </ul>
                         </div>
                         <div class="title-desc-color inline-style">
