@@ -67,50 +67,13 @@
 
     <div class="container">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="<% if (data.activeTab=='element'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab">元素</a></li>
-            <li class="<% if (data.activeTab=='classify'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab">分类</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div  class="tab-pane <% if (data.activeTab=='element'){ %>active<%}%>" id="tab1">
-                <ul>
-                    <% data.element.forEach(function(item,i){ %>
-                    <li>
-                        <% if (i==0){ %>
-                            <a class="<% if (data.tag==item){ %>active<%}%>"
-                               href="?<%=search(data.query,{page:1},'tag')%>">
-                                <%= item %>
-                            </a>
-                        <%}else{%>
-                            <a class="<% if (data.tag==item){ %>active<%}%>"
-                               href="?<%=search(data.query,{tag:item,page:1}) %>">
-                                <%= item %>
-                            </a>
-                        <%}%>
-                    </li>
-                    <% }); %>
-                </ul>
-
-            </div>
-            <div  class="tab-pane <% if (data.activeTab=='classify'){ %>active<%}%>" id="tab2">
-                <ul>
-                    <% data.classify.forEach(function(item){ %>
-                    <li><a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{tag:item,page:1}) %>"><%= item %></a></li>
-                    <% }); %>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="tab-list">
-        <div class="container">
+        <div class="tab-list">
             <div class="tab-title">
                 <div class="tab-title-left">
-                    <a href="" id="category-element" class="category box-shadow active">元素</a>
-                    <a href="" id="category-classify" class="category box-shadow ">分类</a>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="<% if (data.activeTab=='element'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab" class="category">元素</a></li>
+                        <li class="<% if (data.activeTab=='classify'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab" class="category">分类</a></li>
+                    </ul>
                 </div>
                 <div class="tab-title-right">
                     <a href="?<%= search(data.query,{sort:1}) %>" class="f-12 <% if (data.sort=='1'){ %>active<%}%>"><span class="text">最新</span><span class="bar">|</span></a>
@@ -119,24 +82,29 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="content-element" class="tab-list-content show">
-        <div class="container">
-            <div class="tab-list-content-wrapper box-shadow">
-                <div class="tab-list-content-item">
+        <!-- Tab panes -->
+        <div class="tab-list-content ">
+            <div class="tab-content tab-list-content-wrapper">
+                <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='element'){ %>active<%}%>" id="tab1">
                     <ul>
-                        <% data.element.forEach(function(item){ %>
-                        <li><a class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{tag:item,page:1}) %>"><%= item %></a></li>
+                        <% data.element.forEach(function(item,i){ %>
+                        <li>
+                            <% if (i==0){ %>
+                                <a class="<% if (data.tag==item){ %>active<%}%>"
+                                   href="?<%=search(data.query,{page:1},'tag')%>">
+                                    <%= item %>
+                                </a>
+                            <%}else{%>
+                                <a class="<% if (data.tag==item){ %>active<%}%>"
+                                   href="?<%=search(data.query,{tag:item,page:1}) %>">
+                                    <%= item %>
+                                </a>
+                            <%}%>
+                        </li>
                         <% }); %>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div id="content-classify" class="tab-list-content ">
-        <div class="container">
-            <div class="tab-list-content-wrapper box-shadow">
-                <div class="tab-list-content-item">
+                <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='classify'){ %>active<%}%>" id="tab2">
                     <ul>
                         <% data.classify.forEach(function(item){ %>
                         <li><a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{tag:item,page:1}) %>"><%= item %></a></li>
@@ -144,8 +112,10 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
+
 
     <% } %>
 
@@ -236,7 +206,6 @@
 
 
         /*pictureIndex*/
-        app.pictureIndex.tab();
         app.pictureIndex.pagActive();
     })
 

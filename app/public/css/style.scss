@@ -1277,7 +1277,6 @@ body{
         }
     }
     .tab-list-content{
-        display:none;
         &.show{
             display: block;
         }
@@ -1505,6 +1504,7 @@ body{
                                 }
                                 max-width: 100%;
                                 margin-top: 8px;
+                                width:100%;
                             }
                         }
                         .content-desc-box{
@@ -1702,6 +1702,10 @@ body{
                             display: inline-block;
                             float:left;
                             padding-left:15px;
+                            a{
+                                display: block;
+                                overflow: hidden;
+                            }
                             p{
                                 line-height: 20px;
                             }
@@ -1745,8 +1749,8 @@ body{
     .tab-list{
         .tab-title{
             .tab-title-left{
-                .category{
-                    &.active{
+                .nav-tabs{
+                    li.active{
                         border-top: 2px solid #5C9CF6;
                     }
                 }
@@ -1931,8 +1935,16 @@ body{
             .tab-title{
                 .tab-title-left{
                     .category{
+                        border-top:none;
+                    }
+                    li{
+                        height:50px;
                         &.active{
                             border-top: 2px solid #b08dfd;
+                            a{
+                                background: #fff;
+                                border:none;
+                            }
                         }
                     }
                 }

@@ -63,9 +63,9 @@
                 <a href="" class="category box-shadow active" id="tab-list-style">风格</a>
             </div>
             <div class="tab-title-right">
-                <a href="" class="f-12">最新<span>|</span></a>
-                <a href="" class="f-12">最热<span>|</span></a>
-                <a href="" class="f-12">最赞</a>
+                <a href="?<%= search(data.query,{sort:1}) %>" class="f-12 <% if (data.sort=='1'){ %>active<%}%>"><span class="text">最新</span><span class="bar">|</span></a>
+                <a href="?<%= search(data.query,{sort:2}) %>" class="f-12 <% if (data.sort=='2'){ %>active<%}%>"><span class="text">最热</span><span class="bar">|</span></a>
+                <a href="?<%= search(data.query,{sort:3}) %>" class="f-12 <% if (data.sort=='3'){ %>active<%}%>"><span class="text">最赞</span></a>
             </div>
         </div>
     </div>
