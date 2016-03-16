@@ -7,13 +7,13 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search caseDetail pictureDetail">
-
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
 <div class="case-detail-block">
     <div class="container">
         <div class="col-md-9 detail-content-wrapper">
             <div class="detail-content-article">
                 <div class="content-pic-box">
-                    <img src="/images/img9.jpg" alt="" class="no-margin-top"/>
+                    <img src="<%=data.path%>" alt="" class="no-margin-top"/>
                 </div>
             </div>
             <div class="detail-content-topic">
@@ -21,27 +21,23 @@
                     <div class="content-title-desc">
                         <div class="title-desc-icon inline-style">
                             <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=data.points%></span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=data.comments%></span></li>
                             </ul>
                         </div>
                         <div class="title-desc-color inline-style">
                             <div class="color-liner">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                <% data.colorArr.forEach(function(n,i){ %>
+                                <span style="background:<%= data.colorArr[i] %>"></span>
+                                <% }) %>
                             </div>
                         </div>
+
                         <div class="title-desc-txt inline-style">
-                            <span class="f-12">汉式</span>
-                            <span class="f-12">中国红</span>
-                            <span class="f-12">灯笼</span>
+                            <% data.tagArr.forEach(function(item){ %>
+                            <a  href="<%= data.baseUrl %>?tag=<%= item %>" class="f-12"><%= item %></a>
+                            <% }) %>
                         </div>
                     </div>
                 </div>
