@@ -1,5 +1,11 @@
 @charset "utf-8";
 /* RESET */
+
+$pictureMainColor:#b08dfd;
+$caseMainColor:#f3903e;
+
+
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;font-family:"Microsoft Yahei";}
 blockquote, q {quotes: none;}
@@ -1413,7 +1419,7 @@ body{
         }
         .case-detail-block{
             display: block;
-            overflow: hidden;
+            //overflow: hidden;
             margin-top:30px;
             .detail-content-wrapper {
                 .detail-content-topic {
@@ -1497,18 +1503,31 @@ body{
                             .title-desc-txt {
                                 padding:10px 0;
                                 vertical-align: middle;
-                                span,a {
-                                    display: inline-block;
-                                    border: 1px solid #999999;
-                                    padding: 5px 15px;
-                                    overflow: hidden;
-                                    border-radius: 3px;
-                                    margin-left: 5px;
-                                    margin-top:5px;
-                                }
-                                a:first-child{
+                                .tag {
+                                  display: inline-block;
+                                  border: 1px solid #999999;
+                                  padding: 5px 15px;
+                                  overflow: hidden;
+                                  border-radius: 3px;
+                                  margin-left: 5px;
+                                  margin-top:5px;
+                                  &:first-child{
                                     margin-left: 0;
+                                  }
+                                  &:hover{
+                                    &.picture{
+                                      color: $pictureMainColor;
+                                      border: 1px solid $pictureMainColor;
+
+                                    }
+                                    &.case{
+                                      color: $caseMainColor;
+                                      border: 1px solid $caseMainColor;
+                                    }
+                                  }
+
                                 }
+
                             }
                         }
                       }
@@ -1638,43 +1657,46 @@ body{
                     }
             }
             .case-detail-list{
-                box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
                 background: #fff;
                 .detail-list-company{
-                    overflow: hidden;
-                    display: block;
-                    height:100%;
-                    .company-img{
-                        width:30%;
-                        float:left;
-                        display: block;
-                        a{
-                            display: block;
-                            img{
-                              max-width: 100%;
-                            }
-                        }
+                  display: table;
+                  border:1px solid #eeeeee;
+                  width: 100%;
+                  color: #666666;
+                  box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
+                  &:hover{
+                    &.picture{
+                      box-shadow: 0 0 5px rgba($pictureMainColor, 0.5);
                     }
-                    .company-desc{
-                        width:70%;
-                        float:left;
-                        display: table;
-                        background: #f2f3f5;
-                        height:100%;
-                        text-align: center;
-                        div{
-                            display: table-cell;
-                            vertical-align: middle;
-                            border:1px solid #eeeeee;
-                        }
+                    &.case{
+                      box-shadow: 0 0 5px rgba($caseMainColor, 0.5);
                     }
+                  }
+
+                  .company-img{
+                    width: 1px;
+                    vertical-align: middle;
+                    display: table-cell;
+                      .img{
+                        vertical-align: middle;
+                      }
+                  }
+                  .company-desc{
+                    text-align: center;
+                    vertical-align: middle;
+                    display: table-cell;
+                    background: #f8f8f8;
+                    .cases{
+                      margin-top: 5px;
+                    }
+                  }
                 }
             }
             .detail-list-num{
                 display: block;
                 overflow: hidden;
                 background: #fff;
-                margin-top:30px;
+                margin-top:15px;
                 box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
                 div{
                     width:50%;
