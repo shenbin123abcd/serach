@@ -9,7 +9,7 @@
 
 app.service.picture=(function(){
     "use strict";
-    var haloAuth=app.index.school.haloAuth();
+    var haloAuth=app.index.haloAuth();
 
     function collect(data){
         var deferred = $.Deferred();
