@@ -1429,7 +1429,10 @@ body{
                           overflow: hidden;
                           position: relative;
                           .inline-style {
-                            display: inline-block;
+                              display: inline-block;
+                          }
+                          .outstyle{
+                              display: block;
                           }
                           .title-desc-icon {
                             ul {
@@ -1492,7 +1495,7 @@ body{
                               }
                             }
                             .title-desc-txt {
-                                margin-left: 50px;
+                                padding:10px 0;
                                 vertical-align: middle;
                                 span,a {
                                     display: inline-block;
@@ -1501,6 +1504,10 @@ body{
                                     overflow: hidden;
                                     border-radius: 3px;
                                     margin-left: 5px;
+                                    margin-top:5px;
+                                }
+                                a:first-child{
+                                    margin-left: 0;
                                 }
                             }
                         }
