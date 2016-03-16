@@ -115,7 +115,7 @@
                     </a>
                 </div>
                 <div class="detail-list-num">
-                    <div class="desc-like f-14">
+                    <div id="" class="desc-like f-14">
                         <p class="f-12">喜欢</p>
                         <p class="f-16">1970</p>
                     </div>
@@ -188,7 +188,9 @@
     <%- include('Public/footer'); %>
     <%- include('Public/common_footer'); %>
 </div>
-<script src="../public/js/app.caseDetail.js"></script>
+
+
+
 <script>
     $(function(){
         app.index.lazy();
@@ -204,8 +206,11 @@
 
         /*caseDetail*/
 //        app.caseDetail.companyDesc();
-        app.caseDetail.verticalMiddle("commit-text-item","item-pic");
-        app.caseDetail.commitForm();
+        app.common.verticalMiddle("commit-text-item","item-pic");
+        app.common.commitForm();
+
+
+
 
     })
 
