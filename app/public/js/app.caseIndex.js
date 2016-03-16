@@ -46,7 +46,7 @@ app.caseIndex=(function(){
         });
     }
     function omit(){
-        var padText=$("h4.omit").text().substr(0,9)+"...";
+        var padText=$("h4.omit").text().substr(0,8)+"...";
         $("h4.omit").text(padText);
     }
     return {
