@@ -28,20 +28,16 @@
                         </div>
                         <div class="title-desc-color inline-style">
                             <div class="color-liner">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                <% data.colorArr.forEach(function(n,i){ %>
+                                <span style="background:<%= data.colorArr[i] %>"></span>
+                                <% }) %>
                             </div>
                         </div>
+
                         <div class="title-desc-txt inline-style">
-                            <span class="f-12">汉式</span>
-                            <span class="f-12">中国红</span>
-                            <span class="f-12">灯笼</span>
+                            <% data.tagArr.forEach(function(item){ %>
+                            <a  href="<%= data.baseUrl %>?tag=<%= item %>" class="f-12"><%= item %></a>
+                            <% }) %>
                         </div>
                     </div>
                 </div>

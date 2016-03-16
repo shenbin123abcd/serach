@@ -157,6 +157,8 @@ router.get('/detail/:id', function(req, res, next){
 
         data.pageTitle=`热门图片 - ${data.tag}`;
         data.path=`${req.config.url.case}/${data.path}?imageView2/2/w/902/`;
+        data.colorArr=data.other_color.split(',');
+        data.tagArr=data.tag.split(',');
 
 
 
