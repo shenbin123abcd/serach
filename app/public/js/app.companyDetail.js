@@ -5,21 +5,12 @@ app.companyDetail=(function(){
         $(".desc-p").css("height",height);
 
     };
-    var verticalMiddle=function(WrapperIndex,InnerIndex){
-        var WrapperHeight=parseInt($("."+WrapperIndex).css("height"));
-        var innerHeight=parseInt($("."+InnerIndex).css("height"));
-        var num=((WrapperHeight-innerHeight)/2);
-        $("."+InnerIndex).css("position","relative").css("top",num);
+    function omit(){
+        var desc_title_text = $(".p-title").text().substr(0,8)+"...";
+        $(".p-title").text(desc_title_text);
     };
-    var alignCenter=function(wrapper,inner){
-        var wrapperWidth=parseInt($("."+wrapper).css("width"));
-        var innerWidth=parseInt($("."+inner).css("width"));
-        var num=((wrapperWidth-innerWidth)/2);
-            $("."+inner).css("position","relative").css("left",num);
-    }
     return {
         uiHeight: uiHeight,
-        verticalMiddle:verticalMiddle,
-        alignCenter:alignCenter
+        omit:omit,
     }
 }());

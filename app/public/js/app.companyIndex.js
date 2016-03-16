@@ -1,5 +1,6 @@
 app.companyIndex=(function(){
     "use strict";
+    var searchPara = hb.location.url("?") || {};
     var regionTab=function(){
         $('.city-list>li>a').on("click", function (event) {
             var _this = this;

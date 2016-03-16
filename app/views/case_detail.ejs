@@ -32,7 +32,7 @@
                             <% if(data.tag.length>0) {%>
                                 <div class="title-desc-txt block-style">
                                     <% data.tagArr.forEach(function(n,i){ %>
-                                    <a class="f-12" href="<%= data.baseUrl %>?tag=<%= n %>"><%= n %></a>
+                                    <a class="f-12 tag case" href="<%= data.baseUrl %>?tag=<%= n %>"><%= n %></a>
                                     <% }) %>
                                 </div>
                             <% } %>
@@ -84,17 +84,19 @@
             </div>
             <div class="col-md-3">
                 <div class="case-detail-list">
-                    <div class="detail-list-company">
+                    <a class="detail-list-company case" href="/company/detail/<%=data.company.id%>">
                         <div class="company-img">
-                            <a href=""><img src="<%= data.company.logo %>" alt=""/></a>
+                            <img src="<%= data.company.logo %>" alt=""/>
                         </div>
                         <div class="company-desc">
-                            <div>
-                                <p class="f-14"><a href=""><%= data.company.name %></a></p>
-                                <p class="f-12"><a href="">查看全部个案例</a></p>
+                            <div class="f-14 name">
+                                <%=data.company.name%>
+                            </div>
+                            <div class="f-12 cases">
+                                查看全部<%=data.company.cases%>个案例
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="detail-list-num">
                     <div class="desc-like f-14">
@@ -161,12 +163,10 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
+        app.common.verticalMiddle("case-item","case-desc");
+        app.common.verticalMiddle("commit-text-item","item-pic");
+        app.common.commitForm();
 
-        /*caseDetail*/
-        app.caseDetail.verticalMiddle("case-item","case-desc");
-        app.caseDetail.verticalMiddle("commit-text-item","item-pic");
-        /*app.caseDetail.companyDesc();*/
-        app.caseDetail.commitForm();
         app.caseDetail.omit();
 
     })

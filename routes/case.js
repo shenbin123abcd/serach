@@ -146,14 +146,13 @@ router.get('/detail/:id', function(req, res, next){
             return obj.getInfo('company', data.company_id, req).then(function(body){
                 if(body.iRet === 1){
                     data.company = {id: body.data.id, name: body.data.name, cases: body.data.cases, logo: body.data.company_logo};
-                    data.company.logo= req.config.url.case + '/' + data.company.logo +"?imageView2/1/w/100/h/100";
+                    data.company.logo= req.config.url.case + '/' + data.company.logo +"?imageView2/1/w/80/h/80";
                 }
                 return data;
             }, function(error){
                 return data;
             });
-        })
-        .then(function(data){
+    }).then(function(data){
 
         data.baseUrl=req.baseUrl;
         data.pageTitle = "案例详情";

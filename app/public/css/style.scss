@@ -1782,8 +1782,8 @@ body{
         }
         .case-pagination{
             .pagination.pagination-item{
-                li{
-                    a.active{
+                li.active{
+                    a{
                         background: #5C9CF6;
                         border: 1px solid #5C9CF6;
                     }
@@ -1795,6 +1795,12 @@ body{
     .tab-list{
         .tab-title{
             .tab-title-left{
+                .category{
+                    &.active{
+                        border-top: 2px solid #5C9CF6;
+                        background: #fff;
+                    }
+                }
                 .nav-tabs{
                     li.active{
                         border-top: 2px solid #5C9CF6;
@@ -1909,6 +1915,7 @@ body{
                     -ms-transform: translateY(-50%);
                     -o-transform: translateY(-50%);
                     transform: translateY(-50%);*/
+                    color:#333;
                 }
             }
             .company-about{
@@ -1922,6 +1929,7 @@ body{
                 }
                 p{
                     display: block;
+                    color:#333;
 
                 }
                 .no-top{
@@ -1953,6 +1961,9 @@ body{
                         opacity: 0.7;
                         padding: 5px;
                         .content-item-text-desc{
+                            .p-title{
+                                color:#fff;
+                            }
                             .desc-list{
                                 .desc-list-item{
                                     display: inline-block;

@@ -22,16 +22,16 @@ app.common=(function(){
             $(".num").text(num);
         })
     };
-    function omit(){
-        var desc_title_text = $(".desc_title").text().substr(0,8)+"...";
-        $(".desc_title").text(desc_title_text);
-        var desc_company_text = $(".desc_company").text().substr(0,8)+"...";
-        $(".desc_company").text(desc_company_text);
-    }
+    var alignCenter=function(wrapper,inner){
+        var wrapperWidth=parseInt($("."+wrapper).css("width"));
+        var innerWidth=parseInt($("."+inner).css("width"));
+        var num=((wrapperWidth-innerWidth)/2);
+        $("."+inner).css("position","relative").css("left",num);
+    };
     return {
         companyDesc:companyDesc,
         verticalMiddle:verticalMiddle,
         commitForm:commitForm,
-        omit:omit,
+        alignCenter:alignCenter,
     }
 }());

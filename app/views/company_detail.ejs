@@ -7,20 +7,20 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search case companyDetail">
-    <%- include('Public/search_nav'); %>
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="company-detail ">
         <div class="container wrapper">
             <div class="col-md-10 col-sm-12 col-xs-12 inner">
                  <div class="company-detail-content">
                       <div class="content-topic">
-                          <img src="/images/img6.jpg" alt=""/>
+                          <img src="<%= data.cover %>" alt=""/>
                       </div>
                      <div class="company-desc">
                          <div class="col-md-2 col-sm-2 desc-pic">
-                             <img src="/images/img7.jpg" alt=""/>
+                             <img src="<%= data.company_logo %>" alt=""/>
                          </div>
                          <div class="col-md-10 col-sm-10 desc-p">
-                             <p class="f-18 desc-txt">艾恩婚礼</p>
+                             <p class="f-18 desc-txt"><%= data.name %></p>
                          </div>
                      </div>
                      <div class="company-about">
@@ -28,7 +28,7 @@
                               <p class="about-title float-right">公司简介</p>
                           </div>
                           <div class="col-md-10 col-sm-10">
-                              <p>经历七年的历程，慢慢学习经历七年的历程，慢慢学习经历七年的历程，慢慢学习经历七年的历程，慢慢学习经历七年的历程，慢慢学习</p>
+                              <p><%= data.description %></p>
                           </div>
                      </div>
                      <div class="company-about">
@@ -36,12 +36,12 @@
                              <p class="about-title float-right">公司信息</p>
                          </div>
                          <div class="col-md-10 col-sm-10">
-                             <p>官方网址：<span>www.aien.com</span></p>
-                             <p>官方微博：<span>艾恩婚礼</span></p>
-                             <p>腾讯微信：<span>艾恩婚礼</span></p>
-                             <p>营业时间：<span>艾恩婚礼</span></p>
-                             <p>联系电话：<span>艾恩婚礼</span></p>
-                             <p>地址：<span>艾恩婚礼</span></p>
+                             <p>官方网址：<span><%= data.website %></span></p>
+                             <p>官方微博：<span><%= data.weibo_name %></span></p>
+                             <p>腾讯微信：<span><%= data.wechat %></span></p>
+                             <p>营业时间：<span><%= data.updated_at %></span></p>
+                             <p>联系电话：<span><%= data.tel_1 || data.tel_2 || data.tel_3%></span></p>
+                             <p>地址：<span><%= data.address %></span></p>
                          </div>
                      </div>
                      <div class="company-about">
@@ -49,81 +49,24 @@
                              <p class="about-title float-right">公司案例</p>
                          </div>
                          <div class="col-md-10 col-sm-10 no-top">
-                             <div class="col-md-3 col-sm-12 left">
-                                 <a class="block-content-item">
-                                     <img src="/images/img6.jpg" alt="">
-                                     <div class="content-item-text">
-                                         <div class="content-item-text-desc">
-                                             <p class="f-16 f-white">拾壹</p>
-                                             <ul class="desc-list">
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                             </ul>
+                             <% data.caseList.forEach(function(n,i){ %>
+                                 <div class="col-md-3 col-sm-12">
+                                     <a class="block-content-item left" href="/case/detail/<%= n.id %>">
+                                         <img src="<%= n.cover %>" alt="">
+                                         <div class="content-item-text">
+                                             <div class="content-item-text-desc">
+                                                 <p class="f-16 f-white p-title"><%= n.title %></p>
+                                                 <ul class="desc-list">
+                                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views %></span></li>
+                                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments %></span></li>
+                                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points %></span></li>
+                                                 </ul>
+                                             </div>
                                          </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-md-3 col-sm-12">
-                                 <a class="block-content-item left">
-                                     <img src="/images/img6.jpg" alt="">
-                                     <div class="content-item-text">
-                                         <div class="content-item-text-desc">
-                                             <p class="f-16 f-white">拾壹</p>
-                                             <ul class="desc-list">
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-md-3 col-sm-12">
-                                 <a class="block-content-item left">
-                                     <img src="/images/img6.jpg" alt="">
-                                     <div class="content-item-text">
-                                         <div class="content-item-text-desc">
-                                             <p class="f-16 f-white">拾壹</p>
-                                             <ul class="desc-list">
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-md-3 col-sm-12">
-                                 <a class="block-content-item left">
-                                     <img src="/images/img6.jpg" alt="">
-                                     <div class="content-item-text">
-                                         <div class="content-item-text-desc">
-                                             <p class="f-16 f-white">拾壹</p>
-                                             <ul class="desc-list">
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-md-3 col-sm-12">
-                                 <a class="block-content-item left">
-                                     <img src="/images/img6.jpg" alt="">
-                                     <div class="content-item-text">
-                                         <div class="content-item-text-desc">
-                                             <p class="f-16 f-white">拾壹</p>
-                                             <ul class="desc-list">
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
+                                     </a>
+                                 </div>
+                             <% }) %>
+
                          </div>
                      </div>
                  </div>
@@ -150,10 +93,11 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
+        app.common.verticalMiddle("desc-p","desc-txt");
+        app.common.alignCenter("wrapper","inner");
 
         app.companyDetail.uiHeight();
-        app.companyDetail.verticalMiddle("desc-p","desc-txt");
-        app.companyDetail.alignCenter("wrapper","inner");
+        app.companyDetail.omit();
     })
 
 
