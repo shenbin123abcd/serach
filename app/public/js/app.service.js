@@ -14,19 +14,19 @@ app.service.picture=(function(){
     function collect(data){
         var deferred = $.Deferred();
         var token=haloAuth.getToken();
+        //console.log(token)
         var header={};
         if(token){
             header.Authorization = 'Bearer ' + token;
         }
-        var init=function(){
+        function init(){
             data=data||{};
             switch (true){
                 default:
                     sendXhr();
             }
         };
-
-        var sendXhr=function(){
+        function sendXhr(){
             $.ajax({
                 method: "POST",
                 url: "/picture/collect",
@@ -41,6 +41,7 @@ app.service.picture=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(res);
                     //console.log(jqXHR, textStatus, errorThrown);
                     deferred.reject('网络繁忙请稍候再试');
                     //if(t==="timeout") {
@@ -54,38 +55,123 @@ app.service.picture=(function(){
         init();
         return deferred.promise();
     }
-
-    function comment(data){
-        //console.log(data)
+    function unCollect(data){
         var deferred = $.Deferred();
-        var init=function(){
+        var token=haloAuth.getToken();
+        //console.log(token)
+        var header={};
+        if(token){
+            header.Authorization = 'Bearer ' + token;
+        }
+        function init(){
             data=data||{};
             switch (true){
-                case !data.username:
-                    deferred.reject('请输入阁下称呼');
-                    break;
-                case !data.content:
-                    deferred.reject('请输入祝福语');
-                    break;
                 default:
                     sendXhr();
             }
         };
-        var sendXhr=function(){
+        function sendXhr(){
             $.ajax({
-                method: "POST",
-                url: "/api/qingjian/comment/",
-                //timeout: 10000,
+                method: "DELETE",
+                url: "/picture/collect/"+data.id,
+                headers :header,
                 data: data,
                 success: function(res, textStatus, errorThrown) {
                     console.log(res);
                     if(res.iRet==1){
-                        deferred.resolve(res);
+                        deferred.resolve(res.info);
                     }else{
                         deferred.reject(res.info);
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(res);
+                    //console.log(jqXHR, textStatus, errorThrown);
+                    deferred.reject('网络繁忙请稍候再试');
+                    //if(t==="timeout") {
+                    //	// something went wrong (handle it)
+                    //}
+                }
+            })
+            ;
+
+        };
+        init();
+        return deferred.promise();
+    }
+    function comment(data){
+        var deferred = $.Deferred();
+        var token=haloAuth.getToken();
+        //console.log(token)
+        var header={};
+        if(token){
+            header.Authorization = 'Bearer ' + token;
+        }
+        function init(){
+            data=data||{};
+            switch (true){
+                case !data.content:
+                    deferred.reject('请输入评论内容');
+                    break;
+                default:
+                    sendXhr();
+            }
+        };
+        function sendXhr(){
+            $.ajax({
+                method: "POST",
+                url: "/picture/comment",
+                headers :header,
+                data: data,
+                success: function(res, textStatus, errorThrown) {
+                    console.log(res);
+                    if(res.iRet==1){
+                        deferred.resolve(res.info);
+                    }else{
+                        deferred.reject(res.info);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(res);
+                    //console.log(jqXHR, textStatus, errorThrown);
+                    deferred.reject('网络繁忙请稍候再试');
+                    //if(t==="timeout") {
+                    //	// something went wrong (handle it)
+                    //}
+                }
+            })
+            ;
+
+        };
+        init();
+        return deferred.promise();
+    }
+
+    function getComments(data){
+        var deferred = $.Deferred();
+        function init(){
+            data=data||{};
+            switch (true){
+                default:
+                    sendXhr();
+            }
+        };
+        function sendXhr(){
+
+            $.ajax({
+                method: "GET",
+                url: "/picture/comment/"+data.id,
+                data: {},
+                success: function(res, textStatus, errorThrown) {
+                    console.log(res);
+                    if(res.iRet==1){
+                        deferred.resolve(res.data);
+                    }else{
+                        deferred.reject(res.info);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(res);
                     //console.log(jqXHR, textStatus, errorThrown);
                     deferred.reject('网络繁忙请稍候再试');
                     //if(t==="timeout") {
@@ -101,8 +187,14 @@ app.service.picture=(function(){
     }
 
 
+
+
+
     return {
-        comment:comment
+        comment:comment,
+        collect:collect,
+        unCollect:unCollect,
+        getComments:getComments,
     };
 }());
 

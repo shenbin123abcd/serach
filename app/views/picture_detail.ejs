@@ -22,7 +22,7 @@
                             <div class="title-desc-icon inline-style">
                                 <ul class="desc-list">
                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=data.points%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span id="picture-desc-list-item-num" class="desc-list-item-num"><%=data.points%></span></li>
                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=data.comments%></span></li>
                                 </ul>
                             </div>
@@ -44,54 +44,37 @@
                 </div>
 
                 <div class="detail-content-commit">
-                    <form id="commit-form">
+                    <form id="picture-commit-form">
                         <div class="textarea-wrapper">
-                            <textarea class="f-14" name="" rows="5"></textarea>
+                            <textarea id="picture-commit-form-content" class="f-14" rows="5"></textarea>
                             <p class="f-14">还可以输入<span class="num">500</span>个字</p>
                         </div>
                         <div class="btn-group">
-                            <a ><span class="glyphicon glyphicon-heart-empty f-22"></span><span>+1</span></a>
+                            <a id="markThisPic-comment" >
+                                <span class="glyphicon glyphicon-heart-empty f-22"></span><span>+1</span>
+                            </a>
+                            <a id="unMarkThisPic-comment" style="display: none;" >
+                                <span class="glyphicon glyphicon-heart-empty f-22"></span><span>-1</span>
+                            </a>
                             <button  class="btn submit-btn" type="submit">评&nbsp;论</button>
                         </div>
                     </form>
 
-                    <div class="commit-box">
-                        <p class="commit-num f-14">16条评论</p>
-                        <div class="commit-text">
-                            <div class="text-item-wrapper">
-                                <div class="commit-text-item">
-                                    <div class="item-pic">
-                                        <img src="/images/img10.jpg" alt=""/>
-                                    </div>
-                                    <div class="item-desc">
-                                        <p><span class="name f-16">李达键</span><span class="f-12">1天前</span></p>
-                                        <p class="f-16">好有感觉的一场婚礼</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-item-wrapper active">
-                                <div class="commit-text-item">
-                                    <div class="item-pic">
-                                        <img src="/images/img10.jpg" alt=""/>
-                                    </div>
-                                    <div class="item-desc">
-                                        <p><span class="name f-16">李达键</span><span class="f-12">1天前</span></p>
-                                        <p class="f-16">好有感觉的一场婚礼</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-item-wrapper">
-                                <div class="commit-text-item">
-                                    <div class="item-pic">
-                                        <img src="/images/img10.jpg" alt=""/>
-                                    </div>
-                                    <div class="item-desc">
-                                        <p><span class="name f-16">李达键</span><span class="f-12">1天前</span></p>
-                                        <p class="f-16">好有感觉的一场婚礼</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="picture-commit-box" class="commit-box">
+                        <!--<p class="commit-num f-14">16条评论</p>-->
+                        <!--<div class="commit-text">-->
+                            <!--<div class="text-item-wrapper">-->
+                                <!--<div class="commit-text-item">-->
+                                    <!--<div class="item-pic">-->
+                                        <!--<img src="/images/img10.jpg" alt=""/>-->
+                                    <!--</div>-->
+                                    <!--<div class="item-desc">-->
+                                        <!--<p><span class="name f-16">李达键</span><span class="f-12">1天前</span></p>-->
+                                        <!--<p class="f-16">好有感觉的一场婚礼</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
 
 
@@ -115,13 +98,17 @@
                     </a>
                 </div>
                 <div class="detail-list-num">
-                    <div id="" class="desc-like f-14">
+                    <div id="markThisPic-sidebar" class="desc-like f-14" >
                         <p class="f-12">喜欢</p>
-                        <p class="f-16">1970</p>
+                        <p class="f-16"><%=data.points%></p>
+                    </div>
+                    <div id="unMarkThisPic-sidebar" class="desc-like f-14" style="display: none;">
+                        <p class="f-12">取消收藏</p>
+                        <p class="f-16"><%=data.points+1%></p>
                     </div>
                     <div class="desc-comment f-14">
                         <p class="f-12">评论</p>
-                        <p class="f-16">5</p>
+                        <p class="f-16"><%=data.comments%></p>
                     </div>
                 </div>
                 <% if(data.case.data.length>0){ %>
@@ -193,6 +180,9 @@
 
 <script>
     $(function(){
+
+        window.appData = <%- JSON.stringify(data) %>;
+
         app.index.lazy();
         app.index.nav();
 
@@ -205,9 +195,9 @@
         app.index.loginInit();
         app.common.verticalMiddle("commit-text-item","item-pic");
         app.common.commitForm();
-
-
-
+        app.picureDetail.collect();
+        app.picureDetail.getComments();
+        app.picureDetail.comment();
 
     })
 

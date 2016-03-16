@@ -263,7 +263,8 @@ app.index=(function(){
                     $.ajax({
                         //method: "POST",
                         dataType : "jsonp",
-                        url: "http://college.halobear.com/api/login",
+                        url: "http://college.hx.com/api/login",
+                        //url: "http://college.halobear.com/api/login",
                         //timeout: 10000,
                         data: data,
                         success: function(res, textStatus, errorThrown) {

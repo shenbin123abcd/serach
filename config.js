@@ -19,7 +19,7 @@ config.perPage = {
     picture: 60,
     company: 60,
     topic: 12,
-    comments: 12
+    comments: 9999
 };
 
 config.route = function(app){
