@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 var url = require("url");
 var obj = require('../module/module');
+var token = require('../module/token');
 
 // 列表
 router.get(['/','/search'], function(req, res, next){
-    var data={},params = {per_page: req.config.perPage.case};
+    var data={},params = {per_page: req.config.perPage.case, 'filter[if_show]': 1};
 
     if(req.query.tag){
         params.tag = req.query.tag;
@@ -142,8 +143,88 @@ router.get('/detail/:id', function(req, res, next){
 
 });
 
-//结果
-router.get('/result', function(req, res, next){
-    res.render('case_result', {title: '案例搜索结果'});
+
+// 新增评论
+router.post('/comment',token.verifyToken, function(req, res, next){
+    var data = req.body;
+
+    if (!data.content || data.record_id){
+        res.json({iRet: 0, info: '参数错误'});
+    }
+    data.module = 'case';
+    obj.add('comment', data, req).then(function(body){
+        if(body.iRet === 1){
+            res.json({iRet: 1, info: '评论成功'});
+        }else if(body.iRet === 0){
+            res.json({iRet: 0, info: '网络繁忙，请稍候再试', error: body.info});
+        }else{
+            res.sendStatus(500);
+        }
+    }, function(error){
+        res.sendStatus(500);
+    });
 });
+
+// 获取评论列表
+router.get('/comment/:id', function(req, res){
+    var id = req.params.id;
+    if(!id){
+        res.json({iRet: 0, info: '参数错误'});
+        return false;
+    }
+
+    obj.getList('comment', req, {module: 'case', record_id: id, per_page: req.config.perPage.comments}).then(function(body){
+        if(body.iRet === 1){
+            res.json({iRet: 1, info: '评论成功', data: body.data});
+        }else{
+            res.json({iRet: 0, info: '网络繁忙，请稍候再试', error: body.info});
+        }
+    }, function(error){
+        res.json(500,{iRet: 0, info: '网络繁忙，请稍候再试', error: error});
+    });
+});
+
+
+// 收藏
+router.post('/collect',token.verifyToken, function(req, res, next){
+    var data = req.body;
+
+    if (!data.record_id){
+        res.json({iRet: 0, info: '参数错误'});
+    }
+    data.module = 'case';
+    obj.add('collect', data, req).then(function(body){
+        if(body.iRet === 1){
+            res.json({iRet: 1, info: '收藏成功'});
+        }else if(body.iRet === 0){
+            res.json({iRet: 0, info: '网络繁忙，请稍候再试', error: body.info});
+        }else{
+            res.sendStatus(500);
+        }
+    }, function(error){
+        res.sendStatus(500);
+    });
+});
+
+// 取消收藏
+router.delete('/collect/:id',token.verifyToken, function(req, res, next){
+    var id = req.params.id;
+
+    if (!id){
+        res.json({iRet: 0, info: '参数错误'});
+    }
+
+    obj.delete('collect', id, req).then(function(body){
+        if(body.iRet === 1){
+            res.json({iRet: 1, info: '操作成功'});
+        }else if(body.iRet === 0){
+            res.json({iRet: 0, info: '网络繁忙，请稍候再试', error: body.info});
+        }else{
+            res.sendStatus(500);
+        }
+    }, function(error){
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

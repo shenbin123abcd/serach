@@ -5,7 +5,7 @@ var helper = {};
 helper.ellipsis = function() {
     return 'ellipsis';
 };
-helper.search = function(query,partQuery) {
+helper.search = function(query,partQuery,removeQuery) {
 
     function toStr(params){
         var str = [];
@@ -45,7 +45,7 @@ helper.search = function(query,partQuery) {
         return toStr(paramsAfterRemove);
     }
 
-    var str=add(partQuery);
+    var str=add(partQuery,removeQuery);
 
     return str;
 };

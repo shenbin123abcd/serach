@@ -24,9 +24,9 @@
             <div class='search-box-input col-md-6 col-md-push-3'>
                 <div class="col-md-12 col-sm-12">
                     <div class="search_input">
-                        <form action="<%= data.baseUrl %>/search">
+                        <form action="<%= data.baseUrl %>">
                         <span class="search_wrapper">
-                            <input type="search" placeholder="请输入关键字" name="keyword" value="<%= data.keyword %>">
+                            <input type="search" placeholder="请输入关键字" name="tag" value="<%= data.tag %>">
                             <button class="search_button" type="submit">
                                 <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
@@ -38,16 +38,16 @@
                 <div class="col-md-12 col-sm-12 search_button_group">
                     <form action="">
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">剪影</a>
+                            <a class="f-12" href="?<%=search(data.query,{tag:'剪影',page:1})%>">剪影</a>
                         </div>
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">蝴蝶</a>
+                            <a class="f-12" href="?<%=search(data.query,{tag:'蝴蝶',page:1})%>">蝴蝶</a>
                         </div>
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">新娘捧花</a>
+                            <a class="f-12" href="?<%=search(data.query,{tag:'新娘捧花',page:1})%>">新娘捧花</a>
                         </div>
                         <div class="col-md-3 col-xs-4 col-sm-3">
-                            <a class="f-12">婚礼路引</a>
+                            <a class="f-12" href="?<%=search(data.query,{tag:'婚礼路引',page:1})%>">婚礼路引</a>
                         </div>
                     </form>
                 </div>
@@ -55,15 +55,55 @@
         </div>
     </div>
 
-    <% if (data.route == '/search') { %>
+    <% if (!data.isMatchTag&&data.tag) { %>
 
     <div class="search-result">
         <div class="container">
-            <p>您目前在 婚礼图片 搜索关键字<span>“ <%= data.tag %> ”</span>，共找到 152 个内容</p>
+            <p>您目前在 婚礼图片 搜索关键字<span>“ <%= data.tag %> ”</span>，共找到 <%= data.total %> 个内容</p>
         </div>
     </div>
 
     <% }else{ %>
+
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="<% if (data.activeTab=='element'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab">元素</a></li>
+            <li class="<% if (data.activeTab=='classify'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab">分类</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div  class="tab-pane <% if (data.activeTab=='element'){ %>active<%}%>" id="tab1">
+                <ul>
+                    <% data.element.forEach(function(item,i){ %>
+                    <li>
+                        <% if (i==0){ %>
+                            <a class="<% if (data.tag==item){ %>active<%}%>"
+                               href="?<%=search(data.query,{page:1},'tag')%>">
+                                <%= item %>
+                            </a>
+                        <%}else{%>
+                            <a class="<% if (data.tag==item){ %>active<%}%>"
+                               href="?<%=search(data.query,{tag:item,page:1}) %>">
+                                <%= item %>
+                            </a>
+                        <%}%>
+                    </li>
+                    <% }); %>
+                </ul>
+
+            </div>
+            <div  class="tab-pane <% if (data.activeTab=='classify'){ %>active<%}%>" id="tab2">
+                <ul>
+                    <% data.classify.forEach(function(item){ %>
+                    <li><a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{tag:item,page:1}) %>"><%= item %></a></li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 
     <div class="tab-list">
         <div class="container">
@@ -138,36 +178,38 @@
                     </a>
                 </div>
                 <% }); %>
-                <div class="col-md-2 col-sm-4">
-                    <a href="detail/1" class="block-content-item">
-                        <img src="/images/img6.jpg" alt="">
-                        <div class="content-item-text">
-                            <div class="content-item-text-desc">
-                                <ul class="desc-list">
-                                    <li class="desc-list-item f-10"><span
-                                                class="glyphicon glyphicon-eye-open"></span><span
-                                                class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-10"><span
-                                                class="glyphicon glyphicon-comment"></span><span
-                                                class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-10"><span
-                                                class="glyphicon glyphicon-heart-empty"></span><span
-                                                class="desc-list-item-num">2850</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <!--<div class="col-md-2 col-sm-4">-->
+                    <!--<a href="detail/1" class="block-content-item">-->
+                        <!--<img src="/images/img6.jpg" alt="">-->
+                        <!--<div class="content-item-text">-->
+                            <!--<div class="content-item-text-desc">-->
+                                <!--<ul class="desc-list">-->
+                                    <!--<li class="desc-list-item f-10"><span-->
+                                                <!--class="glyphicon glyphicon-eye-open"></span><span-->
+                                                <!--class="desc-list-item-num">2850</span></li>-->
+                                    <!--<li class="desc-list-item f-10"><span-->
+                                                <!--class="glyphicon glyphicon-comment"></span><span-->
+                                                <!--class="desc-list-item-num">2850</span></li>-->
+                                    <!--<li class="desc-list-item f-10"><span-->
+                                                <!--class="glyphicon glyphicon-heart-empty"></span><span-->
+                                                <!--class="desc-list-item-num">2850</span></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
 
 
             </div>
         </div>
     </div>
+    <% if (data.totalPages>1) { %>
     <div class="case-pagination">
         <div class="container">
             <ul id="pagination" class="pagination pagination-item"></ul>
         </div>
     </div>
+    <%}%>
 </div>
 
 
@@ -181,7 +223,7 @@
     $(function () {
         "use strict";
         window.appData = <%- JSON.stringify(data) %>;
-
+//        console.log(appData)
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();
