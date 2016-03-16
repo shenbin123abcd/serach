@@ -121,8 +121,6 @@ app.picureDetail = (function () {
                     });
 
 
-
-
                     $('#picture-commit-box').empty().append(`
                         <p class="commit-num f-14">${res.data.length}条评论</p>
                         <div class="commit-text">
@@ -131,11 +129,8 @@ app.picureDetail = (function () {
 
                     `);
 
-
-
                 }
             });
-
 
 
         });
