@@ -90,6 +90,7 @@ router.get(['/','/search'], function(req, res, next){
                     data.activeTab='element';
                     break;
             }
+            data.totalPages=Math.ceil(data.total/data.per_page);
 
 
             //res.json(data);
