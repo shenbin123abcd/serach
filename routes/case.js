@@ -181,10 +181,12 @@ router.get('/detail/:id', function(req, res, next){
 router.post('/comment',token.verifyToken, function(req, res, next){
     var data = req.body;
 
-    if (!data.content || data.record_id){
-        res.json({iRet: 0, info: '参数错误'});
+    if (!data.content){
+        res.json({iRet: 0, info: '评论内容不能为空'});
     }
     data.module = 'case';
+    data.uid = req.user.id;
+    data.username = req.user.username;
     obj.add('comment', data, req).then(function(body){
         if(body.iRet === 1){
             res.json({iRet: 1, info: '评论成功'});
@@ -208,7 +210,7 @@ router.get('/comment/:id', function(req, res){
 
     obj.getList('comment', req, {module: 'case', record_id: id, per_page: req.config.perPage.comments}).then(function(body){
         if(body.iRet === 1){
-            res.json({iRet: 1, info: '评论成功', data: body.data});
+            res.json({iRet: 1, info: 'success', data: body.data});
         }else{
             res.json({iRet: 0, info: '网络繁忙，请稍候再试', error: body.info});
         }
@@ -216,7 +218,6 @@ router.get('/comment/:id', function(req, res){
         res.json(500,{iRet: 0, info: '网络繁忙，请稍候再试', error: error});
     });
 });
-
 
 // 收藏
 router.post('/collect',token.verifyToken, function(req, res, next){
@@ -226,6 +227,7 @@ router.post('/collect',token.verifyToken, function(req, res, next){
         res.json({iRet: 0, info: '参数错误'});
     }
     data.module = 'case';
+    data.uid = req.user.id;
     obj.add('collect', data, req).then(function(body){
         if(body.iRet === 1){
             res.json({iRet: 1, info: '收藏成功'});

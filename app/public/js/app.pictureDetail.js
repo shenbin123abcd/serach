@@ -5,7 +5,7 @@ app.picureDetail = (function () {
     "use strict";
 
     function collect() {
-        $('#markThisPic-sidebar,#markThisPic-comment').on('click', function () {
+        $('#markThis-sidebar,#markThis-comment').on('click', function () {
             hb.util.loading.show();
             app.service.picture.collect({record_id: appData.id}).then(function (res) {
                 hb.util.loading.hide();
@@ -15,7 +15,7 @@ app.picureDetail = (function () {
                 hb.util.loading.hide();
             });
         });
-        $('#unMarkThisPic-sidebar,#unMarkThisPic-comment').on('click', function () {
+        $('#unMarkThis-sidebar,#unMarkThis-comment').on('click', function () {
             hb.util.loading.show();
             app.service.picture.unCollect({id: appData.id}).then(function (res) {
                 hb.util.loading.hide();
@@ -27,33 +27,33 @@ app.picureDetail = (function () {
         });
 
         function markSuccess() {
-            var num = $('#picture-desc-list-item-num-points').text();
+            var num = $('#desc-list-item-num-points').text();
             num++;
-            $('#picture-desc-list-item-num-points').text(num);
-            $('#markThisPic-sidebar,#markThisPic-comment').hide();
-            $('#unMarkThisPic-sidebar,#unMarkThisPic-comment').show();
+            $('#desc-list-item-num-points').text(num);
+            $('#markThis-sidebar,#markThis-comment').hide();
+            $('#unMarkThis-sidebar,#unMarkThis-comment').show();
         }
 
         function unMarkSuccess() {
-            var num = $('#picture-desc-list-item-num-points').text();
+            var num = $('#desc-list-item-num-points').text();
             num--;
-            $('#picture-desc-list-item-num-points').text(num);
-            $('#markThisPic-sidebar,#markThisPic-comment').show();
-            $('#unMarkThisPic-sidebar,#unMarkThisPic-comment').hide();
+            $('#desc-list-item-num-points').text(num);
+            $('#markThis-sidebar,#markThis-comment').show();
+            $('#unMarkThis-sidebar,#unMarkThis-comment').hide();
         }
 
     }
 
     function comment() {
-        $('#picture-commit-form').on('submit', function () {
+        $('#commit-form').on('submit', function () {
             event.preventDefault();
             hb.util.loading.show();
             app.service.picture.comment({
                 record_id: appData.id,
-                content: $('#picture-commit-form-content').val(),
+                content: $('#commit-form-content').val(),
             }).then(function (res) {
                 hb.util.loading.hide();
-                $('#picture-commit-form-content').val('');
+                $('#commit-form-content').val('');
                 getComments();
             }, function (res) {
                 hb.util.loading.hide();
@@ -74,19 +74,19 @@ app.picureDetail = (function () {
 
 
         app.service.picture.getComments({id: appData.id}).then(function (res) {
-            $('#picture-desc-list-item-num-comments,#picture-comments-sidebar').text(res.data.length);
+            $('#desc-list-item-num-comments,#comments-sidebar').text(res.data.length);
 
             var perPage = 5;
             var totalPages=Math.ceil(res.data.length/perPage);
-            if($('#picture-comment-pagination').data().twbsPagination){
-                $('#picture-comment-pagination').twbsPagination('destroy');
+            if($('#comment-pagination').data().twbsPagination){
+                $('#comment-pagination').twbsPagination('destroy');
             }
             if(totalPages<=1){
-                $('#picture-comment-pagination').hide();
+                $('#comment-pagination').hide();
             }else{
-                $('#picture-comment-pagination').show();
+                $('#comment-pagination').show();
             }
-            $('#picture-comment-pagination').twbsPagination({
+            $('#comment-pagination').twbsPagination({
                 totalPages: totalPages||1,
                 visiblePages: (function(){
                     if(totalPages>7){
@@ -121,7 +121,7 @@ app.picureDetail = (function () {
                     });
 
 
-                    $('#picture-commit-box').empty().append(`
+                    $('#commit-box').empty().append(`
                         <p class="commit-num f-14">${res.data.length}条评论</p>
                         <div class="commit-text">
                            ${htmlStr}
