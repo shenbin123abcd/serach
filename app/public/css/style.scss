@@ -1639,10 +1639,14 @@ body{
                                     }
                                 }
                                 .item-desc{
-                                    display: inline-block;
-                                    float:left;
-                                    margin-left: 50px;
+                                  display: inline-block;
+                                  float:left;
+                                  //margin-left: 50px;
+                                  margin-left: -50px;
+                                  width: 100%;
+                                  padding-left: 100px;
                                     p{
+
                                         color:#666666;
                                         line-height: 25px;
                                         .name{
@@ -2240,8 +2244,9 @@ body{
                     }
                     .commit-box{
                         .text-item-wrapper{
-                            &.active{
+                            &.active,&:hover{
                                 background:#f7f4fd;
+
                             }
                         }
                     }

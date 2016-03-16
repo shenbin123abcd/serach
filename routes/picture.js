@@ -193,6 +193,8 @@ router.post('/comment',token.verifyToken, function(req, res, next){
         res.json({iRet: 0, info: '评论内容不能为空'});
     }
     data.module = 'picture';
+    data.uid = req.user.id;
+    data.username = req.user.username;
     obj.add('comment', data, req).then(function(body){
         if(body.iRet === 1){
             res.json({iRet: 1, info: '评论成功'});
@@ -216,7 +218,7 @@ router.get('/comment/:id', function(req, res){
 
     obj.getList('comment', req, {module: 'picture', record_id: id, per_page: req.config.perPage.comments}).then(function(body){
         if(body.iRet === 1){
-            res.json({iRet: 1, info: '评论成功', data: body.data});
+            res.json({iRet: 1, info: 'success', data: body.data});
         }else{
             res.json({iRet: 0, info: '网络繁忙，请稍候再试', error: body.info});
         }
