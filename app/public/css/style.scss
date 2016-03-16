@@ -1273,7 +1273,7 @@ body{
                   position: relative;
                   &.active{
                     .text{
-                      color: #b08dfd;
+                      color: #f3903e;
                     }
                   }
                   .bar{
@@ -1958,14 +1958,23 @@ body{
                     .category{
                         border-top:none;
                     }
-                    li{
-                        height:50px;
-                        &.active{
-                            border-top: 2px solid #b08dfd;
-                            a{
-                                background: #fff;
-                                border:none;
+                    .nav.nav-tabs{
+                        li{
+                            height:50px;
+                            &.active{
+                                border-top: 2px solid #b08dfd;
+                                a{
+                                    background: #fff;
+                                    border:none;
+                                }
                             }
+                        }
+                    }
+                }
+                .tab-title-right{
+                    a.active{
+                        .text{
+                            color:#b08dfd;
                         }
                     }
                 }

@@ -31,16 +31,16 @@
             <div class="col-md-12 col-sm-12 search_button_group">
                 <form action="">
                     <div class="col-md-3 col-xs-3 col-sm-3">
-                        <a class="f-12">童话</a>
+                        <a class="f-12" href="?<%=search(data.query,{tag:'童话',page:1})%>">童话</a>
                     </div>
                     <div class="col-md-3 col-xs-3 col-sm-3">
-                        <a class="f-12">波普</a>
+                        <a class="f-12" href="?<%=search(data.query,{tag:'波普',page:1})%>">波普</a>
                     </div>
                     <div class="col-md-3 col-xs-3 col-sm-3">
-                        <a class="f-12">新中式</a>
+                        <a class="f-12" href="?<%=search(data.query,{tag:'新中式',page:1})%>">新中式</a>
                     </div>
-                    <div class="col-md-3 col-xs-3 col-sm-3">
-                        <a class="f-12">公主风</a>
+                    <div class="col-md-3 col-xs-4 col-sm-3">
+                        <a class="f-12" href="?<%=search(data.query,{tag:'公主风',page:1})%>">公主风</a>
                     </div>
                 </form>
             </div>
@@ -97,8 +97,18 @@
                 </div>
                 <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listStyle'){ %>active<%}%>" id="tab2">
                     <ul>
-                        <% data.listStyle.forEach(function(item){ %>
-                        <li><a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{tag:item,page:1}) %>"><%= item %></a></li>
+                        <% data.listStyle.forEach(function(item,i){ %>
+                        <li>
+                            <% if(i==0){ %>
+                            <a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{page:1},'tag') %>">
+                                <%= item %>
+                            </a>
+                            <% }else{ %>
+                            <a class="<% if (data.tag==item){ %>active<%}%>" href="?<%=search(data.query,{tag:item,page:1}) %>">
+                                <%= item %>
+                            </a>
+                            <% } %>
+                        </li>
                         <% }); %>
                     </ul>
                 </div>
@@ -118,9 +128,9 @@
                         <p class="f-12 s-title f-black"><%= data.caseList[i].company %></p>
                         <div class="content-item-text-desc">
                             <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.caseList[i].views %></span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.caseList[i].comments %></span></li>
+                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.caseList[i].points %></span></li>
                             </ul>
                         </div>
                     </div>
