@@ -16,15 +16,18 @@ router.get('/', function(req, res, next){
             if (data.length > 0) {
                 data.forEach(function(val, index){
                     if (val.logo.length > 0) {
-                        val.logo = req.config.url.company + '/' + val.logo;
+                        val.logo = req.config.url.company + '/' + val.logo +"?imageView2/1/w/200/h/200";
                     } else {
                         val.logo = 'img/nopic.png';
                     }
                 });
             }
-            res.json(data);
-
-            /*data.title = '公司列表';
+            /*res.json(data);*/
+            data.baseUrl=req.baseUrl;
+            data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+            data.query=req.query;
+            data.keywords=req.query.keywords;
+            data.title = '公司列表';
             data.region = [
                 {city: "全国", id: 0},
                 {city: '上海', id: 793},
@@ -62,7 +65,10 @@ router.get('/', function(req, res, next){
                 {city: '香港', id: 3226},
                 {city: '澳门', id: 3227},
             ];
-            res.render('company_index', {data: data});*/
+            data.forEach(function(n,i){
+                n.cover=req.config.url.company + '/'+n.cover+"?imageView2/1/w/200/h/200";
+            })
+            res.render('company_index', {data: data});
         } else if (body.iRet === 0) {
             res.json({iRet: 0, info: '数据不存在', error: body.info});
         } else {
@@ -85,7 +91,6 @@ router.get('/detail/:id', function(req, res, next){
     obj.getInfo('company', id, req).then(function(body){
         if(body.iRet === 1){
             return body.data;
-
 
         }else if(body.iRet === 0){
             res.sendStatus(404);
@@ -118,10 +123,11 @@ router.get('/detail/:id', function(req, res, next){
             return data;
         });
     }).then(function(data){
-        res.json(data);
-
-        //data.pageTitle = '公司详情页';
-        //res.render('company_detail', {data: data});
+       /* res.json(data);*/
+        data.pageTitle = '公司详情页';
+        data.cover=req.config.url.company + '/'+data.cover;
+        data.company_logo=req.config.url.company + '/'+data.company_logo;
+        res.render('company_detail', {data: data});
     });
 
 });

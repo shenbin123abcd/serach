@@ -121,11 +121,11 @@
     <div class="container">
         <% data.caseList.forEach(function(n,i){ %>
             <div class="col-md-2 col-sm-4">
-                <a href="case/detail/<%= data.caseList[i].id %>" class="block-content-item">
-                    <img src="<%= data.caseList[i].cover %>" alt="">
+                <div  class="block-content-item">
+                    <a href="case/detail/<%= data.caseList[i].id %>"><img src="<%= data.caseList[i].cover %>" alt="" ></a>
                     <div class="content-item-text">
-                        <h4 class="f-16 omit"><%= data.caseList[i].title %></h4>
-                        <p class="f-12 s-title f-black"><%= data.caseList[i].company %></p>
+                        <a href="case/detail/<%= data.caseList[i].id %>"><h4 class="f-16 omit"><%= data.caseList[i].title %></h4></a>
+                        <a href="company/detail/<%=data.caseList[i].company_id  %>"><p class="f-12 s-title f-black"><%= data.caseList[i].company %></p></a>
                         <div class="content-item-text-desc">
                             <ul class="desc-list">
                                 <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.caseList[i].views %></span></li>
@@ -134,7 +134,7 @@
                             </ul>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         <% }) %>
     </div>
@@ -161,11 +161,11 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-
+        app.common.omit("omit",8);
         /*caseIndex*/
         app.caseIndex.tab();
         app.caseIndex.pagActive();
-        app.caseIndex.omit();
+
     })
 
 

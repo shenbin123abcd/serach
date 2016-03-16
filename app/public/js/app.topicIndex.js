@@ -1,5 +1,6 @@
 app.topicIndex=(function(){
     "use strict";
+    var searchPara = hb.location.url("?") || {};
     function pagActive(){
         $('#pagination').twbsPagination({
             totalPages: 15,
@@ -8,7 +9,7 @@ app.topicIndex=(function(){
             prev :'<',
             next :'>',
             last:'>>',
-            href: `?keyword=${searchPara.keyword||''}&page={{number}}` ,
+            href: `?tag=${searchPara.tag||''}&page={{number}}` ,
         });
     }
     return{

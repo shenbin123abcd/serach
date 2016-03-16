@@ -7,28 +7,7 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search case company">
-<div class="top-tab">
-    <div class="container">
-        <div class="tab-item no-margin-left">
-            <a href="">
-                <span class="item-img"><img src="/images/img1.png" alt=""></span>
-                <span class="item-text">婚礼案例</span>
-            </a>
-        </div>
-        <div class="tab-item">
-            <a href="">
-                <span class="item-img"><img src="/images/img2.png" alt=""></span>
-                <span class="item-text">婚礼图片</span>
-            </a>
-        </div>
-        <div class="tab-item">
-            <a href="">
-                <span class="item-img"><img src="/images/img3.png" alt=""></span>
-                <span class="item-text">婚礼公司</span>
-            </a>
-        </div>
-    </div>
-</div>
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
 <div class="search-box">
     <div class="container">
         <div class="search-box-text">
@@ -38,13 +17,13 @@
         <div class='search-box-input col-md-6 col-md-push-3'>
             <div class="col-md-12 col-sm-12">
                 <div class="search_input">
-                    <form action="">
+                    <form action="<%= data.baseUrl %>">
                         <span class="search_wrapper">
-                            <input type="text" placeholder="搜索有关婚礼的一切">
-                            <a class="search_button" type="submit">
+                            <input type="text" placeholder="搜索有关婚礼的一切" value="" name="keywords">
+                            <button class="search_button" type="submit">
                                 <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
-                            </a>
+                            </button>
                         </span>
                     </form>
                 </div>
@@ -69,7 +48,7 @@
     <div class="container">
         <div class="tab-title">
             <div class="tab-title-left">
-                <a href="" class="category box-shadow active">地区</a>
+                <a class="category box-shadow active">地区</a>
             </div>
         </div>
     </div>
@@ -90,73 +69,22 @@
     </div>
     <div class="company-list-block">
         <div class="container">
-            <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">北京艾恩婚礼</h4>
-                        <p class="f-12 s-title f-black">共12个案例</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">北京艾恩婚礼</h4>
-                        <p class="f-12 s-title f-black">共12个案例</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">北京艾恩婚礼</h4>
-                        <p class="f-12 s-title f-black">共12个案例</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">北京艾恩婚礼</h4>
-                        <p class="f-12 s-title f-black">共12个案例</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">北京艾恩婚礼</h4>
-                        <p class="f-12 s-title f-black">共12个案例</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a href="" class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">北京艾恩婚礼</h4>
-                        <p class="f-12 s-title f-black">共12个案例</p>
-                    </div>
-                </a>
-            </div>
+            <% data.forEach(function(n,i){ %>
+                <div class="col-md-2 col-sm-4">
+                    <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
+                        <img src="<%= n.logo %>" alt="">
+                        <div class="content-item-text">
+                            <h4 class="f-16"><%= n.name %></h4>
+                            <p class="f-12 s-title f-black">共12个案例</p>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
         </div>
     </div>
     <div class="case-pagination">
         <div class="container">
-            <ul class="pagination pagination-item">
-                <li><a href="#" class="no-margin-left"> < </a></li>
-                <li><a href="#" class="active">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#"> > </a></li>
-            </ul>
+            <ul id="pagination" class="pagination pagination-item"></ul>
         </div>
     </div>
 </div>
@@ -169,6 +97,7 @@
 
 <script>
     $(function(){
+        window.appData = <%- JSON.stringify(data) %>;
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();
@@ -178,10 +107,11 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
+        app.common.omit("content-item-text>h4",11);
 
         /*companyIndex*/
         app.companyIndex.regionTab();
-
+        app.companyIndex.pagActive();
     })
 
 
