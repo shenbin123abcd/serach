@@ -1,6 +1,7 @@
 app.companyIndex=(function(){
     "use strict";
     var searchPara = hb.location.url("?") || {};
+    var arrOut=[];
     var regionTab=function(){
         $('.city-list>li>a').on("click", function (event) {
             var _this = this;
@@ -17,12 +18,15 @@ app.companyIndex=(function(){
                         arr.push(region[index].region_name);
                     }
                 })
+                console.log(arr);
+                arrOut=arr;
                 for (var i = 0; i < arr.length; i++) {
                     html += '<li><a href="">' + arr[i] + '</a></li>';
                 }
                 $(".area-list").html(html);
-            })
-        })
+            });
+        });
+        //console.log(arrOut);
     };
     function pagActive(){
         $('#pagination').twbsPagination({
@@ -32,7 +36,7 @@ app.companyIndex=(function(){
             prev :'<',
             next :'>',
             last:'>>',
-            href: `?keyword=${searchPara.keyword||''}&page={{number}}` ,
+            href: `?keywords=${searchPara.keywords||''}&page={{number}}` ,
         });
 
     }

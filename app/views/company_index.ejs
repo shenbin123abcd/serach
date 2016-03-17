@@ -19,8 +19,8 @@
                 <div class="search_input">
                     <form action="<%= data.baseUrl %>">
                         <span class="search_wrapper">
-                            <input type="text" placeholder="搜索有关婚礼的一切" value="" name="keywords">
-                            <button class="search_button" type="submit">
+                            <input type="text" placeholder="搜索有关婚礼的一切" value="<%= data.keywords %>" name="keywords">
+                            <button class="search_button company" type="submit">
                                 <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
@@ -31,13 +31,13 @@
             <div class="col-md-12 col-sm-12 search_button_group">
                 <form action="">
                     <div class="col-md-4 col-xs-4 col-sm-4">
-                        <a class="f-12">上海婚礼主义</a>
+                        <a class="f-12" href="?<%=search(data.query,{keywords:"上海婚礼主义",page:1})%>">上海婚礼主义</a>
                     </div>
                     <div class="col-md-4 col-xs-4 col-sm-4">
-                        <a class="f-12">诺丁山企划</a>
+                        <a class="f-12" href="?<%=search(data.query,{keywords:"诺丁山企划",page:1})%>">诺丁山企划</a>
                     </div>
                     <div class="col-md-4 col-xs-4 col-sm-4">
-                        <a class="f-12">Dream Wedding</a>
+                        <a class="f-12" href="?<%=search(data.query,{keywords:"Dream Wedding",page:1})%>">Dream Wedding</a>
                     </div>
                 </form>
             </div>

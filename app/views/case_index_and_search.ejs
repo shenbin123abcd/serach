@@ -19,7 +19,7 @@
                 <div class="search_input">
                     <form action="<%= data.baseUrl %>">
                         <span class="search_wrapper">
-                            <input type="text" placeholder="搜索有关婚礼的一切" value="<% data.tag %>" name="tag">
+                            <input type="text" placeholder="搜索有关婚礼的一切" value="<%= data.tag %>" name="tag">
                             <button class="search_button" type="submit">
                                <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
@@ -165,7 +165,6 @@
         /*caseIndex*/
         app.caseIndex.tab();
         app.caseIndex.pagActive();
-
     })
 
 
