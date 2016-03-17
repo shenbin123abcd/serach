@@ -32,8 +32,9 @@ app.common=(function(){
         var num=((wrapperWidth-innerWidth)/2);
         $("."+inner).css("position","relative").css("left",num);
     };
-    function omit(text,num){
-        $("."+text).text($("."+text).text().substr(0,num)+"...");
+    function omit(Newtext,num){
+        var text = $("."+Newtext).text()
+        $("."+Newtext).text(text.substr(0,num)+"...");
     }
     return {
         companyDesc:companyDesc,

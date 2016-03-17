@@ -1051,6 +1051,7 @@ body{
                     h4{
                         line-height:20px;
                         color:#666666;
+
                     }
                     p{
                         color:#666666;
@@ -1372,6 +1373,9 @@ body{
                 line-height: 20px;
                 h4{
                     line-height: 20px;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                    overflow:hidden;
                 }
                 .content-item-text-desc{
                     .desc-list{
@@ -1789,6 +1793,9 @@ body{
                             }
                             p{
                                 line-height: 20px;
+                                text-overflow:ellipsis;
+                                white-space:nowrap;
+                                overflow:hidden;
                             }
                         }
                     }
@@ -1894,6 +1901,9 @@ body{
                 h4{
                     line-height: 20px;
                     color:#666666;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                    overflow:hidden;
                 }
                 p{
                     color:#666666;
