@@ -8,7 +8,7 @@ var token = require('../module/token');
 //var obj = require('../module/module');
 
 router.get('/checkLogin', token.verifyToken, function(req, res){
-    req.json({iRet: 1, info: 'success'});
+    res.json({iRet: 1, info: 'success'});
 });
 
 module.exports = router;

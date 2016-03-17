@@ -4,7 +4,7 @@
 var config = {};
 config.apiUrl = 'http://api.data.com';
 config.JWT_SECRET = 'sdDjkGpskdjflj3289324w98#@$%^';
-config.redis = {port: 6379, host: '10.0.1.85'}; // 10.0.1.85
+config.redis = {port: 6379, host: '10.0.1.88'};
 config.NOT_CHECK_AUTH = ['', 'login', 'public'];
 
 config.url = {
