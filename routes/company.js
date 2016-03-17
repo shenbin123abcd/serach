@@ -6,6 +6,7 @@ var obj = require('../module/module');
 router.get('/', function(req, res, next){
     var params = {per_page: req.config.perPage.picture, 'filter[if_show]': 1, 'filter[cate_id]': 2, page: req.query.page || 1};
     var r = req.query.r || 0;
+
     if(req.query.keywords){
         params.title = req.query.keywords;
     }
@@ -16,22 +17,25 @@ router.get('/', function(req, res, next){
 
     obj.getList('company', req, params).then(function(body){
         if (body.iRet === 1) {
-            var data = body.data.data;
-            if (data.length > 0) {
-                data.forEach(function(val, index){
+            var data = body.data;
+
+            if (data.data.length > 0) {
+                data.data.forEach(function(val, index){
                     if (val.logo.length > 0) {
                         val.logo = req.config.url.company + '/' + val.logo +"?imageView2/1/w/200/h/200";
                     } else {
-                        val.logo = 'img/nopic.png';
+                        val.logo = '/images/company-logo-sample.png';
                     }
                 });
             }
-            res.json(data);return;
+            //res.json(data);return;
             data.baseUrl=req.baseUrl;
             data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
             data.query=req.query;
             data.keywords=req.query.keywords;
             data.title = '公司列表';
+            data.totalPages=Math.ceil(data.total/data.per_page);
+
             data.region = [
                 {city: "全国", id: 0},
                 {city: '上海', id: 793},
@@ -69,7 +73,7 @@ router.get('/', function(req, res, next){
                 {city: '香港', id: 3226},
                 {city: '澳门', id: 3227},
             ];
-            data.forEach(function(n,i){
+            data.data.forEach(function(n,i){
                 n.cover=req.config.url.company + '/'+n.cover+"?imageView2/1/w/200/h/200";
             })
             res.render('company_index', {data: data});
