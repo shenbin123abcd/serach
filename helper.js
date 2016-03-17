@@ -35,7 +35,8 @@ helper.search = function(query,partQuery,removeQuery) {
                         return
                     }
                 });
-                if(!isMatch){
+                if(!isMatch&&params[n]){
+
                     paramsAfterRemove[n] = params[n];
                 }
             });
