@@ -9,7 +9,7 @@ var Promise = require("bluebird"),
     mod = {};
 
 mod.getList = function(path, req, params){
-    params = params ? params : {};
+    params = params || {};
     params.sid = global.sid;
     params.page = req.query.page ? req.query.page : (params.page ? params.page : 1);
     params.per_page = req.query.per_page ? req.query.per_page : (params.per_page ? params.per_page : 6);
@@ -68,9 +68,11 @@ mod.delete = function(path, id, req){
 };
 
 // 获取
-mod.getInfo = function(path, id, req){
+mod.getInfo = function(path, id, req, params){
+    params = params || {};
+    params.if_show = 1;
     var headers = {'x-forwarded-for': req.header('x-forwarded-for') || req.connection.remoteAddress},
-        options = {url: config.apiUrl + '/'+ path +'/' + id + '?if_show=1', headers: headers};
+        options = {url: config.apiUrl + '/'+ path +'/' + id + '?' + querystring.stringify(params), headers: headers};
     return request.getAsync(options).then(function(res){
         return JSON.parse(res.body);
     }).error(function(err){

@@ -5,9 +5,13 @@ var obj = require('../module/module');
 // 列表
 router.get('/', function(req, res, next){
     var params = {per_page: req.config.perPage.picture, 'filter[if_show]': 1, 'filter[cate_id]': 2, page: req.query.page || 1};
-
+    var r = req.query.r || 0;
     if(req.query.keywords){
         params.title = req.query.keywords;
+    }
+
+    if(!isNaN(r) && r > 0 && r < 3228){
+        params.region_id = req.query.r;
     }
 
     obj.getList('company', req, params).then(function(body){
@@ -22,7 +26,7 @@ router.get('/', function(req, res, next){
                     }
                 });
             }
-            /*res.json(data);*/
+            res.json(data);return;
             data.baseUrl=req.baseUrl;
             data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
             data.query=req.query;
@@ -69,8 +73,6 @@ router.get('/', function(req, res, next){
                 n.cover=req.config.url.company + '/'+n.cover+"?imageView2/1/w/200/h/200";
             })
             res.render('company_index', {data: data});
-        } else if (body.iRet === 0) {
-            res.json({iRet: 0, info: '数据不存在', error: body.info});
         } else {
             res.sendStatus(500);
         }
@@ -88,7 +90,7 @@ router.get('/detail/:id', function(req, res, next){
         return;
     }
 
-    obj.getInfo('company', id, req).then(function(body){
+    obj.getInfo('company', id, req, {cate_id:2}).then(function(body){
         if(body.iRet === 1){
             return body.data;
 
