@@ -51,7 +51,7 @@
     <% if (!data.isMatchTag&&data.tag) { %>
     <div class="search-result">
         <div class="container">
-            <p>您目前在 婚礼案例 搜索关键字<span>“ <%=data.tag%> ”</span>，共找到 <%= data.total %> 个内容</p>
+            <p>您目前在 婚礼案例 搜索关键字<span class="keyword">“ <%=data.tag%> ”</span>，共找到 <%= data.total %> 个内容</p>
         </div>
     </div>
     <% }else{ %>
@@ -61,6 +61,13 @@
         <div class="tab-list">
             <div class="tab-title">
                 <div class="tab-title-left">
+                    <% if (data.query.color){ %>
+                    <style>
+                        .halo-search.case.picture .tab-list .tab-title .tab-title-left .nav.nav-tabs li.active {
+                            border-top: 2px solid <%= '#'+data.query.color %>!important;
+                        }
+                    </style>
+                    <%}%>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="<% if (data.activeTab=='listColor'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab" class="category">颜色</a></li>
                         <li class="<% if (data.activeTab=='listStyle'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab" class="category">风格</a></li>

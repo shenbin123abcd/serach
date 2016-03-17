@@ -29,7 +29,7 @@
                             <div class="title-desc-color inline-style">
                                 <div class="color-liner">
                                     <% data.colorArr.forEach(function(n,i){ %>
-                                    <span style="background:<%= data.colorArr[i] %>"></span>
+                                    <a class="color" href="/picture?color=<%= data.colorArr[i].substring(1) %>" style="background:<%= data.colorArr[i] %>"></a>
                                     <% }) %>
                                 </div>
                             </div>
