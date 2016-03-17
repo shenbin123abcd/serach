@@ -221,7 +221,7 @@ app.service.picture=(function(){
                 url: "/picture/comment/"+data.id,
                 data: {},
                 success: function(res, textStatus, errorThrown) {
-                    console.log(res);
+                    //console.log(res);
                     if(res.iRet==1){
                         deferred.resolve(res.data);
                     }else{
@@ -416,7 +416,7 @@ app.service.case=(function(){
                 url: "/case/comment/"+data.id,
                 data: {},
                 success: function(res, textStatus, errorThrown) {
-                    console.log(res);
+                    //console.log(res);
                     if(res.iRet==1){
                         deferred.resolve(res.data);
                     }else{

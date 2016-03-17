@@ -24,8 +24,9 @@
                             </div>
                             <div class="title-desc-color inline-style">
                                  <div class="color-liner">
+
                                      <% data.colorArr.forEach(function(n,i){ %>
-                                     <span style="background:<%= n %>"></span>
+                                     <a class="color" href="/case?color=<%= data.colorArr[i].substring(1) %>" style="background:<%= data.colorArr[i] %>"></a>
                                      <% }) %>
                                  </div>
                             </div>

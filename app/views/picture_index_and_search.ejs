@@ -59,9 +59,10 @@
 
     <div class="search-result">
         <div class="container">
-            <p>您目前在 婚礼图片 搜索关键字<span>“ <%= data.tag %> ”</span>，共找到 <%= data.total %> 个内容</p>
+            <p>您目前在 婚礼图片 搜索关键字<span class="keyword">“ <%= data.tag %> ”</span>，共找到 <%= data.total %> 个内容</p>
         </div>
     </div>
+
 
     <% }else{ %>
 
@@ -70,9 +71,24 @@
         <div class="tab-list">
             <div class="tab-title">
                 <div class="tab-title-left">
+                    <% if (data.query.color){ %>
+                    <style>
+                        .halo-search.case.picture .tab-list .tab-title .tab-title-left .nav.nav-tabs li.active {
+                            border-top: 2px solid <%= '#'+data.query.color %>!important;
+                        }
+                    </style>
+                    <%}%>
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="<% if (data.activeTab=='element'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab" class="category">元素</a></li>
-                        <li class="<% if (data.activeTab=='classify'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab" class="category">分类</a></li>
+                        <li
+                            class="<% if (data.activeTab=='element'){ %>active<%}%>"
+                            >
+                            <a href="#tab1"  data-toggle="tab" class="category">元素</a>
+                        </li>
+                        <li
+                            class="<% if (data.activeTab=='classify'){ %>active<%}%>"
+                            >
+                            <a href="#tab2" data-toggle="tab" class="category">分类</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="tab-title-right">
@@ -91,7 +107,7 @@
                         <li>
                             <% if (i==0){ %>
                                 <a class="<% if (data.tag==item){ %>active<%}%>"
-                                   href="?<%=search(data.query,{page:1},'tag')%>">
+                                   href="?<%=search(data.query,{page:1},['tag','color'])%>">
                                     <%= item %>
                                 </a>
                             <%}else{%>
