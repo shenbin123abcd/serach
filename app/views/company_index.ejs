@@ -74,8 +74,8 @@
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
                         <img src="<%= n.logo %>" alt="">
                         <div class="content-item-text">
-                            <h4 class="f-16"><%= n.name %></h4>
-                            <p class="f-12 s-title f-black">共12个案例</p>
+                            <h4 class="f-16"><%= data[i].name %></h4>
+                            <p class="f-12 s-title f-black"><%= n.total %></p>
                         </div>
                     </a>
                 </div>
@@ -107,7 +107,7 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-        app.common.omit("content-item-text>h4",11);
+        //app.common.omit("content-item-text>h4",11);
 
         /*companyIndex*/
         app.companyIndex.regionTab();
