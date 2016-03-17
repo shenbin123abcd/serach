@@ -6,6 +6,7 @@ var obj = require('../module/module');
 router.get('/', function(req, res, next){
     var params = {per_page: req.config.perPage.picture, 'filter[if_show]': 1, 'filter[cate_id]': 2, page: req.query.page || 1};
     var r = req.query.r || 0;
+
     if(req.query.keywords){
         params.title = req.query.keywords;
     }
@@ -33,6 +34,7 @@ router.get('/', function(req, res, next){
             data.query=req.query;
             data.keywords=req.query.keywords;
             data.title = '公司列表';
+            data.totalPages=Math.ceil(data.total/data.per_page);
 
             data.region = [
                 {city: "全国", id: 0},

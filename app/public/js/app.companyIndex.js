@@ -85,14 +85,27 @@ app.companyIndex=(function(){
         //})
     };
     function pagActive(){
+        var totalPages=Math.ceil(appData.total/appData.per_page);
+        //console.log(appData.total,appData.per_page,searchPara)
+
+        //console.log(totalPages);
+        //console.log((searchPara.sort?'&sort='+searchPara.sort:''),(searchPara.tag?'&tag='+searchPara.tag:''));
+        //console.log(encodeURIComponent('新娘捧花'));
         $('#pagination').twbsPagination({
-            totalPages: 15,
-            visiblePages: 5 ,
+            totalPages: totalPages||1,
+            visiblePages: (function(){
+                if(totalPages>7){
+                    return 7;
+                }else{
+                    return totalPages||1;
+                }
+            }()) ,
             first : '<<',
             prev :'<',
             next :'>',
             last:'>>',
-            href: `?keyword=${searchPara.keyword||''}&page={{number}}` ,
+            //href: `?tag=${searchPara.tag||''}&page={{number}}` ,
+            href: '?page={{number}}'+ (searchPara.keywords?'&keywords='+encodeURIComponent(searchPara.keywords):'')+ (searchPara.r?'&r='+searchPara.r:''),
         });
 
     }
