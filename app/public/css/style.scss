@@ -811,7 +811,7 @@ body{
                     font-family:'Microsoft Yahei', 'Roboto', 'sans-serif';
                     width:100%;
                 }
-                a.search_button{
+                .search_button{
                     top: 0;
                     right: 15px;
                     height: 48px;
@@ -985,6 +985,9 @@ body{
                     position: absolute;
                     right:0;
                     bottom: 0;
+                    &:hover{
+                        color:#333;
+                    }
                 }
             }
             .block-line{

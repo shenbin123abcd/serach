@@ -2,6 +2,8 @@ app.searchIndex=(function(){
     "use strict";
     return {
         searchForm:function(){
+            var val1="";
+            var val2="";
             $('.drop').on('click', function() {
                 if($('.drop-list').hasClass('act')){
                     $(this).find('.drop-list').removeClass('act');
@@ -14,8 +16,21 @@ app.searchIndex=(function(){
                 return false;
             });
             $('.drop span button').on('click', function() {
-                $(".drop").find('b').text($(this).text()).css("color","#333");
+                var txt=$(this).text();
+                $(".drop").find('b').text(txt).css("color","#333");
                 $('.drop').find('span').slideUp(300);
+                if(txt=="婚礼案例"){
+                    val1="/case";
+                    val2="tag";
+                }else if(txt=="婚礼图片"){
+                    val1="/picture";
+                    val2="tag";
+                }else if(txt=="婚礼公司"){
+                    val1="/company";
+                    val2="keywords";
+                }
+                $('form').attr("action",val1);
+                $('input').attr("name",val2);
             });
             $('body').not($(".search-name ")).on("click",function(){
                 $('.drop').find('span').hide();
