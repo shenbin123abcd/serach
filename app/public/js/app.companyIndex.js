@@ -109,9 +109,25 @@ app.companyIndex=(function(){
         });
 
     }
+    function resizeLogo(){
+
+        //console.log($("#company-list img").naturalHeight());
+        $("#company-list img").on('load',function(){
+            //console.log($(this).naturalHeight());
+            if($(this).naturalHeight()<200){
+                $(this).outerHeight(171);
+            }
+
+        });
+
+
+
+
+    }
 
     return {
         regionTab: regionTab,
         pagActive:pagActive,
+        resizeLogo:resizeLogo,
     }
 }());
