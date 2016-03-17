@@ -57,25 +57,36 @@
         <div class="container">
             <div class="tab-list-content-wrapper box-shadow">
                 <div class="tab-list-content-item">
-                    <ul class="city-list">
+                    <ul  class="city-list">
                         <% data.region.forEach(function(n,i){ %>
-                            <li><a href="" data-id='<%= data.region[i].id %>'><%= data.region[i].city %></a></li>
+                        <% if (i==0){ %>
+                        <li><a href="?" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
+                        <%}else{%>
+                        <li><a href="?r=<%= n.id %>" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
+                        <%}%>
+
+
                         <% }) %>
                     </ul>
-                    <ul class="area-list show"></ul>
+
+                    <ul id="area-list-level-2" class="area-list show">
+                        <% if (data.query.r){ %>
+                        <div class="loading-box" ><i class="fa fa-spinner fa-spin"></i></div>
+                        <%}%>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="company-list-block">
         <div class="container">
-            <% data.forEach(function(n,i){ %>
+            <% data.data.forEach(function(n,i){ %>
                 <div class="col-md-2 col-sm-4">
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
                         <img src="<%= n.logo %>" alt="">
                         <div class="content-item-text">
-                            <h4 class="f-16"><%= data[i].name %></h4>
-                            <p class="f-12 s-title f-black"><%= n.total %></p>
+                            <h4 class="f-16"><%= n.name %></h4>
+                            <p class="f-12 s-title f-black">共<%= n.case_num %>个案例</p>
                         </div>
                     </a>
                 </div>
@@ -91,9 +102,7 @@
 <%- include('Public/ModalDialog'); %>
 <%- include('Public/footer'); %>
 <%- include('Public/common_footer'); %>
-
-<script src="../public/js/app.companyIndex.js"></script>
-
+<script src="../public/js/region.js"></script>
 
 <script>
     $(function(){
@@ -113,8 +122,6 @@
         app.companyIndex.regionTab();
         app.companyIndex.pagActive();
     })
-
-
 </script>
 </body>
 </html>
