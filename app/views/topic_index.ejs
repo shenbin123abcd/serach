@@ -38,13 +38,13 @@
             <div class='search-box-input col-md-6 col-md-push-3'>
                 <div class="col-md-12 col-sm-12">
                     <div class="search_input">
-                        <form action="">
+                        <form action="/case">
                         <span class="search_wrapper">
-                            <input type="text" placeholder="搜索有关婚礼的一切">
-                            <a class="search_button" type="submit">
+                            <input type="text" name="tag" placeholder="搜索有关婚礼的一切">
+                            <button class="search_button" type="submit">
                                 <!--<img src="/images/img5.png" alt="">-->
                                 <span class="glyphicon glyphicon-search"></span>
-                            </a>
+                            </button>
                         </span>
                         </form>
                     </div>
@@ -52,16 +52,16 @@
                 <div class="col-md-12 col-sm-12 search_button_group">
                     <form action="">
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">童话</a>
+                            <a class="f-12" href="/case?tag=剪影">剪影</a>
                         </div>
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">波普</a>
+                            <a class="f-12" href="/case?tag=波普">波普</a>
                         </div>
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">新中式</a>
+                            <a class="f-12" href="/case?tag=新中式">新中式</a>
                         </div>
                         <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-12">公主风</a>
+                            <a class="f-12" href="/case?tag=公主风">公主风</a>
                         </div>
                     </form>
                 </div>
@@ -71,48 +71,58 @@
     <div class="topic-list">
          <div class="container wrapper">
              <div class="col-md-10 col-sm-12 col-xs-12 inner">
-                 <div class="list-content-item">
-                     <div class="item-pic">
-                         <img src="/images/img9.jpg" alt="">
-                     </div>
-                     <div class="item-text">
-                         <h4 class="f-22">梦回民国</h4>
-                         <p class="item-text-p">国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国
-                             国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国
-                             国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国
-                             国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国</p>
-                         <div class="title-desc-icon inline-style">
-                             <ul class="desc-list">
-                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
 
+                 <% data.data.forEach(function(item){ %>
                  <div class="list-content-item">
                      <div class="item-pic">
-                         <img src="/images/img9.jpg" alt="">
+                         <a href="topic/detail/<%=item.id%>"><img src="<%=item.default_image%>" alt=""></a>
                      </div>
                      <div class="item-text">
-                         <h4 class="f-22">梦回民国</h4>
-                         <p class="item-text-p">国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国
-                             国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国
-                             国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国
-                             国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国</p>
+                         <h4 class="f-22"><a href="topic/detail/<%=item.id%>"><%=item.title%></a></h4>
+                         <p class="item-text-p"><%=item.description%></p>
                          <div class="title-desc-icon inline-style">
                              <ul class="desc-list">
-                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=item.views%></span></li>
+                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=item.points%></span></li>
+                                 <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=item.comments%></span></li>
                              </ul>
                          </div>
                      </div>
                  </div>
+                 <%})%>
+
+
+
+                 <!--<div class="list-content-item">-->
+                     <!--<div class="item-pic">-->
+                         <!--<img src="/images/img9.jpg" alt="">-->
+                     <!--</div>-->
+                     <!--<div class="item-text">-->
+                         <!--<h4 class="f-22">梦回民国</h4>-->
+                         <!--<p class="item-text-p">国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国-->
+                             <!--国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国-->
+                             <!--国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国-->
+                             <!--国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国</p>-->
+                         <!--<div class="title-desc-icon inline-style">-->
+                             <!--<ul class="desc-list">-->
+                                 <!--<li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>-->
+                                 <!--<li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>-->
+                                 <!--<li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>-->
+                             <!--</ul>-->
+                         <!--</div>-->
+                     <!--</div>-->
+                 <!--</div>-->
              </div>
          </div>
     </div>
+    <% if (data.totalPages>1) { %>
+    <div class="case-pagination">
+        <div class="container">
+            <ul id="pagination" class="pagination pagination-item"></ul>
+        </div>
+    </div>
+    <%}%>
+
 </div>
     <%- include('Public/ModalDialog'); %>
     <%- include('Public/footer'); %>
@@ -121,6 +131,7 @@
     <script>
         $(function(){
             "use strict";
+            window.appData = <%- JSON.stringify(data) %>;
             app.index.lazy();
             app.index.nav();
             app.index.indexInit();
@@ -131,7 +142,8 @@
             app.index.summitHover();
             app.index.loginInit();
 
-            app.topicList.alignCenter("wrapper","inner");
+            app.topicIndex.alignCenter("wrapper","inner");
+            app.topicIndex.pagActive();
 
 
 

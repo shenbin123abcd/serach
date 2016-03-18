@@ -25,7 +25,7 @@ router.get('/', function(req, res, next){
         var data=data;
 
         data.data.forEach((n,i)=>{
-            n.path=req.config.url.case+'/' +n.path+'?imageView2/1/w/200/h/150';
+            n.default_image=req.config.url.case+'/' +n.default_image+'?imageView2/1/w/900/h/482';
         });
 
         data.baseUrl=req.baseUrl;
@@ -38,7 +38,6 @@ router.get('/', function(req, res, next){
         data.pageTitle='专题首页';
         data.tag=req.query.tag;
         data.sort=req.query.sort;
-
 
 
         data.totalPages=Math.ceil(data.total/data.per_page);

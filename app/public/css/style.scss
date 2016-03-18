@@ -906,7 +906,6 @@ body{
                     max-width: 100%;
                     display: block;
                     z-index:2;
-                    display:relative;
                 }
                 .pic-list-item-text{
                     .item-text-top{
@@ -2254,6 +2253,7 @@ body{
         overflow: hidden;
         margin-top:20px;
         .list-content-item{
+          display: block;
             margin-top:20px;
             overflow: hidden;
             .item-pic{
