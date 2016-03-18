@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var obj = require('../module/module');
+var token = require('../module/token');
+var url = require('url');
 
 // 列表
 router.get('/', function(req, res, next){
@@ -10,8 +12,8 @@ router.get('/', function(req, res, next){
         if (body.iRet === 1) {
             var data = body.data;
 
-
-            res.json(data);
+            //res.json(data);
+            return data;
             // res.render('topic_index', {title: '专题列表'});
         } else {
             res.sendStatus(500);
@@ -19,6 +21,30 @@ router.get('/', function(req, res, next){
     }, function(error){
         console.log(error);
         res.sendStatus(500);
+    }).then(function(data){
+        var data=data;
+
+        data.data.forEach((n,i)=>{
+            n.path=req.config.url.case+'/' +n.path+'?imageView2/1/w/200/h/150';
+        });
+
+        data.baseUrl=req.baseUrl;
+        data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+        data.query=req.query;
+
+        var urlObj=url.parse(data.absUrl);
+        data.route=urlObj.pathname.replace(req.baseUrl,'');
+
+        data.pageTitle='专题首页';
+        data.tag=req.query.tag;
+        data.sort=req.query.sort;
+
+
+
+        data.totalPages=Math.ceil(data.total/data.per_page);
+
+        res.render('topic_list', {data: data});
+
     });
 });
 

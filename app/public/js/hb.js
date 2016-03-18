@@ -413,7 +413,14 @@
 
         haloBear.util.deParam=QueryStringToHash;
     })(window, document);
-
+    (function(window,document,undefined) {
+        "use strict";
+        var hideKeyboard = function() {
+            document.activeElement.blur();
+            $("input").blur();
+        };
+        haloBear.util.hideKeyboard=hideKeyboard;
+    })(window, document);
     (function(window,document,undefined) {
         "use strict";
 
