@@ -97,7 +97,7 @@
 
     <%}%>
 
-    <div class="company-list-block">
+    <div id="company-list" class="company-list-block">
         <div class="container">
             <% data.data.forEach(function(n,i){ %>
                 <div class="col-md-2 col-sm-4">
@@ -146,6 +146,7 @@
         /*companyIndex*/
         app.companyIndex.regionTab();
         app.companyIndex.pagActive();
+        app.companyIndex.resizeLogo();
     })
 </script>
 </body>
