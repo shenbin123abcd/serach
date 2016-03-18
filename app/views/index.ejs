@@ -229,12 +229,12 @@
             <% data.zhuanti.forEach(function(n,i){ %>
                 <div class="col-md-4 col-sm-12">
                 <div class="block-special-item">
-                    <a class="block-special-item-pic">
+                    <a class="block-special-item-pic" href="/topic/detail/<%= n.id%>">
                         <img src="<%= n.default_image%>" alt="">
                     </a>
                     <div class="block-special-item-desc">
                         <div class="item-desc-middle">
-                            <h4 class="f-16 f-black"><%= n.title%></h4>
+                            <a href="/topic/detail/<%= n.id%>"><h4 class="f-16 f-black"><%= n.title%></h4></a>
                             <p class="f-12 f-black"><%= n.description%></p>
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
