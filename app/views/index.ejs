@@ -55,7 +55,7 @@
         <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
         <div class="pic-list-item-text">
             <div class="item-text-top">
-                <p class="f-white f-12"><a href="/company/detail/<%= data.case_new[0].company_id %>"><%= data.case_new[0].company %></a></p>
+                <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12"><%= data.case_new[0].company %></p></a>
             </div>
             <a class="item-text-bottom" href="/case/detail/<%= data.case_new[0].id %>">
                 <div class="item-text-bottom-position">
@@ -122,10 +122,10 @@
             </div>
         </div>
     </div>
-<% for(var i=4; i<13;i++){ %>
+<% for(var i=3; i<12;i++){ %>
     <div class="xol-md-2 col-sm-4">
         <div class="pic-list-item">
-            <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img">
+            <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img">
             <div class="pic-list-item-text">
                 <div class="item-text-top">
                     <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-10"><span><%= data.case_new[i].company %></span></p></a>
