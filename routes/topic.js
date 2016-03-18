@@ -112,7 +112,7 @@ router.post('/comment',token.verifyToken, function(req, res, next){
     if (!data.content){
         res.json({iRet: 0, info: '评论内容不能为空'});
     }
-    data.module = 'case';
+    data.module = 'zhuanti';
     data.uid = req.user.id;
     data.username = req.user.username;
     obj.add('comment', data, req).then(function(body){

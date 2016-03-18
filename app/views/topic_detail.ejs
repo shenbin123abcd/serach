@@ -10,14 +10,14 @@
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="content-box">
         <div class="container">
-            <div class='col-md-9 col-sm-12'>
+            <div class='col-md-10 col-md-offset-1 col-sm-12'>
                 <div class="content-title">
                     <h1 class="f-22"><%=data.title%></h1>
                     <div class="title-desc-icon inline-style">
                         <ul class="desc-list">
                             <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
-                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=data.points%></span></li>
-                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=data.comments%></span></li>
+                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span id="desc-list-item-num-points" class="desc-list-item-num"><%=data.points%></span></li>
+                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span id="desc-list-item-num-comments" class="desc-list-item-num"><%=data.comments%></span></li>
                         </ul>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                             <%})%>
                         </div>
                         <p class="content-desc"><%=item.description%></p>
-                        <a href="" class="more">查看案例 <span>></span> </a>
+                        <a href="/case/detail/<%=item.id%>" class="more">查看案例 <span>></span> </a>
                     </div>
                     <%})%>
 
@@ -82,6 +82,7 @@
 <script>
     $(function(){
         "use strict";
+        window.appData = <%- JSON.stringify(data) %>;
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();
@@ -91,7 +92,9 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-
+        app.topicDetail.collect();
+        app.topicDetail.getComments();
+        app.topicDetail.comment();
     })
 
 
