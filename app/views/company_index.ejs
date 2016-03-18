@@ -132,6 +132,7 @@
 <script>
     $(function(){
         window.appData = <%- JSON.stringify(data) %>;
+        app.getStaticData();
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();

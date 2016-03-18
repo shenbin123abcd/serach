@@ -52,8 +52,44 @@
             init();
             return deferred.promise();
         }
+        function getStaticData(){
+            var deferred = $.Deferred();
+            sendXhr();
+            function sendXhr(){
+                $.ajax({
+                    method: "GET",
+                    url: "/api/total",
+                    data: {},
+                    success: function(res, textStatus, errorThrown) {
+                        //console.log(res);
+                        if(res.iRet==1){
+                            deferred.resolve(res.data);
+                        }else{
+                            deferred.reject(res.info);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        //var res=jqXHR.responseJSON;
+                        //console.log(res);
+                        //console.log(jqXHR);
+                        //if(res.iRet==-1){
+                        //    deferred.reject(res);
+                        //}else{
+                        deferred.reject('网络繁忙请稍候再试');
+                        //}
+                    }
+                })
+                ;
+
+            };
+            return deferred.promise();
+
+
+        }
         return {
             checkLogin:checkLogin,
+            getStaticData:getStaticData,
+
         };
     }());
 }());

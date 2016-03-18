@@ -413,6 +413,7 @@
 
         haloBear.util.deParam=QueryStringToHash;
     })(window, document);
+
     (function(window,document,undefined) {
         "use strict";
         var hideKeyboard = function() {
@@ -421,6 +422,42 @@
         };
         haloBear.util.hideKeyboard=hideKeyboard;
     })(window, document);
+
+    (function(window,document,undefined) {
+        "use strict";
+        /*
+         *
+         * 数字加逗号
+
+         */
+        var formatNumber = function(n) {
+            var numberWithCommas,wanN;
+            if(n>9999){
+                wanN=n/10000
+            }
+
+            numberWithCommas=function(x) {
+                var parts = x.toString().split(".");
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                parts[1]&&(parts[1]=parts[1].substr(0,1));
+                return parts.join(".");
+            };
+
+            if(n>9999){
+                //console.log(numberWithCommas(wanN),'万');
+
+
+                return numberWithCommas(wanN)+'万';
+            }
+
+            return numberWithCommas(n)
+
+        };
+        haloBear.util.formatNumber=formatNumber;
+    })(window, document);
+
+
+
     (function(window,document,undefined) {
         "use strict";
 
