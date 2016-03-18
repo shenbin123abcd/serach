@@ -10,9 +10,9 @@ var Promise = require("bluebird"),
 
 mod.getList = function(path, req, params){
     params = params || {};
-    params.sid = global.sid;
     params.page = req.query.page ? req.query.page : (params.page ? params.page : 1);
     params.per_page = req.query.per_page ? req.query.per_page : (params.per_page ? params.per_page : 6);
+    
 
     var headers = {'x-forwarded-for': req.header('x-forwarded-for') || req.connection.remoteAddress},
         options = {
