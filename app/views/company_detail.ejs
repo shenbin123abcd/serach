@@ -16,11 +16,11 @@
                           <img src="<%= data.cover %>" alt=""/>
                       </div>
                      <div class="company-desc">
-                         <div class="col-md-2 col-sm-2 desc-pic">
+                         <div class="desc-pic">
                              <img src="<%= data.company_logo %>" alt=""/>
                          </div>
-                         <div class="col-md-10 col-sm-10 desc-p">
-                             <p class="f-18 desc-txt"><%= data.name %></p>
+                         <div class="desc-p">
+                             <span class="f-18 desc-txt"><%= data.name %></span>
                          </div>
                      </div>
                      <div class="company-about">
@@ -36,12 +36,27 @@
                              <p class="about-title float-right">公司信息</p>
                          </div>
                          <div class="col-md-10 col-sm-10">
-                             <p>官方网址：<span><%= data.website %></span></p>
-                             <p>官方微博：<span><%= data.weibo_name %></span></p>
-                             <p>腾讯微信：<span><%= data.wechat %></span></p>
-                             <p>营业时间：<span><%= data.updated_at %></span></p>
-                             <p>联系电话：<span><%= data.tel_1 || data.tel_2 || data.tel_3%></span></p>
-                             <p>地址：<span><%= data.address %></span></p>
+                             <%if(data.website){%>
+                               <p>官方网址：<span><%= data.website %></span></p>
+                             <%}%>
+
+                             <%if(data.weibo_name){%>
+                                <p>官方微博：<span><%= data.weibo_name %></span></p>
+                             <%}%>
+
+                             <%if(data.wechat){%>
+                                <p>腾讯微信：<span><%= data.wechat %></span></p>
+                             <%}%>
+
+                             <%if(data.updated_at){%>
+                                <p>营业时间：<span><%= data.updated_at %></span></p>
+                             <%}%>
+                             <%if(data.tel_1 || data.tel_2 || data.tel_3){%>
+                                <p>联系电话：<span><%= data.tel_1 || data.tel_2 || data.tel_3%></span></p>
+                             <%}%>
+                             <%if(data.address){%>
+                                <p>地<span style="margin-left: 2em;">址</span>：<span><%= data.address %></span></p>
+                             <%}%>
                          </div>
                      </div>
                      <div class="company-about">

@@ -1966,9 +1966,26 @@ body{
                 vertical-align: middle;
                 position: relative;
                 overflow: hidden;
-                display: block;
+              display: table;
+              width: 100%;
+
+              .desc-pic{
+                display: table-cell;
+                width: 140px;
+                vertical-align: middle;
+                text-align: right;
+
+
+              }
+              .desc-p{
+                vertical-align: middle;
+                padding-left: 22px;
+                display: table-cell;
+                text-align: left;
+              }
                 img{
-                    border: 1px solid #eeeeee;
+                  width: 100px;
+                  border: 1px solid #eeeeee;
                     max-width: 100%;
                 }
                 p{
@@ -1997,6 +2014,10 @@ body{
                 p{
                     display: block;
                     color:#333;
+                  &~p{
+                    margin-top: 10px;
+                  }
+
 
                 }
                 .no-top{
