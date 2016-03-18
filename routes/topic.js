@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var obj = require('../module/module');
+var token = require('../module/token');
 
 // 列表
 router.get('/', function(req, res, next){
