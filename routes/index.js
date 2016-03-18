@@ -102,6 +102,7 @@ function render(data, req, res){
         n.logo=req.config.url.company+ '/'+n.logo+"?imageView2/1/w/400/h/300"
     });
     data.baseUrl=req.baseUrl;
+    data.pageTitle='搜索引擎-首页';
     //res.json(data);
     res.render('index', {data: data});
 }

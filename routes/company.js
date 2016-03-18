@@ -130,7 +130,7 @@ router.get('/detail/:id', function(req, res, next){
         });
     }).then(function(data){
        /* res.json(data);*/
-        data.pageTitle = '公司详情页';
+        data.pageTitle = data.name+'公司信息';
         data.cover=req.config.url.company + '/'+data.cover;
         data.company_logo=req.config.url.company + '/'+data.company_logo;
         res.render('company_detail', {data: data});
