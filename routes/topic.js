@@ -43,7 +43,7 @@ router.get('/', function(req, res, next){
 
         data.totalPages=Math.ceil(data.total/data.per_page);
 
-        res.render('topic_list', {data: data});
+        res.render('topic_index', {data: data});
 
     });
 });
