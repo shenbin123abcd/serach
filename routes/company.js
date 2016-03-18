@@ -4,14 +4,19 @@ var obj = require('../module/module');
 
 // 列表
 router.get('/', function(req, res, next){
-    var params = {per_page: req.config.perPage.picture, 'filter[if_show]': 1, 'filter[cate_id]': 2, page: req.query.page || 1};
+    var params = {
+        per_page: req.config.perPage.picture,
+        'filter[if_show]': 1,
+        'filter[cate_id]': 2,
+        page: req.query.page || 1
+    };
     var r = req.query.r || 0;
 
-    if(req.query.keywords){
+    if (req.query.keywords) {
         params.name = req.query.keywords;
     }
 
-    if(!isNaN(r) && r > 0 && r < 3228){
+    if (!isNaN(r) && r > 0 && r < 3228) {
         params.region_id = req.query.r;
     }
 
@@ -22,19 +27,19 @@ router.get('/', function(req, res, next){
             if (data.data.length > 0) {
                 data.data.forEach(function(val, index){
                     if (val.logo.length > 0) {
-                        val.logo = req.config.url.company + '/' + val.logo +"?imageView2/1/w/200/h/200";
+                        val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/200";
                     } else {
                         val.logo = '/images/company-logo-sample.png';
                     }
                 });
             }
             //res.json(data);return;
-            data.baseUrl=req.baseUrl;
-            data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
-            data.query=req.query;
-            data.keywords=req.query.keywords;
+            data.baseUrl = req.baseUrl;
+            data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+            data.query = req.query;
+            data.keywords = req.query.keywords;
             data.title = '公司列表';
-            data.totalPages=Math.ceil(data.total/data.per_page);
+            data.totalPages = Math.ceil(data.total / data.per_page);
 
             data.region = [
                 {city: "全国", id: 0},
@@ -73,8 +78,8 @@ router.get('/', function(req, res, next){
                 {city: '香港', id: 3226},
                 {city: '澳门', id: 3227},
             ];
-            data.data.forEach(function(n,i){
-                n.cover=req.config.url.company + '/'+n.cover+"?imageView2/1/w/200/h/200";
+            data.data.forEach(function(n, i){
+                n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
             })
             res.render('company_index', {data: data});
         } else {
@@ -89,18 +94,18 @@ router.get('/', function(req, res, next){
 // 详情
 router.get('/detail/:id', function(req, res, next){
     var id = parseInt(req.params.id);
-    if(id <= 0){
+    if (id <= 0) {
         res.sendStatus(404);
         return;
     }
 
-    obj.getInfo('company', id, req, {cate_id:2}).then(function(body){
-        if(body.iRet === 1){
+    obj.getInfo('company', id, req, {cate_id: 2}).then(function(body){
+        if (body.iRet === 1) {
             return body.data;
 
-        }else if(body.iRet === 0){
+        } else if (body.iRet === 0) {
             res.sendStatus(404);
-        }else{
+        } else {
             res.sendStatus(500);
         }
     }, function(error){
@@ -108,16 +113,20 @@ router.get('/detail/:id', function(req, res, next){
         res.sendStatus(500);
     }).then(function(data){
         // 案例列表
-        return obj.getList('cases', req, {'filter[if_show]': 1, 'filter[company_id]': data.id, per_page: 200}).then(function(body){
+        return obj.getList('cases', req, {
+            'filter[if_show]': 1,
+            'filter[company_id]': data.id,
+            per_page: 200
+        }).then(function(body){
             data.caseList = [];
-            if(body.iRet === 1){
-                body.data.data.forEach(function(n,i){
-                    var obj={};
+            if (body.iRet === 1) {
+                body.data.data.forEach(function(n, i){
+                    var obj = {};
                     obj.title = n.title;
                     obj.views = n.views;
                     obj.comments = n.comments;
                     obj.points = n.points;
-                    obj.cover = req.config.url.case + '/' + n.cover +"?imageView2/1/w/200/h/150";
+                    obj.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
                     obj.id = n.id;
                     data.caseList.push(obj);
                 });
@@ -129,10 +138,10 @@ router.get('/detail/:id', function(req, res, next){
             return data;
         });
     }).then(function(data){
-       /* res.json(data);*/
+        /* res.json(data);*/
         data.pageTitle = '公司详情页';
-        data.cover=req.config.url.company + '/'+data.cover;
-        data.company_logo=req.config.url.company + '/'+data.company_logo;
+        data.cover = req.config.url.company + '/' + data.cover + '?imageView2/1/w/920/h/450&imageMogr2/blur/6x8';
+        data.company_logo = req.config.url.company + '/' + data.company_logo + '?imageView2/1/w/100/h/100';
         res.render('company_detail', {data: data});
     });
 
