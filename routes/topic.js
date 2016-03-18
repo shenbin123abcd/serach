@@ -59,17 +59,18 @@ router.get('/detail/:id', function(req, res, next){
     obj.getInfo('zhuanti',id, req, {if_company: 1}).then(function(body){
         if(body.iRet === 1){
             var data = body.data;
-            data.cover = req.config.url.case + '/' + data.default_image + '?imageView/1/w/200/h/150/q/85'
+            data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/h/481/q/85'
             if(data.case.length > 0){
                 data.case.forEach(function(val, index){
                     val.images = [
-                        req.config.url.case + '/' + val.img1 + '?imageView/1/w/200/h/150/q/85',
-                        req.config.url.case + '/' + val.img2 + '?imageView/1/w/200/h/150/q/85'
+                        req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/h/480/q/85',
+                        req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/h/480/q/85'
                     ];
                 })
             }
+            //res.json(data);
 
-            res.json(data);
+            return data;
             // res.render('topic_detail', {title: '专题详情'});
         }else if(body.iRet === 0){
             res.sendStatus(404);
@@ -78,6 +79,29 @@ router.get('/detail/:id', function(req, res, next){
         }
     }, function(error){
         res.sendStatus(500);
+    }).then(function(data){
+        var data=data;
+
+        data.case.forEach((n,i)=>{
+            n.company.logo=req.config.url.case+'/' +n.company.logo+'?imageView2/1/w/82/h/82';
+        });
+
+        data.baseUrl=req.baseUrl;
+        data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+        data.query=req.query;
+
+        var urlObj=url.parse(data.absUrl);
+        data.route=urlObj.pathname.replace(req.baseUrl,'');
+
+        data.pageTitle=data.title+'专题详情';
+        data.tag=req.query.tag;
+        data.sort=req.query.sort;
+
+
+        data.totalPages=Math.ceil(data.total/data.per_page);
+
+        res.render('topic_detail', {data: data});
+
     });
 });
 
@@ -88,7 +112,7 @@ router.post('/comment',token.verifyToken, function(req, res, next){
     if (!data.content){
         res.json({iRet: 0, info: '评论内容不能为空'});
     }
-    data.module = 'case';
+    data.module = 'zhuanti';
     data.uid = req.user.id;
     data.username = req.user.username;
     obj.add('comment', data, req).then(function(body){

@@ -161,8 +161,8 @@ router.get('/detail/:id', function(req, res, next){
         data.attach.forEach(function(n,i){
             data.attachArr[i]= req.config.url.case + '/' + data.attach[i].path +"?imageView2/1/w/900/h/600";
         });
-        data.colorArr=data.other_color.split(",");
-        data.tagArr=data.tag.split(",");
+        data.colorArr=data.other_color?data.other_color.split(','):[];
+        data.tagArr=data.tag?data.tag.split(','):[];
         data.xiangsiImg=[];
         data.otherImg=[];
         data.xiangsi.forEach(function(n,i){
