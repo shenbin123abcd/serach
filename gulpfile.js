@@ -175,7 +175,7 @@ gulp.task('build', ['sass','images'], function () {
         .pipe(plugins.babel({
             presets: ['es2015']
         }))
-        //.pipe(plugins.uglify())
+        .pipe(plugins.uglify())
         .pipe(plugins.rev())
         .pipe(gulp.dest('public'))
         .pipe(jsFilter.restore)
