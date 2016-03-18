@@ -50,324 +50,128 @@
 <div class="container">
 <div class="list-case">
 <div class="col-md-10 col-sm-12" id="md-item-height">
-<!-- <div class="md-10-item"> -->
 <div class="xol-md-4 col-sm-8 hidden-sm ">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
+    <div class="pic-list-item">
+        <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
         <div class="pic-list-item-text">
             <div class="item-text-top">
-                <p class="f-white f-12">北京汇爱婚礼策划</p>
+                <p class="f-white f-12"><a href="/company/detail/<%= data.case_new[0].company_id %>"><%= data.case_new[0].company %></a></p>
             </div>
-            <div class="item-text-bottom">
+            <a class="item-text-bottom" href="/case/detail/<%= data.case_new[0].id %>">
                 <div class="item-text-bottom-position">
                     <div class="text-bottom-desc">
                         <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[0].views %></span></li>
+                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[0].comments %></span></li>
+                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[0].points %></span></li>
                         </ul>
                     </div>
                     <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
+                        <h4 class="f-18"><%= data.case_new[0].title %></h4>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
-    </a>
+    </div>
 </div>
-<div class="xol-md-4 col-sm-8 " id="xol-md-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-12">北京汇爱婚礼策划</p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
+<div class="xol-md-4 col-sm-8 ">
+        <div class="pic-list-item">
+            <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img src="<%= data.case_new[1].cover %>" alt="" class="pic-list-item-img"></a>
+            <div class="pic-list-item-text">
+                <div class="item-text-top">
+                    <p class="f-white f-12"><a href="/company/detail/<%= data.case_new[1].company_id %>"><%= data.case_new[1].company %></a></p>
                 </div>
+                <a class="item-text-bottom" href="/case/detail/<%= data.case_new[1].id %>">
+                    <div class="item-text-bottom-position">
+                        <div class="text-bottom-desc">
+                            <ul class="desc-list">
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[1].views %></span></li>
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[1].comments %></span></li>
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[1].points %></span></li>
+                            </ul>
+                        </div>
+                        <div class="text-bottom-title">
+                            <h4 class="f-18"><%= data.case_new[1].title %></h4>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </a>
-</div>
+    </div>
 <div class="xol-md-2 col-sm-4" id="xol-md-2-height">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
+        <div class="pic-list-item">
+            <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[2].cover %>" alt="" class="pic-list-item-img"></a>
+            <div class="pic-list-item-text">
+                <div class="item-text-top">
+                    <a href="/company/detail/<%= data.case_new[2].company_id %>"><p class="f-white f-10"><span><%= data.case_new[2].company %></span></p></a>
                 </div>
+                <a class="item-text-bottom" href="/case/detail/<%= data.case_new[2].id %>">
+                    <div class="item-text-bottom-position">
+                        <div class="text-bottom-desc">
+                            <ul class="desc-list">
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[2].views %></span></li>
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[2].comments %></span></li>
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[2].points %></span></li>
+                            </ul>
+                        </div>
+                        <div class="text-bottom-title">
+                            <h4 class="f-18"><%= data.case_new[2].title %></h4>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </a>
-</div>
-<!-- </div> -->
-<!-- <div class="md-10-item item-margin-top"> -->
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
+    </div>
+<% for(var i=4; i<13;i++){ %>
+    <div class="xol-md-2 col-sm-4">
+        <div class="pic-list-item">
+            <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img">
+            <div class="pic-list-item-text">
+                <div class="item-text-top">
+                    <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-10"><span><%= data.case_new[i].company %></span></p></a>
                 </div>
+                <a class="item-text-bottom" href="/case/detail/<%= data.case_new[i].id %>">
+                    <div class="item-text-bottom-position">
+                        <div class="text-bottom-desc">
+                            <ul class="desc-list">
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[i].views %></span></li>
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[i].comments %></span></li>
+                                <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[i].points %></span></li>
+                            </ul>
+                        </div>
+                        <div class="text-bottom-title">
+                            <h4 class="f-18"><%= data.case_new[i].title %></h4>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<!-- </div> -->
-<!-- <div class="md-10-item item-margin-top"> -->
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="xol-md-2 col-sm-4">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
-        <div class="pic-list-item-text">
-            <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
-            </div>
-            <div class="item-text-bottom">
-                <div class="item-text-bottom-position">
-                    <div class="text-bottom-desc">
-                        <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                        </ul>
-                    </div>
-                    <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
+    </div>
+<% }%>
 <div class="xol-md-2 col-sm-4 hidden-sm">
-    <a class="pic-list-item">
-        <img src="/images/img6.jpg" alt="" class="pic-list-item-img">
+    <div class="pic-list-item">
+        <a href="/case/detail/<%= data.case_new[12].id %>"><img src="<%= data.case_new[12].cover %>" alt="" class="pic-list-item-img"></a>
         <div class="pic-list-item-text">
             <div class="item-text-top">
-                <p class="f-white f-10"><span>北京汇爱婚礼策划</span></p>
+                <a href="/company/detail/<%= data.case_new[12].company_id %>"><p class="f-white f-10"><span><%= data.case_new[12].company %></span></p></a>
             </div>
-            <div class="item-text-bottom">
+            <a class="item-text-bottom" href="/case/detail/<%= data.case_new[12].id %>">
                 <div class="item-text-bottom-position">
                     <div class="text-bottom-desc">
                         <ul class="desc-list">
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                            <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[12].views %></span></li>
+                            <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[12].comments %></span></li>
+                            <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[12].points %></span></li>
                         </ul>
                     </div>
                     <div class="text-bottom-title">
-                        <h4 class="f-18">魔术元素婚礼</h4>
+                        <h4 class="f-18"><%= data.case_new[12].title %></h4>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
-    </a>
+    </div>
 </div>
-<!-- </div> -->
 </div>
 <div class="col-md-2 hidden-sm no-padding">
     <div class="col-md-12 no-padding">
@@ -392,102 +196,24 @@
             </div>
         </div>
         <div class="search-block-content">
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
+            <% data.case_recommend.forEach(function(n,i){ %>
+                <div class="col-md-2 col-sm-4">
+                    <div class="block-content-item">
+                        <a href="/case/detail/<%= n.id%>"><img src="<%= n.cover %>" alt=""></a>
+                        <div class="content-item-text">
+                            <a href="/case/detail/<%= n.id%>"><h4 class="f-16"><%= n.title %></h4></a>
+                            <a href="<%= n.company_id %>"><p class="f-12 s-title f-black">北京摩卡婚礼策划</p></a>
+                            <div class="content-item-text-desc">
+                                <ul class="desc-list">
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.commnets%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </a>
             </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <h4 class="f-16">拾壹</h4>
-                        <p class="f-12 s-title f-black">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <%})%>
         </div>
     </div>
 </div>
@@ -500,66 +226,28 @@
             </div>
         </div>
         <div class="search-block-content">
-            <div class="col-md-4 col-sm-12">
+            <% data.zhuanti.forEach(function(n,i){ %>
+                <div class="col-md-4 col-sm-12">
                 <div class="block-special-item">
                     <a class="block-special-item-pic">
-                        <img src="/images/img6.jpg" alt="">
+                        <img src="<%= n.default_image%>" alt="">
                     </a>
                     <div class="block-special-item-desc">
                         <div class="item-desc-middle">
-                            <h4 class="f-16 f-black">拾壹</h4>
-                            <p class="f-12 f-black">如果有一天，树不再扎根到土 壤里，蒲公英不再随风飘散如 果有一天，我们没有</p>
+                            <h4 class="f-16 f-black"><%= n.title%></h4>
+                            <p class="f-12 f-black"><%= n.description%></p>
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
+                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
+                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="block-special-item">
-                    <a class="block-special-item-pic">
-                        <img src="/images/img6.jpg" alt="">
-                    </a>
-                    <div class="block-special-item-desc">
-                        <div class="item-desc-middle">
-                            <h4 class="f-16 f-black">拾壹</h4>
-                            <p class="f-12 f-black">如果有一天，树不再扎根到土 壤里，蒲公英不再随风飘散如 果有一天，我们没有</p>
-                            <div class="content-item-text-desc">
-                                <ul class="desc-list">
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="block-special-item">
-                    <a class="block-special-item-pic">
-                        <img src="/images/img6.jpg" alt="">
-                    </a>
-                    <div class="block-special-item-desc">
-                        <div class="item-desc-middle">
-                            <h4 class="f-16 f-black">拾壹</h4>
-                            <p class="f-12 f-black">如果有一天，树不再扎根到土 壤里，蒲公英不再随风飘散如 果有一天，我们没有</p>
-                            <div class="content-item-text-desc">
-                                <ul class="desc-list">
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                    <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%})%>
         </div>
     </div>
 </div>
@@ -669,7 +357,7 @@
         </div>
         <div class="search-block-content">
 
-            <% data.list.forEach(function(item){ %>
+
             <div class="col-md-2 col-sm-4">
                 <a class="block-content-item">
                     <img src="/images/img7.jpg" alt="">
@@ -681,7 +369,7 @@
                     </div>
                 </a>
             </div>
-            <% }); %>
+
 
         </div>
     </div>
@@ -707,7 +395,7 @@
         /*searchIndex*/
         app.searchIndex.searchForm();
         app.searchIndex.reponsiveGrid();
-        app.searchIndex.reponsivePad();
+        //app.searchIndex.reponsivePad();
     });
 </script>
 </body>

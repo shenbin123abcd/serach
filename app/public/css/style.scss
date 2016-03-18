@@ -865,6 +865,10 @@ body{
                 }
                 .xol-md-2{
                     .pic-list-item{
+                        .a-style{
+                            display: block;
+                            overflow: hidden;
+                        }
                         .pic-list-item-text{
                             .item-text-top{
                                 padding:5px 0;
@@ -901,9 +905,13 @@ body{
                 display:block;
                 overflow: hidden;
                 position:relative;
+                .a-style{
+                  display: block;
+                  overflow: hidden;
+                }
                 .pic-list-item-img{
-                    width:100%;
-                    max-width: 100%;
+                    /*width:100%;
+                    max-width: 100%;*/
                     display: block;
                     z-index:2;
                     display:relative;
@@ -1055,7 +1063,9 @@ body{
                     h4{
                         line-height:20px;
                         color:#666666;
-
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
                     }
                     p{
                         color:#666666;
@@ -2020,6 +2030,9 @@ body{
                         .content-item-text-desc{
                             .p-title{
                                 color:#fff;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
                             }
                             .desc-list{
                                 .desc-list-item{
