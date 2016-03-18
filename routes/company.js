@@ -108,7 +108,7 @@ router.get('/detail/:id', function(req, res, next){
         res.sendStatus(500);
     }).then(function(data){
         // 案例列表
-        return obj.getList('cases', req, {'filter[if_show]': 1, company_id: data.id, pre_page: 100}).then(function(body){
+        return obj.getList('cases', req, {'filter[if_show]': 1, 'filter[company_id]': data.id, per_page: 200}).then(function(body){
             data.caseList = [];
             if(body.iRet === 1){
                 body.data.data.forEach(function(n,i){
