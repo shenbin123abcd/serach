@@ -8,7 +8,7 @@ router.get('/', function(req, res, next){
     var r = req.query.r || 0;
 
     if(req.query.keywords){
-        params.title = req.query.keywords;
+        params.name = req.query.keywords;
     }
 
     if(!isNaN(r) && r > 0 && r < 3228){

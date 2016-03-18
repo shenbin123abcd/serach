@@ -180,11 +180,11 @@ gulp.task('build', ['sass','images'], function () {
         .pipe(gulp.dest('public'))
         .pipe(jsFilter.restore)
         .pipe(cssFilter)
-        //.pipe(plugins.autoprefixer({
-        //    browsers:  ['> 0%'],
-        //    cascade: false
-        //}))
-        //.pipe(plugins.csso())
+        .pipe(plugins.autoprefixer({
+            browsers:  ['> 0%'],
+            cascade: false
+        }))
+        .pipe(plugins.csso())
         .pipe(plugins.rev())
         .pipe(gulp.dest('public'))
         .pipe(cssFilter.restore)
