@@ -260,90 +260,22 @@
             </div>
         </div>
         <div class="search-block-content">
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
+            <% data.image.forEach(function(n,i){ %>
+                <div class="col-md-2 col-sm-4">
+                    <a class="block-content-item" href="/picture/detail/<%= n.id%>">
+                        <img src="<%= n.path %>" alt="">
+                        <div class="content-item-text">
+                            <div class="content-item-text-desc">
+                                <ul class="desc-list">
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img6.jpg" alt="">
-                    <div class="content-item-text">
-                        <div class="content-item-text-desc">
-                            <ul class="desc-list">
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                                <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <%})%>
         </div>
     </div>
 </div>
@@ -356,21 +288,19 @@
             </div>
         </div>
         <div class="search-block-content">
-
-
-            <div class="col-md-2 col-sm-4">
-                <a class="block-content-item">
-                    <img src="/images/img7.jpg" alt="">
-                    <div class="content-item-text">
-                        <p class="f-12 s-title f-grey">北京摩卡婚礼策划</p>
-                        <div class="content-item-text-desc">
-                            <p class="f-12">共12个案例</p>
+            <% data.company.forEach(function(n,i){%>
+                <div class="col-md-2 col-sm-4">
+                    <div class="block-content-item" >
+                        <a href="/company/detail/<%= n.id%>"><img src="<%= n.logo%>" alt=""></a>
+                        <div class="content-item-text">
+                            <a href="/company/detail/<%= n.id%>"><p class="f-12 s-title f-grey"><%= n.name%></p></a>
+                            <div class="content-item-text-desc">
+                                <a href="/company/detail/<%= n.id%>"><p class="f-12">共<%=n.case_num%>个案例</p></a>
+                            </div>
                         </div>
                     </div>
-                </a>
-            </div>
-
-
+                </div>
+            <% })%>
         </div>
     </div>
 </div>

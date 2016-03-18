@@ -878,6 +878,7 @@ body{
                                 .item-text-bottom-position{
                                     left:5px;
                                     bottom:15px;
+                                    width:90%;
                                     .text-bottom-desc{
                                         margin-bottom:5px;
                                         .desc-list{
@@ -890,6 +891,9 @@ body{
                                         h4{
                                             line-height:12px;
                                             font-size:12px;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                            overflow: hidden;
                                         }
                                     }
                                 }
@@ -960,6 +964,9 @@ body{
                         .text-bottom-title {
                             h4{
                                 line-height: 18px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
                             }
                         }
                     }
@@ -1068,6 +1075,9 @@ body{
                     }
                     p{
                         color:#666666;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
                     }
                     .s-title{
                     }
@@ -1113,6 +1123,9 @@ body{
                     border-bottom-right-radius:4px;
                     h4,p{
                         line-height: 20px;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
                     }
                     h4{
                         margin-bottom: 4px;
@@ -1395,6 +1408,11 @@ body{
                     text-overflow:ellipsis;
                     white-space:nowrap;
                     overflow:hidden;
+                }
+                p{
+                  text-overflow:ellipsis;
+                  white-space:nowrap;
+                  overflow:hidden;
                 }
                 .content-item-text-desc{
                     .desc-list{
