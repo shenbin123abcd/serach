@@ -1,78 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%- include('Public/common_header',{pageTitle: title}); %>
+    <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
     <%- include('Public/common_header_end'); %>
 </head>
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search case topicDetail">
-    <div class="top-tab">
-        <div class="container">
-            <div class="tab-item no-margin-left">
-                <a href="">
-                    <span class="item-img"><img src="/images/img1.png" alt=""></span>
-                    <span class="item-text">婚礼案例</span>
-                </a>
-            </div>
-            <div class="tab-item">
-                <a href="">
-                    <span class="item-img"><img src="/images/img2.png" alt=""></span>
-                    <span class="item-text">婚礼图片</span>
-                </a>
-            </div>
-            <div class="tab-item">
-                <a href="">
-                    <span class="item-img"><img src="/images/img3.png" alt=""></span>
-                    <span class="item-text">婚礼公司</span>
-                </a>
-            </div>
-        </div>
-    </div>
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="content-box">
         <div class="container">
             <div class='col-md-9 col-sm-12'>
                 <div class="content-title">
-                    <h1 class="f-22">梦回民国</h1>
+                    <h1 class="f-22"><%=data.title%></h1>
                     <div class="title-desc-icon inline-style">
                         <ul class="desc-list">
-                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>
-                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>
+                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
+                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%=data.points%></span></li>
+                            <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%=data.comments%></span></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="content-block">
                     <div class="content-topic">
-                        <img src="/images/img9.jpg" alt="">
-                        <p>勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容</p>
+                        <img src="<%=data.default_image%>" alt="">
+                        <p><%=data.description%></p>
                     </div>
+
+                    <% data.case.forEach(function(item){ %>
                     <div class="content-item">
                         <div class="item-cycle">
-                            <img src="/images/img7.jpg" alt="">
+                            <img src="<%=item.company.logo%>" alt="">
                         </div>
-                        <p>艾恩婚礼策划</p>
+                        <p><%=item.company.name%></p>
                         <h4 class="f-20">《时光》</h4>
+
                         <div class="content-pic">
-                            <img src="/images/img9.jpg" alt="">
-                            <img src="/images/img9.jpg" alt="">
+                            <% item.images.forEach(function(img){ %>
+                            <img src="<%=img%>" alt="">
+                            <%})%>
                         </div>
-                        <p class="content-desc">勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容</p>
+                        <p class="content-desc"><%=item.description%></p>
                         <a href="" class="more">查看案例 <span>></span> </a>
                     </div>
-                    <div class="content-item">
-                        <div class="item-cycle">
-                            <img src="/images/img7.jpg" alt="">
+                    <%})%>
+
+                    <div class="detail-content-commit" >
+                        <form id="commit-form">
+                            <div class="textarea-wrapper">
+                                <textarea id="commit-form-content" class="f-14" rows="5"></textarea>
+                                <p class="f-14">还可以输入<span class="num">500</span>个字</p>
+                            </div>
+                            <div class="btn-group">
+                                <a id="markThis-comment" >
+                                    <span class="glyphicon glyphicon-heart-empty f-22"></span><span>+1</span>
+                                </a>
+                                <a id="unMarkThis-comment" style="display: none;" >
+                                    <span class="glyphicon glyphicon-heart-empty f-22"></span><span>-1</span>
+                                </a>
+                                <button  class="btn submit-btn" type="submit">评&nbsp;论</button>
+                            </div>
+                        </form>
+                        <div id="commit-box" class="commit-box"></div>
+                        <div class="detail-comments-page">
+                            <ul id="comment-pagination" class="piuture-detail"></ul>
                         </div>
-                        <p>艾恩婚礼策划</p>
-                        <h4 class="f-20">《时光》</h4>
-                        <div class="content-pic">
-                            <img src="/images/img9.jpg" alt="">
-                            <img src="/images/img9.jpg" alt="">
-                        </div>
-                        <p class="content-desc">勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容勾勒出青花瓷版的清秀面容</p>
-                        <a href="" class="more">查看案例 <span>></span> </a>
                     </div>
+
                 </div>
             </div>
         </div>
