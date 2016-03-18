@@ -4,9 +4,19 @@ var obj = require('../module/module');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
+    req.redis.get('search_index_data').then(function(data){
+        if(!data){
+            getData(req, res);
+        }else{
+            console.log('cache');
+            render(JSON.parse(data), req, res);
+        }
+    });
+});
+
+function getData(req, res){
+    var params = {per_page: 13, group: 'company_id'}, data = {};
     // 最新案例
-    var data = {};
-    var params = {per_page: 13, group: 'company_id'};
     obj.getList('cases', req, params).then(function(body){
         if(body.iRet === 1){
             data.case_new = body.data.data;
@@ -63,33 +73,37 @@ router.get('/', function(req, res, next){
             }
         })
     }).then(function(data){
-        data.case_new.forEach(function(n,i){
-            n.cover = req.config.url.case + '/' + n.cover
-        })
-        data.case_new[0].cover=data.case_new[0].cover+ "?imageView2/1/w/400/h/300";
-        data.case_new[1].cover=data.case_new[1].cover+ "?imageView2/1/w/400/h/300";
-        data.case_new[2].cover=data.case_new[2].cover+ "?imageView2/1/w/200/h/300";
-        for(var i=3;i<13;i++){
-            data.case_new[i].cover=data.case_new[i].cover+ "?imageView2/1/w/200/h/150";
-        }
-        data.case_recommend.forEach(function(n,i){
-            n.cover=req.config.url.case+'/'+n.cover+"?imageView2/1/w/400/h/300"
-        })
-        data.zhuanti.forEach(function(n,i){
-            n.default_image=req.config.url.case+'/'+n.default_image+"?imageView2/1/w/400/h/300"
-        })
-        data.image.forEach(function(n,i){
-            n.path=req.config.url.case+'/'+n.path +"?imageView2/1/w/400/h/300"
-        })
-        data.company.forEach(function(n,i){
-            n.logo=req.config.url.company+ '/'+n.logo+"?imageView2/1/w/400/h/300"
-        })
-        data.baseUrl=req.baseUrl;
-        //res.json(data);
-        res.render('index', {data: data});
+        req.redis.set('search_index_data', JSON.stringify(data), 30);
+
+        render(data, req, res);
     });
+}
 
-
-});
+function render(data, req, res){
+    data.case_new.forEach(function(n,i){
+        n.cover = req.config.url.case + '/' + n.cover
+    })
+    data.case_new[0].cover=data.case_new[0].cover+ "?imageView2/1/w/400/h/300";
+    data.case_new[1].cover=data.case_new[1].cover+ "?imageView2/1/w/400/h/300";
+    data.case_new[2].cover=data.case_new[2].cover+ "?imageView2/1/w/200/h/300";
+    for(var i=3;i<13;i++){
+        data.case_new[i].cover=data.case_new[i].cover+ "?imageView2/1/w/200/h/150";
+    }
+    data.case_recommend.forEach(function(n,i){
+        n.cover=req.config.url.case+'/'+n.cover+"?imageView2/1/w/400/h/300"
+    });
+    data.zhuanti.forEach(function(n,i){
+        n.default_image=req.config.url.case+'/'+n.default_image+"?imageView2/1/w/400/h/300"
+    });
+    data.image.forEach(function(n,i){
+        n.path=req.config.url.case+'/'+n.path +"?imageView2/1/w/400/h/300"
+    });
+    data.company.forEach(function(n,i){
+        n.logo=req.config.url.company+ '/'+n.logo+"?imageView2/1/w/400/h/300"
+    });
+    data.baseUrl=req.baseUrl;
+    //res.json(data);
+    res.render('index', {data: data});
+}
 
 module.exports = router;
