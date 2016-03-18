@@ -443,12 +443,12 @@
                 return parts.join(".");
             };
 
-            if(n>9999){
-                //console.log(numberWithCommas(wanN),'万');
-
-
-                return numberWithCommas(wanN)+'万';
-            }
+            //if(n>9999){
+            //    //console.log(numberWithCommas(wanN),'万');
+            //
+            //
+            //    return numberWithCommas(wanN)+'万';
+            //}
 
             return numberWithCommas(n)
 
