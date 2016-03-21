@@ -2,12 +2,22 @@
     "use strict";
     window.app=(function(){
         function getStaticData(){
-            app.service.getStaticData().then(function(res){
-                //console.log(res)
+            //console.log(hb.Cookies.getJSON("statisticData"));
+            if(hb.Cookies.getJSON("statisticData")){
+                render(hb.Cookies.getJSON("statisticData"));
+            }else{
+                app.service.getStaticData().then(function(res){
+                    //console.log(res)
+                    hb.Cookies.set('statisticData', res, { expires: 1/12});
+                    render(res)
+                });
+            }
+
+            function render(res){
                 $("#total-case").text(hb.util.formatNumber(res.case));
                 $("#total-company").text(hb.util.formatNumber(res.company));
                 $("#total-image").text(hb.util.formatNumber(res.image));
-            });
+            }
         }
 
         return {

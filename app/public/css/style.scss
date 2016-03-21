@@ -1,10 +1,48 @@
 @charset "utf-8";
 /* RESET */
+$breakpoints: (
+        'ip5':  320px,
+        'mi4':  360px,
+        'ip6':  375px,
+        'ip6p':  414px,
+        'sm':  768px,
+        'md':  992px,
+        'lg':  1200px
+) !default;
+$media-expressions: (
+        'screen': 'screen',
+        'print': 'print',
+        'handheld': 'handheld',
+        'landscape': '(orientation: landscape)',
+        'portrait': '(orientation: portrait)',
+        'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+        'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)'
+) !default;
+
+
+@import 'lib/include-media/dist/include-media';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/grid';
+
+.container {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: 1000px;
+  }
+  @media (min-width: 1000px) {
+    width: 1000px;
+  }
+  @media (min-width: 1366px) {
+    width: 1330px;
+  }
+}
 
 $pictureMainColor:#b08dfd;
 $caseMainColor:#f3903e;
 $topicMainColor:#ff409b;
-
+$mainTextColor:#666666;
 
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
@@ -12,6 +50,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
 body *{-webkit-text-size-adjust:none;}
+
+
+
 .clear{clear:both; overflow:hidden; height:0px; font-size:0px; display: block;}
 input:focus, select:focus, textarea:focus, button:focus {outline: none; box-shadow:none;}
 textarea, select{ -webkit-appearance: none; border-radius: 0; outline: none; border: 0px none; outline: none; transition: all 0.3s ease-in; -moz-transition: all 0.3s ease-in;-o-transition: all 0.3s ease-in;-webkit-transition: all 0.3s ease-in;-ms-transition: all 0.3s ease-in; background: none;}
@@ -1098,59 +1139,73 @@ body{
         }
         &.special{
             .block-special-item{
-                overflow: hidden;
+                //overflow: hidden;
                 border-radius:4px;
                 //display: block;
-                display: table;
+                //display: table;
+              //width: 100%;
+              background: #fff;
+              color: $mainTextColor;
                 .block-special-item-pic{
-                  display: table-cell;
-                    width:50%;
+                  //display: table-cell;
+                  //  width:50%;
                     //display: block;
                     //float:left;
                     //position:relative;
-                    img{
-                        max-width: 100%;
-                        border-top-left-radius:4px;
-                        border-bottom-left-radius:4px;
+                  //vertical-align: middle;
+                    .img{
+                      border-radius:4px 4px 0 0;
+                      max-width: 100%;
+
+                        //border-top-left-radius:4px;
+                        //border-bottom-left-radius:4px;
                     }
                 }
                 .block-special-item-desc{
-                    width:50%;
-                    //float:left;
-                    position:relative;
-                    background:#fff;
-                    padding:10px;
-                    display: table-cell;
-                  vertical-align: middle;
+                  padding: 12px 15px;
+                  line-height: 1.7;
+                  .tit{
+                    &:hover{
+                      color: $topicMainColor;
 
-                    color:#9e9e9e;
-                    border-top-right-radius:4px;
-                    border-bottom-right-radius:4px;
-                    h4,p{
-                        line-height: 20px;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        overflow: hidden;
                     }
-                    h4{
-                        margin-bottom: 4px;
-                    }
-                    .content-item-text-desc{
-                        margin-top: 5px;
-                    }
-                    .desc-list{
-                        .desc-list-item{
-                            display: inline-block;
-                            margin-right:5px;
-                            .desc-list-item-num{
-                                margin-left:3px;
-                            }
-                        }
-                    }
-                    .item-desc-middle{
-                        display: table-cell;
-                        vertical-align: middle;
-                    }
+                  }
+
+                  .des{
+                    font-size: 12px;
+                    height: 40px;
+                  }
+
+                    //color:#9e9e9e;
+                    //border-top-right-radius:4px;
+                    //border-bottom-right-radius:4px;
+
+                  
+                    //h4,p{
+                    //    line-height: 20px;
+                    //    text-overflow: ellipsis;
+                    //    white-space: nowrap;
+                    //    overflow: hidden;
+                    //}
+                    //h4{
+                    //    margin-bottom: 4px;
+                    //}
+                    //.content-item-text-desc{
+                    //    margin-top: 5px;
+                    //}
+                    //.desc-list{
+                    //    .desc-list-item{
+                    //        display: inline-block;
+                    //        margin-right:5px;
+                    //        .desc-list-item-num{
+                    //            margin-left:3px;
+                    //        }
+                    //    }
+                    //}
+                    //.item-desc-middle{
+                    //    display: table-cell;
+                    //    vertical-align: middle;
+                    //}
                 }
             }
         }
