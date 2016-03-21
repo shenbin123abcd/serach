@@ -29,14 +29,18 @@ app.common=(function(){
         })
     };
     var alignCenter=function(wrapper,inner){
-        var wrapperWidth=parseInt($("."+wrapper).css("width"));
-        var innerWidth=parseInt($("."+inner).css("width"));
-        var num=((wrapperWidth-innerWidth)/2);
-        $("."+inner).css("position","relative").css("left",num);
+        $(window).load(function(){
+            var wrapperWidth=parseInt($("."+wrapper).css("width"));
+            var innerWidth=parseInt($("."+inner).css("width"));
+            var num=((wrapperWidth-innerWidth)/2);
+            $("."+inner).css("position","relative").css("left",num);
+        })
     };
     function omit(Newtext,num){
-        var text = $("."+Newtext).text()
-        $("."+Newtext).text(text.substr(0,num)+"...");
+        $(window).load(function() {
+            var text = $("." + Newtext).text()
+            $("." + Newtext).text(text.substr(0, num) + "...");
+        })
     }
     return {
         companyDesc:companyDesc,
