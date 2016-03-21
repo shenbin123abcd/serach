@@ -83,7 +83,7 @@ router.get('/detail/:id', function(req, res, next){
         var data=data;
 
         data.case.forEach((n,i)=>{
-            n.company.logo=req.config.url.case+'/' +n.company.logo+'?imageView2/1/w/82/h/82';
+            n.company.logo=req.config.url.case+'/' +n.company.logo+'?imageView2/1/w/82/h/62';
         });
 
         data.baseUrl=req.baseUrl;

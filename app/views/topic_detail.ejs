@@ -28,7 +28,7 @@
                         <p><%=data.description%></p>
                     </div>
 
-                    <% data.case.forEach(function(item){ %>
+                    <% data.case.length&&data.case.forEach(function(item){ %>
                     <div class="content-item">
                         <div class="item-cycle">
                             <img src="<%=item.company.logo%>" alt="">
