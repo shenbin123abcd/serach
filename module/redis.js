@@ -4,7 +4,7 @@
  */
 var redis = require('redis');
 var config = require('../config');
-var redisClient = redis.createClient({port: config.redis.port, host: config.redis.host, prefix: 'halosearch'});
+var redisClient = redis.createClient({port: config.redis.port, host: config.redis.host, password: config.redis.password, prefix: 'halosearch'});
 var Promise = require('bluebird');
 Promise.promisifyAll(redis.RedisClient.prototype);
 Promise.promisifyAll(redis.Multi.prototype);
