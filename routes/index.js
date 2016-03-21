@@ -92,16 +92,16 @@ function render(data, req, res){
         data.case_new[i].cover=data.case_new[i].cover+ "?imageView2/1/w/200/h/150";
     }
     data.case_recommend.forEach(function(n,i){
-        n.cover=req.config.url.case+'/'+n.cover+"?imageView2/1/w/400/h/300"
+        n.cover=req.config.url.case+'/'+n.cover+"?imageView2/1/w/200/h/150"
     });
     data.zhuanti.forEach(function(n,i){
         n.default_image=req.config.url.case+'/'+n.default_image+"?imageView2/1/w/420/h/226"
     });
     data.image.forEach(function(n,i){
-        n.path=req.config.url.case+'/'+n.path +"?imageView2/1/w/400/h/300"
+        n.path=req.config.url.case+'/'+n.path +"?imageView2/1/w/200/h/150"
     });
     data.company.forEach(function(n,i){
-        n.logo=req.config.url.company+ '/'+n.logo+"?imageView2/1/w/400/h/300"
+        n.logo=req.config.url.company+ '/'+n.logo+"?imageView2/1/w/200/h/150"
     });
     data.baseUrl=req.baseUrl;
     data.pageTitle='搜索引擎-首页';
