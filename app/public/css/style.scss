@@ -1,5 +1,45 @@
 @charset "utf-8";
 /* RESET */
+$breakpoints: (
+        'ip5':  320px,
+        'mi4':  360px,
+        'ip6':  375px,
+        'ip6p':  414px,
+        'sm':  768px,
+        'md':  992px,
+        'lg':  1200px
+) !default;
+$media-expressions: (
+        'screen': 'screen',
+        'print': 'print',
+        'handheld': 'handheld',
+        'landscape': '(orientation: landscape)',
+        'portrait': '(orientation: portrait)',
+        'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+        'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)'
+) !default;
+
+
+@import 'lib/include-media/dist/include-media';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/grid';
+
+.container {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: 1000px;
+  }
+  @media (min-width: 1000px) {
+    width: 1000px;
+  }
+  @media (min-width: 1360px) {
+    width: 1300px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 $pictureMainColor:#b08dfd;
 $caseMainColor:#f3903e;
@@ -12,6 +52,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
 body *{-webkit-text-size-adjust:none;}
+
+
+
 .clear{clear:both; overflow:hidden; height:0px; font-size:0px; display: block;}
 input:focus, select:focus, textarea:focus, button:focus {outline: none; box-shadow:none;}
 textarea, select{ -webkit-appearance: none; border-radius: 0; outline: none; border: 0px none; outline: none; transition: all 0.3s ease-in; -moz-transition: all 0.3s ease-in;-o-transition: all 0.3s ease-in;-webkit-transition: all 0.3s ease-in;-ms-transition: all 0.3s ease-in; background: none;}
