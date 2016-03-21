@@ -8,7 +8,7 @@
             }else{
                 app.service.getStaticData().then(function(res){
                     //console.log(res)
-                    hb.Cookies.set('statisticData', res, { expires: 0.05});
+                    hb.Cookies.set('statisticData', res, { expires: 1/12});
                     render(res)
                 });
             }
