@@ -1345,13 +1345,13 @@ body{
             &:hover,&:focus,&:active{
                 background-color: #e0e0e0;
             }
-
         }
     }
     .tab-list{
         display:block;
         overflow: hidden;
-        margin-top:50px;
+        padding-top:44px;
+      margin-top: 6px;
         .tab-title{
             display:block;
             overflow: hidden;
@@ -2540,9 +2540,9 @@ body{
                 .item-cycle{
                     width:82px;
                     height:62px;
-                    //border-radius:50%;
+                    border-radius:none;
                     margin:auto;
-                    //border:1px solid #eeeeee;
+                    border:0px solid #eeeeee;
                     display: block;
                     overflow: hidden;
                     margin-bottom:20px;

@@ -105,7 +105,7 @@ app.companyIndex=(function(){
             next :'>',
             last:'>>',
             //href: `?tag=${searchPara.tag||''}&page={{number}}` ,
-            href: '?page={{number}}'+ (searchPara.keywords?'&keywords='+encodeURIComponent(searchPara.keywords):'')+ (searchPara.r?'&r='+searchPara.r:''),
+            href: '?page={{number}}'+ (searchPara.keywords?'&keywords='+encodeURIComponent(searchPara.keywords):'')+ (searchPara.r?'&r='+searchPara.r:'')+"#tab",
         });
 
     }

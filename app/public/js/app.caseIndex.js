@@ -40,7 +40,7 @@ app.caseIndex=(function(){
             next :'>',
             last:'>>',
             //href: `?tag=${searchPara.tag||''}&page={{number}}` ,
-            href: '?page={{number}}'+(searchPara.sort?'&sort='+searchPara.sort:'')+ (searchPara.tag?'&tag='+encodeURIComponent(searchPara.tag):''),
+            href: '?page={{number}}'+(searchPara.sort?'&sort='+searchPara.sort:'')+ (searchPara.tag?'&tag='+encodeURIComponent(searchPara.tag):'')+"#tab",
             //href: '?page={{number}}'+'&sort='+searchPara.sort,
             //href: '?page={{number}}'+'&sort=1&tag=%E6%96%B0%E5%A8%98%E6%8D%A7%E8%8A%B1',
         });

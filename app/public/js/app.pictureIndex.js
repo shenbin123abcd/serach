@@ -45,13 +45,24 @@ app.pictureIndex=(function(){
             next :'>',
             last:'>>',
             //href: `?tag=${searchPara.tag||''}&page={{number}}` ,
-            href: '?page={{number}}'+(searchPara.sort?'&sort='+searchPara.sort:'')+ (searchPara.tag?'&tag='+encodeURIComponent(searchPara.tag):''),
+            href: '?page={{number}}'+(searchPara.sort?'&sort='+searchPara.sort:'')+ (searchPara.tag?'&tag='+encodeURIComponent(searchPara.tag):'')+"#tab",
         });
+    }
+    function scrollToTab(){
+        $(window).on('load',function(){
+            //console.log(hb.location.url('hash'))
+            console.log($(window).scrollTop());
+            var hash=hb.location.url('hash');
+            if(hash=='tab'){
+                $(window).scrollTop($(window).scrollTop()+44);
+            }
+        })
     }
 
     return {
         tab:tab,
         pagActive:pagActive,
+        scrollToTab:scrollToTab,
     };
 
 }());

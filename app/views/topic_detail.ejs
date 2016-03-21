@@ -41,14 +41,13 @@
 
 
                         <h4 class="f-20"><%=item.title%></h4>
-
                         <div class="content-pic">
                             <% item.images.forEach(function(img){ %>
                             <img src="<%=img%>" alt="">
                             <%})%>
                         </div>
                         <p class="content-desc"><%=item.description%></p>
-                        <a href="/case/detail/<%=item.id%>" class="more">查看案例 <span>></span> </a>
+                        <a href="/case/detail/<%=item.case_id%>" class="more">查看案例 <span>></span> </a>
                     </div>
                     <%})%>
 
