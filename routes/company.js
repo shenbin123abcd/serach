@@ -27,7 +27,7 @@ router.get('/', function(req, res, next){
             if (data.data.length > 0) {
                 data.data.forEach(function(val, index){
                     if (val.logo.length > 0) {
-                        val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/200";
+                        val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/150";
                     } else {
                         val.logo = '/images/company-logo-sample.png';
                     }

@@ -112,15 +112,27 @@ app.companyIndex=(function(){
     function resizeLogo(){
 
         //console.log($("#company-list img").naturalHeight());
+        var normalHeight;
+        detectHeight();
         $("#company-list img").on('load',function(){
             //console.log($(this).naturalHeight());
-            if($(this).naturalHeight()<200){
-                $(this).outerHeight(171);
+            if($(this).naturalHeight()<150){
+                $(this).outerHeight(normalHeight);
             }
 
         });
 
-
+        function detectHeight(){
+            var cancel=false;
+            $("#company-list img").on('load',function(){
+                //console.log($(this).naturalHeight());
+                if(cancel){return;}
+                if($(this).naturalHeight()==150){
+                    normalHeight=$(this).height();
+                    cancel=true;
+                }
+            });
+        }
 
 
     }
