@@ -93,7 +93,7 @@ function render(data, req, res){
         n.cover=req.config.url.case+'/'+n.cover+"?imageView2/1/w/400/h/300"
     });
     data.zhuanti.forEach(function(n,i){
-        n.default_image=req.config.url.case+'/'+n.default_image+"?imageView2/1/w/400/h/300"
+        n.default_image=req.config.url.case+'/'+n.default_image+"?imageView2/1/w/420/h/226"
     });
     data.image.forEach(function(n,i){
         n.path=req.config.url.case+'/'+n.path +"?imageView2/1/w/400/h/300"

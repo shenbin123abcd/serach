@@ -225,17 +225,17 @@
                 <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
             </div>
         </div>
-        <div class="search-block-content">
+        <div id="topic-list" class="search-block-content">
             <% data.zhuanti.forEach(function(n,i){ %>
                 <div class="col-md-4 col-sm-12">
                 <div class="block-special-item">
                     <a class="block-special-item-pic" href="/topic/detail/<%= n.id%>">
-                        <img src="<%= n.default_image%>" alt="">
+                        <img class="img" src="<%= n.default_image%>" alt="">
                     </a>
                     <div class="block-special-item-desc">
-                        <div class="item-desc-middle">
-                            <a href="/topic/detail/<%= n.id%>"><h4 class="f-16 f-black"><%= n.title%></h4></a>
-                            <p class="f-12 f-black"><%= n.description%></p>
+                        <div class="block-special-item-desc-content">
+                            <a class="tit" href="/topic/detail/<%= n.id%>"><%= n.title%></a>
+                            <div topic-des class="des"><%= n.description%></div>
                             <!--<div class="content-item-text-desc">
                                 <ul class="desc-list">
                                     <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
@@ -322,6 +322,7 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
+        app.index.topicEllipsis();
 
         /*searchIndex*/
         app.searchIndex.searchForm();

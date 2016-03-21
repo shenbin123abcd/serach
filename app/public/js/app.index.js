@@ -1,6 +1,16 @@
 app.index=(function(){
     "use strict";
 
+
+
+    function topicEllipsis(){
+        //console.log($('#topic-list').find("[topic-des]"))
+        $('#topic-list').find("[topic-des]").ellipsis();
+
+
+    }
+
+
     return {
         lazy: function() {
             $("img.lazy").lazyload({
@@ -366,6 +376,7 @@ app.index=(function(){
                 //}
             }
         },
+        topicEllipsis:topicEllipsis,
 
     };
 }());
