@@ -59,12 +59,12 @@ router.get('/detail/:id', function(req, res, next){
     obj.getInfo('zhuanti',id, req, {if_company: 1}).then(function(body){
         if(body.iRet === 1){
             var data = body.data;
-            data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/h/481/q/85'
+            data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/q/85'
             if(data.case.length > 0){
                 data.case.forEach(function(val, index){
                     val.images = [
-                        req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/h/480/q/85',
-                        req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/h/480/q/85'
+                        req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/q/85',
+                        req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/q/85'
                     ];
                 })
             }
@@ -83,7 +83,7 @@ router.get('/detail/:id', function(req, res, next){
         var data=data;
 
         data.case.forEach((n,i)=>{
-            n.company.logo=req.config.url.case+'/' +n.company.logo+'?imageView2/1/w/82/h/82';
+            n.company.logo=req.config.url.case+'/' +n.company.logo+'?imageView2/1/w/82/h/62';
         });
 
         data.baseUrl=req.baseUrl;
