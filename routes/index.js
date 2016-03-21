@@ -11,6 +11,8 @@ router.get('/', function(req, res, next){
             console.log('cache');
             render(JSON.parse(data), req, res);
         }
+    },function(err){
+        res.sendStatus(500);
     });
 });
 
