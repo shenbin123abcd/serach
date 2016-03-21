@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="html-company-detail">
 <head>
     <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
     <%- include('Public/common_header_end'); %>
@@ -10,7 +10,7 @@
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="company-detail ">
         <div class="container wrapper">
-            <div class="col-md-10 col-sm-12 col-xs-12 inner">
+            <div class="col-md-12 col-sm-12 col-xs-12 inner">
                  <div class="company-detail-content">
                       <div class="content-topic">
                           <img src="<%= data.cover %>" alt=""/>
@@ -111,7 +111,7 @@
         app.index.summitHover();
         app.index.loginInit();
        // app.common.verticalMiddle("desc-p","desc-txt");
-        app.common.alignCenter("wrapper","inner");
+//        app.common.alignCenter("wrapper","inner");
         //app.common.omit("p-title",8);
     })
 

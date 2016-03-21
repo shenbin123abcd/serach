@@ -25,11 +25,13 @@ $media-expressions: (
 @import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/grid';
 
+
 .container {
   @include container-fixed;
 
   @media (min-width: $screen-sm-min) {
     width: 1000px;
+
   }
   @media (min-width: 1000px) {
     width: 1000px;
@@ -40,6 +42,23 @@ $media-expressions: (
     padding-right: 0;
   }
 }
+.html-topic-detail,.html-company-detail{
+  .container{
+    @media (min-width: $screen-sm-min) {
+      width: 1000px;
+    }
+    @media (min-width: 1000px) {
+      width: 1000px;
+    }
+    @media (min-width: 1360px) {
+      width: 970px;
+      padding-left: 0;
+      padding-right: 0;
+
+    }
+  }
+}
+
 
 $pictureMainColor:#b08dfd;
 $caseMainColor:#f3903e;
