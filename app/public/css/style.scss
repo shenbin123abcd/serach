@@ -712,7 +712,7 @@ body{
     padding-right:10px;*/
 }
 .xol-md-2{
-    margin-top:30px;
+    margin-top:20px;
 }
 #xol-md-2-height{
     margin-top:0px;
@@ -754,9 +754,18 @@ body{
         }
     }
 }
+.rowl{
+  margin-left:-10px ;
+  margin-right:-10px ;
+}
 .halo-search{
     margin-top:44px;
     padding-bottom:100px;
+    .col-md-3, .col-sm-3 ,.col-md-2, .col-md-9, .col-sm-9, .col-md-10 ,.col-sm-12,.xol-md-4, .col-sm-8,.col-sm-4,.xol-md-2{
+      padding-left:10px;
+      padding-right:10px;
+    }
+
     .top-tab{
         padding:20px;
         .tab-item{
@@ -925,6 +934,7 @@ body{
                     padding-left:0;
                     .col-md-12.no-padding{
                         padding-left:0;
+                        padding-right:10px;
                     }
                 }
                 .xol-md-2{
@@ -1038,12 +1048,11 @@ body{
             }
 
             .list-banner{
-                margin-top:15px;
-                padding:0 15px;
+                margin-top:20px;
+                padding:0 10px;
                 .banner-wrapper{
                     width:100%;
-                    background:grey;
-                    height:130px;
+                    height:120px;
                 }
             }
         }
@@ -1088,13 +1097,17 @@ body{
             }
         }
         .search-block-content{
+            .col-md-2,.col-sm-4{
+              padding-left:10px;
+              padding-right:10px;
+            }
             overflow: hidden;
             display: block;
             clear:both;
             padding:30px 0;
             .col-md-4,.col-sm-12{
-                padding-right: 15px;
-                padding-left: 15px;
+                padding-right: 10px;
+                padding-left: 10px;
             }
             .block-content-item{
                 display:block;
@@ -1102,8 +1115,8 @@ body{
                 border-radius:4px;
                 position:relative;
                 .col-md-2{
-                  padding-left: 15px;
-                  padding-right: 15px;
+                  padding-left: 10px;
+                  padding-right: 10px;
                 }
                 /* &:hover img{
                         border-radius:4px;
@@ -1233,6 +1246,7 @@ body{
         }
         &.pic{
             .search-block-content{
+
                 .content-item-text{
                     position:absolute;
                     bottom:0;
@@ -1275,6 +1289,7 @@ body{
 
 /*case index*/
 .halo-search.case{
+
     .search-box-input{
         .search_input{
             .search_wrapper{
