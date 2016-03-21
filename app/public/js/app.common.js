@@ -11,10 +11,12 @@ app.common=(function(){
         });
     };
     var verticalMiddle=function(WrapperIndex,InnerIndex){
-        var WrapperHeight=parseInt($("."+WrapperIndex).css("height"));
-        var innerHeight=parseInt($("."+InnerIndex).css("height"));
-        var num=((WrapperHeight-innerHeight)/2);
-        $("."+InnerIndex).css("position","relative").css("top",num);
+        $(window).load(function(){
+            var WrapperHeight=parseInt($("."+WrapperIndex).css("height"));
+            var innerHeight=parseInt($("."+InnerIndex).css("height"));
+            var num=((WrapperHeight-innerHeight)/2);
+            $("."+InnerIndex).css("position","relative").css("top",num);
+        });
     };
     var commitForm=function(){
         $("textarea").on("input",function(){

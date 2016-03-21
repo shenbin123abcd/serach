@@ -55,24 +55,25 @@ app.index=(function(){
             $("#register_phone").on("input",function(){
                 var num = parseInt($(this).val().length);
                 if(num===11){
-                    $(".login-btn").css("color",'#fff').css("background",'#e74c3c');
+                    $("#send_btn").css("color",'#fff').css("background",'#e74c3c');
+
                 }else if(num>11){
                     DIALOG.error("请输入正确的手机号");
                     $(this).val("");
-                    $(".login-btn").css("color",'#fff').css("background",'#b4b4b4');
+                    $("#send_btn").css("color",'#fff').css("background",'#b4b4b4');
                 }
             });
             $("#register-modal").on("submit",function(event){
                 event.preventDefault();
                 var data={
-                    /*"invite_code": $.trim($("#register_invite_code").val()),*/
-                    "phone": $.trim($("#register_phone").val())
+                    "phone": $.trim($("#register_phone").val()),
+                    "invite_code":$.trim($("#register_invite_code").val()),
                 }
-                /*if(data.invite_code==""){
-                    DIALOG.error("请输入邀请码");
-                    return false;
-                }else */if(data.phone==""){
+                if(data.phone==""){
                     DIALOG.error("请输入手机号");
+                    return false;
+                }else if(data.invite_code==''){
+                    DIALOG.error("请输入邀请码");
                     return false;
                 }
                 hb.util.loading.show();
@@ -82,11 +83,17 @@ app.index=(function(){
                     data: data,
                     success: function(data) {
                         hb.util.loading.hide();
-                        $("#register-modal").attr("aria-hidden","true").css("display","none");
-                        $("#zc-modal").attr("aria-hidden","false").css({
-                            "display":"block",
-                            "opacity":1
-                        });
+                        if(data.iRet==1){
+                            $("#register-modal").attr("aria-hidden","true").css("display","none");
+                            $("#zc-modal").attr("aria-hidden","false").css({
+                                "display":"block",
+                                "opacity":1
+                            });
+                        }else if(data.iRet==0){
+                            DIALOG.error(data.info);
+                            return false;
+                        }
+
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         DIALOG.error("网络繁忙请稍候再试");
@@ -100,21 +107,18 @@ app.index=(function(){
                 event.preventDefault();
                 var data={
                     "verify_code":$.trim($("#n_register_verify_code").val()),
-                    /*"invite_code":$.trim($("#n_register_invite_code").val()),*/
                     "phone":$.trim($("#n_register_phone").val()),
                     "username":$.trim($("#n_register_username").val()),
                     "company":$.trim($("#n_register_company").val()),
                     "city":$.trim($("#n_register_city").val()),
                     "wechat":$.trim($("#n_register_wechat").val()),
                     "password":$.trim($("#n_register_password").val()),
+                    "invite_code":$.trim($("#n_register_invite_code").val()),
                 };
                 if(data.verify_code==""){
                     DIALOG.error("请输入短讯验证码");
                     return false;
-                }/*else if(data.invite_code==""){
-                    DIALOG.error("请输入邀请码");
-                    return false;
-                }*/else if(data.phone==""){
+                }else if(data.phone==""){
                     DIALOG.error("请输入手机号");
                     return false;
                 }else if(data.username==""){
@@ -132,6 +136,9 @@ app.index=(function(){
                 }else if(data.password==""){
                     DIALOG.error("请输入密码");
                     return false;
+                }else if(data.invite_code==""){
+                    DIALOG.error("请输入邀请码");
+                    return false;
                 }
                 hb.util.loading.show();
                 $.ajax({
@@ -142,7 +149,7 @@ app.index=(function(){
                     success: function(data) {
                         if(data.iRet==1){
                             hb.util.loading.hide();
-                            console.log(data);
+                            DIALOG.success("您已注册成功！");
                             var token=data.data.token;
                             var user=data.data.user;
                             window.localStorage.setItem("token",JSON.stringify(token));
@@ -154,6 +161,12 @@ app.index=(function(){
                             $("#zc-modal,#login-modal,#register-modal").modal('hide');
                             $(".login-btn.login").text("欢迎你，"+data.data.user.username).attr("disabled","true").css("opacity","1");
                             $(".login-btn.register").css("display","none");
+                            $("#drop_menu").css({"display":"none","cursor":"text"});
+                            $("#summit-drop>a").text(user.username);
+                        }else{
+                            DIALOG.error(data.info);
+                            hb.util.loading.hide();
+                            return false;
                         }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
@@ -199,8 +212,8 @@ app.index=(function(){
                     //window.localStorage.getItem('token');
                     $(".login-btn.login").text("欢迎你，"+res.data.user.username).attr("disabled","true").css("opacity","1");
                     $(".btn.register").css("display","none");
-                    $("ul.nav-dropdown-menu").css({"display":"none","cursor":"text"});
-                    $(".summit-drop>a").text(res.data.user.username);
+                    $("#drop_menu").css({"display":"none","cursor":"text"});
+                    $("#summit-drop>a").text(res.data.user.username);
                     $("#nav-login-btn").on("click",function(event){
                         event.preventDefault();
                         $("#nav-login-btn").attr("data-target","");
@@ -233,8 +246,8 @@ app.index=(function(){
             if(token){
                 $(".login-btn.login").text("欢迎你，"+user.username).attr("disabled","true").css("opacity","1");
                 $(".btn.register").css("display","none");
-                $("ul.nav-dropdown-menu").css({"display":"none","cursor":"text"});
-                $(".summit-drop>a").text(user.username);
+                $("#drop_menu").css({"display":"none","cursor":"text"});
+                $("#summit-drop>a").text(user.username);
             }else{
                 $(".login-btn.login").text("登录幻熊通行证");
             }
@@ -263,7 +276,7 @@ app.index=(function(){
                     $.ajax({
                         //method: "POST",
                         dataType : "jsonp",
-                        url: "http://college.hx.com/api/login",
+                        url: "http://college.halobear.com/api/login",
                         //url: "http://college.halobear.com/api/login",
                         //timeout: 10000,
                         data: data,

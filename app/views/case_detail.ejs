@@ -92,21 +92,23 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="case-detail-list">
-                    <a class="detail-list-company case" href="/company/detail/<%=data.company.id%>">
-                        <div class="company-img">
-                            <img src="<%= data.company.logo %>" alt=""/>
-                        </div>
-                        <div class="company-desc">
-                            <div class="f-14 name">
-                                <%=data.company.name%>
+                <% if(data.company.logo || data.company.cases){%>
+                    <div class="case-detail-list">
+                        <a class="detail-list-company case" href="/company/detail/<%=data.company.id%>">
+                            <div class="company-img">
+                                <img src="<%= data.company.logo %>" alt=""/>
                             </div>
-                            <div class="f-12 cases">
-                                查看全部<%=data.company.cases%>个案例
+                            <div class="company-desc">
+                                <div class="f-14 name">
+                                    <%=data.company.name%>
+                                </div>
+                                <div class="f-12 cases">
+                                    查看全部<%=data.company.cases%>个案例
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <% }%>
                 <div class="detail-list-num">
                     <div id="markThis-sidebar" class="desc-like piuture f-14" >
                         <p class="f-12">喜欢</p>

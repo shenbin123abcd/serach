@@ -146,7 +146,6 @@ router.get('/detail/:id', function(req, res, next){
             return obj.getInfo('company', data.company_id, req).then(function(body){
                 if(body.iRet === 1){
                     data.company = {id: body.data.id, name: body.data.name, cases: body.data.cases, logo: body.data.company_logo};
-                    data.company.logo= req.config.url.case + '/' + data.company.logo +"?imageView2/1/w/80/h/80";
                 }
                 return data;
             }, function(error){
@@ -161,6 +160,7 @@ router.get('/detail/:id', function(req, res, next){
         data.attach.forEach(function(n,i){
             data.attachArr[i]= req.config.url.case + '/' + data.attach[i].path +"?imageView2/1/w/900/h/600";
         });
+        data.company.logo = req.config.url.case + '/' + data.company.logo + "?imageView2/1/w/80/h/80";
         data.colorArr=data.other_color?data.other_color.split(','):[];
         data.tagArr=data.tag?data.tag.split(','):[];
         data.xiangsiImg=[];
