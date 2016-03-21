@@ -30,7 +30,7 @@ function getData(req, res){
         res.sendStatus(500);
     }).then(function(data){
         // 精选专题
-        params.per_page = 6;
+        params.per_page = 12;
         return obj.getList('zhuanti', req, params).then(function(body){
             if(body.iRet === 1){
                 data.zhuanti = body.data.data;
@@ -41,7 +41,7 @@ function getData(req, res){
         })
     }).then(function(data){
         // 精选案例
-        params.per_page = 12;
+        params.per_page = 24;
         params['filter[recommended]'] = 1;
         return obj.getList('cases', req, params).then(function(body){
             if(body.iRet === 1){
@@ -53,7 +53,7 @@ function getData(req, res){
         })
     }).then(function(data){
         // 图片
-        params.per_page = 12;
+        params.per_page = 24;
         return obj.getList('picture/tag', req, params).then(function(body){
             if(body.iRet === 1){
                 data.image = body.data.data;
