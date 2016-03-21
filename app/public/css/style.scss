@@ -1123,6 +1123,12 @@ body{
                 .block-special-item-desc{
                   padding: 12px 15px;
                   line-height: 1.7;
+                  .tit{
+                    &:hover{
+                      color: $topicMainColor;
+
+                    }
+                  }
 
                   .des{
                     font-size: 12px;
