@@ -28,13 +28,19 @@
                         <p><%=data.description%></p>
                     </div>
 
+
                     <% data.case.length&&data.case.forEach(function(item){ %>
                     <div class="content-item">
+
+                        <%if(item.company){%>
                         <div class="item-cycle">
                             <img src="<%=item.company.logo%>" alt="">
                         </div>
                         <p><%=item.company.name%></p>
-                        <h4 class="f-20">《时光》</h4>
+                        <%}%>
+
+
+                        <h4 class="f-20"><%=item.title%></h4>
 
                         <div class="content-pic">
                             <% item.images.forEach(function(img){ %>
@@ -45,6 +51,8 @@
                         <a href="/case/detail/<%=item.id%>" class="more">查看案例 <span>></span> </a>
                     </div>
                     <%})%>
+
+
 
                     <div class="detail-content-commit" >
                         <form id="commit-form">
