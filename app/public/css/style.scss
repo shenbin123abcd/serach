@@ -726,6 +726,7 @@ body{
     .xol-md-2{
         width:20%;
         float: left;
+
     }
 }
 @media (min-width: 768px){
@@ -754,6 +755,16 @@ body{
             }
         }
     }
+}
+@media (max-width: 768px){
+  .xol-xs-4{
+    width:40%;
+    float: left;
+  }
+  .xol-xs-2{
+    width:20%;
+    float: left;
+  }
 }
 .rowl{
   margin-left:-10px ;
@@ -799,7 +810,8 @@ body{
     }
     .search-box{
         background: url("../images/img4.jpg") no-repeat scroll 0 0;
-
+        min-width: 1000px;
+        width:auto;
         background-size:cover;
         padding:100px 0;
         .search-box-text{
@@ -1127,6 +1139,7 @@ body{
                 overflow: hidden;
                 border-radius:4px;
                 position:relative;
+                margin-top: 20px;
                 .col-md-2{
                   padding-left: 10px;
                   padding-right: 10px;
@@ -1194,6 +1207,7 @@ body{
               //width: 100%;
               background: #fff;
               color: $mainTextColor;
+              margin-top: 20px;
                 .block-special-item-pic{
                   //display: table-cell;
                   //  width:50%;
