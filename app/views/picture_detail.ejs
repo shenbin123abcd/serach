@@ -69,6 +69,7 @@
 
             </div>
             <div class="col-md-3">
+                <%if(data.company.id){%>
                 <div class="case-detail-list">
                     <a class="detail-list-company picture" href="/company/detail/<%=data.company.id%>">
                         <div class="company-img">
@@ -84,6 +85,8 @@
                         </div>
                     </a>
                 </div>
+                <%}%>
+
                 <div class="detail-list-num">
                     <div id="markThis-sidebar" class="desc-like piuture f-14" >
                         <p class="f-12">喜欢</p>

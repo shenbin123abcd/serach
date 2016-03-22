@@ -65,6 +65,8 @@
                          </div>
                          <div class="col-md-10 col-sm-10 no-top">
                              <% data.caseList.forEach(function(n,i){ %>
+                             <%if(i<16){%>
+
                                  <div class="col-md-3 col-sm-12">
                                      <a class="block-content-item left" href="/case/detail/<%= n.id %>">
                                          <img src="<%= n.cover %>" alt="">
@@ -72,14 +74,57 @@
                                              <div class="content-item-text-desc">
                                                  <p class="f-16 f-white p-title"><%= n.title %></p>
                                                  <ul class="desc-list">
-                                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views %></span></li>
-                                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments %></span></li>
-                                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points %></span></li>
+                                                     <li class="desc-list-item f-10"><span
+                                                                 class="glyphicon glyphicon-eye-open"></span><span
+                                                                 class="desc-list-item-num"><%= n.views %></span></li>
+                                                     <li class="desc-list-item f-10"><span
+                                                                 class="glyphicon glyphicon-comment"></span><span
+                                                                 class="desc-list-item-num"><%= n.comments %></span>
+                                                     </li>
+                                                     <li class="desc-list-item f-10"><span
+                                                                 class="glyphicon glyphicon-heart-empty"></span><span
+                                                                 class="desc-list-item-num"><%= n.points %></span></li>
                                                  </ul>
                                              </div>
                                          </div>
                                      </a>
                                  </div>
+
+                             <%}%>
+                             <%if(i==16){%>
+                             <div class="rest-cases-toggle" ><a id="rest-cases-toggle__bt" class="bt" data-toggle="collapse" href="#expand-more" ><span class="text">展开</span> <i class="glyphicon glyphicon-menu-down"></i></a></div>
+                             <div id="expand-more" class="collapse">
+                             <%}%>
+                             <%if(i>=16){%>
+                                 <div class="col-md-3 col-sm-12">
+                                     <a class="block-content-item left" href="/case/detail/<%= n.id %>">
+                                         <img src="<%= n.cover %>" alt="">
+                                         <div class="content-item-text">
+                                             <div class="content-item-text-desc">
+                                                 <p class="f-16 f-white p-title"><%= n.title %></p>
+                                                 <ul class="desc-list">
+                                                     <li class="desc-list-item f-10"><span
+                                                                 class="glyphicon glyphicon-eye-open"></span><span
+                                                                 class="desc-list-item-num"><%= n.views %></span></li>
+                                                     <li class="desc-list-item f-10"><span
+                                                                 class="glyphicon glyphicon-comment"></span><span
+                                                                 class="desc-list-item-num"><%= n.comments %></span>
+                                                     </li>
+                                                     <li class="desc-list-item f-10"><span
+                                                                 class="glyphicon glyphicon-heart-empty"></span><span
+                                                                 class="desc-list-item-num"><%= n.points %></span></li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                     </a>
+                                 </div>
+                             <%}%>
+
+                             <%if(i>=16&&i==data.caseList.length){%>
+                             </div>
+                             <%}%>
+
+
                              <% }) %>
 
                          </div>
@@ -110,9 +155,12 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
+        app.companyDetail.toggleCases();
        // app.common.verticalMiddle("desc-p","desc-txt");
 //        app.common.alignCenter("wrapper","inner");
         //app.common.omit("p-title",8);
+
+
     })
 
 
