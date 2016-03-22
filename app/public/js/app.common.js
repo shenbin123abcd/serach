@@ -50,9 +50,9 @@ app.common=(function(){
         function resizeLogo(){
             $(elementStr).on('load',function(){
                 //console.log($(this).naturalHeight());
-                if($(this).naturalHeight()<oHeight){
+                //if($(this).naturalHeight()<oHeight){
                     $(this).outerHeight(normalHeight);
-                }
+                //}
 
             });
         }
