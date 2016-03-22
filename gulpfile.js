@@ -212,13 +212,13 @@ gulp.task('build', ['sass','images'], function () {
         //    quotes: true,
         //    conditionals: true
         //}))
-        .pipe(plugins.htmlmin({
-            removeComments: true,
-            collapseWhitespace: true,
-            conservativeCollapse: true,
+        //.pipe(plugins.htmlmin({
+            //removeComments: true,
+            //collapseWhitespace: true,
+            //conservativeCollapse: true,
             //minifyJS: true,
             //minifyCSS: true,
-        }))
+        //}))
         //.pipe(ejsFilter.restore)
         .pipe(gulp.dest('views'))
 });
