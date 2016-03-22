@@ -16,8 +16,8 @@
             <h4 class="f-white"><span id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
             <p class="f-white">在这里，见证一个行业的跌宕起伏。</p>
         </div>
-        <div class='search-box-input col-md-9 col-md-push-2'>
-            <div class="col-md-3 col-sm-3">
+        <div class='search-box-input col-md-9 col-md-push-2 col-xs-9'>
+            <div class="col-md-3 col-sm-3 col-xs-3">
                 <div class="drop-wrap">
                     <div class="drop">
                         <b class="">婚礼案例</b>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-9 col-sm-9 col-xs-9">
                 <div class="search_input">
                     <form  action="/case">
                          <span class="search_wrapper">
@@ -52,8 +52,8 @@
 <div class="container">
     <div class="rowl">
         <div class="list-case rowl">
-        <div class="col-md-10 col-sm-12" id="md-item-height">
-        <div class="xol-md-4 col-sm-8 hidden-sm ">
+        <div class="col-md-10 col-sm-12 col-xs-10" id="md-item-height">
+        <div class="xol-md-4 col-sm-8 hidden-sm xol-xs-4">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
                 <div class="pic-list-item-text">
@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="xol-md-4 col-sm-8 ">
+        <div class="xol-md-4 col-sm-8 xol-xs-4">
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img src="<%= data.case_new[1].cover %>" alt="" class="pic-list-item-img"></a>
                     <div class="pic-list-item-text">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </div>
-        <div class="xol-md-2 col-sm-4" id="xol-md-2-height">
+        <div class="xol-md-2 col-sm-4 xol-xs-2" id="xol-md-2-height">
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[2].cover %>" alt="" class="pic-list-item-img"></a>
                     <div class="pic-list-item-text">
@@ -126,7 +126,7 @@
                 </div>
             </div>
         <% for(var i=3; i<12;i++){ %>
-            <div class="xol-md-2 col-sm-4 <%if(i==3){%>cl<%}%>">
+            <div class="xol-md-2 col-sm-4 <%if(i==3){%>cl<%}%> xol-xs-2">
                 <div class="pic-list-item" >
                     <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img"></a>
                     <div class="pic-list-item-text">
@@ -151,7 +151,7 @@
                 </div>
             </div>
         <% }%>
-        <div class="xol-md-2 col-sm-4 hidden-sm">
+        <div class="xol-md-2 col-sm-4 hidden-sm xol-xs-2">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[12].id %>"><img src="<%= data.case_new[12].cover %>" alt="" class="pic-list-item-img"></a>
                 <div class="pic-list-item-text">
@@ -176,7 +176,7 @@
             </div>
         </div>
         </div>
-        <div class="col-md-2 hidden-sm no-padding">
+        <div class="col-md-2 hidden-sm no-padding col-xs-2">
             <div class="col-md-12 no-padding">
                 <div class="pic-list-item">
                     <img src="/images/img14.png" alt="" class="pic-list-item-img">
@@ -184,7 +184,7 @@
             </div>
         </div>
         </div>
-        <div class="col-md-12 col-sm-12 list-banner">
+        <div class="col-md-12 col-sm-12 list-banner col-xs-12">
             <div class="banner-wrapper">
                 <img src="/images/img13.jpg" alt="" class="pic-list-item-img">
             </div>
@@ -196,7 +196,7 @@
 <div class="search-content-block case">
     <div class="container">
         <div class="rowl">
-        <div class="col-md-12">
+        <div class="col-md-12 col-xs-12">
             <div class='search-block-title'>
                 <p class="search-block-text"><span class="f-black">精选案例</span><a class="b-pink" href="/case">查看全部案例 ></a></p>
                 <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
@@ -204,12 +204,12 @@
         </div>
         <div class="search-block-content">
             <% data.case_recommend.forEach(function(n,i){ %>
-                <div class="col-md-2 col-sm-4">
+                <div class="col-md-2 col-sm-4 col-xs-2">
                     <div class="block-content-item">
                         <a href="/case/detail/<%= n.id%>"><img src="<%= n.cover %>" alt=""></a>
                         <div class="content-item-text">
                             <a href="/case/detail/<%= n.id%>"><h4 class="f-16"><%= n.title %></h4></a>
-                            <a href="<%= n.company_id %>"><p class="f-12 s-title f-black">北京摩卡婚礼策划</p></a>
+                            <a href="<%= n.company_id %>"><p class="f-12 s-title f-black"><%= n.company%></p></a>
                             <!--<div class="content-item-text-desc">
                                 <ul class="desc-list">
                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
@@ -228,7 +228,7 @@
 <div class="search-content-block special">
     <div class="container">
         <div class="rowl">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12">
                 <div class='search-block-title'>
                     <p class="search-block-text"><span class="f-black">精选专题</span><a class="b-pink" href="/topic">查看全部专题 ></a></p>
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
@@ -236,7 +236,7 @@
             </div>
             <div id="topic-list" class="search-block-content">
                 <% data.zhuanti.forEach(function(n,i){ %>
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="block-special-item">
                         <a class="block-special-item-pic" href="/topic/detail/<%= n.id%>">
                             <img class="img" src="<%= n.default_image%>" alt="">
@@ -264,7 +264,7 @@
 <div class="search-content-block pic">
     <div class="container">
         <div class="rowl">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12">
                 <div class='search-block-title'>
                     <p class="search-block-text"><span class="f-black">精选图片</span><a class="b-pink" href="/picture">查看全部图片 ></a></p>
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
@@ -272,7 +272,7 @@
             </div>
             <div class="search-block-content">
                 <% data.image.forEach(function(n,i){ %>
-                    <div class="col-md-2 col-sm-4">
+                    <div class="col-md-2 col-sm-4 col-xs-2">
                         <a class="block-content-item" href="/picture/detail/<%= n.id%>">
                             <img src="<%= n.path %>" alt="">
                             <!--<div class="content-item-text">
@@ -294,7 +294,7 @@
 <div class="search-content-block company">
     <div class="container">
         <div class="rowl">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12">
                 <div class='search-block-title'>
                     <p class="search-block-text"><span class="f-black">精选公司</span><a class="b-pink" href="/company">查看全部公司 ></a></p>
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
@@ -302,7 +302,7 @@
             </div>
             <div class="search-block-content">
                 <% data.company.forEach(function(n,i){%>
-                    <div class="col-md-2 col-sm-4">
+                    <div class="col-md-2 col-sm-4 col-xs-2">
                         <div class="block-content-item" >
                             <a href="/company/detail/<%= n.id%>"><img src="<%= n.logo%>" alt=""></a>
                             <div class="content-item-text">
