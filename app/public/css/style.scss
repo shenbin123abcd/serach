@@ -28,16 +28,16 @@ $media-expressions: (
 
 .container {
   @include container-fixed;
-
+  width: 1000px!important;
   @media (min-width: $screen-sm-min) {
-    width: 1000px;
+    width: 1000px!important;
 
   }
   @media (min-width: 1000px) {
-    width: 1000px;
+    width: 1000px!important;
   }
   @media (min-width: 1360px) {
-    width: 1300px;
+    width: 1300px!important;
     padding-left: 0;
     padding-right: 0;
   }
@@ -45,19 +45,20 @@ $media-expressions: (
 .html-topic-detail,.html-company-detail{
   .container{
     @media (min-width: $screen-sm-min) {
-      width: 1000px;
+      width: 1000px!important;
     }
     @media (min-width: 1000px) {
-      width: 1000px;
+      width: 1000px!important;
     }
     @media (min-width: 1360px) {
-      width: 970px;
+      width: 970px!important;
       padding-left: 0;
       padding-right: 0;
 
     }
   }
 }
+
 
 
 $pictureMainColor:#b08dfd;
@@ -768,6 +769,10 @@ body{
     .col-md-3, .col-sm-3 ,.col-md-2, .col-md-9, .col-sm-9, .col-md-10 ,.col-sm-12,.xol-md-4, .col-sm-8,.col-sm-4,.xol-md-2{
       padding-left:10px;
       padding-right:10px;
+      &.cl{
+        clear: left;
+
+      }
     }
 
     .top-tab{
@@ -992,8 +997,9 @@ body{
                   overflow: hidden;
                 }
                 .pic-list-item-img{
-                    /*width:100%;
-                    max-width: 100%;*/
+                    width:100%;
+                    //max-width: 100%;
+
                     display: block;
                     z-index:2;
                 }
@@ -1057,6 +1063,9 @@ body{
                 .banner-wrapper{
                     width:100%;
                     height:120px;
+                  .pic-list-item-img{
+                    width: 100%;
+                  }
                 }
             }
         }
