@@ -63,7 +63,7 @@ app.common=(function(){
                 //console.log($(this).naturalHeight());
                 if(cancel){return;}
                 if($(this).naturalHeight()==oHeight){
-                    normalHeight=$(this).height();
+                    normalHeight=$(this).outerHeight();
                     if(callback){
                         callback();
                     }
