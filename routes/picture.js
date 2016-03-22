@@ -178,10 +178,10 @@ router.get('/detail/:id', function(req, res, next){
 
 
         data.case.data.forEach((n,i)=>{
-            n.path=`${req.config.url.case}/${n.path}?imageView2/1/w/105/h/78`;
+            n.path=`${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
         });
         data.xiangsi.forEach((n,i)=>{
-            n.path=`${req.config.url.case}/${n.path}?imageView2/1/w/105/h/78`;
+            n.path=`${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
         });
 
 
