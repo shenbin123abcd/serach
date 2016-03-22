@@ -14,7 +14,6 @@ app.index=(function(){
 
     }
 
-
     return {
         lazy: function() {
             $("img.lazy").lazyload({
