@@ -50,9 +50,9 @@ app.common=(function(){
         function resizeLogo(){
             $(elementStr).on('load',function(){
                 //console.log($(this).naturalHeight());
-                if($(this).naturalHeight()<oHeight){
+                //if($(this).naturalHeight()<oHeight){
                     $(this).outerHeight(normalHeight);
-                }
+                //}
 
             });
         }
@@ -63,7 +63,7 @@ app.common=(function(){
                 //console.log($(this).naturalHeight());
                 if(cancel){return;}
                 if($(this).naturalHeight()==oHeight){
-                    normalHeight=$(this).height();
+                    normalHeight=$(this).outerHeight();
                     if(callback){
                         callback();
                     }
