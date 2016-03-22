@@ -2220,6 +2220,24 @@ body{
                     }
                 }
             }
+
+          .rest-cases-toggle{
+            padding-top: 15px;
+            padding-right: 12px;
+            text-align: right;
+            clear: both;
+            .bt{
+              font-size: 14px;
+
+            }
+            .text{
+              vertical-align: middle;
+            }
+            .glyphicon{
+              vertical-align: middle;
+            }
+
+          }
         }
     }
 }
