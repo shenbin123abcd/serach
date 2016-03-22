@@ -91,6 +91,11 @@ function getData(req, res){
 function render(data, req, res){
     data.case_new.forEach(function(n, i){
         n.cover = req.config.url.case + '/' + n.cover
+        if(n.color==""){
+            n.color="#2797ff";
+        }else{
+            n.color=n.color;
+        }
     })
     data.case_new[0].cover = data.case_new[0].cover + "?imageView2/1/w/420/h/300";
     data.case_new[1].cover = data.case_new[1].cover + "?imageView2/1/w/420/h/300";
