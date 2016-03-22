@@ -112,33 +112,36 @@ app.companyIndex=(function(){
     function resizeLogo(){
 
         //console.log($("#company-list img").naturalHeight());
-        var normalHeight;
-        detectHeight(resizeLogo);
+        app.common.resizeLogo("#company-list img",150);
 
-        function resizeLogo(){
-            $("#company-list img").on('load',function(){
-                //console.log($(this).naturalHeight());
-                if($(this).naturalHeight()<150){
-                    $(this).outerHeight(normalHeight);
-                }
 
-            });
-        }
-
-        function detectHeight(callback){
-            var cancel=false;
-            $("#company-list img").on('load',function(){
-                //console.log($(this).naturalHeight());
-                if(cancel){return;}
-                if($(this).naturalHeight()==150){
-                    normalHeight=$(this).height();
-                    if(callback){
-                        callback();
-                    }
-                    cancel=true;
-                }
-            });
-        }
+        //var normalHeight;
+        //detectHeight(resizeLogo);
+        //
+        //function resizeLogo(){
+        //    $("#company-list img").on('load',function(){
+        //        //console.log($(this).naturalHeight());
+        //        if($(this).naturalHeight()<150){
+        //            $(this).outerHeight(normalHeight);
+        //        }
+        //
+        //    });
+        //}
+        //
+        //function detectHeight(callback){
+        //    var cancel=false;
+        //    $("#company-list img").on('load',function(){
+        //        //console.log($(this).naturalHeight());
+        //        if(cancel){return;}
+        //        if($(this).naturalHeight()==150){
+        //            normalHeight=$(this).height();
+        //            if(callback){
+        //                callback();
+        //            }
+        //            cancel=true;
+        //        }
+        //    });
+        //}
 
 
     }

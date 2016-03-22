@@ -6,6 +6,10 @@ app.index=(function(){
     function topicEllipsis(){
         //console.log($('#topic-list').find("[topic-des]"))
         $('#topic-list').find("[topic-des]").ellipsis();
+    }
+    function resizeLogo(){
+
+        app.common.resizeLogo("#company-list img",150);
 
 
     }

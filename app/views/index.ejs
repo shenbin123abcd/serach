@@ -300,11 +300,11 @@
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
                 </div>
             </div>
-            <div class="search-block-content">
+            <div id="company-list" class="search-block-content">
                 <% data.company.forEach(function(n,i){%>
                     <div class="col-md-2 col-sm-4 col-xs-2">
                         <div class="block-content-item" >
-                            <a href="/company/detail/<%= n.id%>"><img src="<%= n.logo%>" alt=""></a>
+                            <a class="link" href="/company/detail/<%= n.id%>"><img src="<%= n.logo%>" alt=""></a>
                             <div class="content-item-text">
                                 <a href="/company/detail/<%= n.id%>"><p class="f-12 s-title f-grey"><%= n.name%></p></a>
                                 <div class="content-item-text-desc">
