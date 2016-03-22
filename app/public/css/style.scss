@@ -156,7 +156,6 @@ span.tt{float:none;}
 .copyright ul li a:hover:before {left: 0px;}
 .copyright ul li a:hover {color: #fff;}
 
-
 /*header RESPONSIVE*/
 @media screen and (max-width: 1200px){
   .copyright ul li {margin-right: 10px; font-size: 11px;}
@@ -965,14 +964,14 @@ body{
                             display: block;
                             overflow: hidden;
                         }
-                        .pic-list-item-text{
+
                             .item-text-top{
                                 padding:5px 0;
                             }
                             .item-text-bottom{
                                 display:block;
                                 .item-text-bottom-position{
-                                    left:5px;
+                                    left:20px;
                                     bottom:15px;
                                     width:90%;
                                     .text-bottom-desc{
@@ -985,16 +984,19 @@ body{
                                     }
                                     .text-bottom-title{
                                         h4{
-                                            line-height:12px;
                                             font-size:12px;
                                             text-overflow: ellipsis;
                                             white-space: nowrap;
                                             overflow: hidden;
+
+                                        }
+                                        .f-18-z{
+                                            font-size:18px;
                                         }
                                     }
                                 }
                             }
-                        }
+
                     }
                 }
             .item-margin-top{
@@ -1006,8 +1008,9 @@ body{
                 overflow: hidden;
                 position:relative;
                 transition: all .5s ease;
+                z-index:2;
                   &:hover{
-                    .pic-list-item-img:hover{
+                    .pic-list-item-img{
                       transform: scale(1.1);
                       transition:all .5s ease-out;
                       border-radius: 4px;
@@ -1016,6 +1019,7 @@ body{
                 .a-style{
                   display: block;
                   overflow: hidden;
+                  position: relative;
                 }
                 .pic-list-item-img{
                     width:100%;
@@ -1024,14 +1028,14 @@ body{
                     z-index:2;
                     transition:all .5s ease-out;
                 }
-                .pic-list-item-text{
+
                     .item-text-top{
                         position:absolute;
                         top:10px;
                         right:10px;
                         padding:10px;
                         background:#2797ff;
-                        z-index:2;
+                        /*z-index:2;*/
                         p{
                             line-height: 12px;
                             letter-spacing: 2px;
@@ -1075,17 +1079,26 @@ body{
                             }
                         }
                     }
-                }
+
             }
 
             .list-banner{
                 margin-top:20px;
                 padding:0 10px;
+                overflow: hidden;
+                &:hover{
+                  img{
+                    transform: scale(1.1);
+                    transition:all .5s ease-out;
+                  }
+                }
                 .banner-wrapper{
                     width:100%;
                     height:120px;
+                    overflow: hidden;
                   .pic-list-item-img{
                     width: 100%;
+                    transition:all .5s ease-out;
                   }
                 }
             }
@@ -2094,6 +2107,7 @@ body{
         margin-top: 30px;
         display: block;
         overflow: hidden;
+
         .col-md-2,.col-sm-4{
             padding-left: 10px;
             padding-right: 10px;

@@ -56,7 +56,6 @@
         <div class="xol-md-4 col-sm-8 hidden-sm xol-xs-4">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
-                <div class="pic-list-item-text">
                     <div class="item-text-top" style="background: <%=data.case_new[0].color%>">
                         <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12"><%= data.case_new[0].company %></p></a>
                     </div>
@@ -74,13 +73,11 @@
                             </div>
                         </div>
                     </a>
-                </div>
             </div>
         </div>
         <div class="xol-md-4 col-sm-8 xol-xs-4 inner-father-height">
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img src="<%= data.case_new[1].cover %>" alt="" class="pic-list-item-img"></a>
-                    <div class="pic-list-item-text">
                         <div class="item-text-top" style="background: <%=data.case_new[1].color%>">
                             <p class="f-white f-12"><a href="/company/detail/<%= data.case_new[1].company_id %>"><%= data.case_new[1].company %></a></p>
                         </div>
@@ -98,13 +95,11 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
                 </div>
             </div>
         <div class="xol-md-2 col-sm-4 xol-xs-2 inner-son-height" id="xol-md-2-height">
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[2].cover %>" alt="" class="pic-list-item-img"></a>
-                    <div class="pic-list-item-text">
                         <div class="item-text-top" style="background: <%=data.case_new[2].color%>">
                             <a href="/company/detail/<%= data.case_new[2].company_id %>"><p class="f-white f-10"><span><%= data.case_new[2].company %></span></p></a>
                         </div>
@@ -118,18 +113,16 @@
                                     </ul>
                                 </div>
                                 <div class="text-bottom-title">
-                                    <h4 class="f-18"><%= data.case_new[2].title %></h4>
+                                    <h4 class="f-18-z"><%= data.case_new[2].title %></h4>
                                 </div>
                             </div>
                         </a>
                     </div>
-                </div>
             </div>
         <% for(var i=3; i<12;i++){ %>
             <div class="xol-md-2 col-sm-4 <%if(i==3){%>cl<%}%> xol-xs-2">
                 <div class="pic-list-item" >
                     <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img"></a>
-                    <div class="pic-list-item-text">
                         <div class="item-text-top" style="background: <%=data.case_new[i].color%>">
                             <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-10"><span><%= data.case_new[i].company %></span></p></a>
                         </div>
@@ -147,14 +140,12 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
                 </div>
             </div>
         <% }%>
         <div class="xol-md-2 col-sm-4 hidden-sm xol-xs-2">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[12].id %>"><img src="<%= data.case_new[12].cover %>" alt="" class="pic-list-item-img"></a>
-                <div class="pic-list-item-text">
                     <div class="item-text-top" style="background: <%=data.case_new[12].color%>">
                         <a href="/company/detail/<%= data.case_new[12].company_id %>"><p class="f-white f-10"><span><%= data.case_new[12].company %></span></p></a>
                     </div>
@@ -172,7 +163,6 @@
                             </div>
                         </div>
                     </a>
-                </div>
             </div>
         </div>
         </div>
