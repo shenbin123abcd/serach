@@ -216,8 +216,8 @@ gulp.task('build', ['sass','images'], function () {
             removeComments: true,
             collapseWhitespace: true,
             conservativeCollapse: true,
-            minifyJS: true,
-            minifyCSS: true,
+            //minifyJS: true,
+            //minifyCSS: true,
         }))
         //.pipe(ejsFilter.restore)
         .pipe(gulp.dest('views'))
