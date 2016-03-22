@@ -394,6 +394,7 @@ app.index=(function(){
             }
         },
         topicEllipsis:topicEllipsis,
+        resizeLogo:resizeLogo,
 
     };
 }());
