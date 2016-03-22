@@ -75,7 +75,7 @@ function getData(req, res){
             }
         })
     }).then(function(data){
-        req.redis.set('search_index_data', JSON.stringify(data), 30);
+        req.redis.set('search_index_data', JSON.stringify(data), 3600);
 
         render(data, req, res);
     });
