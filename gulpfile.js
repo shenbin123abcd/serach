@@ -191,14 +191,6 @@ gulp.task('build', ['sass','images'], function () {
         .pipe(plugins.revReplace({
             replaceInExtensions: ['.js', '.css', '.html', '.ejs']
         }))
-        //.pipe(htmlFilter)
-        //.pipe(plugins.minifyHtml({
-        //    empty: true,
-        //    spare: true,
-        //    quotes: true,
-        //    conditionals: true
-        //}))
-        //.pipe(htmlFilter.restore)
         .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
             defaultCDNBase: "/",
@@ -213,6 +205,21 @@ gulp.task('build', ['sass','images'], function () {
                 //'/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
+        //.pipe(ejsFilter)
+        //.pipe(plugins.minifyHtml({
+        //    empty: true,
+        //    spare: true,
+        //    quotes: true,
+        //    conditionals: true
+        //}))
+        //.pipe(plugins.htmlmin({
+            //removeComments: true,
+            //collapseWhitespace: true,
+            //conservativeCollapse: true,
+            //minifyJS: true,
+            //minifyCSS: true,
+        //}))
+        //.pipe(ejsFilter.restore)
         .pipe(gulp.dest('views'))
 });
 
