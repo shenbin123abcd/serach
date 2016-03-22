@@ -37,18 +37,6 @@ app.searchIndex=(function(){
                 $('.drop-list').removeClass('act');
             })
         },
-        reponsiveGrid:function(){
-            var init=function(){
-                var height = $(".block-special-item-pic>img").css("height");
-                var xolHeight=$("#xol-md-4").css("height");
-                $(".block-special-item-desc").css("height",height);
-                $("#xol-md-2-height").css("height",xolHeight);
-            }
-            init();
-            $(window).resize(function() {
-                init();
-            });
-        },
         reponsivePad:function(){
             var bIsIpad = navigator.userAgent.toLowerCase().match(/ipad/i) == "ipad";
             var width= document.documentElement.clientWidth||document.body.clientWidth;
@@ -61,6 +49,18 @@ app.searchIndex=(function(){
                 var pcText= $(".item-desc-middle > p").text().substr(0,26)+"...";
                 $(".item-desc-middle > p").text(pcText);
             }
-        }
+        },
+        sameHeight:function(father,son){
+            $(window).load(function(){
+                var init=function(){
+                    var fatherHeight = $('.'+father).css('height');
+                    $('.'+son+' img').css('height',fatherHeight);
+                }
+                init();
+                $(window).on('orientationchange resize',function(){
+                    init();
+                })
+            })
+        },
     }
 }());

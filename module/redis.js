@@ -22,7 +22,7 @@ redisClient.on('connect', function(){
 
 // 清除缓存
 obj.clear = function(name){
-    redisClient.set(name, null);
+    redisClient.set(name, '');
 };
 
 // 设置缓存
