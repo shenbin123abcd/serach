@@ -42,11 +42,43 @@ app.common=(function(){
             $("." + Newtext).text(text.substr(0, num) + "...");
         })
     }
+    function resizeLogo(elementStr,oHeight){
+
+        var normalHeight;
+        detectHeight(resizeLogo);
+
+        function resizeLogo(){
+            $(elementStr).on('load',function(){
+                //console.log($(this).naturalHeight());
+                if($(this).naturalHeight()<oHeight){
+                    $(this).outerHeight(normalHeight);
+                }
+
+            });
+        }
+
+        function detectHeight(callback){
+            var cancel=false;
+            $(elementStr).on('load',function(){
+                //console.log($(this).naturalHeight());
+                if(cancel){return;}
+                if($(this).naturalHeight()==oHeight){
+                    normalHeight=$(this).height();
+                    if(callback){
+                        callback();
+                    }
+                    cancel=true;
+                }
+            });
+        }
+
+    }
     return {
         companyDesc:companyDesc,
         verticalMiddle:verticalMiddle,
         commitForm:commitForm,
         alignCenter:alignCenter,
         omit:omit,
+        resizeLogo:resizeLogo,
     }
 }());
