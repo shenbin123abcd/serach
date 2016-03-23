@@ -56,8 +56,8 @@
         <div class="xol-md-4 col-sm-8 hidden-sm xol-xs-4">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
-                    <div class="item-text-top" style="background: <%=data.case_new[0].color%>;color:<%=data.case_new[0].fontColor%>;">
-                        <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12"><%= data.case_new[0].company %></p></a>
+                    <div class="item-text-top" style="background: <%=data.case_new[0].color%>;">
+                        <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12" style="color:<%=data.case_new[0].fontColor%>;"><%= data.case_new[0].company %></p></a>
                     </div>
                     <a class="item-text-bottom" href="/case/detail/<%= data.case_new[0].id %>">
                         <div class="item-text-bottom-position">
