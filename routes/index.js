@@ -93,8 +93,10 @@ function render(data, req, res){
         n.cover = req.config.url.case + '/' + n.cover
         if(n.color==""){
             n.color="#2797ff";
+        }else if(n.color=="#ffffff"){
+            n.fontColor="#333";
         }else{
-            n.color=n.color;
+            n.fontColor="#ffffff";
         }
     })
     data.case_new[0].cover = data.case_new[0].cover + "?imageView2/1/w/420/h/300";
