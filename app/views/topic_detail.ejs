@@ -34,11 +34,10 @@
 
                         <%if(item.company){%>
                         <div class="item-cycle">
-                            <img src="<%=item.company.logo%>" alt="">
+                            <a href="/company/detail/<%= item.company_id%>"><img src="<%=item.company.logo%>" alt=""></a>
                         </div>
-                        <p><%=item.company.name%></p>
+                        <a href="/company/detail/<%= item.company_id%>"><p><%=item.company.name%></p></a>
                         <%}%>
-
 
                         <h4 class="f-20"><%=item.title%></h4>
                         <div class="content-pic">
