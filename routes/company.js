@@ -140,7 +140,8 @@ router.get('/detail/:id', function(req, res, next){
     }).then(function(data){
         /* res.json(data);*/
         data.pageTitle = data.name + '公司信息';
-        data.cover = req.config.url.company + '/' + (data.cover||'404.png') + '?imageView2/1/w/920/h/450&imageMogr2/blur/6x8';
+
+        data.cover = req.config.url.company + '/' + (data.cover||'404.png') + '?imageMogr2/blur/6x8/gravity/center/crop/920x450';
 
         data.company_logo = req.config.url.company + '/' + (data.company_logo||'404.png') + '?imageView2/1/w/100/h/75';
         res.render('company_detail', {data: data});
