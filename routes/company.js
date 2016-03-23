@@ -129,7 +129,7 @@ router.get('/detail/:id', function(req, res, next){
                     if(n.cover=='halo/'){
                         obj.cover = req.config.url.case + '/' +'404.png' + "?imageView2/1/w/200/h/150";
                     }else{
-                        obj.cover = req.config.url.case + '/' +(n.cover||'404.png') + "?imageView2/1/w/200/h/150";
+                        obj.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
                     }
                     obj.id = n.id;
                     data.caseList.push(obj);
