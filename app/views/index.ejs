@@ -266,7 +266,9 @@
                 <% data.image.forEach(function(n,i){ %>
                     <div class="col-md-2 col-sm-4 col-xs-2">
                         <a class="block-content-item" href="/picture/detail/<%= n.id%>">
-                            <img src="<%= n.path %>" alt="">
+                            <div class="img-box">
+                                <img src="<%= n.path %>" alt="">
+                            </div>
                             <div class="content-item-text">
                                 <div class="content-item-text-desc">
                                     <ul class="desc-list">
@@ -329,7 +331,7 @@
         app.index.summitHover();
         app.index.loginInit();
         app.index.topicEllipsis();
-        app.index.resizeLogo();
+//        app.index.resizeLogo();
 
         /*searchIndex*/
         app.searchIndex.searchForm();
