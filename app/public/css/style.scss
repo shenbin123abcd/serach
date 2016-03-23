@@ -2729,6 +2729,9 @@ body{
                 }
                 p{
                     color:#666666;
+                    &:hover{
+                      color:#fd5ab0;
+                    }
                 }
                 .content-pic{
                     padding:20px 0;
