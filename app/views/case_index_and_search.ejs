@@ -164,7 +164,7 @@
 <script>
     $(function(){
         "use strict";
-        window.appData = <%- JSON.stringify(data) %>;
+        <%- 'window.appData ='+JSON.stringify(appData) %>;
         app.getStaticData();
         app.index.lazy();
         app.index.nav();

@@ -206,9 +206,10 @@
 
 
 <script>
+
     $(function () {
         "use strict";
-        window.appData = <%- JSON.stringify(data) %>;
+        <%- 'window.appData ='+JSON.stringify(appData) %>;
 //        console.log(appData)
         app.getStaticData();
         app.index.lazy();
@@ -220,7 +221,6 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-
 
         /*pictureIndex*/
         app.pictureIndex.pagActive();

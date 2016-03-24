@@ -80,8 +80,16 @@ router.get('/', function(req, res, next){
             ];
             data.data.forEach(function(n, i){
                 n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
-            })
-            res.render('company_index', {data: data});
+            });
+
+            var appData = {
+                total: data.total,
+                per_page: data.per_page,
+                totalPages: data.totalPages,
+                query: data.query,
+            };
+
+            res.render('company_index', {data: data,appData:appData});
         } else {
             res.sendStatus(500);
         }
