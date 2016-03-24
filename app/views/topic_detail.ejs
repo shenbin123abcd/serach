@@ -12,7 +12,7 @@
         <div class="container">
             <div class='col-md-12'>
                 <div class="content-title">
-                    <h1 class="f-22"><%=data.title%></h1>
+                    <h1 class="f-20"><%=data.title%></h1>
                     <div class="title-desc-icon inline-style">
                         <ul class="desc-list">
                             <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
@@ -25,7 +25,7 @@
                 <div class="content-block">
                     <div class="content-topic">
                         <img src="<%=data.default_image%>" alt="">
-                        <p><%=data.description%></p>
+                        <p class="f-18"><%=data.description%></p>
                     </div>
 
 
@@ -36,17 +36,17 @@
                         <div class="item-cycle">
                             <a href="/company/detail/<%= item.company_id%>"><img src="<%=item.company.logo%>" alt=""></a>
                         </div>
-                        <a href="/company/detail/<%= item.company_id%>"><p><%=item.company.name%></p></a>
+                        <a href="/company/detail/<%= item.company_id%>"><p class="title f-14"><%=item.company.name%></p></a>
                         <%}%>
 
-                        <h4 class="f-20"><%=item.title%></h4>
+                        <h4 class="f-22">《<%=item.title%>》</h4>
                         <div class="content-pic">
                             <% item.images.forEach(function(img){ %>
                             <img src="<%=img%>" alt="">
                             <%})%>
                         </div>
-                        <p class="content-desc"><%=item.description%></p>
-                        <a href="/case/detail/<%=item.case_id%>" class="more">查看案例 <span>></span> </a>
+                        <p class="content-desc f-18"><%=item.description%></p>
+                        <a href="/case/detail/<%=item.case_id%>" class="more f-14">查看案例 <span>></span> </a>
                     </div>
                     <%})%>
 

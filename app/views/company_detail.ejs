@@ -20,68 +20,65 @@
                              <img src="<%= data.company_logo %>" alt=""/>
                          </div>
                          <div class="desc-p">
-                             <span class="f-18 desc-txt"><%= data.name %></span>
+                             <span class="f-20 desc-txt"><%= data.name %></span>
                          </div>
                      </div>
                      <div class="company-about">
                           <div class="desc-pic">
-                              <p class="about-title float-right">公司简介</p>
+                              <p class="about-title float-right f-14">公司简介</p>
                           </div>
                           <div class="desc-p">
-                              <p><%= data.description %></p>
+                              <p class="f-14"><%= data.description %></p>
                           </div>
                      </div>
-                     <div class="company-about">
+                     <div class="company-about special">
                          <div class="desc-pic">
-                             <p class="about-title float-right">公司信息</p>
+                             <p class="about-title float-right f-14">公司信息</p>
                          </div>
                          <div class="desc-p">
                              <%if(data.website){%>
-                               <p>官方网址：<span><%= data.website %></span></p>
+                               <p class="f-14">官方网址：<span><%= data.website %></span></p>
                              <%}%>
 
                              <%if(data.weibo_name){%>
-                                <p>官方微博：<span><%= data.weibo_name %></span></p>
+                                <p class="f-14">官方微博：<span><%= data.weibo_name %></span></p>
                              <%}%>
 
                              <%if(data.wechat){%>
-                                <p>腾讯微信：<span><%= data.wechat %></span></p>
+                                <p class="f-14">腾讯微信：<span><%= data.wechat %></span></p>
                              <%}%>
 
                              <%if(data.updated_at){%>
-                                <p>营业时间：<span><%= data.updated_at %></span></p>
+                                <p class="f-14">营业时间：<span><%= data.updated_at %></span></p>
                              <%}%>
                              <%if(data.tel_1 || data.tel_2 || data.tel_3){%>
-                                <p>联系电话：<span><%= data.tel_1 || data.tel_2 || data.tel_3%></span></p>
+                                <p class="f-14">联系电话：<span><%= data.tel_1 || data.tel_2 || data.tel_3%></span></p>
                              <%}%>
                              <%if(data.address){%>
-                                <p>地<span style="margin-left: 2em;">址</span>：<span><%= data.address %></span></p>
+                                <p class="f-14">地<span style="margin-left: 2em;">址</span>：<span><%= data.address %></span></p>
                              <%}%>
                          </div>
                      </div>
-                     <div class="company-about">
-                         <div class="desc-pic">
-                             <p class="about-title float-right">公司案例</p>
+                     <div class="company-about ">
+                         <div class="desc-pic special">
+                             <p class="about-title float-right f-14">公司案例</p>
                          </div>
                          <div class="desc-p no-top">
                              <% data.caseList.forEach(function(n,i){ %>
                              <%if(i<16){%>
 
-                                 <div class="col-md-3 col-sm-12">
+                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                      <a class="block-content-item left" href="/case/detail/<%= n.id %>">
                                          <img src="<%= n.cover %>" alt="">
                                          <div class="content-item-text">
                                              <div class="content-item-text-desc">
-                                                 <p class="f-16 f-white p-title"><%= n.title %></p>
+                                                 <p class="f-12 f-white p-title"><%= n.title %></p>
                                                  <ul class="desc-list">
-                                                     <li class="desc-list-item f-10 desc-list-special"><span
-                                                                 class="glyphicon glyphicon-eye-open"></span><span
+                                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-eye "></span><span
                                                                  class="desc-list-item-num"><%= n.views %></span></li>
-                                                     <li class="desc-list-item f-10 desc-list-special"><span
-                                                                 class="glyphicon glyphicon-heart-empty"></span><span
+                                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-heart2 "></span></span><span
                                                                  class="desc-list-item-num"><%= n.points %></span></li>
-                                                     <li class="desc-list-item f-10 desc-list-special"><span
-                                                                 class="glyphicon glyphicon-comment"></span><span
+                                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-message "></span><span
                                                                  class="desc-list-item-num"><%= n.comments %></span>
                                                      </li>
                                                  </ul>
@@ -92,11 +89,11 @@
 
                              <%}%>
                              <%if(i==16){%>
-                             <div class="rest-cases-toggle col-md-12" id="rest-cases-toggle__bt" ><a  class="bt" ><span class="text">展开</span> <i class="glyphicon glyphicon-menu-down"></i></a></div>
+                             <div class="rest-cases-toggle col-md-12 col-sm-12 col-xs-12" id="rest-cases-toggle__bt" ><a  class="bt" ><span class="text">展开</span> <i class="glyphicon glyphicon-menu-down"></i></a></div>
                              <div id="expand-more" class="collapse">
                              <%}%>
                              <%if(i>=16){%>
-                                 <div class="col-md-3 col-sm-12">
+                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                      <a class="block-content-item left" href="/case/detail/<%= n.id %>">
                                          <img src="<%= n.cover %>" alt="">
                                          <div class="content-item-text">
