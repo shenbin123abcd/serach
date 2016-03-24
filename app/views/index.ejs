@@ -54,7 +54,7 @@
         <div class="list-case rowl">
         <div class="col-md-10 col-sm-12 col-xs-10 father-height" >
         <div class="xol-md-4 col-sm-8 hidden-sm xol-xs-4">
-            <div class="pic-list-item">
+            <div class="pic-list-item special">
                 <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
                     <% if( data.case_new[0].company){%>
                     <div class="item-text-top" style="background: <%=data.case_new[0].color%>;">
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="xol-md-4 col-sm-8 xol-xs-4 inner-father-height">
-                <div class="pic-list-item">
+                <div class="pic-list-item special">
                     <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img src="<%= data.case_new[1].cover %>" alt="" class="pic-list-item-img"></a>
                         <% if( data.case_new[1].company){%>
                         <div class="item-text-top" style="background: <%=data.case_new[1].color%>;">
@@ -102,7 +102,7 @@
                 </div>
             </div>
         <div class="xol-md-2 col-sm-4 xol-xs-2 inner-son-height" id="xol-md-2-height">
-                <div class="pic-list-item">
+                <div class="pic-list-item special">
                     <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[2].cover %>" alt="" class="pic-list-item-img"></a>
                         <% if( data.case_new[2].company){%>
                         <div class="item-text-top" style="background: <%=data.case_new[2].color%>;">
@@ -127,7 +127,7 @@
             </div>
         <% for(var i=3; i<data.case_new.length;i++){ %>
             <div class="xol-md-2 col-sm-4 <%if(i==3){%>cl<%}else if(i == 12){%>hidden-sm<%}%> xol-xs-2">
-                <div class="pic-list-item" >
+                <div class="pic-list-item special" >
                     <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img"></a>
                         <% if( data.case_new[i].company){%>
                         <div class="item-text-top" style="background: <%=data.case_new[i].color%>;">
