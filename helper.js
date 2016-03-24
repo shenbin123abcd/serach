@@ -82,8 +82,8 @@ helper.hexToRgb = function(hex, isString, isReverse){
             return result ? `rgb(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)})`
                 : null;
         } else {
-            if(parseInt(result[1], 16)+parseInt(result[1], 16)+parseInt(result[1], 16)>384){
-                return result ? `rgb(0,0,0)`
+            if(parseInt(result[1], 16)+parseInt(result[2], 16)+parseInt(result[3], 16)>384){
+                return result ? `rgb(33,33,33)`
                     : null;
             }else{
                 return result ? `rgb(255,255,255)`
