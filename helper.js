@@ -83,7 +83,7 @@ helper.hexToRgb = function(hex, isString, isReverse){
                 : null;
         } else {
             if(parseInt(result[1], 16)+parseInt(result[2], 16)+parseInt(result[3], 16)>384){
-                return result ? `rgb(33,33,33)`
+                return result ? `rgb(255,255,255)`
                     : null;
             }else{
                 return result ? `rgb(255,255,255)`
@@ -95,6 +95,17 @@ helper.hexToRgb = function(hex, isString, isReverse){
             //    : null;
         }
     }
+
+};
+
+
+helper.viewNumber=function(n){
+    if(n>9999){
+        return n/1000+'k';
+    }else{
+        return n;
+    }
+
 
 };
 
