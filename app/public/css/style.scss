@@ -96,7 +96,7 @@ h3 {font-size: 30px; line-height: 40px; font-weight: 300; text-transform: upperc
 h4 {font-size: 26px; line-height: 30px; font-weight: 300; text-transform: capitalize;}
 h5 {font-size: 20px; line-height: 30px; font-weight: 300;}
 h6 {font-size: 18px; line-height: 30px; font-weight: 300;}
-p {font-size: 16px; line-height: 30px; font-weight: 300; color: #9e9e9e;}
+p {font-size: 16px; line-height: 20px; font-weight: 300; color: #9e9e9e;}
 ul li {font-size: 13px; line-height: 16px; font-weight: 300;}
 b {font-weight: 700;}
 .loading-box{
@@ -700,7 +700,7 @@ body{
 .f-10{
     span{
         font-size:10px;
-        -webkit-transform:scale(0.8);
+        //-webkit-transform:scale(0.8);
         display: inline-block;
     }
 
@@ -789,7 +789,7 @@ body{
         padding:20px;
         .tab-item{
             display:inline-block;
-            margin-left:30px;
+            margin-left:80px;
             .item-img{
                 margin-left: 5px;
             }
@@ -812,40 +812,57 @@ body{
         min-width: 1000px;
         width:auto;
         background-size:cover;
-        padding:100px 0;
+        padding:86px 0;
+        height: 340px;
         .search-box-text{
             text-align: center;
+            margin-top: -10px;
             h4{
                 margin-bottom:10px;
+                font-size:30px;
             }
         }
         .search-box-input{
             margin: 0 auto;
             display: block;
-            margin-top:50px;
+            margin-top:40px;
+            width:820px;
+            .tab-box{
+                width:200px;
+                float:left;
+                padding-left:15px;
+                padding-right:15px;
+            }
+            .input-box{
+              width:620px;
+              float:left;
+              padding-left:15px;
+              padding-right:15px;
+              position: relative;
+            }
             .drop-wrap{
                 background:#fff;
                 position: relative;
                 border-radius:4px;
                 .drop{
                     display: block;
-                    height:48px;
+                    height:70px;
                     width: 100%;
                     b{
                         position:relative;
                         float: left;
                         width: 100%;
                         height: 100%;
-                        font-size: 12px;
+                        font-size: 18px;
                         cursor: pointer;
                         font-weight: 300;
                         color: #333;
-                        padding: 15px 0px 0px 20px;
+                        padding: 22px 0px 0px 20px;
                     }
                     .drop-list{
                         position: absolute;
-                        right: 10px;
-                        top: 6px;
+                        right: 20px;
+                        top: 18px;
                         font-size: 20px;
                         color:#b5b5b5;
                         &.act{
@@ -862,7 +879,7 @@ body{
                         display: none;
                         box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
                         left:0px;
-                        top: 47px;
+                        top: 70px;
                         width:100%;
                         margin: 0px;
                         z-index: 5;
@@ -897,19 +914,19 @@ body{
                 input{
                     padding-left:20px;
                     border-radius: 4px;
-                    height: 48px;
-                    line-height: 48px;
+                    height: 70px;
+                    line-height: 70px;
                     border:none;
-                    font-size: 12px;
+                    font-size: 18px;
                     font-family:'Microsoft Yahei', 'Roboto', 'sans-serif';
                     width:100%;
                 }
                 .search_button{
                     top: 0;
-                    right: 10px;
-                    height: 48px;
-                    width: 48px;
-                    line-height: 48px;
+                    right: 15px;
+                    height: 70px;
+                    width: 70px;
+                    line-height: 70px;
                     position:absolute;
                     display:inline-block;
                     vertical-align: middle;
@@ -935,7 +952,7 @@ body{
         }
     }
     .content-box{
-        margin-top:50px;
+        margin-top:55px;
         .pic-list{
             /* .list-case{
                 padding-left:10px;
@@ -965,7 +982,7 @@ body{
                         }
 
                             .item-text-top{
-                                padding:5px 0;
+                                padding:6px 10px;
                             }
                             .item-text-bottom{
                                 display:block;
@@ -1033,14 +1050,17 @@ body{
 
                     .item-text-top{
                         position:absolute;
-                        top:10px;
-                        right:10px;
-                        padding:10px;
+                        top:16px;
+                        right:16px;
+                        padding:6px 10px;
                         background:#2797ff;
                         /*z-index:2;*/
                         p{
                             line-height: 12px;
                             letter-spacing: 2px;
+                            &.f10{
+
+                            }
                         }
                     }
                     .item-text-bottom{
@@ -1107,7 +1127,7 @@ body{
         }
     }
     .search-content-block{
-        margin-top:50px;
+        margin-top:40px;
         .search-block-title{
             position:relative;
             display:block;
@@ -1153,7 +1173,6 @@ body{
             overflow: hidden;
             display: block;
             clear:both;
-            padding:30px 0;
             .col-md-4,.col-sm-12{
                 padding-right: 10px;
                 padding-left: 10px;
@@ -1163,7 +1182,7 @@ body{
                 overflow: hidden;
                 border-radius:4px;
                 position:relative;
-                margin-top: 20px;
+                margin-top: 32px;
                 transition:all .2s ease-out;
                 &:hover{
                   box-shadow: 5px 5px 20px rgba(104,104,104,0.2);
@@ -1211,9 +1230,12 @@ body{
                     width:100%;
                 }
                 .content-item-text{
-                    padding:10px;
+                    padding:22px 15px;
                     background:#fff;
                     line-height: 20px;
+                    .content-item-text-desc{
+                        margin-top:5px;
+                    }
                     h4{
                         line-height:20px;
                         color:#666666;
