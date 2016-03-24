@@ -92,7 +92,6 @@ function getData(req, res){
 
 function render(data, req, res){
     data.case_new.forEach(function(n, i){
-        n.cover = req.config.url.case + '/' + n.cover
         if(n.color==""){
             n.color="#2797ff";
         }else if(n.color=="#ffffff"){
@@ -100,13 +99,20 @@ function render(data, req, res){
         }else{
             n.fontColor="#ffffff";
         }
-    })
-    data.case_new[0].cover = data.case_new[0].cover + "?imageView2/1/w/420/h/300";
+        if(i < 2){
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/420/h/300";
+        }else if(i == 2){
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/300";
+        }else{
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
+        }
+    });
+    /*data.case_new[0].cover = data.case_new[0].cover + "?imageView2/1/w/420/h/300";
     data.case_new[1].cover = data.case_new[1].cover + "?imageView2/1/w/420/h/300";
     data.case_new[2].cover = data.case_new[2].cover + "?imageView2/1/w/200/h/300";
     for (var i = 3; i < 13; i++) {
         data.case_new[i].cover = data.case_new[i].cover + "?imageView2/1/w/200/h/150";
-    }
+    }*/
     data.case_recommend.forEach(function(n, i){
         n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150"
     });
