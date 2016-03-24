@@ -168,8 +168,6 @@ helper.hexToRgb = function(hex, isString, isReverse){
 
 };
 
-helper.arrayShuffle = function(arr, length, tag_length){
-
 helper.viewNumber=function(n){
     if(n>9999){
         return n/1000+'k';
@@ -179,7 +177,7 @@ helper.viewNumber=function(n){
 
 };
 
-helper.arrayShuffle = function(arr, length){
+helper.arrayShuffle = function(arr, length, tag_length){
 
     arr.sort(function(){
         return 0.5 - Math.random();
