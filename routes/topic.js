@@ -39,10 +39,15 @@ router.get('/', function(req, res, next){
         data.tag=req.query.tag;
         data.sort=req.query.sort;
 
-
         data.totalPages=Math.ceil(data.total/data.per_page);
 
-        res.render('topic_index', {data: data});
+        var appData = {
+            total: data.total,
+            per_page: data.per_page,
+            totalPages: data.totalPages,
+            query: data.query,
+        };
+        res.render('topic_index', {data: data,appData:appData});
 
     });
 });
@@ -96,11 +101,14 @@ router.get('/detail/:id', function(req, res, next){
         data.pageTitle=data.title+'专题详情';
         data.tag=req.query.tag;
         data.sort=req.query.sort;
-
-
         data.totalPages=Math.ceil(data.total/data.per_page);
 
-        res.render('topic_detail', {data: data});
+        var appData = {
+            id: data.id,
+            query: data.query,
+        };
+
+        res.render('topic_detail', {data: data,appData:appData});
 
     });
 });
