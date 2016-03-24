@@ -77,12 +77,22 @@ helper.hexToRgb = function(hex, isString, isReverse){
             b: parseInt(result[3], 16)
         } : null;
     } else {
+
         if (!isReverse) {
             return result ? `rgb(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)})`
                 : null;
         } else {
-            return result ? `rgb(${255 - parseInt(result[1], 16)},${255 - parseInt(result[2], 16)},${255 - parseInt(result[3], 16)})`
-                : null;
+            if(parseInt(result[1], 16)+parseInt(result[1], 16)+parseInt(result[1], 16)>384){
+                return result ? `rgb(0,0,0)`
+                    : null;
+            }else{
+                return result ? `rgb(255,255,255)`
+                    : null;
+            }
+
+
+            //return result ? `rgb(${255 - parseInt(result[1], 16)},${255 - parseInt(result[2], 16)},${255 - parseInt(result[3], 16)})`
+            //    : null;
         }
     }
 
