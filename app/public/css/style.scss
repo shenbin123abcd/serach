@@ -978,6 +978,9 @@ body{
                                         .desc-list{
                                             .desc-list-item{
                                                 margin-right:3px;
+                                                &.desc-list-special{
+                                                  width:28%;
+                                                }
                                             }
                                         }
                                     }
@@ -1228,10 +1231,14 @@ body{
                     }
                     .content-item-text-desc{
                         .desc-list{
+
                             .desc-list-item{
                                 display: inline-block;
                                 color:#9e9e9e;
                                 width:31%;
+                                &.list-special-style{
+                                  width:auto;
+                                }
                                 .desc-list-item-num{
                                     margin-left:3px;
                                 }
@@ -1611,6 +1618,9 @@ body{
                         .desc-list-item{
                             display: inline-block;
                             color: #9e9e9e;
+                            &.desc-list-special{
+                              width:31%;
+                            }
                         }
                     }
                 }
@@ -2282,6 +2292,9 @@ body{
                                 .desc-list-item{
                                     display: inline-block;
                                     color: #fff;
+                                    &.desc-list-special{
+                                      width:31%;
+                                    }
                                     .desc-list-item-num{
                                         margin-left: 3px;
                                     }
@@ -2472,6 +2485,9 @@ body{
                                 .desc-list-item{
                                     color: #fff;
                                     display: inline-block;
+                                    &.desc-list-special{
+                                        width:31%;
+                                    }
                                     .desc-list-item-num{
                                         margin-left: 3px;
                                     }
