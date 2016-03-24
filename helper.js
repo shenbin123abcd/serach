@@ -82,17 +82,87 @@ helper.hexToRgb = function(hex, isString, isReverse){
             return result ? `rgb(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)})`
                 : null;
         } else {
-            if(parseInt(result[1], 16)+parseInt(result[2], 16)+parseInt(result[3], 16)>384){
-                return result ? `rgb(255,255,255)`
-                    : null;
-            }else{
-                return result ? `rgb(255,255,255)`
-                    : null;
+            switch (hex){
+                case '#f30909':
+                    return '#b21755';
+                    break;
+                case '#f126a2':
+                    return '#9b1b8d';
+                    break;
+                case '#fd82b6':
+                    return '#b05a7f';
+                    break;
+                case '#ff8522':
+                    return '#b96019';
+                    break;
+                case '#fff669':
+                    return '#beb74e';
+                    break;
+
+
+                case '#84d634':
+                    return '#66a628';
+                    break;
+                case '#008b00':
+                    return '#005f00';
+                    break;
+                case '#75dceb':
+                    return '#498a93';
+                    break;
+                case '#7dc6ff':
+                    return '#5c91bb';
+                    break;
+                case '#014efd':
+                    return '#012e94';
+                    break;
+
+
+                case '#e291fc':
+                    return '#8d5a9d';
+                    break;
+                case '#b808d8':
+                    return '#7c0591';
+                    break;
+                case '#a26516':
+                    return '#6f450f';
+                    break;
+                case '#ffd700':
+                    return '#a38900';
+                    break;
+                case '#f7d5b3':
+                    return '#a08a74';
+                    break;
+
+
+                case '#cfcfcf':
+                    return '#7e7e7e';
+                    break;
+                case '#ffffff':
+                    return '#a9aa9c';
+                    break;
+                case '#000000':
+                    return '#ffffff';
+                    break;
+
+                case '#2797ff':
+                    return '#1960a2';
+                    break;
+
+
+
             }
 
 
-            //return result ? `rgb(${255 - parseInt(result[1], 16)},${255 - parseInt(result[2], 16)},${255 - parseInt(result[3], 16)})`
-            //    : null;
+
+            //if(parseInt(result[1], 16)+parseInt(result[2], 16)+parseInt(result[3], 16)>384){
+            //    return result ? `rgb(255,255,255)`
+            //        : null;
+            //}else{
+            //    return result ? `rgb(255,255,255)`
+            //        : null;
+            //}
+
+
         }
     }
 
@@ -105,7 +175,6 @@ helper.viewNumber=function(n){
     }else{
         return n;
     }
-
 
 };
 
