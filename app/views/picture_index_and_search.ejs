@@ -145,20 +145,16 @@
                         <img src="<%= item.path %>" alt="<%= item.title %>">
                         <div class="content-item-text">
                             <div class="content-item-text-desc">
-                                <ul class="desc-list">
-                                    <li class="desc-list-item f-10 desc-list-special">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                        <span class="desc-list-item-num"><%= item.views %></span>
-                                    </li>
-                                    <li class="desc-list-item f-10 desc-list-special">
-                                        <span class="glyphicon glyphicon-heart-empty"></span>
-                                        <span class="desc-list-item-num"><%= item.comments %></span>
-                                    </li>
-                                    <li class="desc-list-item f-10 desc-list-special">
-                                        <span class="glyphicon glyphicon-comment"></span>
-                                        <span class="desc-list-item-num"><%= item.points %></span>
-                                    </li>
-                                </ul>
+                                <div class="content-item-text">
+                                    <div class="bg"></div>
+                                    <ul class="list-unstyled view-list">
+                                        <li class="item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(item.views)%></span></li>
+                                        <li class="item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(item.points)%></span></li>
+                                        <li class="item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(item.comments)%></span></li>
+                                    </ul>
+                                </div>
+
+
                             </div>
                         </div>
                     </a>
