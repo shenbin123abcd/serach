@@ -74,13 +74,9 @@
                                              <div class="content-item-text-desc">
                                                  <p class="f-12 f-white p-title"><%= n.title %></p>
                                                  <ul class="desc-list">
-                                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-eye "></span><span
-                                                                 class="desc-list-item-num"><%= n.views %></span></li>
-                                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-heart2 "></span></span><span
-                                                                 class="desc-list-item-num"><%= n.points %></span></li>
-                                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-message "></span><span
-                                                                 class="desc-list-item-num"><%= n.comments %></span>
-                                                     </li>
+                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
+                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
+                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
                                                  </ul>
                                              </div>
                                          </div>
@@ -100,7 +96,7 @@
                                              <div class="content-item-text-desc">
                                                  <p class="f-16 f-white p-title"><%= n.title %></p>
                                                  <ul class="desc-list">
-                                                     <li class="desc-list-item f-10 desc-list-special"><span
+                                                     <!--<li class="desc-list-item f-10 desc-list-special"><span
                                                                  class="glyphicon glyphicon-eye-open"></span><span
                                                                  class="desc-list-item-num"><%= n.views %></span></li>
                                                      <li class="desc-list-item f-10 desc-list-special"><span
@@ -109,7 +105,8 @@
                                                      <li class="desc-list-item f-10 desc-list-special"><span
                                                                  class="glyphicon glyphicon-comment"></span><span
                                                                  class="desc-list-item-num"><%= n.comments %></span>
-                                                     </li>
+                                                     </li>-->
+
                                                  </ul>
                                              </div>
                                          </div>
