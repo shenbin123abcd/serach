@@ -14,14 +14,14 @@
         <div class="rowl">
         <div class="search-box-text">
             <h4 class="f-white"><span id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
-            <p class="f-white">在这里，见证一个行业的跌宕起伏。</p>
+            <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
         </div>
-        <div class='search-box-input col-md-9 col-md-push-2 col-xs-9'>
-            <div class="col-md-3 col-sm-3 col-xs-3">
+        <div class='search-box-input clearfix'>
+            <div class="tab-box">
                 <div class="drop-wrap">
                     <div class="drop">
                         <b class="">婚礼案例</b>
-                        <a href="#" class="drop-list"><i class="fa fa-sort-down"></i></a>
+                        <a href="#" class="drop-list"><i class="haloIcon haloIcon-unfold f-18"></i></a>
                         <span>
                             <button >婚礼案例</button>
                             <button >婚礼图片</button>
@@ -30,14 +30,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 col-sm-9 col-xs-9">
+            <div class="input-box">
                 <div class="search_input">
                     <form  action="/case">
                          <span class="search_wrapper">
                              <input type="text" placeholder="例如 “复古婚礼” "name="tag">
                              <button class="search_button" type="submit">
                                  <!--<img src="/images/img5.png" alt="">-->
-                                 <span class="glyphicon glyphicon-search" ></span>
+                                 <span class="haloIcon haloIcon-glass f-30" ></span>
                              </button>
                          </span>
                     </form>
@@ -56,20 +56,22 @@
         <div class="xol-md-4 col-sm-8 hidden-sm xol-xs-4">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
+                    <% if( data.case_new[0].company){%>
                     <div class="item-text-top" style="background: <%=data.case_new[0].color%>;">
                         <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[0].color,true,true)%>;"><%= data.case_new[0].company %></p></a>
                     </div>
+                    <%}%>
                     <a class="item-text-bottom" href="/case/detail/<%= data.case_new[0].id %>">
                         <div class="item-text-bottom-position">
                             <div class="text-bottom-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[0].views %></span></li>
-                                    <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[0].comments %></span></li>
-                                    <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[0].points %></span></li>
+                                    <li class="desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[0].views) %></span></li>
+                                    <li class="desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[0].comments) %></span></li>
+                                    <li class="desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[0].points) %></span></li>
                                 </ul>
                             </div>
                             <div class="text-bottom-title">
-                                <h4 class="f-18"><%= data.case_new[0].title %></h4>
+                                <h4 class="f-14"><%= data.case_new[0].title %></h4>
                             </div>
                         </div>
                     </a>
@@ -78,20 +80,22 @@
         <div class="xol-md-4 col-sm-8 xol-xs-4 inner-father-height">
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img src="<%= data.case_new[1].cover %>" alt="" class="pic-list-item-img"></a>
+                        <% if( data.case_new[0].company){%>
                         <div class="item-text-top" style="background: <%=data.case_new[1].color%>;">
                             <p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[1].color,true,true)%>;"><a href="/company/detail/<%= data.case_new[1].company_id %>"><%= data.case_new[1].company %></a></p>
                         </div>
+                        <%}%>
                         <a class="item-text-bottom" href="/case/detail/<%= data.case_new[1].id %>">
                             <div class="item-text-bottom-position">
                                 <div class="text-bottom-desc">
                                     <ul class="desc-list">
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[1].views %></span></li>
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[1].comments %></span></li>
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[1].points %></span></li>
+                                        <li class="desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[1].views) %></span></li>
+                                        <li class="desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[1].comments) %></span></li>
+                                        <li class="desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[1].points) %></span></li>
                                     </ul>
                                 </div>
                                 <div class="text-bottom-title">
-                                    <h4 class="f-18"><%= data.case_new[1].title %></h4>
+                                    <h4 class="f-14"><%= data.case_new[1].title %></h4>
                                 </div>
                             </div>
                         </a>
@@ -100,20 +104,22 @@
         <div class="xol-md-2 col-sm-4 xol-xs-2 inner-son-height" id="xol-md-2-height">
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[2].cover %>" alt="" class="pic-list-item-img"></a>
+                        <% if( data.case_new[0].company){%>
                         <div class="item-text-top" style="background: <%=data.case_new[2].color%>;">
-                            <a href="/company/detail/<%= data.case_new[2].company_id %>"><p class="f-white f-10" style="color:<%= hexToRgb(data.case_new[2].color,true,true)%>;"><span><%= data.case_new[2].company %></span></p></a>
+                            <a href="/company/detail/<%= data.case_new[2].company_id %>"><p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[2].color,true,true)%>;"><%= data.case_new[2].company %></p></a>
                         </div>
+                        <%}%>
                         <a class="item-text-bottom" href="/case/detail/<%= data.case_new[2].id %>">
                             <div class="item-text-bottom-position">
                                 <div class="text-bottom-desc">
                                     <ul class="desc-list">
-                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[2].views %></span></li>
-                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[2].comments %></span></li>
-                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[2].points %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[2].views) %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[2].comments) %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[2].points) %></span></li>
                                     </ul>
                                 </div>
                                 <div class="text-bottom-title">
-                                    <h4 class="f-18-z"><%= data.case_new[2].title %></h4>
+                                    <h4 class="f-14"><%= data.case_new[2].title %></h4>
                                 </div>
                             </div>
                         </a>
@@ -123,20 +129,22 @@
             <div class="xol-md-2 col-sm-4 <%if(i==3){%>cl<%}%> xol-xs-2">
                 <div class="pic-list-item" >
                     <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img"></a>
+                        <% if( data.case_new[0].company){%>
                         <div class="item-text-top" style="background: <%=data.case_new[i].color%>;">
-                            <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-10" style="color:<%= hexToRgb(data.case_new[i].color,true,true)%>;"><span><%= data.case_new[i].company %></span></p></a>
+                            <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[i].color,true,true)%>;"><%= data.case_new[i].company %></p></a>
                         </div>
+                        <%}%>
                         <a class="item-text-bottom" href="/case/detail/<%= data.case_new[i].id %>">
                             <div class="item-text-bottom-position">
                                 <div class="text-bottom-desc">
                                     <ul class="desc-list">
-                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[i].views %></span></li>
-                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[i].comments %></span></li>
-                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[i].points %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-eye"></span></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[i].views) %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[i].comments) %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[i].points) %></span></li>
                                     </ul>
                                 </div>
                                 <div class="text-bottom-title">
-                                    <h4 class="f-18"><%= data.case_new[i].title %></h4>
+                                    <h4 class="f-14"><%= data.case_new[i].title %></h4>
                                 </div>
                             </div>
                         </a>
@@ -146,20 +154,22 @@
         <div class="xol-md-2 col-sm-4 hidden-sm xol-xs-2">
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[12].id %>"><img src="<%= data.case_new[12].cover %>" alt="" class="pic-list-item-img"></a>
+                    <% if( data.case_new[0].company){%>
                     <div class="item-text-top" style="background: <%=data.case_new[12].color%>;color:<%=data.case_new[12].fontColor%>;">
-                        <a href="/company/detail/<%= data.case_new[12].company_id %>"><p class="f-white f-10" style="color:<%= hexToRgb(data.case_new[12].color,true,true)%>;"><span><%= data.case_new[12].company %></span></p></a>
+                        <a href="/company/detail/<%= data.case_new[12].company_id %>"><p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[12].color,true,true)%>;"><%= data.case_new[12].company %></p></a>
                     </div>
+                    <%}%>
                     <a class="item-text-bottom" href="/case/detail/<%= data.case_new[12].id %>">
                         <div class="item-text-bottom-position">
                             <div class="text-bottom-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[12].views %></span></li>
-                                    <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[12].comments %></span></li>
-                                    <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[12].points %></span></li>
+                                    <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[12].views) %></span></li>
+                                    <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[12].comments) %></span></li>
+                                    <li class="desc-list-item desc-list-special"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(data.case_new[12].points) %></span></li>
                                 </ul>
                             </div>
                             <div class="text-bottom-title">
-                                <h4 class="f-18"><%= data.case_new[12].title %></h4>
+                                <h4 class="f-14"><%= data.case_new[12].title %></h4>
                             </div>
                         </div>
                     </a>
@@ -190,7 +200,7 @@
         <div class="rowl">
         <div class="col-md-12 col-xs-12">
             <div class='search-block-title'>
-                <p class="search-block-text"><span class="f-black">精选案例</span><a class="b-pink" href="/case">查看全部案例 ></a></p>
+                <p class="search-block-text"><span class="f-black f-18">精选案例</span><a class="b-pink f-18" href="/case">查看全部案例 ></a></p>
                 <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
             </div>
         </div>
@@ -200,13 +210,13 @@
                     <div class="block-content-item">
                         <a href="/case/detail/<%= n.id%>"><img src="<%= n.cover %>" alt=""></a>
                         <div class="content-item-text">
-                            <a href="/case/detail/<%= n.id%>"><h4 class="f-16"><%= n.title %></h4></a>
+                            <a href="/case/detail/<%= n.id%>"><h4 class="f-14"><%= n.title %></h4></a>
                             <a href="/company/detail/<%= n.company_id %>"><p class="f-12 s-title f-black"><%= n.company%></p></a>
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
+                                    <li class="desc-list-item f-12"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
+                                    <li class="desc-list-item f-12"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
+                                    <li class="desc-list-item f-12"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -222,7 +232,7 @@
         <div class="rowl">
             <div class="col-md-12 col-xs-12">
                 <div class='search-block-title'>
-                    <p class="search-block-text"><span class="f-black">精选专题</span><a class="b-pink" href="/topic">查看全部专题 ></a></p>
+                    <p class="search-block-text"><span class="f-black f-18">精选专题</span><a class="b-pink f-18" href="/topic">查看全部专题 ></a></p>
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
                 </div>
             </div>
@@ -239,9 +249,9 @@
                                 <div topic-des class="des"><%= n.description%></div>
                                 <div class="content-item-text-desc">
                                     <ul class="desc-list ">
-                                        <li class="desc-list-item f-12 list-special-style"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
-                                        <li class="desc-list-item f-12 list-special-style"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
-                                        <li class="desc-list-item f-12 list-special-style"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
+                                        <li class="desc-list-item f-12 list-special-style"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
+                                        <li class="desc-list-item f-12 list-special-style"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
+                                        <li class="desc-list-item f-12 list-special-style"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -258,7 +268,7 @@
         <div class="rowl">
             <div class="col-md-12 col-xs-12">
                 <div class='search-block-title'>
-                    <p class="search-block-text"><span class="f-black">精选图片</span><a class="b-pink" href="/picture">查看全部图片 ></a></p>
+                    <p class="search-block-text"><span class="f-black f-18">精选图片</span><a class="b-pink f-18" href="/picture">查看全部图片 ></a></p>
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
                 </div>
             </div>
@@ -270,13 +280,12 @@
                                 <img src="<%= n.path %>" alt="">
                             </div>
                             <div class="content-item-text">
-                                <div class="content-item-text-desc">
-                                    <ul class="desc-list">
-                                        <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
-                                        <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
-                                        <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
-                                    </ul>
-                                </div>
+                                <div class="bg"></div>
+                                <ul class="list-unstyled view-list">
+                                    <li class="item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
+                                    <li class="item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
+                                    <li class="item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
+                                </ul>
                             </div>
                         </a>
                     </div>
@@ -290,7 +299,7 @@
         <div class="rowl">
             <div class="col-md-12 col-xs-12">
                 <div class='search-block-title'>
-                    <p class="search-block-text"><span class="f-black">精选公司</span><a class="b-pink" href="/company">查看全部公司 ></a></p>
+                    <p class="search-block-text"><span class="f-black f-18">精选公司</span><a class="b-pink f-18" href="/company">查看全部公司 ></a></p>
                     <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
                 </div>
             </div>
@@ -300,7 +309,7 @@
                         <div class="block-content-item" >
                             <a class="link" href="/company/detail/<%= n.id%>"><img src="<%= n.logo%>" alt=""></a>
                             <div class="content-item-text">
-                                <a href="/company/detail/<%= n.id%>"><p class="f-12 s-title f-grey"><%= n.name%></p></a>
+                                <a href="/company/detail/<%= n.id%>"><p class="f-14 s-title f-grey"><%= n.name%></p></a>
                                 <div class="content-item-text-desc">
                                     <a href="/company/detail/<%= n.id%>"><p class="f-12">共<%=n.case_num%>个案例</p></a>
                                 </div>

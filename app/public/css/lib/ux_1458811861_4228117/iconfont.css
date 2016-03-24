@@ -1,10 +1,10 @@
 
 @font-face {font-family: "haloIcon";
-  src: url('iconfont.eot'); /* IE9*/
-  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg#haloIcon') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1458811862'); /* IE9*/
+  src: url('iconfont.eot?t=1458811862#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1458811862') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1458811862') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1458811862#haloIcon') format('svg'); /* iOS 4.1- */
 }
 
 .haloIcon {
@@ -39,3 +39,11 @@
 .haloIcon-hearthollowcircle:before { content: "\e611"; }
 .haloIcon-zoomin:before { content: "\e60d"; }
 .haloIcon-zoomout:before { content: "\e60e"; }
+.haloIcon-folder:before { content: "\e613"; }
+.haloIcon-camera:before { content: "\e615"; }
+.haloIcon-building:before { content: "\e616"; }
+.haloIcon-eye:before { content: "\e617"; }
+.haloIcon-message:before { content: "\e618"; }
+.haloIcon-heart2:before { content: "\e619"; }
+.haloIcon-arrowdown:before { content: "\e61e"; }
+.haloIcon-glass2:before { content: "\e61f"; }

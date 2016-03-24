@@ -5,7 +5,8 @@ var plugins = gulpLoadPlugins();
 var rubySass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var fs = require('fs');
-var browserSync = require('browser-sync').create()
+var browserSync = require('browser-sync').create();
+var devip = require('dev-ip');
 
 gulp.task('generateDistVersion', function () {
     fs.writeFileSync('app/Public/College/js/config.dist.js',''+
@@ -104,9 +105,10 @@ gulp.task('html', function () {
 //
 //});
 
+
 gulp.task('haloIcon', function () {
-    return gulp.src('app/css/lib/ux_1457574849_968604/**/*iconfont.*')
-        .pipe(gulp.dest('dist/css/lib/ux_1457574849_968604/'))
+    return gulp.src('app/public/css/lib/ux_*/**/*iconfont.*')
+        .pipe(gulp.dest('public/css/lib'))
 });
 
 gulp.task('videojs', function () {
@@ -163,7 +165,7 @@ gulp.task('map', function () {
 });
 
 
-gulp.task('build', ['sass','images'], function () {
+gulp.task('build', ['sass','images','haloIcon'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
@@ -361,7 +363,7 @@ gulp.task('copy:view', function () {
         .src('app/views/**/*.ejs')
         .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://localhost:9000/app",
+            defaultCDNBase: "http://"+devip()+":9000/app",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
@@ -375,7 +377,7 @@ gulp.task('copy:view', function () {
             ]
         }))
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://localhost:9000/app/public",
+            defaultCDNBase: "http://"+devip()+":9000/app/public",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
@@ -387,7 +389,7 @@ gulp.task('copy:view', function () {
         .pipe(ejsFilter.restore)
         .pipe(ejsFilterPublic)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://localhost:9000/app",
+            defaultCDNBase: "http://"+devip()+":9000/app",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
@@ -401,7 +403,7 @@ gulp.task('copy:view', function () {
             ]
         }))
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://localhost:9000/app/public",
+            defaultCDNBase: "http://"+devip()+":9000/app/public",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,

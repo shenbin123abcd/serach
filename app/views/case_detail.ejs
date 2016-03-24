@@ -10,16 +10,16 @@
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="case-detail-block">
         <div class="container">
-            <div class="col-md-9 detail-content-wrapper">
+            <div class="col-md-9 col-sm-9 col-xs-9 detail-content-wrapper">
                 <div class="detail-content-topic">
                     <div class="detail-content-title">
-                        <h1 class="f-22"><%= data.title %></h1>
+                        <h1 class="f-20"><%= data.title %></h1>
                         <div class="content-title-desc">
                             <div class="title-desc-icon inline-style">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%=data.views%></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span id="desc-list-item-num-comments" class="desc-list-item-num"><%=data.points%></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span id="desc-list-item-num-points" class="desc-list-item-num"><%=data.comments%></span></li>
+                                    <li class="desc-list-item f-14"><span class="haloIcon haloIcon-eye "></span><span class="desc-list-item-num"><%=data.views%></span></li>
+                                    <li class="desc-list-item f-14"><span class="haloIcon haloIcon-heart2 "></span><span id="desc-list-item-num-comments" class="desc-list-item-num"><%=data.points%></span></li>
+                                    <li class="desc-list-item f-14"><span class="haloIcon haloIcon-message "></span><span id="desc-list-item-num-points" class="desc-list-item-num"><%=data.comments%></span></li>
                                 </ul>
                             </div>
                             <div class="title-desc-color inline-style">
@@ -49,7 +49,7 @@
                         <%})%>
                     </div>
                     <div class="content-desc-box">
-                        <p><%= data.content%></p>
+                        <p class="f-18"><%= data.content%></p>
                     </div>
                 </div>
                 <div class="detail-content-commit">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3 col-xs-3">
                 <% if(data.company.id){%>
                     <div class="case-detail-list">
                         <a class="detail-list-company case" href="/company/detail/<%=data.company.id%>">
@@ -133,8 +133,8 @@
                                     <a href="<%= data.xiangsi[i].id %>"><img src="<%= n %>" alt=""/></a>
                                 </div>
                                 <div class="case-desc">
-                                    <a href="case/detail/<%= data.xiangsi[i].id %>"><p class="f-14 desc_title"><%= data.xiangsi[i].title %></p></a>
-                                    <p class="f-14 desc_company"><%= data.xiangsi[i].company %></p>
+                                    <a href="case/detail/<%= data.xiangsi[i].id %>"><p class="f-12 desc_title"><%= data.xiangsi[i].title %></p></a>
+                                    <p class="f-12 desc_company"><%= data.xiangsi[i].company %></p>
                                 </div>
                             </div>
                         <% }) %>
