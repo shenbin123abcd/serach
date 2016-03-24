@@ -93,7 +93,13 @@ router.get(['/'], function(req, res, next){
             }
             data.totalPages=Math.ceil(data.total/data.per_page);
             /*res.json(data);*/
-            res.render('case_index_and_search', {data:data});
+            var appData = {
+                total: data.total,
+                per_page: data.per_page,
+                totalPages: data.totalPages,
+                query: data.query,
+            };
+            res.render('case_index_and_search', {data:data,appData:appData});
         }else{
             res.sendStatus(500);
         }
@@ -177,7 +183,13 @@ router.get('/detail/:id', function(req, res, next){
         data.other.forEach(function(n,i){
             data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/100/h/70";
         });
-        res.render('case_detail', {data: data});
+
+        var appData = {
+            id: data.id,
+            query: data.query,
+        };
+
+        res.render('case_detail', {data: data,appData:appData});
     });
 
 });
