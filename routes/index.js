@@ -5,7 +5,7 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-    // req.redis.clear('search_index_data');
+    req.redis.clear('search_index_data');
     req.redis.get('search_index_data').then(function(data){
         if (!data) {
             getData(req, res);
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next){
 function getData(req, res){
     var params = {per_page: 100, group: 'company_id'}, data = {};
     // 最新案例
-    obj.getList('cases', req, params).then(function(body){
+    /*obj.getList('cases', req, params).then(function(body){
         if (body.iRet === 1) {
             data.case_new = helper.arrayShuffle(body.data.data, 13);
             return data;
@@ -30,18 +30,20 @@ function getData(req, res){
         }
     }, function(error){
         res.sendStatus(500);
-    }).then(function(data){
-        // 精选案例
-        // params.per_page = 24;
-        params['filter[recommended]'] = 1;
-        return obj.getList('cases', req, params).then(function(body){
-            if (body.iRet === 1) {
-                data.case_recommend = helper.arrayShuffle(body.data.data, 24);
-                return data;
-            } else {
-                res.sendStatus(500);
-            }
-        })
+    })*/
+
+    // 精选案例
+    // params.per_page = 24;
+    params['filter[recommended]'] = 1;
+    obj.getList('cases', req, params).then(function(body){
+        if (body.iRet === 1) {
+            var cases = helper.arrayShuffle(body.data.data, 24, 13);
+            data.case_recommend = cases[0];
+            data.case_new = cases[1];
+            return data;
+        } else {
+            res.sendStatus(500);
+        }
     }).then(function(data){
         // 图片
         // params.per_page = 24;
@@ -82,7 +84,7 @@ function getData(req, res){
             }
         })
     }).then(function(data){
-        req.redis.set('search_index_data', JSON.stringify(data), 3600);
+        req.redis.set('search_index_data', JSON.stringify(data), 86400);
 
         render(data, req, res);
     });
