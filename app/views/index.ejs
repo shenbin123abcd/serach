@@ -57,7 +57,7 @@
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[0].id %>" class="a-style"><img src="<%= data.case_new[0].cover %>" alt="" class="pic-list-item-img"></a>
                     <div class="item-text-top" style="background: <%=data.case_new[0].color%>;">
-                        <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12" style="color:<%=data.case_new[0].fontColor%>;"><%= data.case_new[0].company %></p></a>
+                        <a href="/company/detail/<%= data.case_new[0].company_id %>"><p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[0].color,true,true)%>;"><%= data.case_new[0].company %></p></a>
                     </div>
                     <a class="item-text-bottom" href="/case/detail/<%= data.case_new[0].id %>">
                         <div class="item-text-bottom-position">
@@ -79,7 +79,7 @@
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img src="<%= data.case_new[1].cover %>" alt="" class="pic-list-item-img"></a>
                         <div class="item-text-top" style="background: <%=data.case_new[1].color%>;">
-                            <p class="f-white f-12" style="color:<%=data.case_new[1].fontColor%>;"><a href="/company/detail/<%= data.case_new[1].company_id %>"><%= data.case_new[1].company %></a></p>
+                            <p class="f-white f-12" style="color:<%= hexToRgb(data.case_new[1].color,true,true)%>;"><a href="/company/detail/<%= data.case_new[1].company_id %>"><%= data.case_new[1].company %></a></p>
                         </div>
                         <a class="item-text-bottom" href="/case/detail/<%= data.case_new[1].id %>">
                             <div class="item-text-bottom-position">
@@ -101,15 +101,15 @@
                 <div class="pic-list-item">
                     <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img src="<%= data.case_new[2].cover %>" alt="" class="pic-list-item-img"></a>
                         <div class="item-text-top" style="background: <%=data.case_new[2].color%>;">
-                            <a href="/company/detail/<%= data.case_new[2].company_id %>"><p class="f-white f-10" style="color:<%=data.case_new[2].fontColor%>;"><span><%= data.case_new[2].company %></span></p></a>
+                            <a href="/company/detail/<%= data.case_new[2].company_id %>"><p class="f-white f-10" style="color:<%= hexToRgb(data.case_new[2].color,true,true)%>;"><span><%= data.case_new[2].company %></span></p></a>
                         </div>
                         <a class="item-text-bottom" href="/case/detail/<%= data.case_new[2].id %>">
                             <div class="item-text-bottom-position">
                                 <div class="text-bottom-desc">
                                     <ul class="desc-list">
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[2].views %></span></li>
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[2].comments %></span></li>
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[2].points %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[2].views %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[2].comments %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[2].points %></span></li>
                                     </ul>
                                 </div>
                                 <div class="text-bottom-title">
@@ -124,15 +124,15 @@
                 <div class="pic-list-item" >
                     <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img src="<%= data.case_new[i].cover %>" alt="" class="pic-list-item-img"></a>
                         <div class="item-text-top" style="background: <%=data.case_new[i].color%>;">
-                            <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-10" style="color:<%=data.case_new[i].fontColor%>;"><span><%= data.case_new[i].company %></span></p></a>
+                            <a href="/company/detail/<%= data.case_new[i].company_id %>"><p class="f-white f-10" style="color:<%= hexToRgb(data.case_new[i].color,true,true)%>;"><span><%= data.case_new[i].company %></span></p></a>
                         </div>
                         <a class="item-text-bottom" href="/case/detail/<%= data.case_new[i].id %>">
                             <div class="item-text-bottom-position">
                                 <div class="text-bottom-desc">
                                     <ul class="desc-list">
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[i].views %></span></li>
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[i].comments %></span></li>
-                                        <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[i].points %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[i].views %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[i].comments %></span></li>
+                                        <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[i].points %></span></li>
                                     </ul>
                                 </div>
                                 <div class="text-bottom-title">
@@ -147,15 +147,15 @@
             <div class="pic-list-item">
                 <a href="/case/detail/<%= data.case_new[12].id %>"><img src="<%= data.case_new[12].cover %>" alt="" class="pic-list-item-img"></a>
                     <div class="item-text-top" style="background: <%=data.case_new[12].color%>;color:<%=data.case_new[12].fontColor%>;">
-                        <a href="/company/detail/<%= data.case_new[12].company_id %>"><p class="f-white f-10" style="color:<%=data.case_new[12].fontColor%>;"><span><%= data.case_new[12].company %></span></p></a>
+                        <a href="/company/detail/<%= data.case_new[12].company_id %>"><p class="f-white f-10" style="color:<%= hexToRgb(data.case_new[12].color,true,true)%>;"><span><%= data.case_new[12].company %></span></p></a>
                     </div>
                     <a class="item-text-bottom" href="/case/detail/<%= data.case_new[12].id %>">
                         <div class="item-text-bottom-position">
                             <div class="text-bottom-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[12].views %></span></li>
-                                    <li class="desc-list-item"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[12].comments %></span></li>
-                                    <li class="desc-list-item"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[12].points %></span></li>
+                                    <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.case_new[12].views %></span></li>
+                                    <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.case_new[12].comments %></span></li>
+                                    <li class="desc-list-item desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.case_new[12].points %></span></li>
                                 </ul>
                             </div>
                             <div class="text-bottom-title">
@@ -205,13 +205,13 @@
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
                                     <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
+                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             <%})%>
         </div>
         </div>
@@ -238,16 +238,16 @@
                                 <a class="tit" href="/topic/detail/<%= n.id%>"><%= n.title%></a>
                                 <div topic-des class="des"><%= n.description%></div>
                                 <div class="content-item-text-desc">
-                                    <ul class="desc-list">
-                                        <li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
-                                        <li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
-                                        <li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
+                                    <ul class="desc-list ">
+                                        <li class="desc-list-item f-12 list-special-style"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
+                                        <li class="desc-list-item f-12 list-special-style"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
+                                        <li class="desc-list-item f-12 list-special-style"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
                 <%})%>
             </div>
         </div>
@@ -273,8 +273,8 @@
                                 <div class="content-item-text-desc">
                                     <ul class="desc-list">
                                         <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= n.views%></span></li>
-                                        <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
                                         <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= n.points%></span></li>
+                                        <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= n.comments%></span></li>
                                     </ul>
                                 </div>
                             </div>

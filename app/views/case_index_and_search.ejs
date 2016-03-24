@@ -136,9 +136,9 @@
                             <a href="company/detail/<%=data.caseList[i].company_id  %>"><p class="f-12 s-title f-black"><%= data.caseList[i].company||'不明' %></p></a>
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.caseList[i].views %></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.caseList[i].comments %></span></li>
-                                    <li class="desc-list-item f-10"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.caseList[i].points %></span></li>
+                                    <li class="desc-list-item f-10 desc-list-special"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num"><%= data.caseList[i].views %></span></li>
+                                    <li class="desc-list-item f-10 desc-list-special"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num"><%= data.caseList[i].points %></span></li>
+                                    <li class="desc-list-item f-10 desc-list-special"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num"><%= data.caseList[i].comments %></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
 <script>
     $(function(){
         "use strict";
-        window.appData = <%- JSON.stringify(data) %>;
+        <%- 'window.appData ='+JSON.stringify(appData) %>;
         app.getStaticData();
         app.index.lazy();
         app.index.nav();

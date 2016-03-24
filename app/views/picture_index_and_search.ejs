@@ -146,17 +146,17 @@
                         <div class="content-item-text">
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-10">
+                                    <li class="desc-list-item f-10 desc-list-special">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                         <span class="desc-list-item-num"><%= item.views %></span>
                                     </li>
-                                    <li class="desc-list-item f-10">
-                                        <span class="glyphicon glyphicon-comment"></span>
-                                        <span class="desc-list-item-num"><%= item.points %></span>
-                                    </li>
-                                    <li class="desc-list-item f-10">
+                                    <li class="desc-list-item f-10 desc-list-special">
                                         <span class="glyphicon glyphicon-heart-empty"></span>
                                         <span class="desc-list-item-num"><%= item.comments %></span>
+                                    </li>
+                                    <li class="desc-list-item f-10 desc-list-special">
+                                        <span class="glyphicon glyphicon-comment"></span>
+                                        <span class="desc-list-item-num"><%= item.points %></span>
                                     </li>
                                 </ul>
                             </div>
@@ -206,9 +206,10 @@
 
 
 <script>
+
     $(function () {
         "use strict";
-        window.appData = <%- JSON.stringify(data) %>;
+        <%- 'window.appData ='+JSON.stringify(appData) %>;
 //        console.log(appData)
         app.getStaticData();
         app.index.lazy();
@@ -220,7 +221,6 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
-
 
         /*pictureIndex*/
         app.pictureIndex.pagActive();
