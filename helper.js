@@ -168,7 +168,6 @@ helper.hexToRgb = function(hex, isString, isReverse){
 
 };
 
-
 helper.viewNumber=function(n){
     if(n>9999){
         return n/1000+'k';
@@ -178,17 +177,21 @@ helper.viewNumber=function(n){
 
 };
 
-helper.arrayShuffle = function(arr, length){
+helper.arrayShuffle = function(arr, length, tag_length){
 
     arr.sort(function(){
         return 0.5 - Math.random();
     });
-
+    var temp = [];
     if(length && length > 0){
-        arr = arr.slice(0, length);
+        temp = arr.slice(0, length);
     }
 
-    return arr;
+    if(tag_length){
+        return [temp, arr.slice(length, tag_length + length)];
+    }else{
+        return temp;
+    }
 };
 
 
