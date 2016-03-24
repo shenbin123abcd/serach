@@ -24,18 +24,18 @@
                          </div>
                      </div>
                      <div class="company-about">
-                          <div class="col-md-2 col-sm-2">
+                          <div class="desc-pic">
                               <p class="about-title float-right">公司简介</p>
                           </div>
-                          <div class="col-md-10 col-sm-10">
+                          <div class="desc-p">
                               <p><%= data.description %></p>
                           </div>
                      </div>
                      <div class="company-about">
-                         <div class="col-md-2 col-sm-2">
+                         <div class="desc-pic">
                              <p class="about-title float-right">公司信息</p>
                          </div>
-                         <div class="col-md-10 col-sm-10">
+                         <div class="desc-p">
                              <%if(data.website){%>
                                <p>官方网址：<span><%= data.website %></span></p>
                              <%}%>
@@ -60,10 +60,10 @@
                          </div>
                      </div>
                      <div class="company-about">
-                         <div class="col-md-2 col-sm-2">
+                         <div class="desc-pic">
                              <p class="about-title float-right">公司案例</p>
                          </div>
-                         <div class="col-md-10 col-sm-10 no-top">
+                         <div class="desc-p no-top">
                              <% data.caseList.forEach(function(n,i){ %>
                              <%if(i<16){%>
 
