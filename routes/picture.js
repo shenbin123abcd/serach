@@ -201,7 +201,7 @@ router.get('/detail/:id', function (req, res, next) {
         };
 
 
-        res.render('picture_detail', {data: data,appdata:appData});
+        res.render('picture_detail', {data: data,appData:appData});
     });
 });
 
