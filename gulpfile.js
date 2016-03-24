@@ -105,9 +105,10 @@ gulp.task('html', function () {
 //
 //});
 
+
 gulp.task('haloIcon', function () {
-    return gulp.src('app/css/lib/ux_1457574849_968604/**/*iconfont.*')
-        .pipe(gulp.dest('dist/css/lib/ux_1457574849_968604/'))
+    return gulp.src('app/public/css/lib/ux_*/**/*iconfont.*')
+        .pipe(gulp.dest('public/css/lib'))
 });
 
 gulp.task('videojs', function () {
@@ -164,7 +165,7 @@ gulp.task('map', function () {
 });
 
 
-gulp.task('build', ['sass','images'], function () {
+gulp.task('build', ['sass','images','haloIcon'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
