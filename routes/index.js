@@ -5,7 +5,7 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-    // req.redis.clear('search_index_data');
+    req.redis.clear('search_index_data');
     req.redis.get('search_index_data').then(function(data){
         if (!data) {
             getData(req, res);
@@ -82,11 +82,13 @@ function getData(req, res){
                 n.fontColor="#ffffff";
             }
             if(i < 2){
-                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/420/h/300";
+                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/400/h/300";
             }else if(i == 2){
-                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/300";
+                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/220/h/300";
+            }else if(i == 7||i==12){
+                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/220/h/142";
             }else{
-                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
+                n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/190/h/142";
             }
         });
 

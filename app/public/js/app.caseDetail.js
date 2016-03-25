@@ -103,14 +103,14 @@ app.caseDetail=(function(){
                     res.data.forEach((n, i)=> {
                         if(i<(page*perPage-1)&&i>((page-1)*perPage)-1){
                             htmlStr += `
-                            <div class="text-item-wrapper">
-                                <div class="commit-text-item clearfix">
+                            <div class="text-item-wrapper case">
+                                <div class="commit-text-item">
                                     <div class="item-pic">
                                         <img src="/images/commet-avatar-sample.png" />
                                     </div>
                                     <div class="item-desc">
                                         <p><span class="name f-14">${n.username}</span><span class="f-12">${moment(n.created_at).fromNow()}</span></p>
-                                        <p class="f-16">${n.content}</p>
+                                            ${n.content}
                                     </div>
                                 </div>
                             </div>
