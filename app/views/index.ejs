@@ -10,40 +10,40 @@
 <div class="halo-search">
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
 <div class="search-box">
-    <div class="container">
-        <div class="rowl">
-        <div class="search-box-text">
-            <h4 class="f-white"><span id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
-            <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
-        </div>
-        <div class='search-box-input clearfix'>
-            <div class="tab-box">
-                <div class="drop-wrap">
-                    <div class="drop">
-                        <b class="">婚礼案例</b>
-                        <a href="#" class="drop-list"><i class="haloIcon haloIcon-unfold f-18"></i></a>
-                        <span>
-                            <button >婚礼案例</button>
-                            <button >婚礼图片</button>
-                            <button >婚礼公司</button>
-                        </span>
+    <div class="s-container">
+        <div class="">
+            <div class="search-box-text">
+                <h4 class="f-white"><span id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
+                <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
+            </div>
+            <div class='search-box-input clearfix'>
+                <div class="tab-box">
+                    <div class="drop-wrap">
+                        <div class="drop">
+                            <b class="">婚礼案例</b>
+                            <a href="#" class="drop-list"><i class="haloIcon haloIcon-unfold f-18"></i></a>
+                            <span>
+                                <button >婚礼案例</button>
+                                <button >婚礼图片</button>
+                                <button >婚礼公司</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="search_input">
+                        <form  action="/case">
+                             <span class="search_wrapper">
+                                 <input type="text" placeholder="例如 “复古婚礼” "name="tag">
+                                 <button class="search_button" type="submit">
+                                     <!--<img src="/images/img5.png" alt="">-->
+                                     <span class="haloIcon haloIcon-glass f-30" ></span>
+                                 </button>
+                             </span>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="input-box">
-                <div class="search_input">
-                    <form  action="/case">
-                         <span class="search_wrapper">
-                             <input type="text" placeholder="例如 “复古婚礼” "name="tag">
-                             <button class="search_button" type="submit">
-                                 <!--<img src="/images/img5.png" alt="">-->
-                                 <span class="haloIcon haloIcon-glass f-30" ></span>
-                             </button>
-                         </span>
-                    </form>
-                </div>
-            </div>
-        </div>
         </div>
     </div>
 </div>
@@ -308,7 +308,7 @@
         "use strict";
         app.getStaticData();
         app.index.lazy();
-        app.index.nav();
+//        app.index.nav();
         app.index.indexInit();
         app.index.register();
         app.index.zcBtn();
