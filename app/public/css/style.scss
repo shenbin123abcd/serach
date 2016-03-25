@@ -1631,9 +1631,15 @@ body{
         text-align: center;
         display: block;
         margin-top:15px;
-        .col-xs-3,.col-sm-3,.col-md-3{
-            padding-left:10px;
-            padding-right:10px;
+        .list-ul{
+          .list-item{
+            &:first-child{
+              margin-left:0;
+            }
+            display: inline-block;
+            width: 21.5%;
+            margin-left:20px;
+          }
         }
         a{
             background: #e6e6e6;
@@ -1772,9 +1778,13 @@ body{
         margin-top:30px;
         display: block;
         overflow: hidden;
-        .col-md-2{
-            padding-left:10px;
-            padding-right:10px;
+        .wrapper{
+          margin-left: -20px;
+        }
+        .case-list-block-item{
+            width: 200px;
+            float: left;
+            margin-left: 20px;
         }
         .block-content-item{
             display: block;
@@ -1800,6 +1810,9 @@ body{
                 line-height: 20px;
                 .content-item-text-desc{
                   margin-top:5px;
+                  .desc-list{
+                    padding:0;
+                  }
                 }
                 h4{
                     line-height: 20px;
@@ -1877,6 +1890,15 @@ body{
             display: block;
             //overflow: hidden;
             margin-top:30px;
+            .content-left-box{
+              float:left;
+              max-width:990px;
+            }
+            .content-right-box{
+              float:left;
+              max-width:290px;
+              margin-left:20px;
+            }
             .detail-content-wrapper {
                 .detail-content-topic {
                       padding: 20px 20px;
