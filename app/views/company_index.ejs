@@ -9,7 +9,7 @@
 <div class="halo-search case company">
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
 <div class="search-box">
-    <div class="container">
+    <div class="s-container clearfix">
         <div class="search-box-text">
             <h4 class="f-white"><span id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
             <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
@@ -28,13 +28,13 @@
             </div>
             <div class="search_button_group">
                 <form action="">
-                    <div class="col-md-4 col-xs-4 col-sm-4">
+                    <div class="button_group_item">
                         <a class="f-14" href="?<%=search(data.query,{keywords:"上海婚礼主义",page:1})%>">上海婚礼主义</a>
                     </div>
-                    <div class="col-md-4 col-xs-4 col-sm-4">
+                    <div class="button_group_item">
                         <a class="f-14" href="?<%=search(data.query,{keywords:"诺丁山企划",page:1})%>">诺丁山企划</a>
                     </div>
-                    <div class="col-md-4 col-xs-4 col-sm-4">
+                    <div class="button_group_item">
                         <a class="f-14" href="?<%=search(data.query,{keywords:"Dream Wedding",page:1})%>">Dream Wedding</a>
                     </div>
                 </form>
@@ -45,7 +45,7 @@
 
     <% if (data.query.keywords) { %>
     <div class="search-result">
-        <div class="container">
+        <div class="s-container">
             <p>您目前在 婚礼公司 搜索关键字<span class="keyword">“ <%= data.query.keywords %> ”</span>，共找到 <%= data.total %> 个内容</p>
         </div>
     </div>
@@ -55,7 +55,7 @@
 
 
     <div id="tab" class="tab-list">
-    <div class="container">
+    <div class="s-container">
         <div class="tab-title">
             <div class="tab-title-left">
                 <a class="category box-shadow active">地区</a>
@@ -64,7 +64,7 @@
     </div>
 </div>
     <div class="tab-list-content show">
-        <div class="container">
+        <div class="s-container">
             <div class="tab-list-content-wrapper box-shadow">
                 <div class="tab-list-content-item">
 
@@ -96,9 +96,9 @@
     <%}%>
 
     <div id="company-list" class="company-list-block">
-        <div class="container">
+        <div class="s-container">
             <% data.data.forEach(function(n,i){ %>
-                <div class="col-md-2 col-sm-4">
+                <div class="col-md-2">
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
                         <img src="<%= n.logo %>" alt="">
                         <div class="content-item-text">
@@ -115,7 +115,7 @@
 
     <% if (data.totalPages>1) { %>
     <div class="case-pagination">
-        <div class="container">
+        <div class="s-container">
             <ul id="pagination" class="pagination pagination-item"></ul>
         </div>
     </div>

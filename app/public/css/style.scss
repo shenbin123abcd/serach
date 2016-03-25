@@ -1630,6 +1630,10 @@ body{
         text-align: center;
         display: block;
         margin-top:15px;
+        .button_group_item{
+            width:170px;
+            float:left;
+        }
         .list-ul{
           .list-item{
             &:first-child{
@@ -1672,6 +1676,7 @@ body{
                         a.category{
                             border-radius:0;
                             border:none;
+                            color:$mainTextColor;
                         }
                         &.active{
                             background: #fff;
@@ -1744,8 +1749,11 @@ body{
                         padding:0 15px;
                         height:60px;
                         line-height: 60px;
-                        a.active{
+                        a{
+                          color:$mainTextColor;
+                          &:hover{
                             color:#f3903e;
+                          }
                         }
                     }
                 }
@@ -1784,6 +1792,9 @@ body{
             width: 200px;
             float: left;
             margin-left: 20px;
+            @include media('<=laptop'){
+              width:14.5%;
+            }
         }
         .block-content-item{
             display: block;
@@ -1818,6 +1829,7 @@ body{
                     text-overflow:ellipsis;
                     white-space:nowrap;
                     overflow:hidden;
+                    color:$mainTextColor;
                 }
                 p{
                   text-overflow:ellipsis;
@@ -1881,7 +1893,11 @@ body{
 
 /*case Detail*/
 .halo-search{
+   
     &.caseDetail{
+        .bg-wrapper{
+          background: #fff;
+        }
         .top-tab{
             background: #fff;
         }
@@ -1889,13 +1905,17 @@ body{
             display: block;
             //overflow: hidden;
             margin-top:30px;
+            .wrapper{
+              width:1200px;
+              margin:auto;
+            }
             .content-left-box{
               float:left;
-              width:990px;
+              width:940px;
             }
             .content-right-box{
               float:left;
-              width:290px;
+              width:240px;
               margin-left:20px;
             }
             .detail-content-wrapper {
@@ -2214,6 +2234,10 @@ body{
                 }
                 .desc-like{
                   border-right:1px solid #eeeeee;
+                  p{
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                  }
                   &:hover{
                     cursor: pointer;
                     &.piuture{
@@ -2229,13 +2253,16 @@ body{
                   }
                 }
                 .desc-comment{
-
+                  p{
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                  }
                 }
             }
             .other-like-case{
                 margin-top:30px;
                 h4{
-                    margin-bottom: 5px;
+                    margin-bottom: 10px;
                     color:#666666;
                 }
                 .other-case-block{
@@ -2274,6 +2301,8 @@ body{
                                 text-overflow:ellipsis;
                                 white-space:nowrap;
                                 overflow:hidden;
+                                margin:0;
+                                color:$mainTextColor;
                             }
                         }
                     }
