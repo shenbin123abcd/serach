@@ -1694,8 +1694,10 @@ body{
         display: block;
         margin-top:15px;
         .button_group_item{
-            width:170px;
+            width: 33.33333%;
             float:left;
+            padding:0 10px;
+
         }
         .list-ul{
           .list-item{
@@ -1782,6 +1784,7 @@ body{
                   .bar{
                       margin-left:15px;
                       vertical-align: top;
+                      color:#a0a0a0;
                   }
                 }
                 a:nth-child(1){
@@ -1849,15 +1852,18 @@ body{
         display: block;
         overflow: hidden;
         .wrapper{
-          margin-left: -20px;
         }
         .case-list-block-item{
             width: 200px;
             float: left;
             margin-left: 20px;
-            @include media('<=laptop'){
-              width:14.5%;
+            &.l-first{
+              margin-left:0;
             }
+            @include media('<=laptop'){
+              width:15%;
+            }
+
         }
         .block-content-item{
             display: block;
@@ -2434,6 +2440,14 @@ body{
                         }
                     }
                 }
+                .city-list{
+                  li a{
+                    &:hover{
+                      color:#5C9CF6;
+
+                    }
+                  }
+                }
                 .area-list{
                     background:#f8f8f8 ;
                     display:none;
@@ -2449,12 +2463,20 @@ body{
     .company-list-block{
         margin-top: 30px;
         display: block;
-        overflow: hidden;
+        .company-list-item{
+          width:200px;
+          float:left;
+          margin-left: 20px;
+          @include media('<=laptop'){
+            width:15%;
 
-        .col-md-2,.col-sm-4{
-            padding-left: 10px;
-            padding-right: 10px;
+          }
+          &.l-first{
+            margin-left: 0px;
+          }
+
         }
+
         .block-content-item{
             display: block;
             overflow: hidden;
