@@ -30,7 +30,6 @@ $media-expressions: (
 .s-container {
   width: 1300px;
   margin: 0 auto;
-  @extend .cf;
   @include media('<=laptop'){
     width: 1000px;
   }
