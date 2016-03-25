@@ -9,7 +9,7 @@
 <div class="halo-search case">
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="search-box">
-        <div class="container">
+        <div class="s-container">
             <div class="search-box-text">
                 <h4 class="f-white"><span  id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
                 <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
@@ -28,18 +28,20 @@
                     </div>
                 <div class="search_button_group">
                     <form action="">
-                        <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-14" href="?<%=search(data.query,{tag:'童话',page:1})%>">童话</a>
-                        </div>
-                        <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-14" href="?<%=search(data.query,{tag:'波普',page:1})%>">波普</a>
-                        </div>
-                        <div class="col-md-3 col-xs-3 col-sm-3">
-                            <a class="f-14" href="?<%=search(data.query,{tag:'新中式',page:1})%>">新中式</a>
-                        </div>
-                        <div class="col-md-3 col-xs-4 col-sm-3">
-                            <a class="f-14" href="?<%=search(data.query,{tag:'公主风',page:1})%>">公主风</a>
-                        </div>
+                        <ul class="list-unstyled list-ul">
+                            <li class="list-item">
+                                <a class="f-14" href="?<%=search(data.query,{tag:'童话',page:1})%>">童话</a>
+                            </li>
+                            <li class="list-item">
+                                <a class="f-14" href="?<%=search(data.query,{tag:'波普',page:1})%>">波普</a>
+                            </li>
+                            <li class="list-item">
+                                <a class="f-14" href="?<%=search(data.query,{tag:'新中式',page:1})%>">新中式</a>
+                            </li>
+                            <li class="list-item">
+                                <a class="f-14" href="?<%=search(data.query,{tag:'公主风',page:1})%>">公主风</a>
+                            </li>
+                        </ul>
                     </form>
                 </div>
             </div>
@@ -48,14 +50,15 @@
 
     <% if (!data.isMatchTag&&data.tag) { %>
     <div class="search-result">
-        <div class="container">
+        <div class="s-container">
             <p>您目前在 婚礼案例 搜索关键字<span class="keyword">“ <%=data.tag%> ”</span>，共找到 <%= data.total %> 个内容</p>
         </div>
     </div>
     <% }else{ %>
 
-    <div class="container">
+
         <!-- Nav tabs -->
+    <div class="s-container">
         <div id="tab" class="tab-list">
             <div class="tab-title">
                 <div class="tab-title-left">
@@ -77,7 +80,7 @@
                     <a href="?<%= search(data.query,{sort:3}) %>" class="f-12 <% if (data.sort=='3'){ %>active<%}%>"><span class="text f-14">最赞</span></a>
                 </div>
             </div>
-        </div>
+
         <!-- Tab panes -->
         <div class="tab-list-content ">
             <div class="tab-content tab-list-content-wrapper">
@@ -119,14 +122,15 @@
                     </ul>
                 </div>
             </div>
-
+        </div>
         </div>
     </div>
     <% } %>
-    <div class="case-list-block">
-        <div class="container">
+    <div class="s-container clearfix">
+        <div class="case-list-block">
+            <div class="wrapper">
             <% data.caseList.forEach(function(n,i){ %>
-                <div class="col-md-2 col-sm-4">
+                <div class="case-list-block-item">
                     <div  class="block-content-item">
                         <a href="case/detail/<%= data.caseList[i].id %>"><img src="<%= data.caseList[i].cover %>" alt="" ></a>
                         <div class="content-item-text">
@@ -143,11 +147,12 @@
                     </div>
                 </div>
             <% }) %>
+            </div>
         </div>
     </div>
     <% if (data.totalPages>1) { %>
     <div class="case-pagination">
-        <div class="container">
+        <div class="s-container">
             <ul id="pagination" class="pagination pagination-item"></ul>
         </div>
     </div>
