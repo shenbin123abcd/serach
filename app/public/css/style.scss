@@ -2037,29 +2037,37 @@ body{
                             }
                             .text-item-wrapper{
                                 padding:34px 0;
-                                &.active{
+                                overflow: hidden;
+                                zoom: 1;
+                                &.active,&:hover{
                                     background: #fffbf8;
+
                                 }
                             }
                             .commit-text-item{
                                 padding:0 50px;
+                                overflow: hidden;
+                                zoom: 1;
                                 .item-pic{
                                     display: block;
                                     float:left;
                                     width:60px;
                                     height:60px;
                                     border-radius: 50%;
-                                    overflow: hidden;
+                                    /*overflow: hidden;*/
                                     img{
                                         max-width: 100%;
                                         width:100%;
                                     }
                                 }
                                 .item-desc{
-                                  display: block;
+                                  /*display: block;
                                   float:left;
-                                  margin-left: 22px;
-                                  //margin-left: 50px;
+                                  margin-left: 22px;*/
+                                  overflow: hidden;
+                                  zoom: 1;
+                                  padding-left:25px;
+                                  word-wrap:break-word;
                                     p{
 
                                         color:#666666;
@@ -2854,7 +2862,6 @@ body{
                         .text-item-wrapper{
                             &.active,&:hover{
                                 background:#f7f4fd;
-
                             }
                         }
                     }
