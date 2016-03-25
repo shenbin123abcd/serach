@@ -30,6 +30,7 @@ $media-expressions: (
 .s-container {
   width: 1300px;
   margin: 0 auto;
+  @extend .cf;
   @include media('<=laptop'){
     width: 1000px;
   }
@@ -947,6 +948,7 @@ body{
                         button{
                             color: #b5b5b5;
                             background: #fff;
+                          border: none;
                             font-size: 12px;
                             font-weight: 300;
                             float: left;
@@ -981,6 +983,10 @@ body{
                     font-size: 18px;
                     font-family:'Microsoft Yahei', 'Roboto', 'sans-serif';
                     width:620px;
+                  &:focus{
+                    outline: none;
+
+                  }
                 }
                 .search_button{
                     top: 0;
