@@ -98,7 +98,7 @@
     <div id="company-list" class="company-list-block">
         <div class="s-container">
             <% data.data.forEach(function(n,i){ %>
-                <div class="col-md-2">
+                <div class="company-list-item <% if(i%6==0){%>l-first<%} %>">
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
                         <img src="<%= n.logo %>" alt="">
                         <div class="content-item-text">
