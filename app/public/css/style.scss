@@ -1022,75 +1022,129 @@ body{
     .content-box{
         margin-top:55px;
         .pic-list{
-            /* .list-case{
-                padding-left:10px;
-                .md-item-2{
-                    padding-right:0;
-                }
-            } */
-            /* .col-md-10,.col-md-2,.col-md-12{
-                padding-left: 0;
-            } */
-            /* .col-md-12.list-case{
-                padding-left:10px;
-            } */
-                .no-padding.col-md-2{
 
-                    padding-left:0;
-                    .col-md-12.no-padding{
-                        padding-left:0;
-                        padding-right:10px;
-                    }
+          .case-content{
+            width: 1060px;
+            @include media('<=laptop'){
+              width: 100%;
+            }
+            float: left;
+          }
+          .case-123{
+            .item{
+              float: left;
+              margin-left: 20px;
+              &:first-child{
+                margin-left: 0;
+              }
+              @include media('<=laptop'){
+                margin-left: (40/2/1060)*100%;
+              }
+            }
+            .item-1,.item-2{
+              width: 400px;
+              @include media('<=laptop'){
+                width: (400/1060)*100%;
+              }
+            }
+            .item-3{
+              width: 220px;
+              @include media('<=laptop'){
+                width: (220/1060)*100%;
+
+              }
+            }
+          }
+          .case-rest{
+
+            .item{
+              margin-top: 30px;
+              margin-left: 20px;
+              width: 190px;
+              float: left;
+              @include media('<=laptop'){
+                width: (190/1060)*100%;
+                margin-left: (80/4/1060)*100%;
+              }
+              &-1,&-6{
+                margin-left: 0;
+              }
+              &-5,&-10{
+                width: 220px;
+                @include media('<=laptop'){
+                  width: (220/1060)*100%;
                 }
-                .xol-md-2{
-                    .pic-list-item{
-                        .a-style{
-                            display: block;
-                            overflow: hidden;
+              }
+            }
+
+          }
+          .case-ad{
+            width: 220px;
+            @include media('<=laptop'){
+              display: none;
+            }
+            float: right;
+          }
+
+
+          .no-padding.col-md-2{
+
+            padding-left:0;
+            .col-md-12.no-padding{
+              padding-left:0;
+              padding-right:10px;
+            }
+          }
+          .xol-md-2{
+            .pic-list-item{
+              .a-style{
+                display: block;
+                overflow: hidden;
+              }
+
+              .item-text-top{
+                padding:6px 10px;
+              }
+              .item-text-bottom{
+                display:block;
+                .item-text-bottom-position{
+                  left:20px;
+                  bottom:15px;
+                  width:90%;
+                  .text-bottom-desc{
+                    margin-bottom:5px;
+                    .desc-list{
+                      @include media('<=laptop'){
+                        display: none;
+                      }
+                      .desc-list-item{
+                        margin-right:3px;
+                        &.desc-list-special{
+
+                          //margin-right: 22px;
                         }
 
-                            .item-text-top{
-                                padding:6px 10px;
-                            }
-                            .item-text-bottom{
-                                display:block;
-                                .item-text-bottom-position{
-                                    left:20px;
-                                    bottom:15px;
-                                    width:90%;
-                                    .text-bottom-desc{
-                                        margin-bottom:5px;
-                                        .desc-list{
-                                          @include media('<=laptop'){
-                                            display: none;
-                                          }
-                                            .desc-list-item{
-                                                margin-right:3px;
-                                                &.desc-list-special{
-
-                                                  //margin-right: 22px;
-                                                }
-
-                                            }
-                                        }
-                                    }
-                                    .text-bottom-title{
-                                        h4{
-                                            font-size:12px;
-                                            text-overflow: ellipsis;
-                                            white-space: nowrap;
-                                            overflow: hidden;
-
-                                        }
-                                        .f-18-z{
-                                            font-size:18px;
-                                        }
-                                    }
-                                }
-                            }
+                      }
+                    }
+                  }
+                  .text-bottom-title{
+                    h4{
+                      font-size:12px;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      overflow: hidden;
 
                     }
+                    .f-18-z{
+                      font-size:18px;
+                    }
+                  }
                 }
+              }
+
+            }
+          }
+
             .item-margin-top{
                 margin-top:15px;
             }
@@ -1127,16 +1181,19 @@ body{
                         position:absolute;
                         top:16px;
                         right:16px;
-                        padding:6px 10px;
+                        padding:0px 10px;
                         background:#2797ff;
-                        max-width:178px;
+                      height: 24px;
+                      line-height: 24px;
+                        max-width:114px;
+
                         /*z-index:2;*/
                         p{
-                            line-height: 12px;
-                            letter-spacing: 2px;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                            overflow: hidden;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          margin: 0;
+                          font-size: 12px;
                             &.f10{
 
                             }
@@ -1155,9 +1212,15 @@ body{
                             position:absolute;
                             bottom:20px;
                             left:20px;
+                          .f-14{
+                            line-height: 1;
+                            margin: 0;
+                          }
                         }
                         .text-bottom-desc{
-                            margin-bottom:8px;
+                            margin-bottom:10px;
+                          line-height: 1;
+
                             .desc-list{
                                 li{
                                     display:inline-block;
@@ -1200,8 +1263,8 @@ body{
             }
 
             .list-banner{
-                margin-top:20px;
-                padding:0 10px;
+                margin-top:30px;
+                padding:0 0px;
                 overflow: hidden;
 
                 .banner-wrapper{

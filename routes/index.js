@@ -100,11 +100,13 @@ function render(data, req, res){
             n.fontColor="#ffffff";
         }
         if(i < 2){
-            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/420/h/300";
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/400/h/300";
         }else if(i == 2){
-            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/300";
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/220/h/300";
+        }else if(i == 7||i==12){
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/220/h/142";
         }else{
-            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/190/h/142";
         }
     });
     /*data.case_new[0].cover = data.case_new[0].cover + "?imageView2/1/w/420/h/300";
