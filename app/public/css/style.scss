@@ -116,6 +116,7 @@ body {
   height: 100%;
 }
 .hb-page-wrapper{
+  padding-top: 44px+15;
   height: 100%;
   margin-bottom: -424px;
   padding-bottom: 424px;
@@ -3381,7 +3382,7 @@ body{
                 .item-cycle{
                     width:82px;
                     height:62px;
-                    border-radius:none;
+                    border-radius:0;
                     margin:auto;
                     border:0px solid #eeeeee;
                     display: block;
@@ -3544,4 +3545,17 @@ body{
 
       }
     }
+}
+
+.error-404-wrapper{
+  width: 960px;
+  margin: 0 auto;
+  .title{
+    margin-top: 100px;
+    font-size: 60px;
+  }
+  .content{
+    margin-top: 20px;
+    font-size: 16px;
+  }
 }
