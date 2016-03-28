@@ -63,7 +63,7 @@
                                         <% if( data.case_new[0].company){ %>
                                         <div class="item-text-top" style="background: <%= data.case_new[0].color %>;">
                                             <a href="/company/detail/<%= data.case_new[0].company_id %>"><p
-                                                        class="f-white f-12"
+                                                        class="f-white f-12" title="<%= data.case_new[0].company %>"
                                                         style="color:<%= hexToRgb(data.case_new[0].color, true, true) %>;"><%= data.case_new[0].company %></p>
                                             </a>
                                         </div>
@@ -100,7 +100,9 @@
                                                     class="pic-list-item-img"></a>
                                         <% if( data.case_new[1].company){ %>
                                         <div class="item-text-top" style="background: <%= data.case_new[1].color %>;">
-                                            <a href="/company/detail/<%= data.case_new[1].company_id %>" class="f-white f-12"><p style="color:<%= hexToRgb(data.case_new[1].color, true, true) %>;"
+                                            <a href="/company/detail/<%= data.case_new[1].company_id %>"
+                                               title="<%= data.case_new[1].company %>"
+                                               class="f-white f-12"><p style="color:<%= hexToRgb(data.case_new[1].color, true, true) %>;"
                                                         ><%= data.case_new[1].company %></p>
                                             </a>
                                         </div>
@@ -133,7 +135,7 @@
                                 <div class="item item-3 inner-son-height" id="xol-md-2-height">
                                     <div class="pic-list-item special">
                                         <a href="/case/detail/<%= data.case_new[2].id %>" class="a-style"><img
-                                                    src="<%= data.case_new[2].cover %>" alt=""
+                                                    src="<%= data.case_new[2].cover %>" alt="" title="<%= data.case_new[2].company %>"
                                                     class="pic-list-item-img"></a>
                                         <% if( data.case_new[2].company){ %>
                                         <div class="item-text-top" style="background: <%= data.case_new[2].color %>;">
@@ -179,7 +181,7 @@
                                         <% if( data.case_new[i].company){ %>
                                         <div class="item-text-top" style="background: <%= data.case_new[i].color %>;">
                                             <a href="/company/detail/<%= data.case_new[i].company_id %>"><p
-                                                        class="f-white f-12"
+                                                        class="f-white f-12" title="<%= data.case_new[i].company %>"
                                                         style="color:<%= hexToRgb(data.case_new[i].color, true, true) %>;"><%= data.case_new[i].company %></p>
                                             </a>
                                         </div>
