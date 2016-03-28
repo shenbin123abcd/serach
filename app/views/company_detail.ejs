@@ -14,9 +14,7 @@
         <div class="s-container wrapper cf">
             <div class="inner">
                  <div class="company-detail-content">
-                      <div class="content-topic">
-                          <img src="<%= data.cover %>" alt=""/>
-                      </div>
+
                      <div class="company-desc">
                          <div class="desc-pic">
                              <img src="<%= data.company_logo %>" alt=""/>
@@ -61,59 +59,81 @@
                              <%}%>
                          </div>
                      </div>
-                     <div class="company-about ">
+                     <div class="company-about last">
                          <div class="desc-pic special">
                              <p class="about-title float-right f-14">公司案例</p>
                          </div>
                          <div class="desc-p no-top">
-                             <% data.caseList.forEach(function(n,i){ %>
-                             <%if(i<16){%>
-
+                             <div class="other-cases">
+                                 <% data.caseList.forEach(function(n, i){ %>
+                                 <% if(i < 16){ %>
                                  <div class="col-md-3 col-sm-3 col-xs-3">
                                      <a class="block-content-item left" href="/case/detail/<%= n.id %>">
                                          <img src="<%= n.cover %>" alt="">
                                          <div class="content-item-text">
+                                             <div class="img-gradient-layer"></div>
                                              <div class="content-item-text-desc">
-                                                 <p class="f-12 f-white p-title"><%= n.title %></p>
                                                  <ul class="desc-list clearfix list-unstyled">
-                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
-                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
-                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
+                                                     <li class="item desc-list-item"><span
+                                                                 class="haloIcon haloIcon-eye"></span><span
+                                                                 class="desc-list-item-num"><%= viewNumber(n.views) %></span>
+                                                     </li>
+                                                     <li class="item desc-list-item"><span
+                                                                 class="haloIcon haloIcon-heart2"></span><span
+                                                                 class="desc-list-item-num"><%= viewNumber(n.points) %></span>
+                                                     </li>
+                                                     <li class="item desc-list-item"><span
+                                                                 class="haloIcon haloIcon-message"></span><span
+                                                                 class="desc-list-item-num"><%= viewNumber(n.comments) %></span>
+                                                     </li>
                                                  </ul>
+                                                 <p class="f-12 f-white p-title"><%= n.title %></p>
                                              </div>
                                          </div>
                                      </a>
                                  </div>
 
-                             <%}%>
-                             <%if(i==16){%>
-                             <div class="rest-cases-toggle col-md-12 col-sm-12 col-xs-12" id="rest-cases-toggle__bt" ><a  class="bt" ><span class="text">展开</span> <i class="glyphicon glyphicon-menu-down"></i></a></div>
-                             <div id="expand-more" class="collapse">
-                             <%}%>
-                             <%if(i>=16){%>
-                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                     <a class="block-content-item left" href="/case/detail/<%= n.id %>">
-                                         <img src="<%= n.cover %>" alt="">
-                                         <div class="content-item-text">
-                                             <div class="content-item-text-desc">
-                                                 <p class="f-12 f-white p-title"><%= n.title %></p>
-                                                 <ul class="desc-list clearfix list-unstyled">
-                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
-                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
-                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
-                                                 </ul>
+                                 <% } %>
+                                 <% if(i == 16){ %>
+                                 <div class="rest-cases-toggle col-md-12 col-sm-12 col-xs-12"
+                                      id="rest-cases-toggle__bt"><a class="bt"><span class="text">展开</span> <i
+                                                 class="glyphicon glyphicon-menu-down"></i></a></div>
+                                 <div id="expand-more" class="collapse">
+                                     <% } %>
+                                     <% if(i >= 16){ %>
+                                     <div class="col-md-3 col-sm-3 col-xs-3">
+                                         <a class="block-content-item left" href="/case/detail/<%= n.id %>">
+                                             <img src="<%= n.cover %>" alt="">
+                                             <div class="content-item-text">
+                                                 <div class="img-gradient-layer"></div>
+                                                 <div class="content-item-text-desc">
+                                                     <ul class="desc-list clearfix list-unstyled">
+                                                         <li class="item desc-list-item"><span
+                                                                     class="haloIcon haloIcon-eye"></span><span
+                                                                     class="desc-list-item-num"><%= viewNumber(n.views) %></span>
+                                                         </li>
+                                                         <li class="item desc-list-item"><span
+                                                                     class="haloIcon haloIcon-heart2"></span><span
+                                                                     class="desc-list-item-num"><%= viewNumber(n.points) %></span>
+                                                         </li>
+                                                         <li class="item desc-list-item"><span
+                                                                     class="haloIcon haloIcon-message"></span><span
+                                                                     class="desc-list-item-num"><%= viewNumber(n.comments) %></span>
+                                                         </li>
+                                                     </ul>
+                                                     <p class="f-12 f-white p-title"><%= n.title %></p>
+                                                 </div>
                                              </div>
-                                         </div>
-                                     </a>
-                                 </div>
-                             <%}%>
+                                         </a>
+                                     </div>
+                                     <% } %>
 
-                             <%if(i>=16&&i==data.caseList.length){%>
+                                     <% if(i >= 16 && i == data.caseList.length){ %>
+                                 </div>
+                                 <% } %>
+
+                                 <% }) %>
                              </div>
-                             <%}%>
-
-
-                             <% }) %>
 
                          </div>
                      </div>
