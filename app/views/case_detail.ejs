@@ -128,7 +128,7 @@
                     </div>
                     <% if(data.xiangsi.length>0){ %>
                     <div class="other-like-case">
-                        <h4 class="f-14">其它相似案例</h4>
+                        <h4 class="f-14">其他相似案例</h4>
                         <div class="other-case-block">
                             <% data.xiangsiImg.forEach(function(n,i){ %>
                                 <div class="case-item">
@@ -145,19 +145,26 @@
                     </div>
                     <% } %>
                     <div class="other-like-case">
-                        <h4 class="f-14">公司其它案例</h4>
+                        <h4 class="f-14">公司其他案例</h4>
                         <div class="other-case-block">
-                            <% data.otherImg.forEach(function(n,i){ %>
+                            <% for(var i=0;i<data.otherImg.length;i+=2){  %>
                             <div class="case-item">
                                 <div class="case-pic">
-                                    <a href="<%= data.other[i].id %>"><img src="<%= data.otherImg[i] %>" alt=""/></a>
+                                    <a href="/case/detail/<%=data.other[i].id%>" class="case-pic-a"><img src="<%=data.otherImg[i]%>" alt=""/></a>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/<%= data.other[i].id %>" class="case-pic-a f-14"><%= data.other[i].title %></a>
+                                    </div>
                                 </div>
-                                <div class="case-desc">
-                                    <a href="/case/detail/<%= data.other[i].id %>"><p class="f-14 desc_title"><%= data.other[i].title %></p></a>
-                                    <p class="f-14 desc_company"><%= data.other[i].company %></p>
+                                <% if(i<data.otherImg.length-1){ %>
+                                <div class="case-pic">
+                                    <a href="/case/detail/<%=data.other[i+1].id%>" class="case-pic-a"><img src="<%=data.otherImg[i+1]%>" alt=""/></a>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/<%= data.other[i+1].id %>" class="case-pic-a f-14"><%= data.other[i+1].title %></a>
+                                    </div>
                                 </div>
+                                <%}%>
                             </div>
-                            <% }) %>
+                            <%}%>
                         </div>
                     </div>
                 </div>
