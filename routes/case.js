@@ -60,8 +60,8 @@ router.get(['/'], function(req, res, next){
             data.listStyle=[
                 '全部','童话','波普','欧式','怀旧','青春','英伦','法式','乡村','户外','唯美','淡雅','撞色','生日','时尚',
                 '几何','线条','糖果','冰雪','神秘','教堂','唐韵','汉代','星空','派对','海外','可爱','复古','森系','奢华',
-                '梦幻','草坪','花园','海滩','水彩','水彩','水彩','卡通','游戏','清新','宝宝','宫廷','韩式','Party','公主风',
-                '婚礼式','新中式','东南亚','地中海','地中海','洛可可','民族风','异域风'
+                '梦幻','草坪','花园','海滩','水彩','蕾丝','高贵','卡通','游戏','清新','宝宝','宫廷','韩式','Party','公主风',
+                '婚礼秀','新中式','东南亚','地中海','老上海','洛可可','民族风','异域风'
             ];
             data.caseList=[];
 
@@ -172,7 +172,7 @@ router.get('/detail/:id', function(req, res, next){
         data.attach.forEach(function(n,i){
             data.attachArr[i]= req.config.url.case + '/' + data.attach[i].path +"?imageView2/1/w/900/";
         });
-        data.company.logo = req.config.url.case + '/' + (data.company.logo||'404.png') + "?imageView2/1/w/80/h/60";
+        data.company.logo = req.config.url.case + '/' + (data.company.logo||'404.png') + "?imageView2/1/w/160/h/120";
         data.colorArr=data.other_color?data.other_color.split(','):[];
         data.tagArr=data.tag?data.tag.split(','):[];
         data.xiangsiImg=[];
