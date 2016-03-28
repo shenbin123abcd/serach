@@ -135,7 +135,7 @@
                         <a href="case/detail/<%= data.caseList[i].id %>"><img src="<%= data.caseList[i].cover %>" alt="" ></a>
                         <div class="content-item-text">
                             <a href="case/detail/<%= data.caseList[i].id %>"><h4 class="f-14 omit"><%= data.caseList[i].title %></h4></a>
-                            <a href="company/detail/<%=data.caseList[i].company_id  %>"><p class="f-12 s-title f-black"><%= data.caseList[i].company||'不明' %></p></a>
+                            <a href="company/detail/<%=data.caseList[i].company_id  %>"><p class="f-12 s-title"><%= data.caseList[i].company||'不明' %></p></a>
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
                                     <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= data.caseList[i].views %></span></li>
