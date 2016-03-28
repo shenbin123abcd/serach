@@ -1924,8 +1924,8 @@ body{
     }
     .tab-list{
         display:block;
-        overflow: hidden;
         padding-top:44px;
+
       margin-top: 6px;
         .tab-title{
             display:block;
@@ -1997,6 +1997,7 @@ body{
         }
     }
     .tab-list-content{
+        box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
         &.show{
             display: block;
         }
@@ -2006,6 +2007,8 @@ body{
         .tab-list-content-wrapper{
             background: #fff;
             padding:36px 42px;
+            box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
+
             .tab-list-content-item{
                 ul{
                     padding:0;
@@ -2233,7 +2236,8 @@ body{
                           .title-desc-icon {
                             ul.desc-list{
                               padding:0;
-                              
+                              vertical-align: middle;
+
                               li {
                                 display: inline-block;
                                 color: #999999;
