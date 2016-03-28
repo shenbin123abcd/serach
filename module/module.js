@@ -74,7 +74,9 @@ mod.getInfo = function(path, id, req, params){
     var headers = {'x-forwarded-for': req.header('x-forwarded-for') || req.connection.remoteAddress},
         options = {url: config.apiUrl + '/'+ path +'/' + id + '?' + querystring.stringify(params), headers: headers};
     return request.getAsync(options).then(function(res){
-        return JSON.parse(res.body);
+        var body = JSON.parse(res.body);
+
+        return body.iRet == 1 ? body : Promise.reject({iRet: body.iRet,p: Promise});
     }).error(function(err){
         console.log(err);
         return {iRet: -1};
