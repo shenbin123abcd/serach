@@ -1452,6 +1452,7 @@ body{
                   box-shadow: 5px 5px 20px rgba(104,104,104,0.2);
                   .content-item-text h4{
                     color:#fd5ab0;
+
                   }
                   .content-item-text p.f-grey{
                     color:#fd5ab0;
@@ -1494,11 +1495,13 @@ body{
                     width:100%;
                 }
                 .content-item-text{
-                    padding:22px 15px;
+                    padding:20px 15px;
                     background:#fff;
                     line-height: 20px;
                     .content-item-text-desc{
-                      margin-top: 5px;
+                      .desc-list{
+                        margin:0;
+                      }
                     }
                     h4{
                         line-height:20px;
@@ -1506,12 +1509,16 @@ body{
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         overflow: hidden;
+                        font-weight:700;
+                        margin:0;
+
                     }
                     p{
                         color:#666666;
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         overflow: hidden;
+                        margin-bottom:0;
                     }
                     .content-item-text-desc{
 
