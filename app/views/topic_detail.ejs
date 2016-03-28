@@ -37,7 +37,7 @@
 
                         <%if(item.company){%>
                         <div class="item-cycle">
-                            <a href="/company/detail/<%= item.company_id%>"><img src="<%=item.company.logo%>" alt=""></a>
+                            <a class="item-cycle-a" href="/company/detail/<%= item.company_id%>"><img src="<%=item.company.logo%>" alt=""></a>
                         </div>
                         <a href="/company/detail/<%= item.company_id%>"><p class="title f-14"><%=item.company.name%></p></a>
                         <%}%>
@@ -103,6 +103,7 @@
         app.index.login();
         app.index.summitHover();
         app.index.loginInit();
+        app.common.commitForm();
         app.topicDetail.collect();
         app.topicDetail.getComments();
         app.topicDetail.comment();

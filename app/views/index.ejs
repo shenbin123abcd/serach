@@ -244,13 +244,13 @@
                         <div class='block-line'><span class="pink-line"></span><span class="grey-line"></span></div>
                     </div>
                 </div>
-                <div class="search-block-content">
+                <div class="search-block-content clearfix">
                     <% data.case_recommend.forEach(function(n, i){ %>
                     <div class="col-md-2 col-sm-2 col-xs-2">
                         <div class="block-content-item">
                             <a href="/case/detail/<%= n.id %>"><img src="<%= n.cover %>" alt=""></a>
                             <div class="content-item-text">
-                                <a href="/case/detail/<%= n.id %>"><h4 class="f-16"><%= n.title %></h4></a>
+                                <a href="/case/detail/<%= n.id %>"><h4 class="f-14"><%= n.title %></h4></a>
                                 <a href="/company/detail/<%= n.company_id %>"><p
                                             class="f-12 s-title f-black"><%= n.company %></p></a>
                                 <div class="content-item-text-desc">
