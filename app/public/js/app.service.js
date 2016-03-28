@@ -130,12 +130,12 @@ app.service.picture=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(res);
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
+                    var res=jqXHR.responseJSON;
+                    if(res.iRet==-1){
+                        deferred.reject(res);
+                    }else{
+                        deferred.reject('网络繁忙请稍候再试');
+                    }
                 }
             })
             ;
@@ -174,11 +174,12 @@ app.service.picture=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
+                    var res=jqXHR.responseJSON;
+                    if(res.iRet==-1){
+                        deferred.reject(res);
+                    }else{
+                        deferred.reject('网络繁忙请稍候再试');
+                    }
                 }
             })
             ;
@@ -322,9 +323,14 @@ app.service.case=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(res);
                     //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
+                    var res=jqXHR.responseJSON;
+                    if(res.iRet==-1){
+                        deferred.reject(res);
+                    }else{
+                        deferred.reject('网络繁忙请稍候再试');
+                    }
+
                     //if(t==="timeout") {
                     //	// something went wrong (handle it)
                     //}
@@ -366,11 +372,12 @@ app.service.case=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
+                    var res=jqXHR.responseJSON;
+                    if(res.iRet==-1){
+                        deferred.reject(res);
+                    }else{
+                        deferred.reject('网络繁忙请稍候再试');
+                    }
                 }
             })
             ;
@@ -513,12 +520,12 @@ app.service.topic=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(res);
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
+                    var res=jqXHR.responseJSON;
+                    if(res.iRet==-1){
+                        deferred.reject(res);
+                    }else{
+                        deferred.reject('网络繁忙请稍候再试');
+                    }
                 }
             })
             ;
@@ -557,11 +564,12 @@ app.service.topic=(function(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
+                    var res=jqXHR.responseJSON;
+                    if(res.iRet==-1){
+                        deferred.reject(res);
+                    }else{
+                        deferred.reject('网络繁忙请稍候再试');
+                    }
                 }
             })
             ;
