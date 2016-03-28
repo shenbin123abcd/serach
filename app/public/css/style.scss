@@ -651,6 +651,10 @@ span.tt{float:none;}
 .copyright.index2 ul li {
   color: #333;
 }
+.copyright ul{
+  display: inline-block;
+
+}
 .copyright ul li {
   position: relative;
   float: left;
@@ -2055,13 +2059,13 @@ body{
             //overflow: hidden;
             margin-top:30px;
             .wrapper{
-              width:1200px;
+              /*width:1200px;*/
               margin:auto;
             }
             .content-left-box{
               float:left;
               width:940px;
-              @include media('<=laptop'){
+              @include media('<laptop'){
                 width:78%;
 
               }
@@ -2070,7 +2074,7 @@ body{
               float:left;
               width:240px;
               margin-left:20px;
-              @include media('<=laptop'){
+              @include media('<laptop'){
                 width:20%;
 
 
@@ -2115,14 +2119,14 @@ body{
                               //overflow: hidden;
                               margin-left: 50px;
                               .color-liner {
-                                width: 250px;
                                 height: 10px;
                                 /*border-radius: 4px;*/
                                 .color {
-                                  width: 6.5%;
+                                  width: 30px;
                                   display: block;
                                   float: left;
                                   height: 10px;
+
                                   //transition: transform 0.3s;
                                   &:hover{
                                     transform: scale(1.5);
@@ -2556,7 +2560,7 @@ body{
           width:200px;
           float:left;
           margin-left: 20px;
-          @include media('<=laptop'){
+          @include media('<laptop'){
             width:15%;
 
           }
@@ -2707,7 +2711,7 @@ body{
                 p{
                     display: block;
                     color:#333;
-                    line-height:30px;
+                    line-height:20px;
                   &~p{
                     margin-top: 10px;
                   }
@@ -2752,6 +2756,8 @@ body{
 
                             }
                             .desc-list{
+                                margin-bottom:5px;
+
                                 .desc-list-item{
                                     display: inline-block;
                                     color: #fff;
@@ -3105,6 +3111,8 @@ body{
             }
             .title-desc-icon{
                 .desc-list{
+                    padding:0;
+
                     .desc-list-item{
                         display: inline-block;
                         color: #999999;
@@ -3309,6 +3317,7 @@ body{
               width:100%;
               padding:15px;
               resize:none;
+              outline:none;
             }
             p{
               position: absolute;
