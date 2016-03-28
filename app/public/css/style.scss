@@ -202,7 +202,7 @@ a{
   background: #000;
   min-width: 1000px;
   /* transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out; */}
-.logo {position: relative; float: left; display: inline-block; transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;  /* left: 60px; */}
+.logo {position: relative; float: left; display: inline-block; transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out; left: -6px;}
 .logo a{overflow:hidden; margin-top:-4px;display: block;}
 .logo img{width: 122px;height:auto;}
 .header-nav ul li a:focus, nav ul li a:active {color: #fff;}
@@ -913,7 +913,7 @@ body{
       display:inline-block;
       margin-left:80px;
       .item-img{
-        margin-left: 5px;
+        /*margin-left: 5px;*/
       }
       &.no-margin-left{
         margin-left:0;
@@ -962,7 +962,7 @@ body{
     }
 
     .top-tab{
-        padding:20px;
+        padding:20px 0;
 
         .tab-item{
             display:inline-block;
@@ -971,7 +971,7 @@ body{
               color:#666;
             }
             .item-img{
-                margin-left: 5px;
+                /*margin-left: 5px;*/
             }
             &.no-margin-left{
                 margin-left:0;
