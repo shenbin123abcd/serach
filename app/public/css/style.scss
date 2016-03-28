@@ -2241,6 +2241,8 @@ body{
                           display: block;
                           overflow: hidden;
                           position: relative;
+                          margin-bottom: 10px;
+
                           .inline-style {
                               display: inline-block;
                           }
@@ -2254,6 +2256,7 @@ body{
                             ul.desc-list{
                               padding:0;
                               vertical-align: middle;
+                              margin-bottom:0;
 
                               li {
                                 display: inline-block;
@@ -2369,7 +2372,7 @@ body{
                         padding: 60px;
                         background: #fff;
                         border-bottom: 1px solid #eeeeee;
-                        padding-bottom:40px;
+                        padding-bottom:25px;
 
                         .content-pic-box {
                             margin-top: -30px;
@@ -2615,7 +2618,7 @@ body{
                         overflow: hidden;
                         position: relative;
                         margin-top:9px;
-                      
+
                         &:first-child{
                             margin-top:0px;
                         }
@@ -3468,6 +3471,10 @@ body{
             }
             .inline-style{
                 display: inline-block;
+                .desc-list{
+                  margin-bottom:15px;
+
+                }
             }
         }
       .topic-content{
