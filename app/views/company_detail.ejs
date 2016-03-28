@@ -7,7 +7,9 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search case companyDetail">
+    <div  class="detail-nav-bg">
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
+    </div>
     <div class="company-detail ">
         <div class="container wrapper">
             <div class="col-md-12 col-sm-12 col-xs-12 inner">
@@ -73,7 +75,7 @@
                                          <div class="content-item-text">
                                              <div class="content-item-text-desc">
                                                  <p class="f-12 f-white p-title"><%= n.title %></p>
-                                                 <ul class="desc-list">
+                                                 <ul class="desc-list clearfix list-unstyled">
                                                      <li class="item desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
                                                      <li class="item desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
                                                      <li class="item desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
@@ -94,19 +96,11 @@
                                          <img src="<%= n.cover %>" alt="">
                                          <div class="content-item-text">
                                              <div class="content-item-text-desc">
-                                                 <p class="f-16 f-white p-title"><%= n.title %></p>
-                                                 <ul class="desc-list">
-                                                     <!--<li class="desc-list-item f-10 desc-list-special"><span
-                                                                 class="glyphicon glyphicon-eye-open"></span><span
-                                                                 class="desc-list-item-num"><%= n.views %></span></li>
-                                                     <li class="desc-list-item f-10 desc-list-special"><span
-                                                                 class="glyphicon glyphicon-heart-empty"></span><span
-                                                                 class="desc-list-item-num"><%= n.points %></span></li>
-                                                     <li class="desc-list-item f-10 desc-list-special"><span
-                                                                 class="glyphicon glyphicon-comment"></span><span
-                                                                 class="desc-list-item-num"><%= n.comments %></span>
-                                                     </li>-->
-
+                                                 <p class="f-12 f-white p-title"><%= n.title %></p>
+                                                 <ul class="desc-list clearfix list-unstyled">
+                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(n.views)%></span></li>
+                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(n.points)%></span></li>
+                                                     <li class="item desc-list-item"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(n.comments)%></span></li>
                                                  </ul>
                                              </div>
                                          </div>

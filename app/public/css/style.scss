@@ -843,9 +843,13 @@ body{
 
     .top-tab{
         padding:20px;
+
         .tab-item{
             display:inline-block;
             margin-left:80px;
+            a{
+              color:#666;
+            }
             .item-img{
                 margin-left: 5px;
             }
@@ -1635,7 +1639,10 @@ body{
         }
     }
 }
+.detail-nav-bg{
+  background: #fff;
 
+}
 
 /*case index*/
 .halo-search.case{
@@ -1933,7 +1940,7 @@ body{
     .case-pagination{
         position: relative;
         display: block;
-        overflow: hidden;
+        /*overflow: hidden;*/
         text-align: center;
         .pagination.pagination-item{
             margin:40px 0;
@@ -1981,11 +1988,20 @@ body{
             .content-left-box{
               float:left;
               width:940px;
+              @include media('<=laptop'){
+                width:78%;
+
+              }
             }
             .content-right-box{
               float:left;
               width:240px;
               margin-left:20px;
+              @include media('<=laptop'){
+                width:20%;
+
+
+              }
             }
             .detail-content-wrapper {
                 .detail-content-topic {
@@ -2530,6 +2546,8 @@ body{
             }
         }
         .company-detail{
+            margin-top:30px;
+
             .company-detail-content{
                 p{
 
@@ -2657,6 +2675,8 @@ body{
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
                                 overflow: hidden;
+                                margin:0;
+
                             }
                             .desc-list{
                                 .desc-list-item{
