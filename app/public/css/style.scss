@@ -2078,20 +2078,13 @@ body{
             .content-left-box{
               float:left;
               width:940px;
-              @include media('<laptop'){
-                width:78%;
-
-              }
+              width:78%;
             }
             .content-right-box{
               float:left;
               width:240px;
               margin-left:20px;
-              @include media('<laptop'){
-                width:20%;
-
-
-              }
+              width:20%;
             }
             .detail-content-wrapper {
                 .detail-content-topic {
@@ -2263,6 +2256,8 @@ body{
                                     width:100%;
                                     padding:15px;
                                     resize:none;
+                                    outline:none;
+
                                 }
                                 p{
                                     position: absolute;
