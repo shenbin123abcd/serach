@@ -31,8 +31,13 @@ $media-expressions: (
   width: 1300px;
   margin: 0 auto;
   @include media('<laptop'){
-
     width: 1000px;
+  }
+  .html-case-detail &,.html-picture-detail &{
+    width: 1200px;
+    @include media('<laptop'){
+      width: 1000px;
+    }
   }
   //.ios &,.android &{
   //  width: 1330px;
@@ -41,6 +46,13 @@ $media-expressions: (
   //    width: 1030px;
   //  }
   //}
+}
+.s-d-container {
+  width: 1200px;
+  margin: 0 auto;
+  @include media('<laptop'){
+    width: 1000px;
+  }
 }
 .container {
   @include container-fixed;
@@ -2146,13 +2158,17 @@ body{
             .content-left-box{
               float:left;
               width:940px;
-              width:78%;
+              @include media('<laptop'){
+                width:78%;
+              }
+
             }
             .content-right-box{
-              float:left;
+              float:right;
               width:240px;
-              margin-left:20px;
-              width:20%;
+              @include media('<laptop'){
+                width:20%;
+              }
             }
             .detail-content-wrapper {
                 .detail-content-topic {

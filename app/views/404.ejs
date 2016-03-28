@@ -1,13 +1,49 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="hb-html">
 <head>
-    <meta charset="UTF-8">
-    <title>404</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-    <link rel='stylesheet' href='/common/js/lib/bootstrap/css/bootstrap.min.css'/>
+    <%- include('Public/common_header',{pageTitle: '404找不到该页面'}); %>
+    <%- include('Public/common_header_end'); %>
 </head>
-<body>
-<div class="well">页面不存在</div>
+<body class="hb-body">
+<%- include('Public/header'); %>
+
+<div class="hb-page-wrapper">
+    <div class="hb-page-content">
+        <div class="error-404-wrapper">
+            <h1>404</h1>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<%- include('Public/ModalDialog'); %>
+<%- include('Public/footer'); %>
+<%- include('Public/common_footer'); %>
+
+<script>
+    $(function () {
+        "use strict";
+//        app.getStaticData();
+        app.index.lazy();
+//        app.index.nav();
+        app.index.indexInit();
+        app.index.register();
+        app.index.zcBtn();
+        app.index.uiForms();
+        app.index.login();
+        app.index.summitHover();
+        app.index.loginInit();
+
+//        app.index.topicEllipsis();
+//        app.index.resizeLogo();
+
+        /*searchIndex*/
+//        app.searchIndex.searchForm();
+//        app.searchIndex.reponsiveGrid();
+//        app.searchIndex.sameHeight('father-height', 'son-height');
+//        app.searchIndex.sameHeight('inner-father-height', 'inner-son-height');
+    });
+</script>
 </body>
 </html>
+

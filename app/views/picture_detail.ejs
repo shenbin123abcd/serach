@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="html-picture-detail">
 <head>
     <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
     <%- include('Public/common_header_end'); %>
@@ -11,8 +11,8 @@
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     </div>
     <div class="case-detail-block">
-        <div class="container">
-            <div class="col-md-9 col-sm-9 col-xs-9 detail-content-wrapper">
+        <div class="s-container">
+            <div class="content-left-box detail-content-wrapper">
                 <div class="detail-content-article">
                     <div class="content-pic-box">
                         <img src="<%=data.path%>" alt="" class="no-margin-top"/>
@@ -70,7 +70,7 @@
 
 
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-3">
+            <div class="content-right-box">
                 <%if(data.company.id){%>
                 <div class="case-detail-list">
                     <a class="detail-list-company picture" href="/company/detail/<%=data.company.id%>">
