@@ -7,7 +7,9 @@
 <body>
 <%- include('Public/header'); %>
 <div class="halo-search case topicDetail">
-    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
+    <div class="detail-nav-bg">
+        <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
+    </div>
     <div class="content-box">
         <div class="container">
             <div class='col-md-12'>

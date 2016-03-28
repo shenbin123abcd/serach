@@ -30,10 +30,17 @@ $media-expressions: (
 .s-container {
   width: 1300px;
   margin: 0 auto;
+  @include media('<laptop'){
 
-  @include media('<=laptop'){
     width: 1000px;
   }
+  //.ios &,.android &{
+  //  width: 1330px;
+  //  padding: 0 15px;
+  //  @include media('<=laptop'){
+  //    width: 1030px;
+  //  }
+  //}
 }
 .container {
   @include container-fixed;
@@ -175,7 +182,7 @@ a{
 .header-nav > ul > li.active > a:before {left: 0px;}
 .header-nav ul > li ul {opacity: 0; padding: 13px 0px; background: #fff; height: auto; transform: scaleY(0); -moz-transform: scaleY(0);-webkit-transform: scaleY(0);-ms-transform: scaleY(0);position: absolute; backface-visibility: hidden; transform-origin: top center; top: 42px; background: #fff; left: -25px; display: block; min-width: 210px; transition: all .35s ease-out;-webkit-transition:all .35s ease-out;-moz-transition:all .35s ease-out;-ms-transition:all .35s ease-out;border: 1px solid rgba(0,0,0,.15);box-shadow: 0 6px 12px rgba(0,0,0,.175);}
 .header-nav ul li ul li {font-size: 12px; font-weight: 400; color: #9e9e9e;}
-.header-nav ul li ul li a {padding: 10px 25px; position: relative; width: 100%; display: block; line-height: 16px;}
+.header-nav ul li ul li a {padding: 10px 25px; position: relative; width: 100%; display: block; line-height: 16px; color:#9e9e9e;}
 .header-nav ul li ul li:hover a {background: #3c3c3c; color: #fff;}
 .header-nav > ul > li:hover ul {opacity: 1; transform: scaleY(1); -moz-transform: scaleY(1);-webkit-transform: scaleY(1);-ms-transform: scaleY(1);}
 .open-drop {display: inline-block; margin-left: 7px; font-size: 10px; display: none; transform: rotate(45deg); -webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-ms-transform: rotate(45deg); transition: all .35s ease-out;-webkit-transition:all .35s ease-out;-moz-transition:all .35s ease-out;-ms-transition:all .35s ease-out;}
@@ -651,6 +658,10 @@ span.tt{float:none;}
 .copyright.index2 ul li {
   color: #333;
 }
+.copyright ul{
+  display: inline-block;
+
+}
 .copyright ul li {
   position: relative;
   float: left;
@@ -913,10 +924,43 @@ body{
       }
     }
 
+    .top-tab{
+        padding:20px;
+
+        .tab-item{
+            display:inline-block;
+            margin-left:80px;
+            a{
+              color:#666;
+            }
+            .item-img{
+                margin-left: 5px;
+            }
+            &.no-margin-left{
+                margin-left:0;
+            }
+            a.case-active{
+                color:#f3903e;
+            }
+            a.picture-active{
+                color:#b08dfd;
+            }
+            a.company-active{
+                color:#5C9CF6;
+            }
+        }
+    }
 
     .search-box{
         background: url("../images/img4.jpg") no-repeat scroll 0 0;
         min-width: 1000px;
+
+      //.ios &,.android &{
+      //  min-width: 1330px;
+      //  @include media('<=laptop'){
+      //    min-width: 1030px;
+      //  }
+      //}
         width:auto;
         background-size:cover;
         padding:75px 0;
@@ -932,7 +976,7 @@ body{
         .search-box-input{
             margin: 0 auto;
             display: block;
-            margin-top:40px;
+            margin-top:30px;
             width:850px;
             position: relative;
             &.case{
@@ -1076,7 +1120,7 @@ body{
 
           .case-content{
             width: 1060px;
-            @include media('<=laptop'){
+            @include media('<laptop'){
               width: 100%;
             }
             float: left;
@@ -1088,19 +1132,19 @@ body{
               &:first-child{
                 margin-left: 0;
               }
-              @include media('<=laptop'){
+              @include media('<laptop'){
                 margin-left: (40/2/1060)*100%;
               }
             }
             .item-1,.item-2{
               width: 400px;
-              @include media('<=laptop'){
+              @include media('<laptop'){
                 width: (400/1060)*100%;
               }
             }
             .item-3{
               width: 220px;
-              @include media('<=laptop'){
+              @include media('<laptop'){
                 width: (220/1060)*100%;
 
               }
@@ -1113,16 +1157,24 @@ body{
               margin-left: 20px;
               width: 190px;
               float: left;
-              @include media('<=laptop'){
+              @include media('<laptop'){
                 width: (190/1060)*100%;
                 margin-left: (80/4/1060)*100%;
               }
               &-1,&-6{
                 margin-left: 0;
               }
+
+              &-1,&-2,&-3,&-4,&-6,&-7,&-8,&-9{
+                .text-bottom-desc{
+                  @include media('<laptop'){
+                    display: none;
+                  }
+                }
+              }
               &-5,&-10{
                 width: 220px;
-                @include media('<=laptop'){
+                @include media('<laptop'){
                   width: (220/1060)*100%;
                 }
               }
@@ -1131,7 +1183,7 @@ body{
           }
           .case-ad{
             width: 220px;
-            @include media('<=laptop'){
+            @include media('<laptop'){
               display: none;
             }
             float: right;
@@ -1165,7 +1217,7 @@ body{
                   .text-bottom-desc{
                     margin-bottom:5px;
                     .desc-list{
-                      @include media('<=laptop'){
+                      @include media('<laptop'){
                         display: none;
                       }
                       .desc-list-item{
@@ -1263,14 +1315,21 @@ body{
                             position:absolute;
                             bottom:20px;
                             left:20px;
+                            width: 85%;
+                            //@include media('<laptop'){
+                            //  width: 85%;
+                            //}
                           .f-14{
                             line-height: 1;
                             margin: 0;
+
+
                           }
                         }
                         .text-bottom-desc{
                             margin-bottom:10px;
                           line-height: 1;
+
 
                             .desc-list{
                                 li{
@@ -1460,7 +1519,7 @@ body{
                     }
                     .content-item-text-desc{
                         .desc-list{
-                          @include media('<=laptop'){
+                          @include media('<laptop'){
                             display: none;
                           }
                             .desc-list-item{
@@ -1614,7 +1673,7 @@ body{
 
                   padding: 0px;
                   background-color: transparent;
-                  @include media('<=laptop'){
+                  @include media('<laptop'){
                     display: none;
                   }
 
@@ -1686,7 +1745,10 @@ body{
         }
     }
 }
+.detail-nav-bg{
+  background: #fff;
 
+}
 
 /*case index*/
 .halo-search.case{
@@ -1763,7 +1825,7 @@ body{
         a{
             background: #e6e6e6;
             /*width:95%;*/
-            padding:10px 0;
+            padding:7px 0;
             box-shadow: 0 2px 0 #a8a8a8;
             position: relative;
             border: none;
@@ -1810,6 +1872,9 @@ body{
                     line-height:50px;
                     padding:0 112px;
                     background: #eeeeee;
+                  &:hover{
+                    background: darken(#eeeeee,5%);
+                  }
                     display: block;
                     float: left;
                     border-top: 2px solid #eeeeee;
@@ -1911,7 +1976,7 @@ body{
             &.l-first{
               margin-left:0;
             }
-            @include media('<=laptop'){
+            @include media('<laptop'){
               width:15%;
             }
 
@@ -1984,7 +2049,7 @@ body{
     .case-pagination{
         position: relative;
         display: block;
-        overflow: hidden;
+        /*overflow: hidden;*/
         text-align: center;
         .pagination.pagination-item{
             margin:40px 0;
@@ -1994,6 +2059,10 @@ body{
                   color:#a0a0a0;
                   background: #f2f3f5;
                   border-radius:2px;
+                  &:hover{
+                    transition: all .2s;
+                    background: #EEEEEE;
+                  }
               }
               a.no-margin-left{
                   margin-left:0;
@@ -2026,17 +2095,19 @@ body{
             //overflow: hidden;
             margin-top:30px;
             .wrapper{
-              width:1200px;
+              /*width:1200px;*/
               margin:auto;
             }
             .content-left-box{
               float:left;
               width:940px;
+              width:78%;
             }
             .content-right-box{
               float:left;
               width:240px;
               margin-left:20px;
+              width:20%;
             }
             .detail-content-wrapper {
                 .detail-content-topic {
@@ -2077,14 +2148,14 @@ body{
                               //overflow: hidden;
                               margin-left: 50px;
                               .color-liner {
-                                width: 250px;
                                 height: 10px;
                                 /*border-radius: 4px;*/
                                 .color {
-                                  width: 6.5%;
+                                  width: 30px;
                                   display: block;
                                   float: left;
                                   height: 10px;
+
                                   //transition: transform 0.3s;
                                   &:hover{
                                     transform: scale(1.5);
@@ -2208,6 +2279,8 @@ body{
                                     width:100%;
                                     padding:15px;
                                     resize:none;
+                                    outline:none;
+
                                 }
                                 p{
                                     position: absolute;
@@ -2518,7 +2591,7 @@ body{
           width:200px;
           float:left;
           margin-left: 20px;
-          @include media('<=laptop'){
+          @include media('<laptop'){
             width:15%;
 
           }
@@ -2581,6 +2654,8 @@ body{
             }
         }
         .company-detail{
+            margin-top:30px;
+
             .company-detail-content{
                 p{
 
@@ -2667,7 +2742,7 @@ body{
                 p{
                     display: block;
                     color:#333;
-                    line-height:30px;
+                    line-height:20px;
                   &~p{
                     margin-top: 10px;
                   }
@@ -2708,8 +2783,12 @@ body{
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
                                 overflow: hidden;
+                                margin:0;
+
                             }
                             .desc-list{
+                                margin-bottom:5px;
+
                                 .desc-list-item{
                                     display: inline-block;
                                     color: #fff;
@@ -2914,7 +2993,7 @@ body{
 
                     padding: 0px;
                     background-color: transparent;
-                    @include media('<=laptop'){
+                    @include media('<laptop'){
                       display: none;
                     }
 
@@ -3063,6 +3142,8 @@ body{
             }
             .title-desc-icon{
                 .desc-list{
+                    padding:0;
+
                     .desc-list-item{
                         display: inline-block;
                         color: #999999;
@@ -3267,6 +3348,7 @@ body{
               width:100%;
               padding:15px;
               resize:none;
+              outline:none;
             }
             p{
               position: absolute;
