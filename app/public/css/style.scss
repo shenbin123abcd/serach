@@ -1872,6 +1872,9 @@ body{
                     line-height:50px;
                     padding:0 112px;
                     background: #eeeeee;
+                  &:hover{
+                    background: darken(#eeeeee,5%);
+                  }
                     display: block;
                     float: left;
                     border-top: 2px solid #eeeeee;
