@@ -116,6 +116,7 @@ body {
   height: 100%;
 }
 .hb-page-wrapper{
+  padding-top: 44px+15;
   height: 100%;
   margin-bottom: -424px;
   padding-bottom: 424px;
@@ -2872,7 +2873,7 @@ body{
                   padding-left: 22px;
                   display: table-cell;
                   text-align: left;
-                  width:882px;
+                  //width:882px;
                 }
 
               .other-cases{
@@ -3110,7 +3111,7 @@ body{
                 overflow: hidden;
                 display: block;
                 clear: both;
-                margin-top:30px;
+              margin: 30px -10px 0;
                 .col-md-2,.col-sm-4{
                     padding-left: 10px;
                     padding-right: 10px;
@@ -3132,11 +3133,10 @@ body{
                     }
                   .content-item-text{
                     position:absolute;
-                    bottom:0;
+                    bottom:2px;
                     left:0;
                     width:100%;
                     height: 24px;
-
                     padding: 0px;
                     background-color: transparent;
                     @include media('<laptop'){
@@ -3177,6 +3177,7 @@ body{
 
                         }
                         .desc-list-item-num{
+                          font-size: 12px;
                           display: inline-block;
                           overflow: hidden;
                           width: 40px;
@@ -3428,7 +3429,7 @@ body{
                 .item-cycle{
                     width:82px;
                     height:62px;
-                    border-radius:none;
+                    border-radius:0;
                     margin:auto;
                     border:0px solid #eeeeee;
                     display: block;
@@ -3594,4 +3595,17 @@ body{
 
       }
     }
+}
+
+.error-404-wrapper{
+  width: 960px;
+  margin: 0 auto;
+  .title{
+    margin-top: 100px;
+    font-size: 60px;
+  }
+  .content{
+    margin-top: 20px;
+    font-size: 16px;
+  }
 }

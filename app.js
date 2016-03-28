@@ -66,6 +66,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next){
     res.status(err.status || 500);
+
     switch (err.status){
         case 404:
             res.render('404', {});
