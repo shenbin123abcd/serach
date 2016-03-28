@@ -12,16 +12,17 @@
     </div>
     <div class="content-box">
         <div class="s-container">
-            <div class=''>
+            <div class='topic-content'>
                 <div class="content-title">
                     <h1 class="f-20"><%=data.title%></h1>
                     <div class="title-desc-icon inline-style">
-                        <ul class="desc-list">
-                            <li class="desc-list-item f-12"><span class="haloIcon haloIcon-eye"><span class="desc-list-item-num"><%=data.views%></span></li>
-                            <li class="desc-list-item f-12"><span class="haloIcon haloIcon-heart2"><span id="desc-list-item-num-points" class="desc-list-item-num"><%=data.points%></span></li>
-                            <li class="desc-list-item f-12"><span class="haloIcon haloIcon-message"><span id="desc-list-item-num-comments" class="desc-list-item-num"><%=data.comments%></span></li>
+                        <ul class="desc-list list-unstyled">
+                            <li class="desc-list-item f-14"><span class="haloIcon haloIcon-eye "></span><span class="desc-list-item-num"><%=data.views%></span></li>
+                            <li class="desc-list-item f-14"><span class="haloIcon haloIcon-heart2 "></span><span id="desc-list-item-num-comments" class="desc-list-item-num"><%=data.points%></span></li>
+                            <li class="desc-list-item f-14"><span class="haloIcon haloIcon-message "></span><span id="desc-list-item-num-points" class="desc-list-item-num"><%=data.comments%></span></li>
                         </ul>
                     </div>
+
                 </div>
 
                 <div class="content-block">
@@ -48,35 +49,36 @@
                             <%})%>
                         </div>
                         <p class="content-desc f-18"><%=item.description%></p>
-                        <a href="/case/detail/<%=item.case_id%>" class="more f-14">查看案例 <span>></span> </a>
+                        <a href="/case/detail/<%=item.case_id%>" class="more f-14">查看案例 <i class="haloIcon haloIcon-right"></i> </a>
                     </div>
                     <%})%>
 
 
 
-                    <div class="detail-content-commit" >
-                        <form id="commit-form">
-                            <div class="textarea-wrapper">
-                                <textarea id="commit-form-content" class="f-14" rows="5"></textarea>
-                                <p class="f-14">还可以输入<span class="num">500</span>个字</p>
-                            </div>
-                            <div class="btn-group">
-                                <a id="markThis-comment" >
-                                    <span class="glyphicon glyphicon-heart-empty f-22"></span><span>+1</span>
-                                </a>
-                                <a id="unMarkThis-comment" style="display: none;" >
-                                    <span class="glyphicon glyphicon-heart-empty f-22"></span><span>-1</span>
-                                </a>
-                                <button  class="btn submit-btn" type="submit">评&nbsp;论</button>
-                            </div>
-                        </form>
-                        <div id="commit-box" class="commit-box"></div>
-                        <div class="detail-comments-page">
-                            <ul id="comment-pagination" class="piuture-detail"></ul>
-                        </div>
-                    </div>
 
                 </div>
+                <div class="detail-content-commit" >
+                    <form id="commit-form">
+                        <div class="textarea-wrapper">
+                            <textarea id="commit-form-content" class="f-14" rows="5"></textarea>
+                            <p class="f-14">还可以输入<span class="num">500</span>个字</p>
+                        </div>
+                        <div class="btn-group">
+                            <a id="markThis-comment" >
+                                <span class="glyphicon glyphicon-heart-empty f-22"></span><span>+1</span>
+                            </a>
+                            <a id="unMarkThis-comment" style="display: none;" >
+                                <span class="glyphicon glyphicon-heart-empty f-22"></span><span>-1</span>
+                            </a>
+                            <button  class="btn submit-btn" type="submit">评&nbsp;论</button>
+                        </div>
+                    </form>
+                    <div id="commit-box" class="commit-box"></div>
+                    <div class="detail-comments-page">
+                        <ul id="comment-pagination" class="piuture-detail"></ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
