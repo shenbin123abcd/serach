@@ -42,7 +42,7 @@
         </div>
     </div>
 </div>
-
+<div class="s-container clearfix">
     <% if (data.query.keywords) { %>
     <div class="search-result">
         <div class="s-container">
@@ -55,21 +55,18 @@
 
 
     <div id="tab" class="tab-list">
-    <div class="s-container">
-        <div class="tab-title">
-            <div class="tab-title-left">
-                <a class="category box-shadow active">地区</a>
+        <div class="s-container">
+            <div class="tab-title">
+                <div class="tab-title-left">
+                    <a class="category box-shadow active">地区</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <div class="tab-list-content show">
         <div class="s-container">
             <div class="tab-list-content-wrapper box-shadow">
                 <div class="tab-list-content-item">
-
-
-
 
                     <ul  class="city-list">
                         <% data.region.forEach(function(n,i){ %>
@@ -78,7 +75,6 @@
                         <%}else{%>
                         <li><a href="?r=<%= n.id %>" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
                         <%}%>
-
 
                         <% }) %>
                     </ul>
@@ -92,11 +88,11 @@
             </div>
         </div>
     </div>
-
+</div>
     <%}%>
 
-    <div id="company-list" class="company-list-block clearfix">
-        <div class="s-container">
+    <div  class="s-container clearfix">
+        <div class="company-list-block clearfix" id="company-list">
             <% data.data.forEach(function(n,i){ %>
                 <div class="company-list-item <% if(i%6==0){%>l-first<%} %>">
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
