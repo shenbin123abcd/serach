@@ -30,9 +30,17 @@ $media-expressions: (
 .s-container {
   width: 1300px;
   margin: 0 auto;
-
   @include media('<=laptop'){
     width: 1000px;
+  }
+  .ios &,.android &{
+    width: 1330px;
+    padding: 0 15px;
+    @include media('<=laptop'){
+      width: 1030px;
+      padding: 0 15px;
+
+    }
   }
 }
 .container {
