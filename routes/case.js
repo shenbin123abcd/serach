@@ -132,7 +132,7 @@ router.get('/detail/:id', function(req, res, next){
     }).then(function(data){
         // 相似案例
         data.xiangsi = [];
-        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:20}).then(function(body){console.log(1)
+        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:12}).then(function(body){console.log(1)
             if(body.iRet === 1){
                 data.xiangsi = body.data;
 
@@ -157,7 +157,7 @@ router.get('/detail/:id', function(req, res, next){
             data.company = {};
             return obj.getInfo('company', data.company_id, req).then(function(body){
                 if(body.iRet === 1){
-                    data.company = {id: body.data.id, name: body.data.name, cases: body.data.cases, logo: body.data.company_logo};
+                    data.company = {id: body.data.id, name: body.data.name, cases: body.data.case_num, logo: body.data.company_logo};
                 }
                 return data;
             }, function(error){
