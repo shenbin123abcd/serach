@@ -151,6 +151,8 @@ router.get('/detail/:id', function (req, res, next) {
         });
     }).then(function (data) {
         /* res.json(data);*/
+        data.baseUrl = req.baseUrl;
+
         data.pageTitle = data.name + '公司信息';
 
         data.websiteLink = data.website.indexOf('http') > -1 ? data.website : ('http://' + data.website);

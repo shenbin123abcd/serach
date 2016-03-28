@@ -172,7 +172,7 @@ router.get('/detail/:id', function(req, res, next){
         data.attach.forEach(function(n,i){
             data.attachArr[i]= req.config.url.case + '/' + data.attach[i].path +"?imageView2/1/w/900/";
         });
-        data.company.logo = req.config.url.case + '/' + (data.company.logo||'404.png') + "?imageView2/1/w/106/h/80";
+        data.company.logo = req.config.url.case + '/' + (data.company.logo||'404.png') + "?imageView2/1/w/160/h/120";
         data.colorArr=data.other_color?data.other_color.split(','):[];
         data.tagArr=data.tag?data.tag.split(','):[];
         data.xiangsiImg=[];
