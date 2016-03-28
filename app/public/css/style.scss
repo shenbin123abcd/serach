@@ -2370,7 +2370,7 @@ body{
                         background: #fff;
                         border-bottom: 1px solid #eeeeee;
                         padding-bottom:40px;
-                      
+
                         .content-pic-box {
                             margin-top: -30px;
                             &.detail{
@@ -2405,7 +2405,8 @@ body{
                         form{
                             position: relative;
                             overflow: hidden;
-                            padding: 30px 20px;
+                            padding: 60px 60px;
+
                             .textarea-wrapper{
                                 position: relative;
                                 display: block;
@@ -2457,7 +2458,8 @@ body{
                             overflow: hidden;
                             .commit-num{
                                 color:#9e9e9e;
-                                padding-left:20px;
+                                padding-left:60px;
+
                             }
                             .commit-text{
 
@@ -2472,7 +2474,7 @@ body{
                                 }
                             }
                             .commit-text-item{
-                                padding:0 50px;
+                                padding:0 60px;
                                 overflow: hidden;
                                 zoom: 1;
                                 .item-pic{
@@ -2612,7 +2614,8 @@ body{
                         display: block;
                         overflow: hidden;
                         position: relative;
-                        margin-top:10px;
+                        margin-top:9px;
+                      
                         &:first-child{
                             margin-top:0px;
                         }
@@ -2622,7 +2625,7 @@ body{
                             float:left;
                             padding: 0 5px;
                             .case-pic-desc{
-                              padding:5px 0;
+                              padding:10px 0;
 
                             }
                             .case-pic-a{
@@ -3329,6 +3332,12 @@ body{
             .item-text{
                 background:#fff;
                 padding:30px 25px;
+                h4{
+                  a{
+                    color:#666666;
+
+                  }
+                }
                 .item-text-p{
                     padding:20px 0;
                     color:#666666;
@@ -3555,7 +3564,8 @@ body{
         form{
           position: relative;
           overflow: hidden;
-          padding: 30px 20px;
+          padding: 60px 60px;
+
           .textarea-wrapper{
             position: relative;
             display: block;
@@ -3606,7 +3616,7 @@ body{
           overflow: hidden;
           .commit-num{
             color:#9e9e9e;
-            padding-left:20px;
+            padding-left:60px;
           }
           .commit-text{
             overflow: hidden;
@@ -3619,7 +3629,8 @@ body{
           }
           .commit-text-item{
             overflow: hidden;
-            padding:0 50px;
+            padding:0 60px;
+            
             .item-pic{
               display: block;
               float: left;
