@@ -2158,7 +2158,7 @@ body{
                 .detail-content-topic {
                       padding: 20px 20px;
                       background: #fff;
-                      border-bottom: 2px solid #eeeeee;
+                      border-bottom: 1px solid #eeeeee;
                       box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
                       .detail-content-title {
                         display: block;
@@ -2284,10 +2284,10 @@ body{
                       }
                     }
                     .detail-content-article {
-                        box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
+                        //box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
                         padding: 20px;
                         background: #fff;
-                        border-bottom: 2px solid #eeeeee;
+                        border-bottom: 1px solid #eeeeee;
                         .content-pic-box {
                             img {
                                 &.no-margin-top {
