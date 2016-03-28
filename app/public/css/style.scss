@@ -917,9 +917,6 @@ body{
       .item-img{
         /*margin-left: 5px;*/
       }
-      &.no-margin-left{
-        margin-left:0;
-      }
       a{
         color: $mainTextColor;
         text-decoration: none;
@@ -2539,8 +2536,9 @@ body{
                 .desc-like{
                   border-right:1px solid #eeeeee;
                   p{
-                    margin-top: 10px;
-                    margin-bottom: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 0;
+
                   }
                   &:hover{
                     cursor: pointer;
@@ -2552,14 +2550,16 @@ body{
                     &.case{
                       p{
                         color: $caseMainColor;
+
                       }
                     }
                   }
                 }
                 .desc-comment{
                   p{
-                    margin-top: 10px;
-                    margin-bottom: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 0;
+
                   }
                 }
             }

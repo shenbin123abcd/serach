@@ -1,10 +1,10 @@
 
 @font-face {font-family: "haloIcon";
-  src: url('iconfont.eot?t=1458811862'); /* IE9*/
-  src: url('iconfont.eot?t=1458811862#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1458811862') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1458811862') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1458811862#haloIcon') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1459160807'); /* IE9*/
+  src: url('iconfont.eot?t=1459160807#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1459160807') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1459160807') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1459160807#haloIcon') format('svg'); /* iOS 4.1- */
 }
 
 .haloIcon {
@@ -47,3 +47,4 @@
 .haloIcon-heart2:before { content: "\e619"; }
 .haloIcon-arrowdown:before { content: "\e61e"; }
 .haloIcon-glass2:before { content: "\e61f"; }
+.haloIcon-house:before { content: "\e620"; }
