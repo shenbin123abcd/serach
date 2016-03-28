@@ -93,10 +93,20 @@
         </div>
     </div>
 
+    <% if(data.data.length==0){ %>
+
+        <div class="s-container" >
+            <div class="company-list-no-content">
+                该地区暂无公司
+            </div>
+        </div>
+    <%}%>
+
     <%}%>
 
     <div id="company-list" class="company-list-block clearfix">
         <div class="s-container">
+
             <% data.data.forEach(function(n,i){ %>
                 <div class="company-list-item <% if(i%6==0){%>l-first<%} %>">
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
