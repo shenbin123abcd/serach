@@ -2528,6 +2528,9 @@ body{
                     padding:20px 8px;
                     box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
                     background: #fff;
+                    .case-item-wrapper{
+                      margin-top:-20px;
+                    }
                     .case-item{
                         display: block;
                         overflow: hidden;
@@ -2537,9 +2540,23 @@ body{
                             margin-top:0px;
                         }
                         .case-pic{
-                            width:40%;
+                            width:50%;
                             display: inline-block;
                             float:left;
+                            padding: 0 5px;
+                            .case-pic-desc{
+                              padding:5px 0;
+
+                            }
+                            .case-pic-a{
+                              display:block;
+                              text-overflow: ellipsis;
+                              white-space: nowrap;
+                              overflow: hidden;
+                              text-align: center;
+                              color:#666666;
+
+                            }
                             img{
                                 max-width: 100%;
                             }
