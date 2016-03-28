@@ -3323,13 +3323,13 @@ body{
         .content-title{
             background: #fff;
             padding:20px;
-            border-bottom: 2px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
             .title-desc-icon{
                 .desc-list{
                     li{
                         display: inline-block;
                         color: #999999;
-                        margin-right: 10px;
+                        margin-right: 30px;
                         .desc-list-item-num{
                             margin-left: 4px;
                         }
@@ -3340,9 +3340,11 @@ body{
                 display: inline-block;
             }
         }
+      .topic-content{
+        background: #fff;
+      }
         .content-block{
             padding:20px;
-            background: #fff;
             .content-topic{
                 img{
                   max-width:100%;
@@ -3400,6 +3402,8 @@ body{
                     line-height: 30px;
                 }
                 .more{
+                  font-size: 18px;
+
                     margin-top: 56px;
                     text-align: center;
                     padding:5px 0;
@@ -3407,6 +3411,9 @@ body{
                     color:#fd5ab0;
                     border-bottom: 1px solid #fd5ab0;
                     position: relative;
+                  &:hover{
+                    color:darken($mainColor,7%);
+                  }
                     span{
 
                     }
@@ -3417,7 +3424,7 @@ body{
         background: #fff;
         padding-bottom: 20px;
         margin-top:50px;
-        border-top:2px solid #eeeeee;
+        border-top:1px solid #eeeeee;
         form{
           position: relative;
           overflow: hidden;
