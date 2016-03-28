@@ -3,7 +3,7 @@ var router = express.Router();
 var obj = require('../module/module');
 
 // 列表
-router.get('/', function(req, res, next){
+router.get('/', function (req, res, next) {
     var params = {
         per_page: req.config.perPage.picture,
         'filter[if_show]': 1,
@@ -20,12 +20,12 @@ router.get('/', function(req, res, next){
         params.region_id = req.query.r;
     }
 
-    obj.getList('company', req, params).then(function(body){
+    obj.getList('company', req, params).then(function (body) {
         if (body.iRet === 1) {
             var data = body.data;
 
             if (data.data.length > 0) {
-                data.data.forEach(function(val, index){
+                data.data.forEach(function (val, index) {
                     if (val.logo.length > 0) {
                         val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/150";
                     } else {
@@ -78,7 +78,7 @@ router.get('/', function(req, res, next){
                 {city: '香港', id: 3226},
                 {city: '澳门', id: 3227},
             ];
-            data.data.forEach(function(n, i){
+            data.data.forEach(function (n, i) {
                 n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
             });
 
@@ -89,25 +89,25 @@ router.get('/', function(req, res, next){
                 query: data.query,
             };
 
-            res.render('company_index', {data: data,appData:appData});
+            res.render('company_index', {data: data, appData: appData});
         } else {
             res.sendStatus(500);
         }
-    }, function(error){
+    }, function (error) {
         console.log(error);
         res.sendStatus(500);
     });
 });
 
 // 详情
-router.get('/detail/:id', function(req, res, next){
+router.get('/detail/:id', function (req, res, next) {
     var id = parseInt(req.params.id);
     if (id <= 0) {
         res.sendStatus(404);
         return;
     }
 
-    obj.getInfo('company', id, req, {cate_id: 2}).then(function(body){
+    obj.getInfo('company', id, req, {cate_id: 2}).then(function (body) {
         if (body.iRet === 1) {
             return body.data;
 
@@ -116,27 +116,27 @@ router.get('/detail/:id', function(req, res, next){
         } else {
             res.sendStatus(500);
         }
-    }, function(error){
+    }, function (error) {
         console.log(error);
         res.sendStatus(500);
-    }).then(function(data){
+    }).then(function (data) {
         // 案例列表
         return obj.getList('cases', req, {
             'filter[if_show]': 1,
             'filter[company_id]': data.id,
             per_page: 200
-        }).then(function(body){
+        }).then(function (body) {
             data.caseList = [];
             if (body.iRet === 1) {
-                body.data.data.forEach(function(n, i){
+                body.data.data.forEach(function (n, i) {
                     var obj = {};
                     obj.title = n.title;
                     obj.views = n.views;
                     obj.comments = n.comments;
                     obj.points = n.points;
-                    if(n.cover=='halo/'){
-                        obj.cover = req.config.url.case + '/' +'404.png' + "?imageView2/1/w/200/h/150";
-                    }else{
+                    if (n.cover == 'halo/') {
+                        obj.cover = req.config.url.case + '/' + '404.png' + "?imageView2/1/w/200/h/150";
+                    } else {
                         obj.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
                     }
                     obj.id = n.id;
@@ -146,16 +146,18 @@ router.get('/detail/:id', function(req, res, next){
             }
 
             return data;
-        }, function(error){
+        }, function (error) {
             return data;
         });
-    }).then(function(data){
+    }).then(function (data) {
         /* res.json(data);*/
         data.pageTitle = data.name + '公司信息';
 
-        data.cover = req.config.url.company + '/' + (data.cover||'404.png') + '!company.top';
+        data.websiteLink = data.website.indexOf('http') > -1 ? data.website : ('http://' + data.website);
 
-        data.company_logo = req.config.url.company + '/' + (data.company_logo||'404.png') + '?imageView2/1/w/100/h/75';
+        data.cover = req.config.url.company + '/' + (data.cover || '404.png') + '!company.top';
+
+        data.company_logo = req.config.url.company + '/' + (data.company_logo || '404.png') + '?imageView2/1/w/100/h/75';
         res.render('company_detail', {data: data});
     });
 
