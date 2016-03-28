@@ -292,7 +292,11 @@ gulp.task('browser-sync', function() {
         //notify: false,
         port: 9000,
         server: {
-            baseDir: "./"
+            baseDir: "./",
+            middleware: function (req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                next();
+            },
         }
     });
 
