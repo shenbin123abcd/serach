@@ -37,7 +37,7 @@
                          </div>
                          <div class="desc-p">
                              <%if(data.website){%>
-                               <p class="f-14">官方网址：<span><%= data.website %></span></p>
+                               <p class="f-14">官方网址：<a target="_blank" href="<%= data.websiteLink %>"><%= data.website %></a></p>
                              <%}%>
 
                              <%if(data.weibo_name){%>
