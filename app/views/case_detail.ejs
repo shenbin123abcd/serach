@@ -129,17 +129,25 @@
                     <div class="other-like-case">
                         <h4 class="f-14">其他相似案例</h4>
                         <div class="other-case-block">
-                            <% data.xiangsiImg.forEach(function(n,i){ %>
-                                <div class="case-item">
-                                    <div class="case-pic">
-                                        <a href="<%= data.xiangsi[i].id %>"><img src="<%= n %>" alt=""/></a>
-                                    </div>
-                                    <div class="case-desc">
-                                        <a href="/case/detail/<%= data.xiangsi[i].id %>"><p class="f-12 desc_title"><%= data.xiangsi[i].title %></p></a>
-                                        <p class="f-12 desc_company"><%= data.xiangsi[i].company %></p>
+
+                            <% for(var i=0;i<data.xiangsiImg.length;i+=2){  %>
+                            <div class="case-item">
+                                <div class="case-pic">
+                                    <a href="/case/detail/<%=data.xiangsi[i].id%>" class="case-pic-a"><img src="<%=data.xiangsiImg[i]%>" alt=""/></a>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/<%= data.xiangsi[i].id %>" class="case-pic-a f-14"><%= data.xiangsi[i].title %></a>
                                     </div>
                                 </div>
-                            <% }) %>
+                                <% if(i<data.otherImg.length-1){ %>
+                                <div class="case-pic">
+                                    <a href="/case/detail/<%=data.xiangsi[i+1].id%>" class="case-pic-a"><img src="<%=data.xiangsiImg[i+1]%>" alt=""/></a>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/<%= data.xiangsi[i+1].id %>" class="case-pic-a f-14"><%= data.xiangsi[i+1].title %></a>
+                                    </div>
+                                </div>
+                                <%}%>
+                            </div>
+                            <%}%>
                         </div>
                     </div>
                     <% } %>
