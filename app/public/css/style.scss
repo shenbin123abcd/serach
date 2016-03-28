@@ -953,7 +953,8 @@ body{
 
     .search-box{
         background: url("../images/img4.jpg") no-repeat scroll 0 0;
-        //min-width: 1000px;
+        min-width: 1000px;
+
       //.ios &,.android &{
       //  min-width: 1330px;
       //  @include media('<=laptop'){
@@ -1871,6 +1872,9 @@ body{
                     line-height:50px;
                     padding:0 112px;
                     background: #eeeeee;
+                  &:hover{
+                    background: darken(#eeeeee,5%);
+                  }
                     display: block;
                     float: left;
                     border-top: 2px solid #eeeeee;
