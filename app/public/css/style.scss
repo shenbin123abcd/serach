@@ -2284,7 +2284,10 @@ body{
                             .title-desc-color {
                               border-radius: 3px;
                               //overflow: hidden;
-                              margin-left: 50px;
+                              margin-left: 10px;
+                              position: relative;
+                              top:-2px;
+                              
                               .color-liner {
                                 height: 10px;
                                 /*border-radius: 4px;*/
