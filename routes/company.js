@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
             data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
             data.query = req.query;
             data.keywords = req.query.keywords;
-            data.title = '公司列表';
+            data.title = '公司列表 - 幻熊婚礼素材开放平台';
             data.totalPages = Math.ceil(data.total / data.per_page);
 
             data.region = [
@@ -153,7 +153,7 @@ router.get('/detail/:id', function (req, res, next) {
         /* res.json(data);*/
         data.baseUrl = req.baseUrl;
 
-        data.pageTitle = data.name + '公司信息';
+        data.pageTitle = data.name + ' - 公司信息 - 幻熊婚礼素材开放平台';
 
         data.websiteLink = data.website.indexOf('http') > -1 ? data.website : ('http://' + data.website);
 

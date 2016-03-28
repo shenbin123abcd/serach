@@ -54,10 +54,10 @@ router.get(['/'], function (req, res, next) {
 
             if (req.query.tag) {
                 data.pageTitle = `
-                '${req.query.tag}' 的图片搜索结果-图片搜索
+                '${req.query.tag}' 的图片搜索结果-幻熊婚礼素材开放平台
             `;
             } else {
-                data.pageTitle = '图片首页';
+                data.pageTitle = '图片 - 幻熊婚礼素材开放平台';
             }
 
             data.element = ['全部', '剪影', '蝴蝶', '春天', '城堡', '白云', '星星', '菱形', '三角', '雪花', '樱花', '卡通', '纱幔', '泡雕', '纸花', '蜡烛', '蜡烛', '明场',
@@ -177,7 +177,7 @@ router.get('/detail/:id', function (req, res, next) {
         data.route = urlObj.pathname.replace(req.baseUrl, '');
 
 
-        data.pageTitle = `热门图片 - ${data.tag}`;
+        data.pageTitle = `热门图片 - ${data.tag} - 幻熊婚礼素材开放平台`;
         data.path = `${req.config.url.case}/${data.path}?imageView2/2/w/902/`;
         if (data.company.id) {
             data.company.logo = `${req.config.url.case}/${data.company.logo}?imageView2/1/w/80/h/60`;

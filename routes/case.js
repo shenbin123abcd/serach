@@ -43,9 +43,9 @@ router.get(['/'], function(req, res, next){
             data.tag=req.query.tag;
             data.sort=req.query.sort;
             if(data.route=='/search'){
-                data.pageTitle=`“${req.query.tag}”的图片搜索结果-图片搜索`;
+                data.pageTitle=`“${req.query.tag}”的图片搜索结果 - 幻熊婚礼素材开放平台`;
             }else{
-                data.pageTitle="案例首页";
+                data.pageTitle="案例 - 幻熊婚礼素材开放平台";
             }
             data.listColor=[
                 '全部',

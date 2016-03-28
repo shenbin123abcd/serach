@@ -105,7 +105,7 @@ function getData(req, res){
             n.logo = req.config.url.company + '/' + n.logo + "?imageView2/1/w/200/h/150"
         });
         data.baseUrl = req.baseUrl;
-        data.pageTitle = '搜索引擎-首页';
+        data.pageTitle = '幻熊婚礼素材开放平台-首页';
 
         req.redis.set('search_index_data', JSON.stringify(data), 86400);
 

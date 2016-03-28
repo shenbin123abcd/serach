@@ -35,7 +35,7 @@ router.get('/', function(req, res, next){
         var urlObj=url.parse(data.absUrl);
         data.route=urlObj.pathname.replace(req.baseUrl,'');
 
-        data.pageTitle='专题首页';
+        data.pageTitle='专题 - 幻熊婚礼素材开放平台';
         data.tag=req.query.tag;
         data.sort=req.query.sort;
 
@@ -98,7 +98,7 @@ router.get('/detail/:id', function(req, res, next){
         var urlObj=url.parse(data.absUrl);
         data.route=urlObj.pathname.replace(req.baseUrl,'');
 
-        data.pageTitle=data.title+'专题详情';
+        data.pageTitle=data.title+' - 专题详情 - 幻熊婚礼素材开放平台';
         data.tag=req.query.tag;
         data.sort=req.query.sort;
         data.totalPages=Math.ceil(data.total/data.per_page);
