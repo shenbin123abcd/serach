@@ -1696,6 +1696,7 @@ body{
 
                   padding: 0px;
                   background-color: transparent;
+
                   @include media('<laptop'){
                     display: none;
                   }
@@ -1713,11 +1714,10 @@ body{
                   }
                   .view-list{
                     position: absolute;
+                    top: -5px;
                     width: 100%;
                     height: 100%;
                     color:#fff;
-
-
                     margin: 0;
                     padding-left: 14px;
 
@@ -1734,6 +1734,7 @@ body{
 
                       }
                       .desc-list-item-num{
+                        font-size: 12px;
                         display: inline-block;
                         overflow: hidden;
                         width: 40px;
@@ -2179,9 +2180,9 @@ body{
                                   float: left;
                                   height: 10px;
 
-                                  //transition: transform 0.3s;
                                   &:hover{
-                                    transform: scale(1.5);
+                                    transition: transform 0.3s;
+                                    transform: scale(1.4);
                                     border-radius:1px;
                                   }
                                   &:first-child{
