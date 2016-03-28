@@ -132,7 +132,7 @@ router.get('/detail/:id', function(req, res, next){
     }).then(function(data){
         // 相似案例
         data.xiangsi = [];
-        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:12}).then(function(body){console.log(1)
+        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:20}).then(function(body){console.log(1)
             if(body.iRet === 1){
                 data.xiangsi = body.data;
 
