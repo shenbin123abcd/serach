@@ -1163,6 +1163,14 @@ body{
               &-1,&-6{
                 margin-left: 0;
               }
+
+              &-1,&-2,&-3,&-4,&-6,&-7,&-8,&-9{
+                .text-bottom-desc{
+                  @include media('<laptop'){
+                    display: none;
+                  }
+                }
+              }
               &-5,&-10{
                 width: 220px;
                 @include media('<laptop'){
@@ -1306,14 +1314,21 @@ body{
                             position:absolute;
                             bottom:20px;
                             left:20px;
+                            width: 85%;
+                            //@include media('<laptop'){
+                            //  width: 85%;
+                            //}
                           .f-14{
                             line-height: 1;
                             margin: 0;
+
+
                           }
                         }
                         .text-bottom-desc{
                             margin-bottom:10px;
                           line-height: 1;
+
 
                             .desc-list{
                                 li{
