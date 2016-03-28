@@ -33,12 +33,21 @@ $media-expressions: (
   @include media('<laptop'){
     width: 1000px;
   }
+
   .html-case-detail &,.html-picture-detail &{
     width: 1200px;
     @include media('<laptop'){
       width: 1000px;
     }
   }
+  .html-topic-index &,.html-topic-detail &,.html-company-detail &{
+    width: 960px;
+    @include media('<laptop'){
+      width: 960px;
+    }
+  }
+
+
   //.ios &,.android &{
   //  width: 1330px;
   //  padding: 0 15px;
@@ -47,13 +56,7 @@ $media-expressions: (
   //  }
   //}
 }
-.s-d-container {
-  width: 1200px;
-  margin: 0 auto;
-  @include media('<laptop'){
-    width: 1000px;
-  }
-}
+
 .container {
   @include container-fixed;
   width: 1000px!important;

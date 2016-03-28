@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="html-topic-index" >
 <head>
     <%- include('Public/common_header',{pageTitle:data.pageTitle}); %>
     <%- include('Public/common_header_end'); %>
@@ -9,7 +9,7 @@
 <div class="halo-search case topic">
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
     <div class="search-box">
-        <div class="container">
+        <div class="s-container">
             <div class="search-box-text">
                 <h4 class="f-white"><span id="total-case"></span> 场精选婚礼案例 与 <span id="total-image"></span> 张灵感婚礼图片</h4>
                 <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
@@ -46,8 +46,8 @@
         </div>
     </div>
     <div class="topic-list">
-         <div class="container wrapper">
-             <div class="col-md-10 col-sm-12 col-xs-12 inner">
+         <div class="s-container wrapper">
+             <div class="inner">
 
                  <% data.data.forEach(function(item){ %>
                  <div class="list-content-item">
