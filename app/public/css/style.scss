@@ -969,6 +969,10 @@ body{
             margin-left:73px;
             a{
               color:#666;
+              /*&:hover{
+                color:#000000;
+              }*/
+
             }
             .item-img{
                 /*margin-left: 5px;*/
@@ -2195,7 +2199,7 @@ body{
             }
             .content-left-box{
               float:left;
-              width:940px;
+              width:840px;
               @include media('<laptop'){
                 width:78%;
               }
