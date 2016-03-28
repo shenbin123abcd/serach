@@ -11,8 +11,14 @@ app.picureDetail = (function () {
                 hb.util.loading.hide();
                 markSuccess();
             }, function (res) {
-                app.index.DIALOG.error(res);
                 hb.util.loading.hide();
+                if(typeof res=='string'){
+                    app.index.DIALOG.error(res);
+                    return
+                }
+                if(res.iRet==-1){
+                    $('#login-modal').modal('show');
+                }
             });
         });
         $('#unMarkThis-sidebar,#unMarkThis-comment').on('click', function () {
@@ -21,8 +27,14 @@ app.picureDetail = (function () {
                 hb.util.loading.hide();
                 unMarkSuccess();
             }, function (res) {
-                app.index.DIALOG.error(res);
                 hb.util.loading.hide();
+                if(typeof res=='string'){
+                    app.index.DIALOG.error(res);
+                    return
+                }
+                if(res.iRet==-1){
+                    $('#login-modal').modal('show');
+                }
             });
         });
 

@@ -178,10 +178,10 @@ router.get('/detail/:id', function(req, res, next){
         data.xiangsiImg=[];
         data.otherImg=[];
         data.xiangsi.forEach(function(n,i){
-            data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/100/h/70";
+            data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/142/h/99";
         });
         data.other.forEach(function(n,i){
-            data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/100/h/70";
+            data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/142/h/99";
         });
 
         var appData = {
