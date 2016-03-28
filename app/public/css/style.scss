@@ -26,7 +26,14 @@ $media-expressions: (
 @import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/grid';
 
+.head-container{
+  width:1300px;
+  margin: auto;
+  @include media('<laptop'){
+    width: 1000px;
+  }
 
+}
 .s-container {
   width: 1300px;
   margin: 0 auto;
