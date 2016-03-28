@@ -923,6 +923,7 @@ body{
         text-decoration: none;
         &:hover{
           color: $mainColor;
+
           .halo-search.case &{
             color: $caseMainColor;
           }
@@ -938,6 +939,9 @@ body{
 
       }
 
+      a.index-active{
+        color:$mainColor;
+      }
       a.case-active{
         color:#f3903e;
       }
@@ -980,6 +984,9 @@ body{
             }
             &.no-margin-left{
                 margin-left:0;
+            }
+            a.index-active{
+                color:$mainColor;
             }
             a.case-active{
                 color:#f3903e;
