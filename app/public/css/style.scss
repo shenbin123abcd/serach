@@ -1471,7 +1471,7 @@ body{
               padding-left:10px;
               padding-right:10px;
             }
-            overflow: hidden;
+            //overflow: hidden;
             display: block;
             clear:both;
             .col-md-4,.col-sm-12{
@@ -1608,30 +1608,35 @@ body{
                 //display: block;
                 //display: table;
               //width: 100%;
-              background: #fff;
+
               color: $mainTextColor;
               margin-top: 30px;
                 &:hover{
                   box-shadow: 5px 5px 20px rgba(104,104,104,0.2);
                   img{
                     transform: scale(1.1);
-                    transition:all .5s ease-out;
+                    //transition:all .5s ease-out;
                   }
                 }
                 .block-special-item-pic{
                     overflow: hidden;
+                  position: relative;
+                  z-index: 1;
                     display: block;
+                  background: #fff;
+                  border-radius:4px 4px 0 0;
+
                     .img{
                       border-radius:4px 4px 0 0;
                       max-width: 100%;
-                      transition:all .5s ease-out;
+                      transition:transform .5s ease-out;
                         //border-top-left-radius:4px;
                         //border-bottom-left-radius:4px;
                     }
                 }
                 .block-special-item-desc{
                   padding: 15px 15px;
-
+                  background: #fff;
                   line-height: 1.7;
                   .block-special-item-desc-content{
                     a{
@@ -2852,7 +2857,7 @@ body{
                         width: 100%;
                         background: transparent;
                         //opacity: 0.7;
-                        padding: 5px;
+                        padding: 10px;
                         .content-item-text-desc{
                           position: relative;
                             .p-title{
