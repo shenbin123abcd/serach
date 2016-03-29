@@ -32,7 +32,9 @@ $media-expressions: (
   @include media('<laptop'){
     width: 1000px;
   }
-
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 .s-container {
   width: 1300px;
@@ -70,7 +72,6 @@ $media-expressions: (
   width: 1000px!important;
   @media (min-width: $screen-sm-min) {
     width: 1000px!important;
-
   }
   @media (min-width: 1000px) {
     width: 1000px!important;
@@ -81,8 +82,6 @@ $media-expressions: (
     padding-right: 0;
   }
 }
-
-
 .html-topic-detail,.html-company-detail{
   .container{
     @media (min-width: $screen-sm-min) {
@@ -132,6 +131,19 @@ body {
 }
 .hb-page-content{
   min-height: 100%;
+}
+
+.col-lg-2-4{
+  @include make-lg-column(2.4)
+}
+.col-md-2-4{
+  @include make-md-column(2.4)
+}
+.col-sm-2-4{
+  @include make-sm-column(2.4)
+}
+.col-xs-2-4{
+  @include make-sm-column(2.4)
 }
 
 a{
@@ -939,7 +951,6 @@ body{
             color: $caseMainColor;
           }
           .halo-search.picture &{
-
             color: $pictureMainColor;
           }
           .halo-search.company &{
@@ -1132,7 +1143,7 @@ body{
             .search_wrapper{
                 width:100%;
                 display: block;
-              
+
                 input{
                     padding-left:20px;
                     border-radius: 4px;
@@ -1323,13 +1334,13 @@ body{
                 display:block;
                 overflow: hidden;
                 position:relative;
-                transition: all .5s ease;
+                transition: all .8s ease;
                 z-index:2;
                 &.special{
                   &:hover{
                     .pic-list-item-img{
-                      transform: scale(1.1);
-                      transition:all .5s ease-out;
+                      transform: scale(1.05);
+                      transition:all .8s ease-out;
                       border-radius: 4px;
                     }
                   }
@@ -1645,7 +1656,7 @@ body{
                 &:hover{
                   box-shadow: $itemShadow;
                   img{
-                    transform: scale(1.1);
+                    transform: scale(1.05);
                     //transition:all .5s ease-out;
                   }
                 }
@@ -1660,7 +1671,7 @@ body{
                     .img{
                       border-radius:4px 4px 0 0;
                       max-width: 100%;
-                      transition:transform .5s ease-out;
+                      transition:transform .8s ease-out;
                         //border-top-left-radius:4px;
                         //border-bottom-left-radius:4px;
                     }
@@ -2961,7 +2972,8 @@ body{
                 p{
                     display: block;
                     color:#333;
-                    line-height:20px;
+                    line-height:1.7;
+                    margin:0;
                   &~p{
                     margin-top: 10px;
                   }
@@ -3462,6 +3474,28 @@ body{
             }
 
         }
+        &.case{
+          li{
+            &.active{
+              a{
+                background: #ff9239;
+                border: 1px solid #ff9239;
+
+              }
+            }
+          }
+        }
+        &.topic{
+          li{
+            &.active{
+              a{
+                background: #ff409b;
+                border: 1px solid #ff409b;
+
+              }
+            }
+          }
+        }
     }
 }
 
@@ -3517,9 +3551,16 @@ body{
                     line-height: 30px;
                 }
             }
+           /* .content-item-wrapper{
+              margin-top:-50px;
+
+            }*/
             .content-item{
                 text-align: center;
-                padding:100px 0 0;
+                padding:84px 0 0;
+                &:first-child{
+                  padding:50px 0 0;
+                }
                 .item-cycle{
                     width:82px;
                     height:62px;
@@ -3531,7 +3572,7 @@ body{
                     margin-bottom:15px;
                     .item-cycle-a{
                       display: block;
-                      border:1px solid #666666;
+                      border:1px solid #cecece;
                     }
                     img{
                         max-width: 100%;
@@ -3540,10 +3581,13 @@ body{
                 h4{
                     margin-top:45px;
                     color:#666666;
+                    margin-bottom:0;
+
                 }
                 p{
                     color:#666666;
                     &.title{
+                      margin:0;
                       &:hover{
                         color:#fd5ab0;
                       }
@@ -3551,7 +3595,7 @@ body{
 
                 }
                 .content-pic{
-                    padding:45px 0;
+                    padding:15px 0;
                     img{
                       display: block;
                       margin: 0 auto;
@@ -3564,11 +3608,12 @@ body{
                 .content-desc{
                     text-align: left;
                     line-height: 30px;
+                    margin:0;
+
                 }
                 .more{
-                  font-size: 18px;
-
-                    margin-top: 56px;
+                    font-size: 18px;
+                    margin-top: 50px;
                     text-align: center;
                     padding:5px 0;
                     display: inline-block;
@@ -3651,9 +3696,15 @@ body{
           }
           .text-item-wrapper{
             padding:50px 0;
+            &.topic{
+              &:hover{
+                background: rgba(255, 64, 155, 0.04);
+              }
+            }
             &.active{
               background: #fffbf8;
             }
+
           }
           .commit-text-item{
             overflow: hidden;

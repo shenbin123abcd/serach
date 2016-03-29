@@ -67,6 +67,7 @@ app.picureDetail = (function () {
                 hb.util.loading.hide();
                 $('#commit-form-content').val('');
                 getComments();
+                $('.num').text(500);
             }, function (res) {
                 hb.util.loading.hide();
                 if(typeof res=='string'){
