@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next){
     req.config = config;
     req.redis = redis;
+    console.log('ip====' + (req.header('x-forwarded-for') || req.connection.remoteAddress));
     next();
 });
 

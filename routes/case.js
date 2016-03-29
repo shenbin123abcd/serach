@@ -135,14 +135,18 @@ router.get('/detail/:id', function(req, res, next){
     }).then(function(data){
         // 公司其他案例
         data.other = data.other || [];
-        return obj.getList('cases', req, {'filter[company_id]': data.company_id,per_page:12}).then(function(body){
-            if(body.iRet === 1){
-                data.other = body.data.data;
-            }
-            return data
 
-        });
+        if(data.company_id != 1000){
+            return obj.getList('cases', req, {'filter[company_id]': data.company_id,per_page:12}).then(function(body){
+                if(body.iRet === 1){
+                    data.other = body.data.data;
+                }
+                return data
 
+            });
+        }else{
+            return data;
+        }
     }).then(function(data){
             // 图片所属公司
             data.company = {};
@@ -168,12 +172,18 @@ router.get('/detail/:id', function(req, res, next){
         data.tagArr=data.tag?data.tag.split(','):[];
         data.xiangsiImg=[];
         data.otherImg=[];
-        data.xiangsi.forEach(function(n,i){
-            data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/142/h/99";
-        });
-        data.other.forEach(function(n,i){
-            data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/142/h/99";
-        });
+
+        if(data.xiangsi.length > 0){
+            data.xiangsi.forEach(function(n,i){
+                data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/142/h/99";
+            });
+        }
+
+        if(data.other.length > 0){
+            data.other.forEach(function(n,i){
+                data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/142/h/99";
+            });
+        }
 
         var appData = {
             id: data.id,
