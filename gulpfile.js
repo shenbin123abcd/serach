@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var fs = require('fs');
 var browserSync = require('browser-sync').create();
 var devip = require('dev-ip');
-
+//console.log(devip());
 gulp.task('generateDistVersion', function () {
     fs.writeFileSync('app/Public/College/js/config.dist.js',''+
         '(function(){' +
@@ -367,7 +367,7 @@ gulp.task('copy:view', function () {
         .src('app/views/**/*.ejs')
         .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://"+devip()+":9000/app",
+            defaultCDNBase: "http://"+devip()[0]+":9000/app",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
@@ -381,7 +381,7 @@ gulp.task('copy:view', function () {
             ]
         }))
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://"+devip()+":9000/app/public",
+            defaultCDNBase: "http://"+devip()[0]+":9000/app/public",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
@@ -393,7 +393,7 @@ gulp.task('copy:view', function () {
         .pipe(ejsFilter.restore)
         .pipe(ejsFilterPublic)
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://"+devip()+":9000/app",
+            defaultCDNBase: "http://"+devip()[0]+":9000/app",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
@@ -407,7 +407,7 @@ gulp.task('copy:view', function () {
             ]
         }))
         .pipe(plugins.cdnizer({
-            defaultCDNBase: "http://"+devip()+":9000/app/public",
+            defaultCDNBase: "http://"+devip()[0]+":9000/app/public",
             //defaultCDNBase: "../",
             allowRev: true,
             allowMin: true,
