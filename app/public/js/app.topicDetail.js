@@ -118,7 +118,7 @@ app.topicDetail = (function () {
                     res.data.forEach((n, i)=> {
                         if(i<(page*perPage-1)&&i>((page-1)*perPage)-1){
                             htmlStr += `
-                            <div class="text-item-wrapper case">
+                            <div class="text-item-wrapper topic">
                                 <div class="commit-text-item clearfix">
                                     <div class="item-pic">
                                         <img src="/images/commet-avatar-sample.png" />

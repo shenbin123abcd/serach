@@ -30,29 +30,27 @@
                         <img src="<%=data.default_image%>" alt="">
                         <p class="f-18"><%=data.description%></p>
                     </div>
-
-
+                    <div class="content-item-wrapper">
                     <% data.case.length&&data.case.forEach(function(item){ %>
-                    <div class="content-item">
+                        <div class="content-item">
+                            <%if(item.company){%>
+                            <div class="item-cycle">
+                                <a class="item-cycle-a" href="/company/detail/<%= item.company_id%>"><img src="<%=item.company.logo%>" alt=""></a>
+                            </div>
+                            <a href="/company/detail/<%= item.company_id%>"><p class="title f-14"><%=item.company.name%></p></a>
+                            <%}%>
 
-                        <%if(item.company){%>
-                        <div class="item-cycle">
-                            <a class="item-cycle-a" href="/company/detail/<%= item.company_id%>"><img src="<%=item.company.logo%>" alt=""></a>
+                            <h4 class="f-22"><%=item.title%></h4>
+                            <div class="content-pic">
+                                <% item.images.forEach(function(img){ %>
+                                <img src="<%=img%>" alt="">
+                                <%})%>
+                            </div>
+                            <p class="content-desc f-18"><%=item.description%></p>
+                            <a target="_blank" href="/case/detail/<%=item.case_id%>" class="more f-14">查看案例 <i class="haloIcon haloIcon-right"></i> </a>
                         </div>
-                        <a href="/company/detail/<%= item.company_id%>"><p class="title f-14"><%=item.company.name%></p></a>
-                        <%}%>
-
-                        <h4 class="f-22"><%=item.title%></h4>
-                        <div class="content-pic">
-                            <% item.images.forEach(function(img){ %>
-                            <img src="<%=img%>" alt="">
-                            <%})%>
-                        </div>
-                        <p class="content-desc f-18"><%=item.description%></p>
-                        <a target="_blank" href="/case/detail/<%=item.case_id%>" class="more f-14">查看案例 <i class="haloIcon haloIcon-right"></i> </a>
-                    </div>
                     <%})%>
-
+                    </div>
 
 
 
