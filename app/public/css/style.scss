@@ -3150,7 +3150,6 @@ body{
           width:325px;
           float:left;
           margin:auto;
-          padding-bottom:30px;
           height:374px;
           position:relative;
           @include media('<laptop'){
@@ -3172,7 +3171,8 @@ body{
             color:#666666;
             text-align: center;
             margin-top:35px;
-            margin-bottom:20px;
+            margin-bottom:10px;
+
           }
           .company-web{
             text-align: center;
@@ -3189,17 +3189,20 @@ body{
 
           .company-w{
             text-align: center;
-            /*position: absolute;
+            position: absolute;
             bottom:20px;
             width: 50%;
             margin: auto;
             position: absolute;
-            top: 50%; left: 50%;
-            -webkit-transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);*/
+            left: 50%;
+            transform: translateX(-50%);
+            bottom:8px;
+
+            span.weibo,span.weixin{
+              display: block;
+            }
             span.weibo{
-              margin-right:50px;
+              margin-bottom: 20px;
             }
             .img{
               margin-right:10px;
@@ -3211,7 +3214,7 @@ body{
           height:374px;
           width:785px;
           float:left;
-          padding-left:31px;
+          padding-left:47px;
           padding-top:10px;
           position: relative;
           @include media('<laptop'){
@@ -3219,7 +3222,7 @@ body{
           }
           .bottom{
             position: absolute;
-            bottom:29px;
+            bottom:8px;
           }
           .company-about{
             .about{
