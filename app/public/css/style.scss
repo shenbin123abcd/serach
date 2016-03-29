@@ -691,6 +691,10 @@ span.tt{float:none;}
 .index2.copyright{
   padding: 0 0;
 }
+.index2.copyright .top-line{
+  border-top: 1px solid #cecece;
+  padding: 10px 0;
+}
 .index2-footer .footer-block ul li a{
   color:#333;
   display: inline-block;
@@ -1072,7 +1076,7 @@ body{
                         font-size: 18px;
                         cursor: pointer;
                         font-weight: 300;
-                        color: #333;
+                        color: #666666;
                         padding: 22px 0px 0px 20px;
                     }
                     .drop-list{
@@ -1127,6 +1131,8 @@ body{
             }
             .search_wrapper{
                 width:100%;
+                display: block;
+              
                 input{
                     padding-left:20px;
                     border-radius: 4px;
@@ -1136,6 +1142,8 @@ body{
                     font-size: 18px;
                     font-family:'Microsoft Yahei', 'Roboto', 'sans-serif';
                     width:620px;
+                    line-height:30px;
+
                   &:focus{
                     outline: none;
 
@@ -3511,7 +3519,7 @@ body{
             }
             .content-item{
                 text-align: center;
-                padding:150px 0 0;
+                padding:100px 0 0;
                 .item-cycle{
                     width:82px;
                     height:62px;
