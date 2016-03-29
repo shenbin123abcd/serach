@@ -127,9 +127,9 @@ router.get('/detail/:id', function (req, res, next) {
                     obj.comments = n.comments;
                     obj.points = n.points;
                     if (n.cover == 'halo/') {
-                        obj.cover = req.config.url.case + '/' + '404.png' + "?imageView2/1/w/200/h/150";
+                        obj.cover = req.config.url.case + '/' + '404.png' + "?imageView2/1/w/285/h/180";
                     } else {
-                        obj.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150";
+                        obj.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/285/h/180";
                     }
                     obj.id = n.id;
                     data.caseList.push(obj);
