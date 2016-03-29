@@ -93,13 +93,13 @@ function getData(req, res){
         });
 
         data.case_recommend.forEach(function(n, i){
-            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/200/h/150"
+            n.cover = req.config.url.case + '/' + n.cover + "?imageView2/1/w/310/h/232"
         });
         data.zhuanti.forEach(function(n, i){
             n.default_image = req.config.url.case + '/' + n.default_image + "?imageView2/1/w/420/h/226"
         });
         data.image.forEach(function(n, i){
-            n.path = req.config.url.case + '/' + n.path + "?imageView2/1/w/200/h/150"
+            n.path = req.config.url.case + '/' + n.path + "?imageView2/1/w/310/h/232"
         });
         data.company.forEach(function(n, i){
             n.logo = req.config.url.company + '/' + n.logo + "?imageView2/1/w/200/h/150"
