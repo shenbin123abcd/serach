@@ -1132,7 +1132,7 @@ body{
             .search_wrapper{
                 width:100%;
                 display: block;
-              
+
                 input{
                     padding-left:20px;
                     border-radius: 4px;
@@ -3461,6 +3461,28 @@ body{
                 }
             }
 
+        }
+        &.case{
+          li{
+            &.active{
+              a{
+                background: #ff9239;
+                border: 1px solid #ff9239;
+
+              }
+            }
+          }
+        }
+        &.topic{
+          li{
+            &.active{
+              a{
+                background: #ff409b;
+                border: 1px solid #ff409b;
+
+              }
+            }
+          }
         }
     }
 }
