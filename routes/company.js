@@ -151,7 +151,7 @@ router.get('/detail/:id', function (req, res, next) {
 
         data.cover = req.config.url.company + '/' + (data.cover || '404.png') + '!company.top';
 
-        data.company_logo = req.config.url.company + '/' + (data.company_logo || '404.png') + '?imageView2/1/w/100/h/75';
+        data.company_logo = req.config.url.company + '/' + (data.company_logo || '404.png') + '?imageView2/1/w/140/h/140';
         res.render('company_detail', {data: data});
     }).catch(function(error){
         if(error.iRet == 0){
