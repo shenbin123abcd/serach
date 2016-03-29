@@ -2958,7 +2958,8 @@ body{
                 p{
                     display: block;
                     color:#333;
-                    line-height:20px;
+                    line-height:1.7;
+                    margin:0;
                   &~p{
                     margin-top: 10px;
                   }
@@ -3572,6 +3573,7 @@ body{
                 p{
                     color:#666666;
                     &.title{
+                      margin:0;
                       &:hover{
                         color:#fd5ab0;
                       }
