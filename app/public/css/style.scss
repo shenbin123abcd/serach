@@ -3661,19 +3661,25 @@ body{
 
                 }
                 .more{
-                    font-size: 18px;
-                    margin-top: 50px;
+                    font-size: 14px;
+                    margin-top: 56px;
                     text-align: center;
-                    padding:5px 0;
+                  width: 130px;
+                  height: 40px;
+                  line-height: 40px;
+                  border-radius: 4px;
                     display: inline-block;
-                    color:#fd5ab0;
-                    border-bottom: 1px solid #fd5ab0;
+                    color:$topicMainColor;
+                    border: 1px solid $topicMainColor;
+                  transition:  0.2s;
+
                     position: relative;
+
                   &:hover{
-                    color:darken($mainColor,7%);
+                    color:darken($topicMainColor,20%);
+                    border-color: darken($topicMainColor,20%);
                   }
                     span{
-
                     }
                 }
             }

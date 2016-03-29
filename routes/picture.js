@@ -170,7 +170,7 @@ router.get('/detail/:id', function (req, res, next) {
         data.pageTitle = `热门图片 - ${data.tag} - 幻熊婚礼素材开放平台`;
         data.path = `${req.config.url.case}/${data.path}?imageView2/2/w/902/`;
         if (data.company.id) {
-            data.company.logo = `${req.config.url.case}/${data.company.logo}?imageView2/1/w/80/h/60`;
+            data.company.logo = `${req.config.url.case}/${data.company.logo}?imageView2/1/w/160/h/120`;
         }
 
         data.colorArr = data.other_color ? data.other_color.split(',') : [];

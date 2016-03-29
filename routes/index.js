@@ -5,7 +5,7 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-    req.redis.clear('search_index_data');
+    // req.redis.clear('search_index_data');
     req.redis.get('search_index_data').then(function(data){
         if (!data) {
             getData(req, res);
@@ -107,7 +107,7 @@ function getData(req, res){
         data.baseUrl = req.baseUrl;
         data.pageTitle = '幻熊婚礼素材开放平台-首页';
 
-        req.redis.set('search_index_data', JSON.stringify(data), 86400);
+        req.redis.set('search_index_data', JSON.stringify(data), 43200);
 
         render(data, req, res);
     });
