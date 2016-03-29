@@ -62,28 +62,18 @@ router.get('/detail/:id', function(req, res, next){
     }
 
     obj.getInfo('zhuanti',id, req, {if_company: 1}).then(function(body){
-        if(body.iRet === 1){
-            var data = body.data;
-            data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/q/85'
-            if(data.case.length > 0){
-                data.case.forEach(function(val, index){
-                    val.images = [
-                        req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/q/85',
-                        req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/q/85'
-                    ];
-                })
-            }
-            //res.json(data);
-
-            return data;
-            // res.render('topic_detail', {title: '专题详情'});
-        }else if(body.iRet === 0){
-            res.sendStatus(404);
-        }else{
-            res.sendStatus(500);
+        var data = body.data;
+        data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/q/85'
+        if(data.case.length > 0){
+            data.case.forEach(function(val, index){
+                val.images = [
+                    req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/q/85',
+                    req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/q/85'
+                ];
+            })
         }
-    }, function(error){
-        res.sendStatus(500);
+
+        return data;
     }).then(function(data){
         var data=data;
 
@@ -110,6 +100,13 @@ router.get('/detail/:id', function(req, res, next){
 
         res.render('topic_detail', {data: data,appData:appData});
 
+    }).catch(function(error){
+        if(error.iRet == 0){
+            res.status(404);
+        }else{
+            res.status(500);
+        }
+        next();
     });
 });
 

@@ -111,23 +111,13 @@ router.get('/detail/:id', function (req, res, next) {
     var id = parseInt(req.params.id);
 
     if (id <= 0 || isNaN(id)) {
-        res.sendStatus(404);
+        res.status(404);
+        next();
         return;
     }
 
     obj.getInfo('picture/tag', id, req).then(function (body) {
-        if (body.iRet === 1) {
-            var data = body.data;
-            return data;
-        } else if (body.iRet === 0) {
-            res.sendStatus(404);
-            return false;
-        } else {
-            res.sendStatus(500);
-            return false;
-        }
-    }, function (error) {
-        res.sendStatus(500);
+        return body.data;
     }).then(function (data) {
         // 相似图片
         data.xiangsi = [];
@@ -202,6 +192,13 @@ router.get('/detail/:id', function (req, res, next) {
 
 
         res.render('picture_detail', {data: data,appData:appData});
+    }).catch(function(error){
+        if(error.iRet == 0){
+            res.status(404);
+        }else{
+            res.status(500);
+        }
+        next();
     });
 });
 
