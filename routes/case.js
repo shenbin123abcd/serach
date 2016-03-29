@@ -101,38 +101,29 @@ router.get(['/'], function(req, res, next){
             };
             res.render('case_index_and_search', {data:data,appData:appData});
         }else{
-            res.sendStatus(500);
+            res.status(500);
         }
     }, function(error){
-        res.sendStatus(500);
+        res.status(500);
     });
 });
 
 // 详情
 router.get('/detail/:id', function(req, res, next){
-    var id = parseInt(req.params.id);
+    var id = req.params.id;
 
     if(id <= 0 || isNaN(id)){
-        res.sendStatus(404);
+        res.status(404);
+        next();
         return ;
     }
 
     obj.getInfo('cases', id, req).then(function(body){
-        if(body.iRet === 1){
-            return body.data;
-        }else if(body.iRet === 0){
-            res.sendStatus(404);
-            return false;
-        }else{
-            res.sendStatus(500);
-            return false;
-        }
-    }, function(error){
-        res.sendStatus(500);
+        return body.data;
     }).then(function(data){
         // 相似案例
         data.xiangsi = [];
-        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:12}).then(function(body){console.log(1)
+        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:12}).then(function(body){
             if(body.iRet === 1){
                 data.xiangsi = body.data;
 
@@ -141,7 +132,7 @@ router.get('/detail/:id', function(req, res, next){
         }, function(error){
             return data;
         });
-    }).then(function(data){console.log(2222)
+    }).then(function(data){
         // 公司其他案例
         data.other = data.other || [];
         return obj.getList('cases', req, {'filter[company_id]': data.company_id,per_page:12}).then(function(body){
@@ -190,6 +181,13 @@ router.get('/detail/:id', function(req, res, next){
         };
 
         res.render('case_detail', {data: data,appData:appData});
+    }).catch(function(error){
+        if(error.iRet == 0){
+            res.status(404);
+        }else{
+            res.status(500);
+        }
+        next();
     });
 
 });

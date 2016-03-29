@@ -86,16 +86,17 @@ router.get('/', function (req, res, next) {
                 total: data.total,
                 per_page: data.per_page,
                 totalPages: data.totalPages,
-                query: data.query,
+                query: data.query
             };
 
             res.render('company_index', {data: data, appData: appData});
         } else {
-            res.sendStatus(500);
+            res.status(500);
+            next();
         }
     }, function (error) {
-        console.log(error);
-        res.sendStatus(500);
+        res.status(500);
+        next();
     });
 });
 
@@ -103,22 +104,13 @@ router.get('/', function (req, res, next) {
 router.get('/detail/:id', function (req, res, next) {
     var id = parseInt(req.params.id);
     if (id <= 0) {
-        res.sendStatus(404);
+        res.status(404);
+        next();
         return;
     }
 
     obj.getInfo('company', id, req, {cate_id: 2}).then(function (body) {
-        if (body.iRet === 1) {
-            return body.data;
-
-        } else if (body.iRet === 0) {
-            res.sendStatus(404);
-        } else {
-            res.sendStatus(500);
-        }
-    }, function (error) {
-        console.log(error);
-        res.sendStatus(500);
+        return body.data;
     }).then(function (data) {
         // 案例列表
         return obj.getList('cases', req, {
@@ -161,6 +153,13 @@ router.get('/detail/:id', function (req, res, next) {
 
         data.company_logo = req.config.url.company + '/' + (data.company_logo || '404.png') + '?imageView2/1/w/100/h/75';
         res.render('company_detail', {data: data});
+    }).catch(function(error){
+        if(error.iRet == 0){
+            res.status(404);
+        }else{
+            res.status(500);
+        }
+        next();
     });
 
 });
