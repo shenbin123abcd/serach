@@ -57,7 +57,7 @@
             <div class="company-list clearfix">
                 <% data.caseList.forEach(function(n, i){ %>
                 <div class="company-list-item <% if(i%4==0){%>l-first<%} %>">
-                        <a href="/case/detail/<%= n.id %>"><img src="<%= n.cover %>" alt="" class="clearfix img"></a>
+                        <a href="/case/detail/<%= n.id %>" class="company-detail-item"><img src="<%= n.cover %>" alt="" class="clearfix img "></a>
                         <div class="content-item-text">
                             <div class="content-item-text-desc">
                                 <a href="/case/detail/<%= n.id %>"><p class="f-14 p-title"><%= n.title %></p></a>

@@ -2044,7 +2044,11 @@ body{
                                 border: none;
                             }
                         }
+                        &:last-child{
+                          position: relative;
+                          left:-2px;
 
+                        }
                     }
                 }
                 .category{
@@ -2156,16 +2160,15 @@ body{
         .wrapper{
         }
         .case-list-block-item{
-            width: 200px;
+            width: 244px;
             float: left;
             margin-left: 20px;
             &.l-first{
               margin-left:0;
             }
             @include media('<laptop'){
-              width:15%;
+              width:18.7%;
             }
-
         }
         .block-content-item{
             display: block;
@@ -2213,7 +2216,6 @@ body{
                     overflow:hidden;
                     color:$mainTextColor;
                     margin:0;
-
                 }
                 p{
                   text-overflow:ellipsis;
@@ -2868,8 +2870,7 @@ body{
           float:left;
           margin-left: 20px;
           @include media('<laptop'){
-            width:15%;
-
+            width:15.3%;
           }
           &.l-first{
             margin-left: 0px;
@@ -3287,6 +3288,14 @@ body{
           float:left;
           margin-top:20px;
           transition:all .2s ease-out;
+          .company-detail-item{
+            overflow: hidden;
+            padding-bottom: 63%;
+            display: block;
+            width:100%;
+            background: #fff;
+            height:0;
+          }
           &:hover{
             box-shadow: $itemShadow;
           }
@@ -3300,22 +3309,26 @@ body{
               .p-title{
                 margin:0;
                 margin-bottom:5px;
-                font-weight: 700;
+
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
+                color:#666666;
               }
               .desc-list{
                 margin-bottom:0;
                 .desc-list-item{
                   float:left;
-                  margin-right:20px;
                   font-size:14px;
                   position: relative;
+                  color:#9e9e9e;
                   .desc-list-item-num{
                     margin-left:5px;
                     position: relative;
                     top:-2px;
+                    width:32px;
+                    display: inline-block;
+
                   }
                 }
               }
@@ -3347,6 +3360,11 @@ body{
                                     background: #fff;
                                     border:none;
                                 }
+                            }
+                            &:last-child{
+                              position: relative;
+                              left:-2px;
+
                             }
                         }
                     }
@@ -3418,12 +3436,21 @@ body{
         }
         .picture-box{
             display: block;
-            //overflow: hidden;
+            margin-top: 30px;
             .search-block-content{
-                //overflow: hidden;
                 display: block;
                 clear: both;
-              margin: 30px -10px 0;
+                .picture-list-block-item{
+                  width: 244px;
+                  float: left;
+                  margin-left:20px;
+                  @include media("<laptop"){
+                    width:18.7%;
+                  }
+                  &.l-first{
+                    margin-left: 0;
+                  }
+                }
                 .col-md-2,.col-sm-4{
                     padding-left: 10px;
                     padding-right: 10px;
@@ -3435,6 +3462,11 @@ body{
                     position: relative;
                     margin-top: 30px;
                     transition:all .2s ease-out;
+                    width: 100%;
+                    height: 0;
+                    padding-bottom: 75%;
+                    background: #fff;
+
                     &:hover{
                       box-shadow: $itemShadow;
                     }

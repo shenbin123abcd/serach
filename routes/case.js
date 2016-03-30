@@ -69,7 +69,7 @@ router.get(['/'], function(req, res, next){
                 var obj={};
                 obj.title = data.data[i].title;
                 obj.company = data.data[i].company;
-                obj.cover = req.config.url.case + '/' + data.data[i].cover +"?imageView2/1/w/200/h/150";
+                obj.cover = req.config.url.case + '/' + data.data[i].cover +"?imageView2/1/w/244/h/183";
                 obj.id = data.data[i].id;
                 obj.company_id=data.data[i].company_id;
                 obj.views=data.data[i].views;

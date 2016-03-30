@@ -130,7 +130,7 @@
         <div class="case-list-block">
             <div class="wrapper clearfix">
             <% data.caseList.forEach(function(n,i){ %>
-                <div class="case-list-block-item <% if(i%6==0){%>l-first<%} %>">
+                <div class="case-list-block-item <% if(i%5==0){%>l-first<%} %>">
                     <div  class="block-content-item">
                         <a href="case/detail/<%= data.caseList[i].id %>" class="wrapper"><img src="<%= data.caseList[i].cover %>" alt="" ></a>
                         <div class="content-item-text">

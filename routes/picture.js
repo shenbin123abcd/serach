@@ -38,7 +38,7 @@ router.get(['/'], function (req, res, next) {
             data = body.data;
 
             data.data.forEach((n, i)=> {
-                n.path = req.config.url.case + '/' + n.path + '?imageView2/1/w/200/h/150';
+                n.path = req.config.url.case + '/' + n.path + '?imageView2/1/w/244/h/183';
             });
 
             data.baseUrl = req.baseUrl;
