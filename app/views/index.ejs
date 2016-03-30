@@ -249,7 +249,7 @@
                     <% data.case_recommend.forEach(function(n, i){ %>
                     <div class="col-md-2-4 col-sm-2-4 col-xs-2-4">
                         <div class="block-content-item">
-                            <a href="/case/detail/<%= n.id %>"><img src="<%= n.cover %>" alt=""></a>
+                            <a href="/case/detail/<%= n.id %>" class="wrapper"><img src="<%= n.cover %>" alt=""></a>
                             <div class="content-item-text">
                                 <a href="/case/detail/<%= n.id %>"><h4 class="f-14"><%= n.title %></h4></a>
                                 <a href="/company/detail/<%= n.company_id %>"><p
