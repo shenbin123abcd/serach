@@ -132,7 +132,7 @@
             <% data.caseList.forEach(function(n,i){ %>
                 <div class="case-list-block-item <% if(i%6==0){%>l-first<%} %>">
                     <div  class="block-content-item">
-                        <a href="case/detail/<%= data.caseList[i].id %>"><img src="<%= data.caseList[i].cover %>" alt="" ></a>
+                        <a href="case/detail/<%= data.caseList[i].id %>" class="wrapper"><img src="<%= data.caseList[i].cover %>" alt="" ></a>
                         <div class="content-item-text">
                             <a href="case/detail/<%= data.caseList[i].id %>"><h4 class="f-14 omit"><%= data.caseList[i].title %></h4></a>
                             <a href="company/detail/<%=data.caseList[i].company_id  %>"><p class="f-12 s-title"><%= data.caseList[i].company||'不明' %></p></a>
