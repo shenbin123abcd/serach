@@ -1087,6 +1087,12 @@ body{
               @include media('<laptop'){
                 //margin-left: (40/2/1060)*100%;
               }
+              .pic-list-item-img{
+                height: 384px;
+                @include media('<laptop'){
+                  height: 294px;
+                }
+              }
             }
             .item-1,.item-2{
               //width: 400px;
@@ -1534,7 +1540,7 @@ body{
                     .content-item-text-desc{
                         .desc-list{
                           @include media('<laptop'){
-                            display: none;
+                            //display: none;
                           }
                             .desc-list-item{
                                 display: inline-block;
@@ -1557,7 +1563,7 @@ body{
                               .desc-list-item-num{
                                 display: inline-block;
                                 overflow: hidden;
-                                width: 32px;
+                                width: 29px;
                                 vertical-align: middle;
                                 line-height: 1;
                                 margin-left:3px;
