@@ -231,7 +231,7 @@ a{
 .logo img{width: 122px;height:auto;}
 .header-nav ul li a:focus, nav ul li a:active {color: #fff;}
 .header-nav ul li ul li a:focus, nav ul li ul li a:active {color: #9E9E9E;}
-.header-nav {position: relative; float: right; /* transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out; */}
+.header-nav {position: relative; float: none; /* transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out; */}
 .header-nav > ul > li {position: relative; float: left; /*margin: 0px 17px;*/ font-size: 12px; font-weight: 300; line-height: 16px; text-transform: uppercase; padding: 15px 0px; /* transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out; */}
 .header-nav > ul > li > a {color: #949494; position: relative; overflow: hidden; display: inline-block; padding: 8px 0px;
   transition: 0.4s;}
@@ -267,12 +267,15 @@ a{
 .newIndex-nav > ul > li {line-height: 0;padding: 0;/*margin: 0 30px;*/}
 .newIndex-nav > ul > li > a{vertical-align: middle;height: 40px;line-height: 40px;padding: 0;font-size: 12px;transition-property: color;color:#949494;&:hover{color:#fff;}}
 
+
 ul.nav-dropdown-menu{top: 40px;}
 .summit-drop > ul > li > a, .summit-drop2 > ul > li > a{padding: 15px 20px;}
 .newIndex-nav > ul > li{line-height:0; padding:0; margin-right:24px; position: relative;}
+.newIndex-nav > ul > li.rt{margin-right:0;}
+.newIndex-nav > ul > li.bar.rt{ line-height: 40px;  color: #424242;  font-size: 10px;  margin: 0 8px;}
 .newIndex-nav > ul > li:first-child{margin-left:0;  }
-.newIndex-nav > ul > li>span.line{position:absolute;color:#424242;top:19px;left:58px;
-}
+.newIndex-nav > ul > li>span.line{position:absolute;color:#424242;top:19px;left:58px;}
+.newIndex-nav > ul > li>span.line2{position:absolute;color:#424242;top:19px;left:82px;}
 .copyright {position: relative; width: 100%; padding: 40px 0px;}
 .copyright ul li {position: relative; float: left; font-size: 13px; color: #949494; margin: 0px 30px 0px 0px; text-transform: uppercase; overflow: hidden;}
 .copyright ul li a {margin-bottom: 6px; position: relative; display: inline-block;cursor: default;}
