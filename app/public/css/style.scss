@@ -134,7 +134,19 @@ body {
 .hb-page-content{
   min-height: 100%;
 }
+.ie-update{
+  &-close{
+    float: right;
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 15px;
+  background: rgb(255, 255, 160);
 
+}
 .col-lg-2-4{
   @include make-lg-column(2.4)
 }

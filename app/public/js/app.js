@@ -19,9 +19,23 @@
                 $("#total-image").text(hb.util.formatNumber(res.image));
             }
         }
+        function ieUpdate(){
+            //console.log(hb.Cookies.getJSON("statisticData"));
+            //alert(hb.Cookies.get("isShowIeUpdate"));
 
+            if(hb.Cookies.get("isShowIeUpdate")){
+                $("#ie-update").hide();
+            }else{
+                $("#ie-update").show();
+            }
+            $("#ie-update-close").on('click',function(){
+                hb.Cookies.set('isShowIeUpdate', true);
+                $("#ie-update").hide();
+            });
+        }
         return {
             getStaticData:getStaticData,
+            ieUpdate:ieUpdate,
         };
     }());
 }());
