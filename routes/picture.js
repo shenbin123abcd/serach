@@ -115,13 +115,15 @@ router.get('/detail/:id', function (req, res, next) {
         next();
         return;
     }
-
+    var start = new Date().getTime();
     obj.getInfo('picture/tag', id, req).then(function (body) {
+        console.log('pic-info',body.time, new Date().getTime() - start);
         return body.data;
     }).then(function (data) {
         // 相似图片
         data.xiangsi = [];
         return obj.getList('picture/xiangsi', req, {picture_id: data.id, per_page: 12}).then(function (body) {
+            console.log('pic-xs',body.time, new Date().getTime() - start);
             if (body.iRet === 1) {
                 data.xiangsi = body.data;
             }
@@ -133,6 +135,7 @@ router.get('/detail/:id', function (req, res, next) {
         // 案例其他图片
         data.case = [];
         return obj.getList('picture/tag', req, {'filter[case_id]': data.case_id, per_page: 50}).then(function (body) {
+            console.log('pic-other',body.time, new Date().getTime() - start);
             if (body.iRet === 1) {
                 data.case = body.data;
             }
@@ -144,6 +147,7 @@ router.get('/detail/:id', function (req, res, next) {
         // 图片所属公司
         data.company = {};
         return obj.getInfo('company', data.company_id, req).then(function (body) {
+            console.log('pic-company',body.time, new Date().getTime() - start);
             if (body.iRet === 1) {
                 data.company = {
                     id: body.data.id,
