@@ -30,7 +30,7 @@ router.get(['/'], function (req, res, next) {
         params['order[points]'] = 'DESC';
     } else {
         // 默认最新
-        params['order[id]'] = 'DESC';
+        params['order[isort]'] = 'ASC';
     }
 
     obj.getList('picture/tag', req, params).then(function (body) {
