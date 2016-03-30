@@ -71,7 +71,22 @@ app.common=(function(){
                 }
             });
         }
-
+    }
+    function sameHeight(){
+        $(window).load(function(){
+            var fatherHeight = $('.company-left-box').css('height');
+            var sonHeight = $('.company-right-box').css('height');
+            /*var init=function(){
+                var sonHeight = $('.'+son).css('height',fatherHeight);
+            }*/
+            if(fatherHeight>sonHeight){
+                $('.company-right-box').removeClass('border-right');
+                $('.company-left-box').addClass('border-left');
+            }else{
+                $('.company-left-box').removeClass('border-left');
+                $('.company-right-box').addClass('border-right');
+            }
+        })
     }
     return {
         companyDesc:companyDesc,
@@ -80,5 +95,6 @@ app.common=(function(){
         alignCenter:alignCenter,
         omit:omit,
         resizeLogo:resizeLogo,
+        sameHeight:sameHeight,
     }
 }());

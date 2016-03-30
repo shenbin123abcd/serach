@@ -24,8 +24,12 @@
                         <a target="_blank" href="<%= data.websiteLink %>"><%= data.website %></a>
                     </div>
                     <div class="company-w">
+                        <%if(data.weibo_name){%>
                         <span class="weibo f-14"><img src="/images/weibo.png" alt="" class="img"><%= data.weibo_name %></span>
+                        <%}%>
+                        <%if(data.wechat){%>
                         <span class="weixin f-14"><img src="/images/weixin.png" alt="" class="img"><%= data.wechat %></span>
+                        <%}%>
                     </div>
                 </div>
                 <div class="company-right-box">
@@ -108,7 +112,7 @@
        // app.common.verticalMiddle("desc-p","desc-txt");
 //        app.common.alignCenter("wrapper","inner");
         //app.common.omit("p-title",8);
-
+        app.common.sameHeight();
 
     })
 
