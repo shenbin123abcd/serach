@@ -3750,13 +3750,15 @@ body{
                     display: inline-block;
                     color:$topicMainColor;
                     border: 1px solid $topicMainColor;
-                  transition:  0.2s;
+                  transition:  0.4s;
 
                     position: relative;
 
                   &:hover{
-                    color:darken($topicMainColor,20%);
-                    border-color: darken($topicMainColor,20%);
+                    //color:darken($topicMainColor,20%);
+                    //border-color: darken($topicMainColor,20%);
+                    color: #ffffff;
+                    background: $topicMainColor;
                   }
                     span{
                     }
