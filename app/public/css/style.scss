@@ -265,10 +265,11 @@ a{
 .newIndex .logo a {margin-top: -2px;}
 .newIndex .logo img {line-height: 44px;height: 44px;width: auto;vertical-align: middle;}
 .newIndex-nav > ul > li {line-height: 0;padding: 0;/*margin: 0 30px;*/}
-.newIndex-nav > ul > li > a{vertical-align: middle;height: 40px;line-height: 40px;padding: 0;font-size: 12px;transition-property: color;color:#949494;  }
+.newIndex-nav > ul > li > a{vertical-align: middle;height: 40px;line-height: 40px;padding: 0;font-size: 12px;transition-property: color;color:#949494;&:hover{color:#fff;}}
+
 ul.nav-dropdown-menu{top: 40px;}
 .summit-drop > ul > li > a, .summit-drop2 > ul > li > a{padding: 15px 20px;}
-.newIndex-nav > ul > li{line-height:0; padding:0; margin-right:24px; position: relative;  }
+.newIndex-nav > ul > li{line-height:0; padding:0; margin-right:24px; position: relative;}
 .newIndex-nav > ul > li:first-child{margin-left:0;  }
 .newIndex-nav > ul > li>span.line{position:absolute;color:#424242;top:19px;left:58px;
 }
@@ -1082,7 +1083,7 @@ body{
                 border-radius:4px;
                 .drop{
                     display: block;
-                    height:70px;
+                    height:60px;
                     width: 100%;
                     b{
                         position:relative;
@@ -1093,12 +1094,12 @@ body{
                         cursor: pointer;
                         font-weight: 300;
                         color: #666666;
-                        padding: 22px 0px 0px 20px;
+                        padding: 17px 0px 0px 20px;
                     }
                     .drop-list{
                         position: absolute;
                         right: 20px;
-                        top: 22px;
+                        top: 16px;
                         font-size: 20px;
                         color:#b5b5b5;
                         &.act{
@@ -1114,7 +1115,7 @@ body{
                         display: none;
                         box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
                         left:0px;
-                        top: 70px;
+                        top: 60px;
                         width:100%;
                         margin: 0px;
                         z-index: 5;
@@ -1152,8 +1153,7 @@ body{
                 input{
                     padding-left:20px;
                     border-radius: 4px;
-                    height: 70px;
-                    line-height: 70px;
+                    height: 60px;
                     border:none;
                     font-size: 18px;
                     font-family:'Microsoft Yahei', 'Roboto', 'sans-serif';
@@ -1168,9 +1168,9 @@ body{
                 .search_button{
                     top: 0;
                     right: 15px;
-                    height: 70px;
-                    width: 70px;
-                    line-height: 70px;
+                    height: 60px;
+                    width: 60px;
+                    line-height: 60px;
                     position:absolute;
                     display:inline-block;
                     vertical-align: middle;
@@ -1906,9 +1906,9 @@ body{
                 .search_button{
                     top: 0;
                     right: 0px;
-                    height: 70px;
-                    width: 70px;
-                    line-height: 70px;
+                    height: 60px;
+                    width: 60px;
+                    line-height: 60px;
                     position:absolute;
                     display:inline-block;
                     vertical-align: middle;
@@ -3191,7 +3191,7 @@ body{
             text-align: center;
             position: absolute;
             bottom:20px;
-            width: 50%;
+            width: 100%;
             margin: auto;
             position: absolute;
             left: 50%;
@@ -3282,7 +3282,8 @@ body{
                   .desc-list-item-num{
                     margin-left:8px;
                     position: relative;
-                    top:-1px;
+                    top:-2px;
+
                   }
                 }
               }
