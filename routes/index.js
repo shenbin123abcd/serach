@@ -5,7 +5,7 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-     req.redis.clear('search_index_data');
+    // req.redis.clear('search_index_data');
     req.redis.get('search_index_data').then(function(data){
         if (!data) {
             getData(req, res);
@@ -26,7 +26,7 @@ function getData(req, res){
     params['filter[recommended]'] = 1;
     obj.getList('cases', req, params).then(function(body){
         if (body.iRet === 1) {
-            var cases = helper.arrayShuffle(body.data.data, 24, 13);
+            var cases = helper.arrayShuffle(body.data.data, 20, 13);
             data.case_recommend = cases[0];
             data.case_new = cases[1];
             return data;
@@ -40,7 +40,7 @@ function getData(req, res){
         return obj.getList('picture/tag', req, params).then(function(body){
             delete params.recommended;
             if (body.iRet === 1) {
-                data.image = helper.arrayShuffle(body.data.data, 24);
+                data.image = helper.arrayShuffle(body.data.data, 20);
                 return data;
             } else {
                 res.sendStatus(500);

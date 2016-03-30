@@ -119,14 +119,15 @@ router.get('/detail/:id', function(req, res, next){
     }
 
     obj.getInfo('cases', id, req).then(function(body){
+        console.log('cases-info',body.time);
         return body.data;
     }).then(function(data){
         // 相似案例
         data.xiangsi = [];
         return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:12}).then(function(body){
+            console.log('cases-xs',body.time);
             if(body.iRet === 1){
                 data.xiangsi = body.data;
-
             }
             return data;
         }, function(error){
@@ -138,6 +139,7 @@ router.get('/detail/:id', function(req, res, next){
 
         if(data.company_id != 1000){
             return obj.getList('cases', req, {'filter[company_id]': data.company_id,per_page:12}).then(function(body){
+                console.log('cases-company',body.time);
                 if(body.iRet === 1){
                     data.other = body.data.data;
                 }
