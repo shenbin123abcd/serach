@@ -4,10 +4,6 @@
 <!--<![endif]-->
 
 <!--[if lte IE 8]>
-<script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<script src="//cdn.bootcss.com/es5-shim/4.5.7/es5-sham.min.js"></script>
-<script src="//cdn.bootcss.com/json2/20150503/json2.min.js"></script>
 <script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
 <![endif]-->
 
@@ -44,5 +40,13 @@
 <script src="//cdn.bootcss.com/detectizr/2.2.0/detectizr.min.js"></script>
 
 
+<!--[if lte IE 9]>
 
+<![endif]-->
 
+<script>
+    $(function () {
+        "use strict";
+        app.ieUpdate();
+    })
+</script>

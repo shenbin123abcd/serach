@@ -198,7 +198,6 @@
 <%- include('Public/footer'); %>
 <%- include('Public/common_footer'); %>
 
-
 <script>
 
     $(function () {
@@ -206,6 +205,8 @@
         <%- 'window.appData ='+JSON.stringify(appData) %>;
 //        console.log(appData)
         app.getStaticData();
+
+
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();

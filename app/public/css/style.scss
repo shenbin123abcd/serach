@@ -134,7 +134,19 @@ body {
 .hb-page-content{
   min-height: 100%;
 }
+.ie-update{
+  &-close{
+    float: right;
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 15px;
+  background: rgb(255, 255, 160);
 
+}
 .col-lg-2-4{
   @include make-lg-column(2.4)
 }
@@ -1099,6 +1111,12 @@ body{
               @include media('<laptop'){
                 //margin-left: (40/2/1060)*100%;
               }
+              .pic-list-item-img{
+                height: 384px;
+                @include media('<laptop'){
+                  height: 294px;
+                }
+              }
             }
             .item-1,.item-2{
               //width: 400px;
@@ -1546,7 +1564,7 @@ body{
                     .content-item-text-desc{
                         .desc-list{
                           @include media('<laptop'){
-                            display: none;
+                            //display: none;
                           }
                             .desc-list-item{
                                 display: inline-block;
@@ -1569,7 +1587,7 @@ body{
                               .desc-list-item-num{
                                 display: inline-block;
                                 overflow: hidden;
-                                width: 32px;
+                                width: 29px;
                                 vertical-align: middle;
                                 line-height: 1;
                                 margin-left:3px;
@@ -3760,13 +3778,15 @@ body{
                     display: inline-block;
                     color:$topicMainColor;
                     border: 1px solid $topicMainColor;
-                  transition:  0.2s;
+                  transition:  0.4s;
 
                     position: relative;
 
                   &:hover{
-                    color:darken($topicMainColor,20%);
-                    border-color: darken($topicMainColor,20%);
+                    //color:darken($topicMainColor,20%);
+                    //border-color: darken($topicMainColor,20%);
+                    color: #ffffff;
+                    background: $topicMainColor;
                   }
                     span{
                     }
