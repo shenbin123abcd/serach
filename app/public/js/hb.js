@@ -465,6 +465,9 @@
          */
         var formatNumber = function(n) {
             var numberWithCommas,wanN;
+            if(!n){
+                return 0;
+            }
             if(n>9999){
                 wanN=n/10000
             }
