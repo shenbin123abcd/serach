@@ -844,6 +844,11 @@ body{
     .tab-item{
       display:inline-block;
       margin-left:80px;
+      &.r{
+        position: relative;
+        top:3px;
+        
+      }
       .item-img{
         /*margin-left: 5px;*/
       }
