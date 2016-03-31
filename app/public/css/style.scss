@@ -825,25 +825,30 @@ body{
   }
 }
 .search-nav-wrapper{
-  height: 76px;
+  height: 95px;
   z-index: 999;
   width: 100%;
   top: 0;
   left:0;
 }
 .search-nav-out{
-  height:76px;
+  height:95px;
 
 }
 .search-main-nav{
   background: #fff;
-  height:76px;
+  height:95px;
 
   .top-tab{
     padding:20px;
     .tab-item{
       display:inline-block;
       margin-left:80px;
+      &.r{
+        position: relative;
+        top:4px;
+        
+      }
       .item-img{
         /*margin-left: 5px;*/
       }
