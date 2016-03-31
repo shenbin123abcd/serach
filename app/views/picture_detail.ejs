@@ -111,11 +111,11 @@
                         <% for(var i=0;i<data.case.data.length;i+=2){  %>
                             <div class="case-item">
                                 <a href="/picture/detail/<%=data.case.data[i].id%>" class="case-pic">
-                                    <img src="<%=data.case.data[i].path%>" alt=""/>
+                                    <img src="<%=data.case.data[i].path%>" alt="" class="case-item-img"/>
                                 </a>
                                 <% if(i<data.case.data.length-1){ %>
                                 <a href="/picture/detail/<%=data.case.data[i+1].id%>" class="case-pic">
-                                    <img src="<%=data.case.data[i+1].path%>" alt=""/>
+                                    <img src="<%=data.case.data[i+1].path%>" alt="" class="case-item-img"/>
                                 </a>
                                 <%}%>
                             </div>
@@ -141,11 +141,11 @@
                         <% for(var i=0;i<data.xiangsi.length;i+=2){  %>
                             <div class="case-item">
                                 <a href="/picture/detail/<%=data.xiangsi[i].id%>" class="case-pic">
-                                    <img src="<%=data.xiangsi[i].path%>" alt=""/>
+                                    <img src="<%=data.xiangsi[i].path%>" alt="" class="case-item-img"/>
                                 </a>
                                 <% if(i<data.xiangsi.length-1){ %>
                                 <a href="/picture/detail/<%=data.xiangsi[i+1].id%>" class="case-pic">
-                                    <img src="<%=data.xiangsi[i+1].path%>" alt=""/>
+                                    <img src="<%=data.xiangsi[i+1].path%>" alt="" class="case-item-img"/>
                                 </a>
                                 <%}%>
                             </div>

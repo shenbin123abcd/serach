@@ -88,6 +88,15 @@ app.common=(function(){
             }
         })
     }
+    function navScroll(){
+        $(window).on("scroll", function() {
+            if ($(window).scrollTop() > 40) {
+                $("#search-main-nav").addClass("nav-fixed");
+            } else {
+                $("#search-main-nav").removeClass("nav-fixed");
+            }
+        });
+    }
     return {
         companyDesc:companyDesc,
         verticalMiddle:verticalMiddle,
@@ -96,5 +105,6 @@ app.common=(function(){
         omit:omit,
         resizeLogo:resizeLogo,
         sameHeight:sameHeight,
+        navScroll:navScroll,
     }
 }());

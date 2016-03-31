@@ -80,12 +80,12 @@
                         <li
                             class="<% if (data.activeTab=='element'){ %>active<%}%>"
                             >
-                            <a href="#tab1"  data-toggle="tab" class="category">元素</a>
+                            <a href="#tab1"  data-toggle="tab" class="category f-16">元素</a>
                         </li>
                         <li
                             class="<% if (data.activeTab=='classify'){ %>active<%}%>"
                             >
-                            <a href="#tab2" data-toggle="tab" class="category">分类</a>
+                            <a href="#tab2" data-toggle="tab" class="category f-16">分类</a>
                         </li>
                     </ul>
                 </div>
@@ -140,7 +140,7 @@
                 <div class="picture-list-block-item <% if(i%5==0){%>l-first<%} %>">
 
                         <a href="<%= data.baseUrl %>/detail/<%= item.id %>" class="block-content-item">
-                            <img src="<%= item.path %>" alt="<%= item.title %>">
+                            <img src="<%= item.path %>" alt="<%= item.title %>" class="picrure-img">
                             <div class="img-gradient-layer"></div>
                             <div class="content-item-text">
                                 <div class="content-item-text-desc">
