@@ -50,21 +50,28 @@ app.index=(function(){
         },
         indexInit:function(){
             var DIALOG=window.app.index.DIALOG;
-            var token=window.localStorage.getItem('token');
-            var user=JSON.parse(window.localStorage.getItem("user"));
+            var haloAuth=window.app.index.haloAuth();
+            var token=haloAuth.getToken();
+            var user=haloAuth.getUser();
+            //var token=window.localStorage.getItem('token');
+            //var user=JSON.parse(window.localStorage.getItem("user"));
             if(token){
-                $("#nav-login-btn").on("click",function(event){
-                    event.preventDefault();
-                    $("#nav-login-btn").attr("data-target","");
-                    DIALOG.error("你已经登入，不能重复登入");
-                })
-            }else{
-                $("#nav-login-btn").attr("data-target","#login-modal");
+                $("[nav-before-login]").hide();
+                $("[nav-after-login]").show();
+                $('#nav-login-btn-hidden').text(user.username);
             }
+
+            $("#nav-login-btn-logout").on('click',function(){
+                haloAuth.clear();
+                $("[nav-before-login]").show();
+                $("[nav-after-login]").hide();
+                $('#nav-login-btn-hidden').text('');
+            });
         },
         register:function(){
             var userService=window.app.index.userService();
             var DIALOG=window.app.index.DIALOG;
+
             $("#register_phone").on("input",function(){
                 var num = parseInt($(this).val().length);
                 if(num===11){
@@ -97,11 +104,13 @@ app.index=(function(){
                     success: function(data) {
                         hb.util.loading.hide();
                         if(data.iRet==1){
-                            $("#register-modal").attr("aria-hidden","true").css("display","none");
-                            $("#zc-modal").attr("aria-hidden","false").css({
-                                "display":"block",
-                                "opacity":1
-                            });
+                            /*$("#register-modal").attr("aria-hidden","true").css("display","none");
+                             $("#zc-modal").attr("aria-hidden","false").css({
+                             "display":"block",
+                             "opacity":1
+                             });*/
+                            $("#register-modal").modal('hide');
+                            $('#zc-modal').modal("show");
                         }else if(data.iRet==0){
                             DIALOG.error(data.info);
                             return false;
@@ -115,6 +124,7 @@ app.index=(function(){
             })
         },
         zcBtn:function(){
+            var haloAuth=window.app.index.haloAuth();
             var DIALOG=window.app.index.DIALOG;
             $("#zc_btn").on("click",function(event){
                 event.preventDefault();
@@ -125,7 +135,7 @@ app.index=(function(){
                     "company":$.trim($("#n_register_company").val()),
                     "city":$.trim($("#n_register_city").val()),
                     "wechat":$.trim($("#n_register_wechat").val()),
-                    "password":$.trim($("#n_register_password").val()),
+                    "password":$("#n_register_password").val(),
                     "invite_code":$.trim($("#n_register_invite_code").val()),
                 };
                 if(data.verify_code==""){
@@ -165,17 +175,23 @@ app.index=(function(){
                             DIALOG.success("您已注册成功！");
                             var token=data.data.token;
                             var user=data.data.user;
-                            window.localStorage.setItem("token",JSON.stringify(token));
-                            window.localStorage.setItem("user",JSON.stringify(user));
+                            //window.localStorage.setItem("token",JSON.stringify(token));
+                            //window.localStorage.setItem("user",JSON.stringify(user));
+                            haloAuth.setToken(token);
+                            haloAuth.setUser(user);
+
                             $("#zc-modal").attr("aria-hidden","true").css({
                                 "display":"none",
                                 "opacity":0
                             });
                             $("#zc-modal,#login-modal,#register-modal").modal('hide');
-                            $(".login-btn.login").text("欢迎你，"+data.data.user.username).attr("disabled","true").css("opacity","1");
-                            $(".login-btn.register").css("display","none");
-                            $("#drop_menu").css({"display":"none","cursor":"text"});
-                            $("#summit-drop>a").text(user.username);
+                            /*$(".login-btn.login").text("欢迎你，"+data.data.user.username).attr("disabled","true").css("opacity","1");
+                             $(".login-btn.register").css("display","none");
+                             $("#drop_menu").css({"display":"none","cursor":"text"});
+                             $("#summit-drop>a").text(user.username);*/
+                            $("[nav-before-login]").hide();
+                            $("[nav-after-login]").show();
+                            $('#nav-login-btn-hidden').text(user.username);
                         }else{
                             DIALOG.error(data.info);
                             hb.util.loading.hide();
@@ -214,7 +230,7 @@ app.index=(function(){
                 hb.util.loading.show();
                 userService.login({
                     phone: $.trim($("#login-username").val()),
-                    password:$.trim($("#login-password").val())
+                    password:$("#login-password").val()
                 }).then(function(res){
                     hb.util.loading.hide();
                     DIALOG.success(res.info);
@@ -222,16 +238,22 @@ app.index=(function(){
                     haloAuth.setUser(res.data.user);
                     $('#login-modal').modal('hide');
                     deferred.resolve('login success');
-                    //window.localStorage.getItem('token');
-                    $(".login-btn.login").text("欢迎你，"+res.data.user.username).attr("disabled","true").css("opacity","1");
-                    $(".btn.register").css("display","none");
-                    $("#drop_menu").css({"display":"none","cursor":"text"});
-                    $("#summit-drop>a").text(res.data.user.username);
-                    $("#nav-login-btn").on("click",function(event){
-                        event.preventDefault();
-                        $("#nav-login-btn").attr("data-target","");
-                        DIALOG.error("你已经登入，不能重复登入");
-                    })
+                    /*$(".login-btn.login").text("欢迎你，"+res.data.user.username).attr("disabled","true").css("opacity","1");
+                     $(".btn.register").css("display","none");
+                     $("#drop_menu").css({"display":"none","cursor":"text"});
+                     $("#summit-drop>a").text(res.data.user.username);
+                     $("#nav-login-btn").on("click",function(event){
+                     event.preventDefault();
+                     $("#nav-login-btn").attr("data-target","");
+                     DIALOG.error("你已经登入，不能重复登入");
+                     })*/
+                    var token=haloAuth.getToken();
+                    var user=haloAuth.getUser();
+                    //var token=window.localStorage.getItem('token');
+                    //var user=JSON.parse(window.localStorage.getItem("user"));
+                    $("[nav-before-login]").hide();
+                    $("[nav-after-login]").show();
+                    $('#nav-login-btn-hidden').text(user.username);
                 },function(res){
                     hb.util.loading.hide();
                     DIALOG.error(res);
@@ -254,16 +276,7 @@ app.index=(function(){
             )
         },
         loginInit:function(){
-            var token=window.localStorage.getItem('token');
-            var user=JSON.parse(window.localStorage.getItem("user"));
-            if(token){
-                $(".login-btn.login").text("欢迎你，"+user.username).attr("disabled","true").css("opacity","1");
-                $(".btn.register").css("display","none");
-                $("#drop_menu").css({"display":"none","cursor":"text"});
-                $("#summit-drop>a").text(user.username);
-            }else{
-                $(".login-btn.login").text("登录幻熊通行证");
-            }
+
         },
         userService:function(){
             var haloValidation=hb.validation;
@@ -322,28 +335,42 @@ app.index=(function(){
 
         },
         haloAuth:function(){
+            var domain=hb.location.url('domain');
+            //console.log(domain);
             var setUser=function(data){
-                window.localStorage.setItem('user', JSON.stringify(data));
+                //window.localStorage.setItem('user', JSON.stringify(data));
+                hb.Cookies.set('halo_user', data, { domain: domain, expires: 30 });
             };
             var getUser=function(){
-                return JSON.parse(window.localStorage.getItem('user'));
+                //return JSON.parse(window.localStorage.getItem('user'));
+                return hb.Cookies.getJSON('halo_user');
             };
 
             var setToken=function(data){
-                window.localStorage.setItem('token', JSON.stringify(data));
+
+                //window.localStorage.setItem('token', JSON.stringify(data));
+
+                hb.Cookies.set('halo_token', data, { domain: domain , expires: 30});
             };
             var getToken=function(){
-                return JSON.parse(window.localStorage.getItem('token'));
+
+                //return JSON.parse(window.localStorage.getItem('token'));
+                return hb.Cookies.getJSON('halo_token');
             };
             var removeToken=function(){
-                window.localStorage.removeItem('token');
+                //window.localStorage.removeItem('token');
+                hb.Cookies.remove('halo_token', { domain: domain }); // removed!
+
             };
             var removeUser=function(){
-                window.localStorage.removeItem('user');
+                //window.localStorage.removeItem('user');
+                hb.Cookies.remove('halo_user', { domain: domain }); // removed!
             };
             var _clear=function(){
-                window.localStorage.removeItem('user');
-                window.localStorage.removeItem('token');
+                //window.localStorage.removeItem('user');
+                //window.localStorage.removeItem('token');
+                removeToken();
+                removeUser();
             };
 
             return{
