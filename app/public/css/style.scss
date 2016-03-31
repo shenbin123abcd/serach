@@ -376,6 +376,20 @@ span.tt{float:none;}
 
 
 /* modal */
+#zc-modal {
+  background: #f5f5f5;
+  .zc-modal {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    .modal-content{
+      box-shadow: none;
+      border: 1px solid #fff;
+      border-radius: 0;
+    }
+  }
+}
+
 .modal-header.school-login{
   background-color: #5c90d2;
   padding: 15px 20px;
@@ -847,7 +861,7 @@ body{
       &.r{
         position: relative;
         top:3px;
-        
+
       }
       .item-img{
         /*margin-left: 5px;*/
