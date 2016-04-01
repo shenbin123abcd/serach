@@ -53,7 +53,8 @@ if (app.get('env') === 'development') {
         res.status(err.status || 500);
         switch (err.status){
             case 404:
-                res.render('404', {});
+                res.redirect('/');
+                //res.render('404', {});
                 break;
             default:
                 res.render('error', {
@@ -71,7 +72,8 @@ app.use(function(err, req, res, next){
 
     switch (err.status){
         case 404:
-            res.render('404', {});
+            res.redirect('/');
+            //res.render('404', {});
             break;
         default:
             res.render('error', {
