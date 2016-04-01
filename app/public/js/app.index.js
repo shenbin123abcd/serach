@@ -338,7 +338,13 @@ app.index=(function(){
         },
         haloAuth:function(){
             var domain=hb.location.url('domain');
-            //console.log(domain);
+            var hostname=hb.location.url('hostname');
+            if(hostname=='localhost'){
+                var domain='';
+            }else{
+                var domain=hb.location.url('domain')||'';
+            }
+            //console.log(domain,hostname);
             var setUser=function(data){
                 //window.localStorage.setItem('user', JSON.stringify(data));
                 hb.Cookies.set('halo_user', data, { domain: domain, expires: 30 });
