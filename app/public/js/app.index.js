@@ -59,6 +59,9 @@ app.index=(function(){
                 $("[nav-before-login]").hide();
                 $("[nav-after-login]").show();
                 $('#nav-login-btn-hidden').text(user.username);
+            }else{
+                $("[nav-before-login]").show();
+                $("[nav-after-login]").hide();
             }
 
             $("#nav-login-btn-logout").on('click',function(){

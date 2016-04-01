@@ -167,8 +167,14 @@ a{
   }
   &:focus{
     outline: none;
+    text-decoration: none;
+    form &a{
+      text-decoration: underline;
+    }
   }
+  &:active{
 
+  }
 }
 
 .img-gradient-layer{
