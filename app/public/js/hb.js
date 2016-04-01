@@ -1205,6 +1205,20 @@
         haloBear.validation.checkPhone=checkPhone;
     }(window, document));
 
+    (function(window, document,undefined){
+        "use strict";
+        var isEmpty=function(str){
+            if (/^\s*$/.test(str)) {
+                return true;
+            }else{
+                return false;
+            }
+        };
+        haloBear.validation.isEmpty=isEmpty;
+    }(window, document));
+
+
+
 
 
     /*

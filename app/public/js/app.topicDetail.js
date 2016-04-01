@@ -116,7 +116,7 @@ app.topicDetail = (function () {
                     //console.log( page);
                     var htmlStr = '';
                     res.data.forEach((n, i)=> {
-                        if(i<(page*perPage-1)&&i>((page-1)*perPage)-1){
+                        if(i<=(page*perPage-1)&&i>((page-1)*perPage)-1){
                             htmlStr += `
                             <div class="text-item-wrapper topic">
                                 <div class="commit-text-item clearfix">
