@@ -1900,7 +1900,6 @@ body{
 }
 .detail-nav-bg{
   background: #fff;
-
 }
 
 /*case index*/
@@ -2107,8 +2106,9 @@ body{
                         line-height: 60px;
                         a{
                           color:$mainTextColor;
-                          &:hover{
+                          &:hover,&.active{
                             color:#f3903e;
+
                           }
                         }
                     }
