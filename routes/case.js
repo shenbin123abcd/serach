@@ -161,9 +161,12 @@ router.get('/detail/:id', function(req, res, next){
                 return data;
             });
     }).then(function(data){
-
         data.baseUrl=req.baseUrl;
-        data.pageTitle = data.title+" - 案例详情 - 幻熊婚礼素材开放平台";
+        if(data.company.name){
+            data.pageTitle = data.title+' - '+ data.company.name+" - 案例详情 - 幻熊婚礼素材开放平台";
+        }else{
+            data.pageTitle = data.title+" - 案例详情 - 幻熊婚礼素材开放平台";
+        }
         data.cover = req.config.url.case + '/' + data.cover +"?imageView2/1/w/900/";
         data.attachArr=[];
         data.attach.forEach(function(n,i){

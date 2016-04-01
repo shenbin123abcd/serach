@@ -238,6 +238,7 @@ app.index=(function(){
                     DIALOG.success(res.info);
                     haloAuth.setToken(res.data.token);
                     haloAuth.setUser(res.data.user);
+                    console.log(res);
                     $('#login-modal').modal('hide');
                     deferred.resolve('login success');
                     /*$(".login-btn.login").text("欢迎你，"+res.data.user.username).attr("disabled","true").css("opacity","1");
@@ -251,11 +252,12 @@ app.index=(function(){
                      })*/
                     var token=haloAuth.getToken();
                     var user=haloAuth.getUser();
+
                     //var token=window.localStorage.getItem('token');
                     //var user=JSON.parse(window.localStorage.getItem("user"));
                     $("[nav-before-login]").hide();
                     $("[nav-after-login]").show();
-                    $('#nav-login-btn-hidden').text(user.username);
+                    $('#nav-login-btn-hidden').text(res.data.user.username);
                 },function(res){
                     hb.util.loading.hide();
                     DIALOG.error(res);
@@ -338,7 +340,7 @@ app.index=(function(){
         },
         haloAuth:function(){
             var domain=hb.location.url('domain');
-            //console.log(domain);
+            console.log(domain);
             var setUser=function(data){
                 //window.localStorage.setItem('user', JSON.stringify(data));
                 hb.Cookies.set('halo_user', data, { domain: domain, expires: 30 });
