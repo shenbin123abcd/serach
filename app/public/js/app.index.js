@@ -69,8 +69,15 @@ app.index=(function(){
             });
         },
         register:function(){
+
             var userService=window.app.index.userService();
             var DIALOG=window.app.index.DIALOG;
+            $('#register-modal').on('show.bs.modal', function(){
+                $('#register-modal').off('hidden.bs.modal',afterGetRegCode)
+            });
+            function afterGetRegCode(){
+                $('#zc-modal').modal("show");
+            }
 
             $("#register_phone").on("input",function(){
                 var num = parseInt($(this).val().length);
@@ -104,13 +111,8 @@ app.index=(function(){
                     success: function(data) {
                         hb.util.loading.hide();
                         if(data.iRet==1){
-                            /*$("#register-modal").attr("aria-hidden","true").css("display","none");
-                             $("#zc-modal").attr("aria-hidden","false").css({
-                             "display":"block",
-                             "opacity":1
-                             });*/
+                            $('#register-modal').on('hidden.bs.modal', afterGetRegCode);
                             $("#register-modal").modal('hide');
-                            $('#zc-modal').modal("show");
                         }else if(data.iRet==0){
                             DIALOG.error(data.info);
                             return false;
