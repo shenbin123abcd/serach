@@ -202,6 +202,9 @@ app.service.picture=(function(){
                 case !data.content:
                     deferred.reject('请输入评论内容');
                     break;
+                case hb.validation.isEmpty(data.content):
+                    deferred.reject('请输入具体评论内容');
+                    break;
                 default:
                     sendXhr();
             }
@@ -400,6 +403,9 @@ app.service.case=(function(){
                 case !data.content:
                     deferred.reject('请输入评论内容');
                     break;
+                case hb.validation.isEmpty(data.content):
+                    deferred.reject('请输入具体评论内容');
+                    break;
                 default:
                     sendXhr();
             }
@@ -591,6 +597,9 @@ app.service.topic=(function(){
             switch (true){
                 case !data.content:
                     deferred.reject('请输入评论内容');
+                    break;
+                case hb.validation.isEmpty(data.content):
+                    deferred.reject('请输入具体评论内容');
                     break;
                 default:
                     sendXhr();
