@@ -170,7 +170,7 @@ helper.hexToRgb = function(hex, isString, isReverse){
 
 helper.viewNumber=function(n){
     if(n>9999){
-        return n/1000+'k';
+        return (n/1000).toString().split(".")[0]+'k';
     }else{
         return n;
     }
