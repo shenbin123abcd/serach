@@ -25,7 +25,7 @@
                     </div>
                     <div class="company-w">
                         <%if(data.weibo_name){%>
-                        <span class="weibo f-14"><img src="/images/weibo.png" alt="" class="img"><%= data.weibo_name %></span>
+                        <span class="weibo f-14"><a href="http://<%= data.weibo_site%>" target="_blank"><img src="/images/weibo.png" alt="" class="img"><%= data.weibo_name %></a></span>
                         <%}%>
                         <%if(data.wechat){%>
                         <span class="weixin f-14"><img src="/images/weixin.png" alt="" class="img"><%= data.wechat %></span>

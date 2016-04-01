@@ -1122,10 +1122,12 @@ body{
                     text-align: center;
                     color:#b5b5b5;
                     font-size: 18px;
-                  border: none;
-                  background-color: transparent;
+                    border: none;
+                    background-color: transparent;
                     border-top-right-radius: 4px;
                     border-bottom-right-radius: 4px;
+                    outline:none;
+
                     &:hover{
                         background:#f5f5f5;
                         color:#fd5ab0;
@@ -1198,7 +1200,7 @@ body{
                   //height: 291px;
                 }
                 .text-bottom-desc{
-                  display: none;
+
                 }
               }
 
@@ -1222,9 +1224,9 @@ body{
                 }
               }
               .text-bottom-desc{
-                @include media('<laptop'){
+                /*@include media('<laptop'){
                   display: none;
-                }
+                }*/
               }
               @include media('<laptop'){
                 width: ((1000-$gap*4)/5/1000)*100%;
@@ -1423,7 +1425,10 @@ body{
                                     vertical-align: middle;
                                     line-height: 1;
                                     margin-left:5px;
+                                    @include media("<laptop"){
+                                      margin-left:0;
 
+                                    }
                                   }
                                 }
                             }
@@ -1827,7 +1832,7 @@ body{
                   background-color: transparent;
 
                   @include media('<laptop'){
-                    display: none;
+                    /*display: none;*/
                   }
 
                   .bg{
@@ -1870,6 +1875,9 @@ body{
                         vertical-align: middle;
                         line-height: 1;
                         margin-left:3px;
+                        @include media('<laptop'){
+                          margin-left:0;
+                        }
                       }
                     }
 
@@ -1904,7 +1912,6 @@ body{
 
 /*case index*/
 .halo-search.case{
-
     .search-box-input{
         .search_input{
             .search_wrapper{
@@ -2234,7 +2241,6 @@ body{
                               width: 32px;
                               vertical-align: middle;
                               line-height: 1;
-                              margin-left: 3px;
                             }
                         }
                     }
@@ -2545,6 +2551,8 @@ body{
                                     border-radius:4px ;
                                     display:inline-block;
                                     float:none;
+                                    outline: none;
+
                                 }
                             }
 
@@ -3506,7 +3514,7 @@ body{
                     padding: 0px;
                     background-color: transparent;
                     @include media('<laptop'){
-                      display: none;
+                      /*display: none;*/
                     }
 
                     .bg{
@@ -3540,7 +3548,6 @@ body{
                         .haloIcon-heart2{
                           position: relative;
                           top: 1px;
-
                         }
                         .desc-list-item-num{
                           font-size: 12px;
@@ -3550,6 +3557,11 @@ body{
                           vertical-align: middle;
                           line-height: 1;
                           margin-left:3px;
+                          @include media("<laptop"){
+                            margin-left:0;
+                            width:38px;
+
+                          }
                         }
                       }
 
@@ -3974,6 +3986,8 @@ body{
               border-radius:4px ;
               display:inline-block;
               float:none;
+              outline: none;
+
             }
           }
 
