@@ -708,11 +708,17 @@ span.tt{float:none;}
     margin-top:80px;
     a.s{
       margin-left: 18px;
+      &:hover{
+        text-decoration: underline;
+      }
     }
     .a-style{
       color:#666666;
-
+      &:hover{
+        text-decoration: underline;
+      }
     }
+
     i.i{
       margin: 0 15px;
     }
@@ -882,13 +888,16 @@ body{
         &:hover{
           color: $mainColor;
 
-          .halo-search.case &{
+          .halo-search.case &,
+          .halo-search.caseDetail &{
             color: $caseMainColor;
           }
-          .halo-search.picture &{
+          .halo-search.picture &,
+          .halo-search.pictureDetail &{
             color: $pictureMainColor;
           }
-          .halo-search.company &{
+          .halo-search.company &,
+          .halo-search.companyDetail &{
             color: $companyMainColor;
           }
 
@@ -1891,7 +1900,6 @@ body{
 }
 .detail-nav-bg{
   background: #fff;
-
 }
 
 /*case index*/
@@ -2098,8 +2106,9 @@ body{
                         line-height: 60px;
                         a{
                           color:$mainTextColor;
-                          &:hover{
+                          &:hover,&.active{
                             color:#f3903e;
+
                           }
                         }
                     }
