@@ -138,9 +138,9 @@
                             <a href="company/detail/<%=data.caseList[i].company_id  %>"><p class="f-12 s-title"><%= data.caseList[i].company||'不明' %></p></a>
                             <div class="content-item-text-desc">
                                 <ul class="desc-list">
-                                    <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= data.caseList[i].views %></span></li>
-                                    <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= data.caseList[i].points %></span></li>
-                                    <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= data.caseList[i].comments %></span></li>
+                                    <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%= viewNumber(data.caseList[i].views) %></span></li>
+                                    <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%= viewNumber(data.caseList[i].points) %></span></li>
+                                    <li class="desc-list-item f-12 desc-list-special"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%= viewNumber(data.caseList[i].comments) %></span></li>
                                 </ul>
                             </div>
                         </div>
