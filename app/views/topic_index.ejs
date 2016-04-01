@@ -53,16 +53,16 @@
                  <% data.data.forEach(function(item){ %>
                  <div class="list-content-item">
                      <div class="item-pic">
-                         <a href="topic/detail/<%=item.id%>"><img src="<%=item.default_image%>" alt=""></a>
+                         <a href="topic/detail/<%=item.id%>"><img data-original="<%=item.default_image%>" class="lazy" alt=""></a>
                      </div>
                      <div class="item-text">
                          <h4 class="f-18"><a href="topic/detail/<%=item.id%>"><%=item.title%></a></h4>
                          <p class="item-text-p f-14"><%=item.description%></p>
                          <div class="title-desc-icon inline-style">
                              <ul class="desc-list">
-                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-eye"><span class="desc-list-item-num"><%=item.views%></span></li>
-                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-heart2"><span class="desc-list-item-num"><%=item.points%></span></li>
-                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-message"><span class="desc-list-item-num"><%=item.comments%></span></li>
+                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%=item.views%></span></li>
+                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%=item.points%></span></li>
+                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%=item.comments%></span></li>
                              </ul>
                          </div>
                      </div>
@@ -71,25 +71,6 @@
 
 
 
-                 <!--<div class="list-content-item">-->
-                     <!--<div class="item-pic">-->
-                         <!--<img src="/images/img9.jpg" alt="">-->
-                     <!--</div>-->
-                     <!--<div class="item-text">-->
-                         <!--<h4 class="f-22">梦回民国</h4>-->
-                         <!--<p class="item-text-p">国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国-->
-                             <!--国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国-->
-                             <!--国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国-->
-                             <!--国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国梦回民国</p>-->
-                         <!--<div class="title-desc-icon inline-style">-->
-                             <!--<ul class="desc-list">-->
-                                 <!--<li class="desc-list-item f-12"><span class="glyphicon glyphicon-eye-open"></span><span class="desc-list-item-num">2850</span></li>-->
-                                 <!--<li class="desc-list-item f-12"><span class="glyphicon glyphicon-comment"></span><span class="desc-list-item-num">2850</span></li>-->
-                                 <!--<li class="desc-list-item f-12"><span class="glyphicon glyphicon-heart-empty"></span><span class="desc-list-item-num">2850</span></li>-->
-                             <!--</ul>-->
-                         <!--</div>-->
-                     <!--</div>-->
-                 <!--</div>-->
              </div>
          </div>
     </div>

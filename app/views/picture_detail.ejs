@@ -49,7 +49,7 @@
                 <div class="detail-content-commit clearfix">
                     <form id="commit-form">
                         <div class="textarea-wrapper">
-                            <textarea id="commit-form-content" class="f-14" rows="6"></textarea>
+                            <textarea id="commit-form-content" class="f-14" rows="7"></textarea>
                             <p class="f-14">还可以输入<span class="num">500</span>个字</p>
                         </div>
                         <div class="btn-group">
@@ -75,7 +75,7 @@
                 <div class="case-detail-list">
                     <a class="detail-list-company picture" href="/company/detail/<%=data.company.id%>">
                         <div class="company-img">
-                            <img class="img" src="<%=data.company.logo%>" alt=""/>
+                            <img class="img lazy" data-original="<%=data.company.logo%>" alt=""/>
                         </div>
                         <div class="company-desc">
                             <div class="f-14 name">
@@ -111,11 +111,11 @@
                         <% for(var i=0;i<data.case.data.length;i+=2){  %>
                             <div class="case-item">
                                 <a href="/picture/detail/<%=data.case.data[i].id%>" class="case-pic">
-                                    <img src="<%=data.case.data[i].path%>" alt="" class="case-item-img"/>
+                                    <img data-original="<%=data.case.data[i].path%>" alt="" class="case-item-img lazy"/>
                                 </a>
                                 <% if(i<data.case.data.length-1){ %>
                                 <a href="/picture/detail/<%=data.case.data[i+1].id%>" class="case-pic">
-                                    <img src="<%=data.case.data[i+1].path%>" alt="" class="case-item-img"/>
+                                    <img data-original="<%=data.case.data[i+1].path%>" alt="" class="case-item-img lazy"/>
                                 </a>
                                 <%}%>
                             </div>
@@ -141,11 +141,11 @@
                         <% for(var i=0;i<data.xiangsi.length;i+=2){  %>
                             <div class="case-item">
                                 <a href="/picture/detail/<%=data.xiangsi[i].id%>" class="case-pic">
-                                    <img src="<%=data.xiangsi[i].path%>" alt="" class="case-item-img"/>
+                                    <img data-original="<%=data.xiangsi[i].path%>" alt="" class="case-item-img lazy"/>
                                 </a>
                                 <% if(i<data.xiangsi.length-1){ %>
                                 <a href="/picture/detail/<%=data.xiangsi[i+1].id%>" class="case-pic">
-                                    <img src="<%=data.xiangsi[i+1].path%>" alt="" class="case-item-img"/>
+                                    <img data-original="<%=data.xiangsi[i+1].path%>" alt="" class="case-item-img lazy"/>
                                 </a>
                                 <%}%>
                             </div>

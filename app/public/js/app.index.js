@@ -17,9 +17,9 @@ app.index=(function(){
     return {
         lazy: function() {
             $("img.lazy").lazyload({
-                placeholder: "/images/1px.png",
+                placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC",
                 effect: "fadeIn",
-                threshold: 180,
+                threshold: 200,
             });
         },
         nav: function() {
@@ -59,6 +59,9 @@ app.index=(function(){
                 $("[nav-before-login]").hide();
                 $("[nav-after-login]").show();
                 $('#nav-login-btn-hidden').text(user.username);
+            }else{
+                $("[nav-before-login]").show();
+                $("[nav-after-login]").hide();
             }
 
             $("#nav-login-btn-logout").on('click',function(){
@@ -69,8 +72,15 @@ app.index=(function(){
             });
         },
         register:function(){
+
             var userService=window.app.index.userService();
             var DIALOG=window.app.index.DIALOG;
+            $('#register-modal').on('show.bs.modal', function(){
+                $('#register-modal').off('hidden.bs.modal',afterGetRegCode)
+            });
+            function afterGetRegCode(){
+                $('#zc-modal').modal("show");
+            }
 
             $("#register_phone").on("input",function(){
                 var num = parseInt($(this).val().length);
@@ -104,13 +114,8 @@ app.index=(function(){
                     success: function(data) {
                         hb.util.loading.hide();
                         if(data.iRet==1){
-                            /*$("#register-modal").attr("aria-hidden","true").css("display","none");
-                             $("#zc-modal").attr("aria-hidden","false").css({
-                             "display":"block",
-                             "opacity":1
-                             });*/
+                            $('#register-modal').on('hidden.bs.modal', afterGetRegCode);
                             $("#register-modal").modal('hide');
-                            $('#zc-modal').modal("show");
                         }else if(data.iRet==0){
                             DIALOG.error(data.info);
                             return false;
@@ -236,6 +241,7 @@ app.index=(function(){
                     DIALOG.success(res.info);
                     haloAuth.setToken(res.data.token);
                     haloAuth.setUser(res.data.user);
+                    console.log(res);
                     $('#login-modal').modal('hide');
                     deferred.resolve('login success');
                     /*$(".login-btn.login").text("欢迎你，"+res.data.user.username).attr("disabled","true").css("opacity","1");
@@ -249,11 +255,12 @@ app.index=(function(){
                      })*/
                     var token=haloAuth.getToken();
                     var user=haloAuth.getUser();
+
                     //var token=window.localStorage.getItem('token');
                     //var user=JSON.parse(window.localStorage.getItem("user"));
                     $("[nav-before-login]").hide();
                     $("[nav-after-login]").show();
-                    $('#nav-login-btn-hidden').text(user.username);
+                    $('#nav-login-btn-hidden').text(res.data.user.username);
                 },function(res){
                     hb.util.loading.hide();
                     DIALOG.error(res);
@@ -336,7 +343,13 @@ app.index=(function(){
         },
         haloAuth:function(){
             var domain=hb.location.url('domain');
-            //console.log(domain);
+            var hostname=hb.location.url('hostname');
+            if(hostname=='localhost'){
+                var domain='';
+            }else{
+                var domain=hb.location.url('domain')||'';
+            }
+            //console.log(domain,hostname);
             var setUser=function(data){
                 //window.localStorage.setItem('user', JSON.stringify(data));
                 hb.Cookies.set('halo_user', data, { domain: domain, expires: 30 });

@@ -25,7 +25,7 @@
                     </div>
                     <div class="company-w">
                         <%if(data.weibo_name){%>
-                        <span class="weibo f-14"><a href="http://<%= data.weibo_site%>" target="_blank"><img src="/images/weibo.png" alt="" class="img"><%= data.weibo_name %></a></span>
+                        <span class="weibo f-14"><a href="http://<%= data.weibo_site%>" target="_blank"><img data-original="/images/weibo.png" alt="" class="img lazy"><%= data.weibo_name %></a></span>
                         <%}%>
                         <%if(data.wechat){%>
                         <span class="weixin f-14"><img src="/images/weixin.png" alt="" class="img"><%= data.wechat %></span>
@@ -61,7 +61,7 @@
             <div class="company-list clearfix">
                 <% data.caseList.forEach(function(n, i){ %>
                 <div class="company-list-item <% if(i%4==0){%>l-first<%} %>">
-                        <a href="/case/detail/<%= n.id %>" class="company-detail-item"><img src="<%= n.cover %>" alt="" class="clearfix img "></a>
+                        <a href="/case/detail/<%= n.id %>" class="company-detail-item"><img data-original="<%= n.cover %>" alt="" class="clearfix img lazy"></a>
                         <div class="content-item-text">
                             <div class="content-item-text-desc">
                                 <a href="/case/detail/<%= n.id %>"><p class="f-14 p-title"><%= n.title %></p></a>
