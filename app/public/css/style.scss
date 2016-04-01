@@ -882,13 +882,16 @@ body{
         &:hover{
           color: $mainColor;
 
-          .halo-search.case &{
+          .halo-search.case &,
+          .halo-search.caseDetail &{
             color: $caseMainColor;
           }
-          .halo-search.picture &{
+          .halo-search.picture &,
+          .halo-search.pictureDetail &{
             color: $pictureMainColor;
           }
-          .halo-search.company &{
+          .halo-search.company &,
+          .halo-search.companyDetail &{
             color: $companyMainColor;
           }
 
