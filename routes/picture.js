@@ -4,6 +4,7 @@ var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
 var _ = require('lodash/collection');
+var Promise = require('bluebird');
 
 
 // 首页，列表，搜索
@@ -116,7 +117,98 @@ router.get('/detail/:id', function (req, res, next) {
         return;
     }
     var start = new Date().getTime();
-    obj.getInfo('picture/tag', id, req).then(function (body) {
+
+    function getInfo(){
+        return obj.getInfo('picture/tag', id, req).then(function (body) {
+            console.log(1);
+            return body.data;
+        }).catch(function(){
+            if(error.iRet == 0){
+                res.status(404);
+            }else{
+                res.status(500);
+            }
+            next();
+        });
+    }
+
+    function xiangsi(){
+        return obj.getList('picture/xiangsi', req, {picture_id: id, per_page: 12}).then(function (body) {
+            console.log(2);
+            var data = [];
+            if (body.iRet === 1) {
+                data = body.data;
+            }
+            return data;
+        });
+    }
+
+    function other(){
+        return obj.getList('picture/byCase', req, {'picture_id': id, per_page: 12}).then(function (body) {
+            console.log(3);
+            var data = [];
+            if (body.iRet === 1) {
+                data = body.data;
+            }
+            return data;
+        });
+    }
+
+    function company(){
+        return obj.get('company/byImage', req, {'picture_id': id}).then(function (body) {
+            console.log(4);
+            var data = [];
+            if (body.iRet === 1) {
+                data = body.data;
+            }
+            return data;
+        });
+    }
+
+    Promise.all([getInfo(), xiangsi(), other(), company()]).then(function(result){
+        console.log('pic-info', new Date().getTime() - start);
+        var data = result[0];
+
+        data.xiangsi = result[1];
+        data.case = result[2];
+        data.company = result[3];
+
+        data.baseUrl = req.baseUrl;
+        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        data.query = req.query;
+
+        var urlObj = url.parse(data.absUrl);
+        data.route = urlObj.pathname.replace(req.baseUrl, '');
+
+
+        data.pageTitle = `热门图片 - ${data.tag} - 幻熊婚礼素材开放平台`;
+        data.path = `${req.config.url.case}/${data.path}?imageView2/2/w/902/`;
+        if (data.company.id) {
+            data.company.logo = `${req.config.url.case}/${data.company.logo}?imageView2/1/w/160/h/120`;
+        }
+
+        data.colorArr = data.other_color ? data.other_color.split(',') : [];
+
+        data.tagArr = data.tag ? data.tag.split(',') : [];
+
+
+        data.case.forEach((n, i)=> {
+            n.path = `${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
+        });
+        data.xiangsi.forEach((n, i)=> {
+            n.path = `${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
+        });
+
+        var appData = {
+            id: data.id,
+            query: data.query,
+        };
+
+
+        res.render('picture_detail', {data: data,appData:appData});
+    });
+
+    /*obj.getInfo('picture/tag', id, req).then(function (body) {
         console.log('pic-info',body.time, new Date().getTime() - start);
         return body.data;
     }).then(function (data) {
@@ -203,7 +295,7 @@ router.get('/detail/:id', function (req, res, next) {
             res.status(500);
         }
         next();
-    });
+    });*/
 });
 
 // 新增评论
