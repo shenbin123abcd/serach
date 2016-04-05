@@ -16,9 +16,11 @@ app.index=(function(){
 
     return {
         lazy: function() {
+            //console.log($("img.lazy"))
             $("img.lazy").lazyload({
                 placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC",
                 effect: "fadeIn",
+                failure_limit : 100,
                 threshold: 200,
             });
         },
