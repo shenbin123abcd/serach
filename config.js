@@ -28,6 +28,7 @@ config.route = function(app){
     app.use('/company', require('./routes/company'));
     app.use('/picture', require('./routes/picture'));
     app.use('/topic', require('./routes/topic'));
+    app.use('/hotel', require('./routes/hotel'));
     app.use('/api', require('./routes/api'));
 };
 

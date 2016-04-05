@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="html-case-detail">
+<head>
+    <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
+    <%- include('Public/common_header_end'); %>
+</head>
+<body>
+<%- include('Public/header'); %>
+<div class="halo-search caseDetail hotelDetail">
+    <div  class="detail-nav-bg">
+        <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
+    </div>
+    <div class="case-detail-block">
+        <div class="s-container clearfix">
+            <div class="wrapper clearfix">
+                <div class="content-left-box detail-content-wrapper">
+                    <div class="detail-hotel-content">
+                        <div class="hotel-content-name">
+                            <i class="line">——————</i><span class="f-20 name"> 千禧海鸥大酒店 · 外景 </span><i class="line">——————</i>
+                        </div>
+                        <div class="detail-hotel-swiper">
+                            <div class="swiper-container gallery-top" id="gallery-top1">
+                                <a class="swiper-tip">
+                                    <span class="span-style f-14">酒店外景</span>
+                                    <span class="span-style f-14">720度全景</span>
+                                </a>
+                                <div class="swiper-wrapper">
+                                    <% for(var i=0;i<10;i++){%>
+                                    <div class="swiper-slide">
+                                        <img src="/images/img16.jpg" alt="">
+                                    </div>
+                                    <%}%>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next swiper-button-white"></div>
+                                <div class="swiper-button-prev swiper-button-white"></div>
+                            </div>
+                            <div class="swiper-container gallery-thumbs" id="gallery-thumbs1">
+                                <div class="swiper-wrapper">
+                                    <% for(var i=0;i<10;i++){%>
+                                    <div class="swiper-slide">
+                                        <img src="/images/img16.jpg" alt="" class="img">
+                                    </div>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-hotel-content">
+                        <div class="hotel-content-name">
+                            <i class="line">——————</i><span class="f-20 name"> 兴荣宴会厅 · 5F </span><i class="line">——————</i>
+                        </div>
+                        <div class="detail-hotel-swiper">
+                            <div class="swiper-container gallery-top" id="gallery-top2">
+                                <a class="swiper-tip">
+                                    <span class="span-style f-14">兴荣宴会厅</span>
+                                    <span class="span-style f-14">720度全景</span>
+                                </a>
+                                <div class="swiper-wrapper">
+                                    <% for(var i=0;i<10;i++){%>
+                                    <div class="swiper-slide">
+                                        <img src="/images/img16.jpg" alt="">
+                                    </div>
+                                    <%}%>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next swiper-button-white"></div>
+                                <div class="swiper-button-prev swiper-button-white"></div>
+                            </div>
+                            <div class="swiper-container gallery-thumbs" id="gallery-thumbs2">
+                                <div class="swiper-wrapper">
+                                    <% for(var i=0;i<10;i++){%>
+                                    <div class="swiper-slide">
+                                        <img src="/images/img16.jpg" alt="" class="img">
+                                    </div>
+                                    <%}%>
+                                </div>
+                            </div>
+                            <div class="hotel-info">
+                                <table class="table table-responsive">
+                                    <tbody>
+                                        <tr class="f-16 tr">
+                                            <td>面积：<span class="style">840平</span></td>
+                                            <td>层高：<span class="style">6.7m</span></td>
+                                            <td>形状：<span class="style">长方形</span></td>
+                                        </tr>
+                                        <tr class="f-16 tr">
+                                            <td>特色：<span class="style">中式</span></td>
+                                            <td>柱子：<span class="style">无</span></td>
+                                            <td>桌数：<span class="style">40桌</span></td>
+                                        </tr>
+                                        <tr class="f-16 tr">
+                                            <td>投影设备：<span class="style">音响 LED屏</span></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right-box">
+                    <div class="hotel-detail-list">
+                        <div class="detail-list-company hotel">
+                            <div class="company-img">
+                                <img class="img" src="/images/img16.jpg" alt=""/>
+                            </div>
+                            <div class="company-desc">
+                                <div class="f-16 name">
+                                    千禧海鸥大酒店
+                                </div>
+                                <div class="f-16 address">
+                                    上海市长宁区延安西路2588号
+                                </div>
+                                <div class="f-16 phone">
+                                    4000-699-500
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-like-case hotelDetail room">
+                        <h4 class="f-14">全部宴会厅</h4>
+                        <div class="other-case-block">
+                            <% for(var i=0;i<5;i++){  %>
+                            <div class="case-item">
+                                <div class="case-pic">
+                                    <div class="case-pic-img">
+                                        <a href="/case/detail/" class="case-pic-a"><img src="/images/img16.jpg" alt="" class="img"/></a>
+                                    </div>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/" class="case-pic-a f-14">花月厅</a>
+                                        <span class="f-12">最大容纳40桌</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}%>
+                        </div>
+                    </div>
+                    <div class="other-like-case hotelDetail case">
+                        <h4 class="f-14">宴会厅真实婚礼</h4>
+                        <div class="other-case-block">
+                            <% for(var i=0;i<10;i+=2){  %>
+                            <div class="case-item">
+                                <div class="case-pic">
+                                    <a href="/case/detail/" class="case-pic-a"><img src="/images/img16.jpg" alt="" class="case-pic-img lazy"/></a>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/" class="case-pic-a f-14">十一</a>
+                                    </div>
+                                </div>
+                                <div class="case-pic">
+                                    <a href="/case/detail/" class="case-pic-a"><img src="/images/img16.jpg" alt="" class="case-pic-img lazy"/></a>
+                                    <div class="case-pic-desc">
+                                        <a href="/case/detail/" class="case-pic-a f-14">十一</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('Public/ModalDialog'); %>
+<%- include('Public/footer'); %>
+<%- include('Public/common_footer'); %>
+<script>
+    $(function(){
+        "use strict";
+
+        app.index.nav();
+
+        app.index.indexInit();
+        app.index.register();
+        app.index.zcBtn();
+        app.index.uiForms();
+        app.index.login();
+        app.index.summitHover();
+        app.index.loginInit();
+
+        app.hotelDetail.swiper("#gallery-top1","#gallery-thumbs1");
+        app.hotelDetail.swiper("#gallery-top2","#gallery-thumbs2");
+    })
+
+
+</script>
+</body>
+</html>
+
+
