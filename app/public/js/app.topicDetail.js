@@ -57,7 +57,7 @@ app.topicDetail = (function () {
     }
 
     function comment() {
-        $('#commit-form').on('submit', function () {
+        $('#commit-form').on('submit', function (event) {
             event.preventDefault();
             hb.util.loading.show();
             app.service.topic.comment({
