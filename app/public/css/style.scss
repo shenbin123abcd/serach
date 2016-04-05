@@ -2640,11 +2640,19 @@ body{
                   }
 
                   .company-img{
-                    width: 1px;
                     vertical-align: middle;
                     display: table-cell;
+                    width: 160px;
+                    height:120px;
+                    @include media('<laptop'){
+                      width:145px;
+                      height:108px;
+                      
+                    }
                       .img{
                         vertical-align: middle;
+                        max-width: 100%;
+
                       }
                   }
                   .company-desc{
