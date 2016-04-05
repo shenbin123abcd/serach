@@ -283,7 +283,22 @@ a{
 .newIndex .logo a {margin-top: -2px;}
 .newIndex .logo img {line-height: 44px;height: 44px;width: auto;vertical-align: middle;}
 .newIndex-nav > ul > li {line-height: 0;padding: 0;/*margin: 0 30px;*/}
-.newIndex-nav > ul > li > a{vertical-align: middle;height: 40px;line-height: 40px;padding: 0;font-size: 12px;transition-property: color;color:#949494;&:hover{color:#fff;}}
+.newIndex-nav > ul > li > {
+  a,.link{
+    vertical-align: middle;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    font-size: 12px;
+    transition-property: color;
+    color:#949494;
+    border: none;
+    background-color: transparent;
+    &:hover{
+      color:#fff;
+    }
+  }
+}
 
 
 ul.nav-dropdown-menu{top: 40px;}

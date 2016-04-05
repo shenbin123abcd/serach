@@ -47,7 +47,7 @@
                     <div class="detail-content-article">
                         <div class="content-pic-box">
                             <% data.attachArr.forEach(function(n,i){%>
-                                <img src="<%= n %>">
+                                <img class="lazy" data-original="<%= n %>">
                             <%})%>
                         </div>
                         <div class="content-desc-box">
@@ -98,7 +98,7 @@
                         <div class="case-detail-list">
                             <a class="detail-list-company case" href="/company/detail/<%=data.company.id%>">
                                 <div class="company-img">
-                                    <img class="img" src="<%= data.company.logo %>" alt=""/>
+                                    <img class="img lazy" data-original="<%= data.company.logo %>" alt=""/>
                                 </div>
                                 <div class="company-desc">
                                     <div class="f-14 name">
@@ -133,14 +133,14 @@
                             <% for(var i=0;i<data.xiangsiImg.length;i+=2){  %>
                             <div class="case-item">
                                 <div class="case-pic">
-                                    <a href="/case/detail/<%=data.xiangsi[i].id%>" class="case-pic-a"><img src="<%=data.xiangsiImg[i]%>" alt="" class="case-pic-img"/></a>
+                                    <a href="/case/detail/<%=data.xiangsi[i].id%>" class="case-pic-a"><img data-original="<%=data.xiangsiImg[i]%>" alt="" class="case-pic-img lazy"/></a>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/<%= data.xiangsi[i].id %>" class="case-pic-a f-14"><%= data.xiangsi[i].title %></a>
                                     </div>
                                 </div>
                                 <% if(i<data.xiangsiImg.length-1){ %>
                                 <div class="case-pic">
-                                    <a href="/case/detail/<%=data.xiangsi[i+1].id%>" class="case-pic-a"><img src="<%=data.xiangsiImg[i+1]%>" alt="" class="case-pic-img"/></a>
+                                    <a href="/case/detail/<%=data.xiangsi[i+1].id%>" class="case-pic-a"><img data-original="<%=data.xiangsiImg[i+1]%>" alt="" class="case-pic-img lazy"/></a>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/<%= data.xiangsi[i+1].id %>" class="case-pic-a f-14"><%= data.xiangsi[i+1].title %></a>
                                     </div>

@@ -141,7 +141,7 @@
                 <div class="picture-list-block-item <% if(i%5==0){%>l-first<%} %>">
 
                         <a href="<%= data.baseUrl %>/detail/<%= item.id %>" class="block-content-item">
-                            <img src="<%= item.path %>" alt="<%= item.title %>" class="picrure-img">
+                            <img data-original="<%= item.path %>" alt="<%= item.title %>" class="picrure-img lazy">
                             <div class="img-gradient-layer"></div>
                             <div class="content-item-text">
                                 <div class="content-item-text-desc">

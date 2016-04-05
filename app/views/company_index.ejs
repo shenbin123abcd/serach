@@ -108,7 +108,7 @@
                 <div class="company-list-item <% if(i%6==0){%>l-first<%} %>">
                     <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
                         <div class="img-box">
-                            <img src="<%= n.logo %>" alt="" class="company-img">
+                            <img data-original="<%= n.logo %>" alt="" class="company-img lazy">
                         </div>
                         <div class="content-item-text">
                             <h4 class="f-14"><%= n.name %></h4>

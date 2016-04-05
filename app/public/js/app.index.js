@@ -17,9 +17,9 @@ app.index=(function(){
     return {
         lazy: function() {
             $("img.lazy").lazyload({
-                placeholder: "/images/1px.png",
+                placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC",
                 effect: "fadeIn",
-                threshold: 180,
+                threshold: 200,
             });
         },
         nav: function() {

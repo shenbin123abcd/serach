@@ -95,7 +95,8 @@
                                 </div>
                                 <div class="item item-2 inner-father-height">
                                     <div class="pic-list-item special">
-                                        <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style"><img
+                                        <a href="/case/detail/<%= data.case_new[1].id %>" class="a-style">
+                                            <img
                                                     src="<%= data.case_new[1].cover %>" alt=""
                                                     class="pic-list-item-img"></a>
                                         <% if( data.case_new[1].company){ %>
@@ -178,6 +179,7 @@
                                         <a href="/case/detail/<%= data.case_new[i].id %>" class="a-style"><img
                                                     src="<%= data.case_new[i].cover %>" alt=""
                                                     class="pic-list-item-img"></a>
+
                                         <% if( data.case_new[i].company){ %>
                                         <div class="item-text-top" style="background: <%= data.case_new[i].color %>;">
                                             <a href="/company/detail/<%= data.case_new[i].company_id %>"><p
@@ -249,7 +251,7 @@
                     <% data.case_recommend.forEach(function(n, i){ %>
                     <div class="col-md-2-4 col-sm-2-4 col-xs-2-4">
                         <div class="block-content-item">
-                            <a href="/case/detail/<%= n.id %>" class="wrapper"><img class="case-img" src="<%= n.cover %>" alt=""></a>
+                            <a href="/case/detail/<%= n.id %>" class="wrapper"><img class="case-img lazy" data-original="<%= n.cover %>" alt=""></a>
                             <div class="content-item-text">
                                 <a href="/case/detail/<%= n.id %>"><h4 class="f-14"><%= n.title %></h4></a>
                                 <a href="/company/detail/<%= n.company_id %>"><p
@@ -290,7 +292,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="block-special-item">
                             <a class="block-special-item-pic" href="/topic/detail/<%= n.id %>">
-                                <img class="topic-img" src="<%= n.default_image %>" alt="">
+                                <img class="topic-img lazy" data-original="<%= n.default_image %>" alt="">
                             </a>
                             <div class="block-special-item-desc">
                                 <div class="block-special-item-desc-content">
@@ -337,7 +339,7 @@
                     <div class="col-md-2-4 col-sm-2-4 col-xs-2-4">
                         <a class="block-content-item" href="/picture/detail/<%= n.id %>">
                             <div class="img-box">
-                                <img src="<%= n.path %>" alt="" class="picture-img">
+                                <img data-original="<%= n.path %>" alt="" class="picture-img lazy">
                             </div>
                             <div class="img-gradient-layer"></div>
                             <div class="content-item-text">
@@ -373,7 +375,7 @@
                     <% data.company.forEach(function(n, i){ %>
                     <div class="col-md-2 col-sm-2 col-xs-2">
                         <div class="block-content-item">
-                            <a class="link" href="/company/detail/<%= n.id %>"><img src="<%= n.logo %>" alt="" class="company-logo-img"></a>
+                            <a class="link" href="/company/detail/<%= n.id %>"><img class="lazy" data-original="<%= n.logo %>" alt="" class="company-logo-img"></a>
                             <div class="content-item-text">
                                 <a href="/company/detail/<%= n.id %>"><p class="f-14 s-title f-grey"><%= n.name %></p>
                                 </a>
