@@ -72,21 +72,19 @@ app.index=(function(){
             });
         },
         register:function(){
-
             var userService=window.app.index.userService();
             var DIALOG=window.app.index.DIALOG;
+            var haloValidation=hb.validation;
             $('#register-modal').on('show.bs.modal', function(){
                 $('#register-modal').off('hidden.bs.modal',afterGetRegCode)
             });
             function afterGetRegCode(){
                 $('#zc-modal').modal("show");
-            }
-
+            };
             $("#register_phone").on("input",function(){
                 var num = parseInt($(this).val().length);
                 if(num===11){
                     $("#send_btn").css("color",'#fff').css("background",'#e74c3c');
-
                 }else if(num>11){
                     DIALOG.error("请输入正确的手机号");
                     $(this).val("");
@@ -98,9 +96,12 @@ app.index=(function(){
                 var data={
                     "phone": $.trim($("#register_phone").val()),
                     "invite_code":$.trim($("#register_invite_code").val()),
-                }
+                };
                 if(data.phone==""){
                     DIALOG.error("请输入手机号");
+                    return false;
+                }else if(!haloValidation.checkPhone(data.phone)){
+                    DIALOG.error("请输入有效的手机号");
                     return false;
                 }else if(data.invite_code==''){
                     DIALOG.error("请输入邀请码");
@@ -131,6 +132,7 @@ app.index=(function(){
         zcBtn:function(){
             var haloAuth=window.app.index.haloAuth();
             var DIALOG=window.app.index.DIALOG;
+            var haloValidation=hb.validation;
             $("#zc_btn").on("click",function(event){
                 event.preventDefault();
                 var data={
@@ -148,6 +150,9 @@ app.index=(function(){
                     return false;
                 }else if(data.phone==""){
                     DIALOG.error("请输入手机号");
+                    return false;
+                }else if(!haloValidation.checkPhone(data.phone)){
+                    DIALOG.error("请输入有效的手机号");
                     return false;
                 }else if(data.username==""){
                     DIALOG.error("请输入昵称");

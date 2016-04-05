@@ -294,6 +294,8 @@ a{
     color:#949494;
     border: none;
     background-color: transparent;
+    outline:none;
+
     &:hover{
       color:#fff;
     }
@@ -603,6 +605,8 @@ span.tt{float:none;}
   width: 125px;
   margin: auto;
   display: block;
+  margin-bottom:10px;
+
 }
 .modal-body.school-body .login-btn{
   border-radius: 5px;
