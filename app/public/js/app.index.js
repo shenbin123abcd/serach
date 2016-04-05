@@ -248,7 +248,7 @@ app.index=(function(){
                     DIALOG.success(res.info);
                     haloAuth.setToken(res.data.token);
                     haloAuth.setUser(res.data.user);
-                    console.log(res);
+                    //console.log(res);
                     $('#login-modal').modal('hide');
                     deferred.resolve('login success');
                     /*$(".login-btn.login").text("欢迎你，"+res.data.user.username).attr("disabled","true").css("opacity","1");
@@ -260,8 +260,8 @@ app.index=(function(){
                      $("#nav-login-btn").attr("data-target","");
                      DIALOG.error("你已经登入，不能重复登入");
                      })*/
-                    var token=haloAuth.getToken();
-                    var user=haloAuth.getUser();
+                    //var token=haloAuth.getToken();
+                    //var user=haloAuth.getUser();
 
                     //var token=window.localStorage.getItem('token');
                     //var user=JSON.parse(window.localStorage.getItem("user"));
