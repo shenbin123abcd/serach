@@ -4,6 +4,7 @@ var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
 var _ = require('lodash/collection');
+var Promise = require('bluebird');
 
 
 // 首页，列表，搜索
@@ -116,52 +117,50 @@ router.get('/detail/:id', function (req, res, next) {
         return;
     }
     var start = new Date().getTime();
-    obj.getInfo('picture/tag', id, req).then(function (body) {
-        console.log('pic-info',body.time, new Date().getTime() - start);
-        return body.data;
-    }).then(function (data) {
-        // 相似图片
-        data.xiangsi = [];
-        return obj.getList('picture/xiangsi', req, {picture_id: data.id, per_page: 12}).then(function (body) {
-            console.log('pic-xs',body.time, new Date().getTime() - start);
+
+    function getInfo(){
+        return obj.getInfo('picture/tag', id, req).then(function (body) {
+            return body.data;
+        });
+    }
+
+    function xiangsi(){
+        return obj.getList('picture/xiangsi', req, {picture_id: id, per_page: 12}).then(function (body) {
+            var data = [];
             if (body.iRet === 1) {
-                data.xiangsi = body.data;
+                data = body.data;
             }
             return data;
-        }, function (error) {
-            return data;
         });
-    }).then(function (data) {
-        // 案例其他图片
-        data.case = [];
-        return obj.getList('picture/tag', req, {'filter[case_id]': data.case_id, per_page: 50}).then(function (body) {
-            console.log('pic-other',body.time, new Date().getTime() - start);
+    }
+
+    function other(){
+        return obj.getList('picture/byCase', req, {'picture_id': id, per_page: 12}).then(function (body) {
+            var data = [];
             if (body.iRet === 1) {
-                data.case = body.data;
+                data = body.data;
             }
             return data;
-        }, function (error) {
-            return data;
         });
-    }).then(function (data) {
-        // 图片所属公司
-        data.company = {};
-        return obj.getInfo('company', data.company_id, req).then(function (body) {
-            console.log('pic-company',body.time, new Date().getTime() - start);
+    }
+
+    function company(){
+        return obj.get('company/byImage', req, {'picture_id': id}).then(function (body) {
+            var data = [];
             if (body.iRet === 1) {
-                data.company = {
-                    id: body.data.id,
-                    name: body.data.name,
-                    cases: body.data.cases,
-                    logo: body.data.company_logo
-                };
+                data = body.data;
             }
             return data;
-        }, function (error) {
-            return data;
         });
-    }).then(function (data) {
-        //res.json(data);
+    }
+
+    Promise.all([getInfo(), xiangsi(), other(), company()]).then(function(result){
+        console.log('pic-info', new Date().getTime() - start);
+        var data = result[0];
+
+        data.xiangsi = result[1];
+        data.case = result[2];
+        data.company = result[3];
 
         data.baseUrl = req.baseUrl;
         data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -174,7 +173,7 @@ router.get('/detail/:id', function (req, res, next) {
         data.pageTitle = `热门图片 - ${data.tag} - 幻熊婚礼素材开放平台`;
         data.path = `${req.config.url.case}/${data.path}?imageView2/2/w/902/`;
         if (data.company.id) {
-            data.company.logo = `${req.config.url.case}/${data.company.logo}?imageView2/1/w/160/h/120`;
+            data.company.logo = `${req.config.url.case}/${data.company.logo||'404.png'}?imageView2/1/w/160/h/120`;
         }
 
         data.colorArr = data.other_color ? data.other_color.split(',') : [];
@@ -182,7 +181,7 @@ router.get('/detail/:id', function (req, res, next) {
         data.tagArr = data.tag ? data.tag.split(',') : [];
 
 
-        data.case.data.forEach((n, i)=> {
+        data.case.forEach((n, i)=> {
             n.path = `${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
         });
         data.xiangsi.forEach((n, i)=> {
@@ -191,7 +190,7 @@ router.get('/detail/:id', function (req, res, next) {
 
         var appData = {
             id: data.id,
-            query: data.query,
+            query: data.query
         };
 
 

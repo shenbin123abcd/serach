@@ -17,7 +17,7 @@ router.get('/total', function(req, res){
         if(!data){
             obj.getList('auto/allTotal',req).then(function(ret){
                 console.log(ret);
-                req.redis.set('allTotal', JSON.stringify(ret.data), 20);
+                req.redis.set('allTotal', JSON.stringify(ret.data), 43200);
                 res.json({iRet: 1, info: 'success', data: ret.data});
             });
         }else{

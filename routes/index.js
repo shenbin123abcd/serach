@@ -5,7 +5,8 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-    // req.redis.clear('search_index_data');
+    req.redis.clear('search_index_data');
+    req.start_time = new Date().getTime();
     req.redis.get('search_index_data').then(function(data){
         if (!data) {
             getData(req, res);
@@ -72,7 +73,17 @@ function getData(req, res){
                 res.sendStatus(500);
             }
         })
-    }).then(function(data){
+    })
+    /*.then(function(data){
+        data.total = {case: 0, image: 0};
+        return obj.getList('auto/allTotal',req).then(function(ret){
+            req.redis.set('allTotal', JSON.stringify(ret.data), 10800);
+            data.total.case = helper.formatNumber(ret.data.case);
+            data.total.image = helper.formatNumber(ret.data.image);
+            return data;
+        });
+    })*/
+    .then(function(data){
         data.case_new.forEach(function(n, i){
             if(n.color==""){
                 n.color="#2797ff";
@@ -107,7 +118,7 @@ function getData(req, res){
         data.baseUrl = req.baseUrl;
         data.pageTitle = '幻熊婚礼素材开放平台-首页';
 
-        req.redis.set('search_index_data', JSON.stringify(data), 43200);
+        req.redis.set('search_index_data', JSON.stringify(data), 10800);
 
         render(data, req, res);
     });

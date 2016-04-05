@@ -194,5 +194,21 @@ helper.arrayShuffle = function(arr, length, tag_length){
     }
 };
 
+helper.formatNumber = function(n) {
+    var numberWithCommas;
+    if(!n){
+        return 0;
+    }
+
+    numberWithCommas=function(x) {
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        parts[1]&&(parts[1]=parts[1].substr(0,1));
+        return parts.join(".");
+    };
+
+    return numberWithCommas(n)
+
+};
 
 module.exports = helper;
