@@ -148,7 +148,11 @@ router.get('/detail/:id', function (req, res, next) {
         data.pageTitle = data.name + ' - 公司信息 - 幻熊婚礼素材开放平台';
 
         data.websiteLink = data.website.indexOf('http') > -1 ? data.website : ('http://' + data.website);
-        data.weibo_site="www.weibo.com/"+data.weibo_site.split("/")[1]+"/"+data.weibo_site.split("/")[2];
+
+        data.weibo_site_pc=data.weibo_site.replace('m.weibo.cn','weibo.com');
+
+        data.weibo_site_pc = data.weibo_site_pc.indexOf('http') > -1 ? data.weibo_site_pc : ('http://' + data.weibo_site_pc);
+
         data.cover = req.config.url.company + '/' + (data.cover || '404.png') + '!company.top';
 
         data.company_logo = req.config.url.company + '/' + (data.company_logo || '404.png') + '?imageView2/1/w/140/h/140';
