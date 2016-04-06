@@ -1,5 +1,5 @@
 <!--登入框-->
-<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal"  role="dialog">
+<div class="modal fade login-modal" id="login-modal" tabindex="-1" aria-labelledby="login-modal"  role="dialog">
 	<div class="modal-dialog modal-big school-modal" >
 		<div class="modal-content ">
 			<div class="modal-body school-body">
@@ -23,16 +23,57 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<button class="btn login-btn " type="submit">登&nbsp;入</button>
-						<div class="register-block">
-
-						</div>
+						<button class="btn login-btn" type="submit">登&nbsp;入</button>
+						<button type="button" class="btn btn-link forget-password-bt" id="show-forget-password-bt">忘记密码</button>
 					</div>
 				</form>
+
+				<form class="js-validation-forget-password form-horizontal push-30-t push-50" id="school-form-forget-password" style="display: none;">
+					<div class="form-group">
+						<div class="col-xs-12">
+							<div class="form-material form-material-primary floating">
+								<input class="form-control" type="text" id="forget-password-phone" name="forget-password-phone" autocomplete="off" tabindex="1">
+								<label for="forget-password-phone">幻熊通行证（手机号）</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12">
+							<div class="form-material form-material-primary floating">
+								<input class="form-control" type="text" id="forget-password-verify-code" name="forget-password-verify-code" autocomplete="off" tabindex="1">
+								<label for="forget-password-verify-code">验证码</label>
+								<button type="button" class="btn btn-sm btn-default get-forget-password-verify-code-bt" id="get-forget-password-verify-code-bt">获取验证码</button>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12">
+							<div class="form-material form-material-primary floating">
+								<input class="form-control" type="password" id="forget-password-password" name="forget-password-password" autocomplete="off" tabindex="1">
+								<label for="forget-password-password">密码</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12">
+							<div class="form-material form-material-primary floating">
+								<input class="form-control" type="password" id="forget-password-rpassword" name="forget-password-rpassword" autocomplete="off" tabindex="1">
+								<label for="forget-password-rpassword">重复密码</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<button class="btn forget-password-btn" type="submit">完&nbsp;成</button>
+						<button type="button" class="btn btn-link login-bt" id="show-login-bt">返回登录</button>
+					</div>
+				</form>
+
+
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <!--验证框-->
 <div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="register-modal"  role="dialog">

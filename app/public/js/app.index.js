@@ -236,6 +236,12 @@ app.index=(function(){
             var DIALOG=window.app.index.DIALOG;
             var haloAuth=window.app.index.haloAuth();
 
+
+            $("#show-forget-password-bt").on("click",function( event ) {
+                $("#school-form-login").hide();
+                $("#school-form-forget-password").show();
+            });
+
             $("#school-form-login").on("submit",function( event ) {
                 //console.log(userService);
                 event.preventDefault();
@@ -268,6 +274,61 @@ app.index=(function(){
                     $("[nav-before-login]").hide();
                     $("[nav-after-login]").show();
                     $('#nav-login-btn-hidden').text(res.data.user.username);
+                },function(res){
+                    hb.util.loading.hide();
+                    DIALOG.error(res);
+                });
+
+            });
+            return deferred.promise();
+        },
+        forgetPassword: function() {
+            var deferred = $.Deferred();
+            var userService=window.app.index.userService();
+            var DIALOG=window.app.index.DIALOG;
+            var haloAuth=window.app.index.haloAuth();
+            $("#show-login-bt").on("click",function( event ) {
+                $("#school-form-login").show();
+                $("#school-form-forget-password").hide();
+            });
+
+            $("#get-forget-password-verify-code-bt").on("click",function( event ) {
+                hb.util.loading.show();
+                userService.getResetPasswordVerifyCode({
+                    phone: $.trim($("#forget-password-phone").val())
+                }).then(function(res){
+                    hb.util.loading.hide();
+                    var count=60;
+                    $("#get-forget-password-verify-code-bt").prop( "disabled", true ).text(count+'秒后点击重发');
+                    hb.interval(function(){
+                        count--;
+                        $("#get-forget-password-verify-code-bt").prop( "disabled", true ).text(count+'秒后点击重发');
+                    },1000,60,function(){
+                        $("#get-forget-password-verify-code-bt").prop( "disabled", false ).text('重新发送');
+                    });
+                },function(res){
+                    hb.util.loading.hide();
+                    DIALOG.error(res);
+                });
+
+            });
+
+
+            $("#school-form-forget-password").on("submit",function( event ) {
+                //console.log(userService);
+                event.preventDefault();
+                hb.util.loading.show();
+                userService.resetPassword({
+                    verify_code: $.trim($("#forget-password-verify-code").val()),
+                    phone: $.trim($("#forget-password-phone").val()),
+                    password:$("#forget-password-password").val(),
+                    rpassword:$("#forget-password-rpassword").val()
+                }).then(function(res){
+                    hb.util.loading.hide();
+                    DIALOG.success(res.info);
+                    $("#school-form-login").show();
+                    $("#school-form-forget-password").hide();
+                    $("#login-username").val($("#forget-password-phone").val()).parent().addClass('open');
                 },function(res){
                     hb.util.loading.hide();
                     DIALOG.error(res);
@@ -341,10 +402,119 @@ app.index=(function(){
                 };
                 init();
                 return deferred.promise();
+            };
+            var getResetPasswordVerifyCode=function(data){
+                var deferred = $.Deferred();
+                var init=function(){
+                    data=data||{};
+                    switch (true){
+                        case !data.phone:
+                            deferred.reject('请输入手机号');
+                            break;
+                        case !haloValidation.checkPhone(data.phone):
+                            deferred.reject('您的手机号格式错误');
+                            break;
+                        default:
+                            sendXhr();
+                    }
+                };
+                var sendXhr=function(){
+                    $.ajax({
+                        //method: "POST",
+                        dataType : "jsonp",
+                        url: "http://college.halobear.com/api/forgetCode",
+                        //url: "http://college.halobear.com/api/login",
+                        //timeout: 10000,
+                        data: data,
+                        success: function(res, textStatus, errorThrown) {
+                            //console.log(res);
+                            if(res.iRet==1){
+                                deferred.resolve(res);
+                            }else{
+                                deferred.reject(res.info);
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            //console.log(jqXHR, textStatus, errorThrown);
+                            deferred.reject('网络繁忙请稍候再试');
+                            //if(t==="timeout") {
+                            //	// something went wrong (handle it)
+                            //}
+                        }
+                    })
+                    ;
 
+                };
+                init();
+                return deferred.promise();
+            };
+            var resetPassword=function(data){
+                var deferred = $.Deferred();
+                var init=function(){
+                    data=data||{};
+                    switch (true){
+                        case !data.phone:
+                            deferred.reject('请输入手机号');
+                            break;
+                        case !haloValidation.checkPhone(data.phone):
+                            deferred.reject('您的手机号格式错误');
+                            break;
+                        case !data.verify_code:
+                            deferred.reject('请输入验证码');
+                            break;
+                        case data.verify_code.length!==6:
+                            deferred.reject('您的6位数字验证码错误');
+                            break;
+                        case !data.password:
+                            deferred.reject('请输入密码');
+                            break;
+                        case data.password.length<6||data.password.length>32:
+                            deferred.reject('密码长度6-32个字符');
+                            break;
+                        case !data.rpassword:
+                            deferred.reject('请重复密码');
+                            break;
+                        case data.password!=data.rpassword:
+                            deferred.reject('您两次输入的密码不一致');
+                            break;
+                        default:
+                            sendXhr();
+                    }
+                };
+                var sendXhr=function(){
+                    $.ajax({
+                        //method: "POST",
+                        dataType : "jsonp",
+                        url: "http://college.halobear.com/api/forget",
+                        //url: "http://college.halobear.com/api/login",
+                        //timeout: 10000,
+                        data: data,
+                        success: function(res, textStatus, errorThrown) {
+                            //console.log(res);
+                            if(res.iRet==1){
+                                deferred.resolve(res);
+                            }else{
+                                deferred.reject(res.info);
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            //console.log(jqXHR, textStatus, errorThrown);
+                            deferred.reject('网络繁忙请稍候再试');
+                            //if(t==="timeout") {
+                            //	// something went wrong (handle it)
+                            //}
+                        }
+                    })
+                    ;
+
+                };
+                init();
+                return deferred.promise();
             };
             return{
-                login:login
+                login:login,
+                getResetPasswordVerifyCode:getResetPasswordVerifyCode,
+                resetPassword:resetPassword
             }
 
         },
