@@ -590,7 +590,15 @@ span.tt{float:none;}
   width:100%;
   position: absolute;
   top: 50%;
-  margin-top: -250px;
+  //margin-top: -250px;
+  .ie8 &{
+    margin-top: -250px;
+  }
+  -webkit-transform: translate(0,-50%);
+  -moz-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  -o-transform: translate(0,-50%);
+  transform: translate(0,-50%);
 }
 .modal-dialog.modal-big.school-modal .modal-content {
   box-shadow: none;
@@ -600,23 +608,36 @@ span.tt{float:none;}
   padding:70px 10px;
   width:450px;
   margin:auto;
+
 }
 .modal-body.school-body img{
   width: 125px;
   margin: auto;
   display: block;
   margin-bottom:10px;
+}
+.modal-body.school-body {
+  .login-btn,.forget-password-btn{
+    border-radius: 5px;
+    background-color: #e74c3c;
+    padding:15px 20px;
+    margin:auto;
+    width:110px;
+    display: block;
+  }
+  .forget-password-bt,.login-bt{
 
+    width:110px;
+    display: block;
+    margin: 10px auto 0;
+  }
+  .get-forget-password-verify-code-bt{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+  }
 }
-.modal-body.school-body .login-btn{
-  border-radius: 5px;
-  background-color: #e74c3c;
-  padding:15px 20px;
-  margin:auto;
-  width:110px;
-  display: block;
-  border-radius: #e74c3c;
-}
+
 
 @media (min-width: 768px){
   .modal-dialog.modal-big {
@@ -640,24 +661,27 @@ span.tt{float:none;}
     padding:20px 10px;
   }
 }
-.js-validation-login .btn.login-btn{
-  background: #b4b4b4;
-  border-color: #b4b4b4;
-  box-shadow:0;
-  color:#fff;
-  margin-top: 40px;
+.js-validation-login,.js-validation-forget-password {
+  .btn.login-btn,.btn.forget-password-btn{
+    background: #b4b4b4;
+    border-color: #b4b4b4;
+    box-shadow:0;
+    color:#fff;
+    margin-top: 40px;
+    &:before{
+      background-color: #fff;
+    }
+    &:hover{
+      color: #e74c3c;
+      border-color: #fff;
+    }
+  }
 }
-.js-validation-login .btn.login-btn:before{
-  background-color: #fff;
-}
-.js-validation-login .btn.login-btn:hover{
-  color: #e74c3c;
-  border-color: #fff;
-}
+
 .block-options > li > a:hover{
   opacity:1;
 }
-.btn.login-btn{
+.btn.login-btn,.btn.forget-password-btn{
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -677,41 +701,45 @@ span.tt{float:none;}
   background: #fff;
   letter-spacing: 1px;
 }
-.btn.login-btn:before{
-  z-index: -1;
-  backface-visibility: hidden;
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 50%;
-  opacity: 0;
-  top: 50%;
-  background: #e74c3c;
-  border-radius: 50%;
-  margin-top: -10px;
-  margin-left: -10px;
-  transform: scale(0);
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  transition: all .3s ease-out;
-  -webkit-transition: all .3s ease-out;
-  -moz-transition: all .3s ease-out;
-  -ms-transition: all .3s ease-out;
-}
-.btn.login-btn:hover:before{
-  opacity: 1;
-  transform: scale(18);
-  -webkit-transform: scale(18);
-  -moz-transform: scale(18);
-  -ms-transform: scale(18);
-}
-.btn.login-btn:hover{
-  border:1px solid #e74c3c;
-  color:#fff;
-}
 
+.btn.login-btn,.btn.forget-password-btn{
+  &:before{
+    z-index: -1;
+    backface-visibility: hidden;
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    opacity: 0;
+    top: 50%;
+    background: #e74c3c;
+    border-radius: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+  }
+}
+.btn.login-btn,.btn.forget-password-btn{
+  &:hover:before{
+    opacity: 1;
+    transform: scale(18);
+    -webkit-transform: scale(18);
+    -moz-transform: scale(18);
+    -ms-transform: scale(18);
+  }
+  .btn.login-btn:hover{
+    border:1px solid #e74c3c;
+    color:#fff;
+  }
+}
 
 /* footer */
 .footer-bg{
