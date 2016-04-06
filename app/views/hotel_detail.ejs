@@ -80,19 +80,19 @@
                                 <table class="table table-responsive">
                                     <tbody>
                                         <tr class="f-16 tr">
-                                            <td>面积：<span class="style">840平</span></td>
-                                            <td>层高：<span class="style">6.7m</span></td>
-                                            <td>形状：<span class="style">长方形</span></td>
+                                            <td class="td">面积：<span class="style">840平</span></td>
+                                            <td class="td">层高：<span class="style">6.7m</span></td>
+                                            <td class="td">形状：<span class="style">长方形</span></td>
                                         </tr>
                                         <tr class="f-16 tr">
-                                            <td>特色：<span class="style">中式</span></td>
-                                            <td>柱子：<span class="style">无</span></td>
-                                            <td>桌数：<span class="style">40桌</span></td>
+                                            <td class="td">特色：<span class="style">中式</span></td>
+                                            <td class="td">柱子：<span class="style">无</span></td>
+                                            <td class="td">桌数：<span class="style">40桌</span></td>
                                         </tr>
                                         <tr class="f-16 tr">
-                                            <td>投影设备：<span class="style">音响 LED屏</span></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="td">投影设备：<span class="style">音响 LED屏</span></td>
+                                            <td class="td"></td>
+                                            <td class="td"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -111,10 +111,10 @@
                                     千禧海鸥大酒店
                                 </div>
                                 <div class="f-16 address">
-                                    上海市长宁区延安西路2588号
+                                    <i class="icon haloIcon haloIcon-address f-22"></i>上海市长宁区延安西路2588号
                                 </div>
                                 <div class="f-16 phone">
-                                    4000-699-500
+                                    <i class="icon haloIcon haloIcon-phone f-22"></i>4000-699-500
                                 </div>
                             </div>
                         </div>
@@ -158,6 +158,22 @@
                             <%}%>
                         </div>
                     </div>
+                    <div class="other-like-case hotelDetail desc">
+                        <h4 class="f-14">酒店简介</h4>
+                        <div class="hotel-block">
+                            <div class="desc-t more" id="moreText">
+                                上海四季酒店选址优越，地处上海静安区，坐落于市中
+                                心的威海路，位于淮海路与南京路之间，毗邻人民广场
+                                静安寺南京西路商圈，周边环境优雅，交通便利，有多
+                                趟轨道交通和公交车可抵达，方便您的出行。被浓厚新
+                                新旧上海气息包围的浦西四季酒店，作为四季品牌落户
+                                的酒店，承载了新旧上海气息包围的浦西四季酒店新旧上海气息包围的浦西四季酒店.
+                            </div>
+                            <div class="see-more">
+                                <a class="a-style" id="seeMore">查看全部<i class="haloIcon haloIcon-arrowdown f-18"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,6 +199,7 @@
 
         app.hotelDetail.swiper("#gallery-top1","#gallery-thumbs1");
         app.hotelDetail.swiper("#gallery-top2","#gallery-thumbs2");
+        app.hotelDetail.seeMore();
     })
 
 

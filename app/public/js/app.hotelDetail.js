@@ -18,13 +18,31 @@ app.hotelDetail = (function () {
             touchRatio: 0.2,
             loop:true,
             loopedSlides: 5, //looped slides should be the same
-            slideToClickedSlide: true
+            slideToClickedSlide: true,
         });
         galleryTop.params.control = galleryThumbs;
         galleryThumbs.params.control = galleryTop;
+    };
+
+    function seeMore(){
+        $(window).on("load",function(){
+            var height=parseInt($("#moreText").css("height"));
+            console.log(height)
+            if(height<=175){
+                $("#seeMore").remove();
+                $("#moreText").css("height","auto");
+            }else{
+                $("#moreText").css("height",175);
+                $("#seeMore").on('click',function(){
+                    $("#moreText").css("height","auto");
+                });
+            }
+        });
     }
     return {
         swiper: swiper,
+        seeMore:seeMore,
     }
+
 
 }());
