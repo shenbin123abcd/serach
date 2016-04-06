@@ -24,8 +24,8 @@
                         <a target="_blank" href="<%= data.websiteLink %>"><%= data.website %></a>
                     </div>
                     <div class="company-w">
-                        <%if(data.weibo_name){%>
-                        <span class="weibo f-14"><a href="http://<%= data.weibo_site%>" target="_blank"><img data-original="/images/weibo.png" alt="" class="img lazy"><%= data.weibo_name %></a></span>
+                        <%if(data.weibo_site){%>
+                        <span class="weibo f-14"><a href="<%= data.weibo_site_pc%>" target="_blank"><img data-original="/images/weibo.png" alt="" class="img lazy"><%= data.weibo_name %></a></span>
                         <%}%>
                         <%if(data.wechat){%>
                         <span class="weixin f-14"><img src="/images/weixin.png" alt="" class="img"><%= data.wechat %></span>
