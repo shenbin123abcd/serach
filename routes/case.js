@@ -4,6 +4,7 @@ var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
 var _ = require('lodash');
+var Promise = require('bluebird');
 
 // 列表
 router.get(['/'], function(req, res, next){
@@ -118,84 +119,89 @@ router.get('/detail/:id', function(req, res, next){
         return ;
     }
 
-    obj.getInfo('cases', id, req).then(function(body){
-        console.log('cases-info',body.time);
-        return body.data;
-    }).then(function(data){
-        // 相似案例
-        data.xiangsi = [];
-        return obj.getList('cases/xiangsi', req, {case_id: data.id,per_page:12}).then(function(body){
-            console.log('cases-xs',body.time);
+    // 相似案例
+    function xiangsi(case_id, tag){
+        return obj.getList('cases/xiangsi', req, {case_id: case_id, tag: tag, per_page:12}).then(function(body){
+            var data = [];
+            if (body.iRet === 1) {
+                data = body.data;
+            }
+            return data;
+        });
+    }
+
+    // 公司其他案例
+    function other(company_id){
+        var data = [];
+        if(company_id != 1000){
+            return obj.getList('cases', req, {'filter[company_id]': company_id,per_page:12}).then(function(body){
+                if (body.iRet === 1) {
+                    data = body.data.data;
+                }
+                return data;
+            });
+        }else{
+            return data;
+        }
+    }
+
+    function company(company_id){
+        // 图片所属公司
+        var data = {};
+        return obj.getInfo('company', company_id, req).then(function(body){
             if(body.iRet === 1){
-                data.xiangsi = body.data;
+                data = {id: body.data.id, name: body.data.name, cases: body.data.case_num, logo: body.data.company_logo};
             }
             return data;
         }, function(error){
             return data;
         });
-    }).then(function(data){
-        // 公司其他案例
-        data.other = data.other || [];
+    }
 
-        if(data.company_id != 1000){
-            return obj.getList('cases', req, {'filter[company_id]': data.company_id,per_page:12}).then(function(body){
-                console.log('cases-company',body.time);
-                if(body.iRet === 1){
-                    data.other = body.data.data;
-                }
-                return data
+    obj.getInfo('cases', id, req).then(function(body){
+        return body.data;
+    }).then(function(data){
+        Promise.all([xiangsi(id, data.tag), other(data.company_id), company(data.company_id)]).then(function(result){
+            data.xiangsi = result[0];
+            data.other = result[1];
+            data.company = result[2];
 
+            data.baseUrl=req.baseUrl;
+            if(data.company.name){
+                data.pageTitle = data.title+' - '+ data.company.name+" - 案例详情 - 幻熊婚礼素材开放平台";
+            }else{
+                data.pageTitle = data.title+" - 案例详情 - 幻熊婚礼素材开放平台";
+            }
+            data.cover = req.config.url.case + '/' + data.cover +"?imageView2/1/w/900/";
+            data.attachArr=[];
+            data.attach.forEach(function(n,i){
+                data.attachArr[i]= req.config.url.case + '/' + data.attach[i].path +"?imageView2/1/w/900/";
             });
-        }else{
-            return data;
-        }
-    }).then(function(data){
-            // 图片所属公司
-            data.company = {};
-            return obj.getInfo('company', data.company_id, req).then(function(body){
-                if(body.iRet === 1){
-                    data.company = {id: body.data.id, name: body.data.name, cases: body.data.case_num, logo: body.data.company_logo};
-                }
-                return data;
-            }, function(error){
-                return data;
-            });
-    }).then(function(data){
-        data.baseUrl=req.baseUrl;
-        if(data.company.name){
-            data.pageTitle = data.title+' - '+ data.company.name+" - 案例详情 - 幻熊婚礼素材开放平台";
-        }else{
-            data.pageTitle = data.title+" - 案例详情 - 幻熊婚礼素材开放平台";
-        }
-        data.cover = req.config.url.case + '/' + data.cover +"?imageView2/1/w/900/";
-        data.attachArr=[];
-        data.attach.forEach(function(n,i){
-            data.attachArr[i]= req.config.url.case + '/' + data.attach[i].path +"?imageView2/1/w/900/";
+            data.company.logo = req.config.url.case + '/' + (data.company.logo||'404.png') + "?imageView2/1/w/160/h/120";
+            data.colorArr=data.other_color?data.other_color.split(','):[];
+            data.tagArr=data.tag?data.tag.split(','):[];
+            data.xiangsiImg=[];
+            data.otherImg=[];
+
+            if(data.xiangsi.length > 0){
+                data.xiangsi.forEach(function(n,i){
+                    data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/142/h/99";
+                });
+            }
+
+            if(data.other.length > 0){
+                data.other.forEach(function(n,i){
+                    data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/142/h/99";
+                });
+            }
+
+            var appData = {
+                id: data.id,
+                query: data.query,
+            };
+
+            res.render('case_detail', {data: data,appData:appData});
         });
-        data.company.logo = req.config.url.case + '/' + (data.company.logo||'404.png') + "?imageView2/1/w/160/h/120";
-        data.colorArr=data.other_color?data.other_color.split(','):[];
-        data.tagArr=data.tag?data.tag.split(','):[];
-        data.xiangsiImg=[];
-        data.otherImg=[];
-
-        if(data.xiangsi.length > 0){
-            data.xiangsi.forEach(function(n,i){
-                data.xiangsiImg[i]= req.config.url.case + '/' + data.xiangsi[i].cover +"?imageView2/1/w/142/h/99";
-            });
-        }
-
-        if(data.other.length > 0){
-            data.other.forEach(function(n,i){
-                data.otherImg[i]= req.config.url.case + '/' + data.other[i].cover +"?imageView2/1/w/142/h/99";
-            });
-        }
-
-        var appData = {
-            id: data.id,
-            query: data.query,
-        };
-
-        res.render('case_detail', {data: data,appData:appData});
     }).catch(function(error){
         if(error.iRet == 0){
             res.status(404);
