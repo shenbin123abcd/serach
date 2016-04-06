@@ -177,10 +177,10 @@ app.index=(function(){
                 }
                 hb.util.loading.show();
                 $.ajax({
-                    dataType : "json",
+                    dataType : "jsonp",
                     url: "http://college.halobear.com/api/register",
                     data: data,
-                    type: 'POST',
+                    //type: 'POST',
                     success: function(data) {
                         if(data.iRet==1){
                             hb.util.loading.hide();
