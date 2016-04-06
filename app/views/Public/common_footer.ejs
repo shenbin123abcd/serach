@@ -3,11 +3,14 @@
 <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 <!--<![endif]-->
 
+
 <!--[if lte IE 8]>
 <script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
 <![endif]-->
 
-
+<!--[if lte IE 9]>
+<script src="//cdn.bootcss.com/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+<![endif]-->
 
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
@@ -40,12 +43,12 @@
 
 
 <!--[if lte IE 9]>
-
-<![endif]-->
-
 <script>
     $(function () {
         "use strict";
         app.ieUpdate();
     })
 </script>
+<![endif]-->
+
+
