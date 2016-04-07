@@ -185,7 +185,7 @@ router.get('/detail/:id', function (req, res, next) {
             n.path = `${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
         });
         data.xiangsi.forEach((n, i)=> {
-            n.path = `${req.config.url.case}/${n.path}?imageView2/1/w/145/h/107`;
+            n.path = `${req.config.url.case}/${n.path||'404.png'}?imageView2/1/w/145/h/107`;
         });
 
         var appData = {

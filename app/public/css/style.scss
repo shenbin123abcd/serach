@@ -2525,7 +2525,7 @@ body{
                         padding-bottom:25px;
 
                         .content-pic-box {
-                            margin-top: -30px;
+                            //margin-top: -30px;
                             &.detail{
                               margin-top: 0;
 
@@ -2541,7 +2541,7 @@ body{
                             }
                         }
                         .content-desc-box{
-                            margin-top:20px;
+                            //margin-top:20px;
                             p{
                                 color:#666666;
                                 line-height:30px;
@@ -2570,7 +2570,6 @@ body{
                                     padding:15px;
                                     resize:none;
                                     outline:none;
-
                                 }
                                 p{
                                     position: absolute;
@@ -3370,6 +3369,7 @@ body{
             background: #fff;
             height:0;
             img.img{
+              width: 100%;
               height:180px;
               @include media("<laptop"){
                 height:148.047px;
@@ -3801,6 +3801,7 @@ body{
                             padding:0 5px;
                             .case-item-img{
                               height:105px;
+                              width:100%;
                               @include media("<laptop"){
                                 height:86px;
 
@@ -4151,7 +4152,57 @@ body{
           background: #fff;
           .gallery-thumbs:hover{
             cursor:e-resize	;
+          }
+          .swiper-container-wrapper{
+            overflow:hidden;
+            position:relative;
+            .button-in{
+              position:absolute;
+              left:0;
+              top:0;
+              width:134px;
+              display: block;
+              .p{
+                position: absolute;
+                left:50%;
+                top:50%;
+                margin:0;
+                color:#fff;
+                transform: translate(-50%,-50%);
+                border:1px solid #fff;
+                padding:6px;
+                border-radius: 3px;
+                font-size: 14px;
+                @include media("<laptop"){
+                  font-size: 12px;
+                  padding:3px;
+                }
+              }
+              &:before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.5;
+                background: #333333;
 
+              }
+              @include media("<laptop"){
+                width:108.625px;
+              }
+              img{
+                width:100%;
+              }
+            }
+            .swiper-container.gallery-thumbs{
+              left:139px;
+              @include media("<laptop"){
+                left:113.625px;
+              }
+
+            }
           }
           /*.slide-cover{
             position: absolute;
@@ -4161,8 +4212,8 @@ body{
             height:100%;
             background:#999999;
             opacity:0.8;
-
           }*/
+
           .swiper-tip{
             position:absolute;
             top:20px;
@@ -4203,7 +4254,22 @@ body{
             .swiper-slide-active{
               opacity:1;
               &:before{
-                content: none;
+                /*content: "720全景";
+                position: absolute;
+                font-size:14px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width:auto;
+                height:auto;
+                opacity: 1;
+                background: none;
+                padding:2px 6px;
+                border: 1px solid #fff;
+                color:#fff;
+                border-radius: 3px;*/
+                content:none;
+
               }
             }
           }
@@ -4250,6 +4316,20 @@ body{
               width:100%;
               .case-pic-img{
                 display: table-cell;
+                .case-pic-a{
+                  position:relative;
+                  .tip{
+                    position: absolute;
+                    right:0;
+                    top:8px;
+                    background: #ff5050;
+                    color:#fff;
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                    padding:3px 8px;
+
+                  }
+                }
                 .img{
                   max-width: 100%;
                   width:100%;
@@ -4291,6 +4371,8 @@ body{
                 border-top: 1px solid #ddd;
                 text-align: center;
                 padding-top:20px;
+                height:48px;
+
                 .a-style{
                   color:#999999;
                 }
