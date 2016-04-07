@@ -2525,7 +2525,7 @@ body{
                         padding-bottom:25px;
 
                         .content-pic-box {
-                            margin-top: -30px;
+                            //margin-top: -30px;
                             &.detail{
                               margin-top: 0;
 
@@ -2541,7 +2541,7 @@ body{
                             }
                         }
                         .content-desc-box{
-                            margin-top:20px;
+                            //margin-top:20px;
                             p{
                                 color:#666666;
                                 line-height:30px;
@@ -2570,7 +2570,6 @@ body{
                                     padding:15px;
                                     resize:none;
                                     outline:none;
-
                                 }
                                 p{
                                     position: absolute;
@@ -3370,6 +3369,7 @@ body{
             background: #fff;
             height:0;
             img.img{
+              width: 100%;
               height:180px;
               @include media("<laptop"){
                 height:148.047px;
