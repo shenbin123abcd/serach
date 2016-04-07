@@ -36,7 +36,7 @@
                                 <% if(data.tag.length>0) {%>
                                     <div class="title-desc-txt block-style">
                                         <% data.tagArr.forEach(function(n,i){ %>
-                                        <a class="f-12 tag case" href="<%= data.baseUrl %>?tag=<%= n %>"><%= n %></a>
+                                        <a class="f-12 tag case" href="<%= data.baseUrl %>?tag=<%= encodeURIComponent(n) %>"><%= n %></a>
                                         <% }) %>
                                     </div>
                                 <% } %>

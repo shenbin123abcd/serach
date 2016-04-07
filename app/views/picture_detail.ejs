@@ -38,7 +38,7 @@
 
                             <div class="title-desc-txt block-style">
                                 <% data.tagArr.forEach(function(item){ %>
-                                <a  href="<%= data.baseUrl %>?tag=<%= item %>" class="f-12 tag picture"><%= item %></a>
+                                <a  href="<%= data.baseUrl %>?tag=<%= encodeURIComponent(item) %>" class="f-12 tag picture"><%= item %></a>
                                 <% }) %>
                             </div>
 
