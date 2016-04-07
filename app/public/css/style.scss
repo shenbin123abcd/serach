@@ -3801,6 +3801,7 @@ body{
                             padding:0 5px;
                             .case-item-img{
                               height:105px;
+                              width:100%;
                               @include media("<laptop"){
                                 height:86px;
 
