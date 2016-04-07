@@ -36,23 +36,21 @@
                                 <% if(data.tag.length>0) {%>
                                     <div class="title-desc-txt block-style">
                                         <% data.tagArr.forEach(function(n,i){ %>
-                                        <a class="f-12 tag case" href="<%= data.baseUrl %>?tag=<%= n %>"><%= n %></a>
+                                        <a class="f-12 tag case" href="<%= data.baseUrl %>?tag=<%= encodeURIComponent(n) %>"><%= n %></a>
                                         <% }) %>
                                     </div>
                                 <% } %>
-
-
                             </div>
                         </div>
                     </div>
                     <div class="detail-content-article">
-                        <div class="content-pic-box">
-                            <% data.attachArr.forEach(function(n,i){%>
-                                <img class="lazy" data-original="<%= n %>">
-                            <%})%>
-                        </div>
                         <div class="content-desc-box">
                             <p class="f-18"><%= data.content%></p>
+                        </div>
+                        <div class="content-pic-box">
+                            <% data.attachArr.forEach(function(n,i){%>
+                                <img class="lazy" data-original="<%= n %>" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC">
+                            <%})%>
                         </div>
                     </div>
                     <div class="detail-content-commit clearfix">
@@ -136,7 +134,7 @@
                             <div class="case-item">
                                 <div class="case-pic">
                                     <a href="/case/detail/<%=data.xiangsi[i].id%>" class="case-pic-a">
-                                        <img data-original="<%=data.xiangsiImg[i]%>"  class="case-pic-img lazy"/>
+                                        <img data-original="<%=data.xiangsiImg[i]%>"  class="case-pic-img lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC"/>
                                     </a>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/<%= data.xiangsi[i].id %>" class="case-pic-a f-14"><%= data.xiangsi[i].title %></a>
@@ -144,7 +142,7 @@
                                 </div>
                                 <% if(i<data.xiangsiImg.length-1){ %>
                                 <div class="case-pic">
-                                    <a href="/case/detail/<%=data.xiangsi[i+1].id%>" class="case-pic-a"><img data-original="<%=data.xiangsiImg[i+1]%>"  class="case-pic-img lazy"/></a>
+                                    <a href="/case/detail/<%=data.xiangsi[i+1].id%>" class="case-pic-a"><img data-original="<%=data.xiangsiImg[i+1]%>"  class="case-pic-img lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC"/></a>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/<%= data.xiangsi[i+1].id %>" class="case-pic-a f-14"><%= data.xiangsi[i+1].title %></a>
                                     </div>
@@ -163,14 +161,14 @@
                             <% for(var i=0;i<data.otherImg.length;i+=2){  %>
                             <div class="case-item">
                                 <div class="case-pic">
-                                    <a href="/case/detail/<%=data.other[i].id%>" class="case-pic-a"><img data-original="<%=data.otherImg[i]%>" alt="" class="case-pic-img lazy"/></a>
+                                    <a href="/case/detail/<%=data.other[i].id%>" class="case-pic-a"><img data-original="<%=data.otherImg[i]%>" alt="" class="case-pic-img lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC"/></a>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/<%= data.other[i].id %>" class="case-pic-a f-14"><%= data.other[i].title %></a>
                                     </div>
                                 </div>
                                 <% if(i<data.otherImg.length-1){ %>
                                 <div class="case-pic">
-                                    <a href="/case/detail/<%=data.other[i+1].id%>" class="case-pic-a"><img data-original="<%=data.otherImg[i+1]%>" alt="" class="case-pic-img lazy"/></a>
+                                    <a href="/case/detail/<%=data.other[i+1].id%>" class="case-pic-a"><img data-original="<%=data.otherImg[i+1]%>" alt="" class="case-pic-img lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC"/></a>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/<%= data.other[i+1].id %>" class="case-pic-a f-14"><%= data.other[i+1].title %></a>
                                     </div>
