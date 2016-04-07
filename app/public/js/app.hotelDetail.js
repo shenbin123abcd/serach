@@ -36,7 +36,7 @@ app.hotelDetail = (function () {
             }else{
                 $("#moreText").css("height",175);
                 $("#seeMore").on('click',function(){
-                    $("#moreText").css("height","auto");
+                    $("#moreText").animate({height:height},600);
                     $("#seeMore").remove();
                 });
             }
