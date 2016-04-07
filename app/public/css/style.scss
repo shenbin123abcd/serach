@@ -4149,6 +4149,10 @@ body{
         .detail-hotel-swiper{
           padding:40px;
           background: #fff;
+          .gallery-thumbs:hover{
+            cursor:e-resize	;
+
+          }
           /*.slide-cover{
             position: absolute;
             top:0;
@@ -4204,16 +4208,22 @@ body{
             }
           }
           .hotel-info{
-            padding:50px 0;
+            padding-top:50px;
+
             table .tr{
               text-align: center;
               border-top:1px solid #ddd;
-              td{
+              &:first-child{
                 border-top:0;
               }
-              td{
+              td.td{
                 padding:32px 0;
-                
+                border-top:0;
+                width:(100/3/100)*100%;
+                border-right:1px solid #ddd;
+                &:last-child{
+                  border-right:0;
+                }
               }
             }
             .style{
@@ -4240,9 +4250,10 @@ body{
               width:100%;
               .case-pic-img{
                 display: table-cell;
-
                 .img{
                   max-width: 100%;
+                  width:100%;
+
                 }
               }
               .case-pic-desc{
@@ -4255,11 +4266,46 @@ body{
               }
             }
           }
+          &.desc{
+            .hotel-block{
+              padding:20px 15px;
+              background: #fff;
+              .desc-t{
+                &.more{
+                  /*text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 6;
+                  -webkit-box-orient: vertical;
+                  overflow : hidden;*/
+                  overflow: hidden;
+                  /*@include media("<laptop"){
+                    height:200px;
+                  }*/
+                }
+                color:#999999;
+                line-height: 25px;
+
+              }
+              .see-more{
+                margin-top: 35px;
+                border-top: 1px solid #ddd;
+                text-align: center;
+                padding-top:20px;
+                .a-style{
+                  color:#999999;
+                }
+                .haloIcon{
+                  position: relative;
+                  top:3px;
+                  margin-left: 2px;
+                }
+              }
+            }
+          }
         }
         .hotel-detail-list{
           .detail-list-company{
             margin-bottom:30px;
-
           }
           .company-img{
             img{
@@ -4272,7 +4318,11 @@ body{
             background: #fff;
             color:#666666;
             line-height: 30px;
-
+            i.icon{
+              margin-right: 5px;
+              position:relative;
+              top:2px;
+            }
           }
         }
       }
