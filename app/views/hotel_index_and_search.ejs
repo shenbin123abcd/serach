@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="html-hotel-index">
+<head>
+    <%- include('Public/common_header',{pageTitle: data.title}); %>
+    <%- include('Public/common_header_end'); %>
+</head>
+<body>
+<%- include('Public/header'); %>
+<div class="halo-search case hotel">
+    <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
+    <div class="search-box">
+        <div class="s-container clearfix">
+            <div class="search-box-text">
+                <h4 class="f-white"><span class="search-total-case" id="total-case"></span> 个酒店宴会厅 与 <span class="search-total-image" id="total-image"></span> 次酒店全景体验
+                </h4>
+                <p class="f-white f-18">在这里，见证一个行业的跌宕起伏。</p>
+            </div>
+            <div class='search-box-input case clearfix'>
+                <div class="search_input ">
+                    <form action="<%= data.baseUrl %>">
+                        <span class="search_wrapper">
+                            <input type="text" placeholder="搜索有关婚礼的一切" value="<%= data.keywords %>" name="keywords">
+                            <button class="search_button company" type="submit">
+                                <!--<img src="/images/img5.png" alt="">-->
+                                <span class="haloIcon haloIcon-glass f-30" ></span>
+                            </button>
+                        </span>
+                    </form>
+                </div>
+                <div class="search_button_group">
+                    <form action="">
+                        <div class="button_group_item">
+                            <a class="f-14" href="?<%=search(data.query,{keywords:"婚礼主义",page:1})%>">婚礼主义</a>
+                        </div>
+                        <div class="button_group_item">
+                            <a class="f-14" href="?<%=search(data.query,{keywords:"诺丁山",page:1})%>">诺丁山</a>
+                        </div>
+                        <div class="button_group_item">
+                            <a class="f-14" href="?<%=search(data.query,{keywords:"Dream Wedding",page:1})%>">Dream Wedding</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="s-container clearfix">
+        <% if (data.query.keywords) { %>
+        <div class="search-result">
+            <div class="s-container">
+                <p>您目前在 婚礼公司 搜索关键字<span class="keyword">“ <%= data.query.keywords %> ”</span>，共找到 <%= data.total %> 个内容</p>
+            </div>
+        </div>
+
+
+        <% }else{ %>
+
+
+        <div id="tab" class="tab-list">
+            <div class="s-container">
+                <div class="tab-title">
+                    <div class="tab-title-left clearfix">
+                        <!--<a class="category box-shadow active f-16">地区</a>-->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="<% if (data.activeTab=='r'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab" class="category f-16">地区</a></li>
+                            <li class="<% if (data.activeTab=='properties'){ %>active<%}%>" ><a href="#tab2" data-toggle="tab" class="category f-16">类别</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tab-list-content show">
+                <div class="s-container tab-content">
+                    <div class="tab-pane tab-list-content-wrapper box-shadow <% if (data.activeTab=='r'){ %>active<%}%>"  id="tab1">
+                        <div class="tab-list-content-item">
+                            <ul  class="city-list">
+                                <% data.region.forEach(function(n,i){ %>
+                                <% if (i==0){ %>
+                                <li><a href="?" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
+                                <%}else{%>
+                                <li><a href="?r=<%= n.id %>" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
+                                <%}%>
+
+                                <% }) %>
+                            </ul>
+
+                            <ul id="area-list-level-2" class="area-list show">
+                                <% if (data.query.r){ %>
+                                <div class="loading-box" ><i class="fa fa-spinner fa-spin"></i></div>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                    <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='properties'){ %>active<%}%>" id="tab2">
+                        <div class="properties-wrapper">
+                            <% data.properties.forEach(function(item,i){ %>
+                            <div class="property cf">
+                                <div class="property-name"><%= item.name %>:</div>
+                                <div class="property-vals">
+                                    <% item.vals.forEach(function(n,i){ var q={};q[item.query]=encodeURIComponent(n); %>
+                                    <a href="?<%= search(data.query,q,['r','keywords']) %>"
+                                       class="property-val <% if (data.query[item.query]==encodeURIComponent(n)){ %>active<%}%>">
+                                        <%=n%>
+                                    </a>
+                                    <%})%>
+                                </div>
+                            </div>
+                            <%})%>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <% if(data.data.length==0){ %>
+
+        <div class="s-container" >
+            <div class="hotel-list-no-content">
+                该地区暂无公司
+            </div>
+        </div>
+        <%}%>
+
+        <%}%>
+    </div>
+    <div id="hotel-list" class="hotel-list-block clearfix">
+        <div class="s-container ">
+            <div class="hotel-list-wrapper">
+                <% data.data.forEach(function(n,i){ %>
+                <div class="hotel-list-item <% if(i%5==0){%>l-first<%} %>">
+                    <a href="<%= data.baseUrl %>/detail/<%= n.id %>" class="block-content-item">
+                        <div class="img-box">
+                            <img data-original="<%= n.c_cover %>" alt="" class="hotel-img lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC">
+                        </div>
+                        <div class="content-item-text">
+                            <div class=""><%= n.name %></div>
+                            <div class=""><%= n.region_name %> <%= n.c_cate %></div>
+
+                        </div>
+                    </a>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+
+    <% if (data.totalPages>1) { %>
+    <div class="case-pagination">
+        <div class="s-container">
+            <ul id="pagination" class="pagination pagination-item"></ul>
+        </div>
+    </div>
+    <%}%>
+
+
+
+</div>
+<%- include('Public/ModalDialog'); %>
+<%- include('Public/footer'); %>
+<%- include('Public/common_footer'); %>
+<script src="http://7xopel.com2.z0.glb.qiniucdn.com/static/js/region.js"></script>
+
+<script>
+    $(function(){
+        <%- 'window.appData ='+JSON.stringify(appData) %>;
+        app.getStaticData();
+        app.index.lazy();
+        app.index.nav();
+        app.index.indexInit();
+        app.index.register();
+        app.index.zcBtn();
+        app.index.uiForms();
+        app.index.login();
+        app.index.forgetPassword();
+        app.index.summitHover();
+        app.index.loginInit();
+
+        app.hotelIndex.regionTab();
+        app.hotelIndex.pagActive();
+
+    })
+</script>
+</body>
+</html>
+
+

@@ -25,63 +25,42 @@ router.get('/', function (req, res, next) {
     obj.getList('hotel', req, params).then(function (body) {
         if (body.iRet === 1) {
             var data = body.data;
-            res.json(data);
-            /*if (data.data.length > 0) {
-                data.data.forEach(function (val, index) {
-                    if (val.logo.length > 0) {
-                        val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/150";
-                    } else {
-                        val.logo = '/images/company-logo-sample.png';
-                    }
-                });
-            }
+
+
+
             //res.json(data);return;
             data.baseUrl = req.baseUrl;
             data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
             data.query = req.query;
             data.keywords = req.query.keywords;
-            data.title = '公司列表 - 幻熊婚礼素材开放平台';
+            data.title = '酒店列表 - 幻熊婚礼素材开放平台';
             data.totalPages = Math.ceil(data.total / data.per_page);
 
-            data.region = [
-                {city: "全国", id: 0},
-                {city: '上海', id: 793},
-                {city: '北京', id: 2},
-                {city: '江苏', id: 811},
-                {city: '浙江', id: 925},
-                {city: '天津', id: 19},
-                {city: '河北', id: 36},
-                {city: '山西', id: 220},
-                {city: '内蒙古', id: 351},
-                {city: '辽宁', id: 466},
-                {city: '吉林', id: 581},
-                {city: '黑龙江', id: 651},
-                {city: '安徽', id: 1027},
-                {city: '福建', id: 1149},
-                {city: '江西', id: 1244},
-                {city: '山东', id: 1356},
-                {city: '河南', id: 1512},
-                {city: '湖北', id: 1690},
-                {city: '湖南', id: 1808},
-                {city: '广东', id: 1945},
-                {city: '广西', id: 2088},
-                {city: '海南', id: 2213},
-                {city: '重庆', id: 2241},
-                {city: '四川', id: 2280},
-                {city: '贵州', id: 2485},
-                {city: '云南', id: 2583},
-                {city: '西藏', id: 2729},
-                {city: '陕西', id: 2811},
-                {city: '甘肃', id: 2929},
-                {city: '青海', id: 3030},
-                {city: '宁夏', id: 3082},
-                {city: '新疆', id: 3110},
-                {city: '台湾', id: 3225},
-                {city: '香港', id: 3226},
-                {city: '澳门', id: 3227},
+            data.region = req.config.region;
+            data.properties = [
+                {
+                    name:"星级",
+                    query:"cate",
+                    vals:['全部','五星级','四星级','三星级','特色会所'],
+                },
+                {
+                    name:"特色",
+                    query:"feature",
+                    vals:['全部','中式','草坪','巴洛克','水晶吊灯'],
+                },
             ];
+
+            if(data.query.cate||data.query.feature){
+                data.activeTab = 'properties';
+            }else{
+                data.activeTab = 'r';
+            }
+
+
+
             data.data.forEach(function (n, i) {
-                n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
+                n.c_cover = `${req.config.url.hotel}/${n.cover||'404.png'}!thumb5`;
+                n.c_cate=req.config.hotelCate[n.cate_id];
             });
 
             var appData = {
@@ -91,7 +70,7 @@ router.get('/', function (req, res, next) {
                 query: data.query
             };
 
-            res.render('hotel_index', {data: data, appData: appData});*/
+            res.render('hotel_index_and_search', {data: data, appData: appData});
         } else {
             res.status(500);
             next();

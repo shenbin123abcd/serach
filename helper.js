@@ -27,19 +27,20 @@ helper.search = function(query, partQuery, removeQuery){
                 paramsKeys.push(p);
             }
 
-            removeParams.forEach(function(n, i){
+            paramsKeys.forEach(function(n, i){
                 var isMatch;
-                paramsKeys.forEach(function(k, j){
+                removeParams.forEach(function(k, j){
                     if (k == n) {
                         isMatch = true;
                         return
                     }
                 });
                 if (!isMatch && params[n]) {
-
                     paramsAfterRemove[n] = params[n];
                 }
             });
+
+
         } else {
             for (var p in params) {
                 paramsAfterRemove[p] = params[p];
