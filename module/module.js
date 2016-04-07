@@ -76,7 +76,7 @@ mod.getInfo = function(path, id, req, params){
     return request.getAsync(options).then(function(res){
         var body = JSON.parse(res.body);
 
-        return body.iRet == 1 ? body : Promise.reject({iRet: body.iRet,p: Promise});
+        return body.iRet == 1 ? body : Promise.reject({iRet: body.iRet});
     }).error(function(err){
         console.log(err);
         return {iRet: -1};
