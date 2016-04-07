@@ -5,7 +5,7 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-    req.redis.clear('search_index_data');
+    // req.redis.clear('search_index_data');
     req.start_time = new Date().getTime();
     req.redis.get('search_index_data').then(function(data){
         if (!data) {

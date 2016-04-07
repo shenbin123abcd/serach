@@ -18,6 +18,7 @@ config.perPage = {
     case: 60,
     picture: 60,
     company: 60,
+    hotel: 30,
     topic: 12,
     comments: 9999
 };
