@@ -19,7 +19,7 @@
                             <i class="line">——————</i><span class="f-20 name"> 千禧海鸥大酒店 · 外景 </span><i class="line">——————</i>
                         </div>
                         <div class="detail-hotel-swiper">
-                            <div class="swiper-container gallery-top" id="gallery-top1">
+                            <div class="swiper-container gallery-top" id="gallery-top1" >
                                 <a class="swiper-tip">
                                     <span class="span-style f-14">酒店外景</span>
                                     <span class="span-style f-14">720度全景</span>
@@ -35,13 +35,19 @@
                                 <div class="swiper-button-next swiper-button-white"></div>
                                 <div class="swiper-button-prev swiper-button-white"></div>
                             </div>
-                            <div class="swiper-container gallery-thumbs" id="gallery-thumbs1">
-                                <div class="swiper-wrapper">
-                                    <% for(var i=0;i<10;i++){%>
-                                    <div class="swiper-slide">
-                                        <img src="/images/img16.jpg" alt="" class="img">
+                            <div class="swiper-container-wrapper">
+                                <a class="button-in" button-in>
+                                    <img src="/images/img16.jpg" alt="">
+                                    <p class="p">720全景</p>
+                                </a>
+                                <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs1">
+                                    <div class="swiper-wrapper">
+                                        <% for(var i=0;i<10;i++){%>
+                                        <div class="swiper-slide">
+                                            <img src="/images/img16.jpg" alt="" class="img" swiper-slide-img>
+                                        </div>
+                                        <%}%>
                                     </div>
-                                    <%}%>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +57,7 @@
                             <i class="line">——————</i><span class="f-20 name"> 兴荣宴会厅 · 5F </span><i class="line">——————</i>
                         </div>
                         <div class="detail-hotel-swiper">
-                            <div class="swiper-container gallery-top" id="gallery-top2">
+                            <div class="swiper-container gallery-top" id="gallery-top2" >
                                 <a class="swiper-tip">
                                     <span class="span-style f-14">兴荣宴会厅</span>
                                     <span class="span-style f-14">720度全景</span>
@@ -67,13 +73,19 @@
                                 <div class="swiper-button-next swiper-button-white"></div>
                                 <div class="swiper-button-prev swiper-button-white"></div>
                             </div>
-                            <div class="swiper-container gallery-thumbs" id="gallery-thumbs2">
-                                <div class="swiper-wrapper">
-                                    <% for(var i=0;i<10;i++){%>
-                                    <div class="swiper-slide">
-                                        <img src="/images/img16.jpg" alt="" class="img">
+                            <div class="swiper-container-wrapper">
+                                <a class="button-in" button-in>
+                                    <img src="/images/img16.jpg" alt="">
+                                    <p class="p">720全景</p>
+                                </a>
+                                <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs2" >
+                                    <div class="swiper-wrapper">
+                                        <% for(var i=0;i<10;i++){%>
+                                        <div class="swiper-slide">
+                                            <img src="/images/img16.jpg" alt="" class="img" swiper-slide-img>
+                                        </div>
+                                        <%}%>
                                     </div>
-                                    <%}%>
                                 </div>
                             </div>
                             <div class="hotel-info">
@@ -126,7 +138,10 @@
                             <div class="case-item">
                                 <div class="case-pic">
                                     <div class="case-pic-img">
-                                        <a href="/case/detail/" class="case-pic-a"><img src="/images/img16.jpg" alt="" class="img"/></a>
+                                        <a href="/case/detail/" class="case-pic-a">
+                                            <img src="/images/img16.jpg" alt="" class="img"/>
+                                            <div class="tip f-12">720全景</div>
+                                        </a>
                                     </div>
                                     <div class="case-pic-desc">
                                         <a href="/case/detail/" class="case-pic-a f-14">花月厅</a>
@@ -167,7 +182,7 @@
                                 静安寺南京西路商圈，周边环境优雅，交通便利，有多
                                 趟轨道交通和公交车可抵达，方便您的出行。被浓厚新
                                 新旧上海气息包围的浦西四季酒店，作为四季品牌落户
-                                的酒店，承载了新旧上海气息包围的浦西四季酒店新旧上海气息包围的浦西四季酒店.
+                                的酒店，承载了新旧上海气息包围的浦西四季酒店新旧上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.上海气息包围的浦西四季酒店.
                             </div>
                             <div class="see-more">
                                 <a class="a-style" id="seeMore">查看全部<i class="haloIcon haloIcon-arrowdown f-18"></i></a>
@@ -198,9 +213,10 @@
         app.index.summitHover();
         app.index.loginInit();
 
+        app.hotelDetail.seeMore();
+        app.hotelDetail.buttonIn();
         app.hotelDetail.swiper("#gallery-top1","#gallery-thumbs1");
         app.hotelDetail.swiper("#gallery-top2","#gallery-thumbs2");
-        app.hotelDetail.seeMore();
     })
 
 
