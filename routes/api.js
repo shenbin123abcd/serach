@@ -14,19 +14,32 @@ router.get('/checkLogin', token.verifyToken, function(req, res){
 
 router.get('/total', function(req, res){
     req.redis.get('allTotal').then(function(data){
-        if(!data){
-            obj.getList('auto/allTotal',req).then(function(ret){
-                console.log(ret);
+        if (!data) {
+            obj.getList('auto/allTotal', req).then(function(ret){
                 req.redis.set('allTotal', JSON.stringify(ret.data), 43200);
                 res.json({iRet: 1, info: 'success', data: ret.data});
             });
-        }else{
-            console.log('cache');
+        } else {
             res.json({iRet: 1, info: 'success', data: JSON.parse(data)});
         }
     });
+});
 
-
+// 获取地区
+router.get('/region', function(req, res){
+    var pid = req.query.pid || 0;
+    obj.get('region',req, {pid: pid}).then(function(body){
+        if (body.iRet === 1) {
+            res.json({iRet: 1, info: 'success', data: body.data});
+        } else if (body.iRet === 0) {
+            res.json({iRet: 0, info: 'failed', error: body.info});
+        } else {
+            res.sendStatus(500);
+        }
+    }, function(error){
+        console.log(error);
+        res.sendStatus(500);
+    });
 });
 
 module.exports = router;
