@@ -11,7 +11,8 @@ config.url = {
     company: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
     case: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
     crmpub: 'http://7xopel.com2.z0.glb.qiniucdn.com',
-    crmpri: 'http://7xopem.com2.z0.glb.qiniucdn.com'
+    crmpri: 'http://7xopem.com2.z0.glb.qiniucdn.com',
+    hotel: 'http://7xj1oh.com2.z0.glb.qiniucdn.com/'
 };
 
 config.perPage = {
