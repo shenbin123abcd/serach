@@ -40,17 +40,17 @@ router.get('/', function (req, res, next) {
             data.properties = [
                 {
                     name:"星级",
-                    query:"cate",
-                    vals:['全部','五星级','四星级','三星级','特色会所'],
+                    query:"c",
+                    vals:req.config.hotelCate,
                 },
                 {
                     name:"特色",
-                    query:"feature",
-                    vals:['全部','中式','草坪','巴洛克','水晶吊灯'],
+                    query:"f",
+                    vals:req.config.feature,
                 },
             ];
 
-            if(data.query.cate||data.query.feature){
+            if(data.query.c||data.query.f){
                 data.activeTab = 'properties';
             }else{
                 data.activeTab = 'r';

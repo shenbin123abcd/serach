@@ -98,12 +98,16 @@
                             <div class="property cf">
                                 <div class="property-name"><%= item.name %>:</div>
                                 <div class="property-vals">
-                                    <% item.vals.forEach(function(n,i){ var q={};q[item.query]=encodeURIComponent(n); %>
-                                    <a href="?<%= search(data.query,q,['r','keywords']) %>"
-                                       class="property-val <% if (data.query[item.query]==encodeURIComponent(n)){ %>active<%}%>">
-                                        <%=n%>
+                                    <a href="?<%= search(data.query,{},['r','keywords',item.query]) %>"
+                                       class="property-val <% if (!data.query[item.query]){ %>active<%}%>">
+                                        全部
                                     </a>
-                                    <%})%>
+                                    <% for (k in item.vals){ var q={};q[item.query]=k; %>
+                                    <a href="?<%= search(data.query,q,['r','keywords']) %>"
+                                       class="property-val <% if (data.query[item.query]==k){ %>active<%}%>">
+                                        <%=item.vals[k]%>
+                                    </a>
+                                    <%}%>
                                 </div>
                             </div>
                             <%})%>
@@ -138,9 +142,9 @@
                             <img data-original="<%= n.c_cover %>" alt="" class="hotel-img lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC">
                         </div>
                         <div class="content-item-text">
-                            <div class=""><%= n.name %></div>
-                            <div class=""><%= n.region_name %> <%= n.c_cate %></div>
-
+                            <div class="name"><%= n.name %></div>
+                            <div class="des"><%= n.region_name %> <%= n.c_cate %></div>
+                            <div class="number">最大容纳<%= n.table_num %>桌</div>
                         </div>
                     </a>
                 </div>
