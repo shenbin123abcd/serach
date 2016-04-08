@@ -38,7 +38,9 @@ function getArgs(){
 			var xml_file = "http://open.halobear.com/pano/"+hotelid;
 
 			var settings = {};
-			//settings["startscene"] = "scene_sw";
+			if (typeof(_GET['hall']) != 'undefined') {
+				settings["startscene"] = "h"+_GET['hall'];
+			}
 			embedpano({swf:"tour.swf", xml:xml_file, target:"pano", html5:"prefer", vars:settings, passQueryParameters:true});
 		}
 		else {
