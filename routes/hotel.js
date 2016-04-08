@@ -8,7 +8,8 @@ var _ = require('lodash/collection');
 // 列表
 router.get('/', function (req, res, next) {
     var params = {
-        per_page: req.config.perPage.hotel,
+        //per_page: req.config.perPage.hotel,
+        per_page: 5,
         // 'filter[if_show]': 1,
         page: req.query.page || 1
     };
@@ -61,6 +62,11 @@ router.get('/', function (req, res, next) {
             data.data.forEach(function (n, i) {
                 n.c_cover = `${req.config.url.hotel}/${n.cover||'404.png'}!thumb5`;
                 n.c_cate=req.config.hotelCate[n.cate_id];
+                if(_.includes(req.config.region, data.query)){
+                    n.c_region_name=n.region_name
+                }else{
+                    n.c_region_name=n.region_name
+                }
             });
 
             var appData = {
