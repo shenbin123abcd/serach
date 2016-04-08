@@ -82,7 +82,7 @@ app.hotelIndex=(function(){
                     `;
                         }
                     });
-                    $(`#area-item-${parent_id}`).addClass('active');
+                    $(`#area-item-${grand_parent_id}`).addClass('active');
                     $("#area-list-level-2").empty().append(htmlStr);
                     $("#area-list-level-3").empty().append(htmlStr_level3);
 
