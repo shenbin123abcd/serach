@@ -12,7 +12,8 @@ config.url = {
     case: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
     crmpub: 'http://7xopel.com2.z0.glb.qiniucdn.com',
     crmpri: 'http://7xopem.com2.z0.glb.qiniucdn.com',
-    hotel: 'http://7xj1oh.com2.z0.glb.qiniucdn.com'
+    hotel: 'http://7xj1oh.com2.z0.glb.qiniucdn.com',
+    pano: 'http://7xqd04.com2.z0.glb.qiniucdn.com'
 };
 
 config.perPage = {
@@ -87,6 +88,7 @@ config.route = function (app) {
     app.use('/picture', require('./routes/picture'));
     app.use('/topic', require('./routes/topic'));
     app.use('/hotel', require('./routes/hotel'));
+    app.use('/pano', require('./routes/pano'));
     app.use('/api', require('./routes/api'));
 };
 
