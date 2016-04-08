@@ -8,8 +8,8 @@ var _ = require('lodash/collection');
 // 列表
 router.get('/', function (req, res, next) {
     var params = {
-        //per_page: req.config.perPage.hotel,
-        per_page: 5,
+        per_page: req.config.perPage.hotel,
+        //per_page: 5,
         // 'filter[if_show]': 1,
         page: req.query.page || 1
     };
