@@ -42,4 +42,21 @@ router.get('/region', function(req, res){
     });
 });
 
+// 获取地区父级信息
+router.get('/region/parent', function(req, res){
+    var id = req.query.id || 0;
+    obj.get('region/parent/' + id,req).then(function(body){
+        if (body.iRet === 1) {
+            res.json({iRet: 1, info: 'success', data: body.data});
+        } else if (body.iRet === 0) {
+            res.json({iRet: 0, info: 'failed', error: body.info});
+        } else {
+            res.sendStatus(500);
+        }
+    }, function(error){
+        console.log(error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;
