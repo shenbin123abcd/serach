@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="html-hotel-index">
 <head>
-    <%- include('Public/common_header',{pageTitle: data.title}); %>
+    <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
     <%- include('Public/common_header_end'); %>
 </head>
 <body>
@@ -30,13 +30,14 @@
                 <div class="search_button_group">
                     <form action="">
                         <div class="button_group_item">
-                            <a class="f-14" href="?<%=search(data.query,{keywords:"婚礼主义",page:1})%>">婚礼主义</a>
+                            <a class="f-14" href="?<%=search(data.query,{keywords:"丽思卡尔顿",page:1})%>">丽思卡尔顿
+                            </a>
                         </div>
                         <div class="button_group_item">
-                            <a class="f-14" href="?<%=search(data.query,{keywords:"诺丁山",page:1})%>">诺丁山</a>
+                            <a class="f-14" href="?<%=search(data.query,{keywords:"香格里拉",page:1})%>">香格里拉</a>
                         </div>
                         <div class="button_group_item">
-                            <a class="f-14" href="?<%=search(data.query,{keywords:"Dream Wedding",page:1})%>">Dream Wedding</a>
+                            <a class="f-14" href="?<%=search(data.query,{keywords:"喜来登",page:1})%>">喜来登</a>
                         </div>
                     </form>
                 </div>

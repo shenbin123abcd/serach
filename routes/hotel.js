@@ -34,7 +34,13 @@ router.get('/', function (req, res, next) {
             data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
             data.query = req.query;
             data.keywords = req.query.keywords;
-            data.title = '酒店列表 - 幻熊婚礼素材开放平台';
+            if (req.query.keywords) {
+                data.pageTitle = `
+                '${req.query.keywords}' 的酒店搜索结果-幻熊婚礼素材开放平台
+            `;
+            } else {
+                data.pageTitle = '酒店列表 - 幻熊婚礼素材开放平台';
+            }
             data.totalPages = Math.ceil(data.total / data.per_page);
 
             data.region = req.config.region;
