@@ -107,6 +107,7 @@ $pictureMainColor:#b08dfd;
 $companyMainColor:#5C9CF6;
 $caseMainColor:#f3903e;
 $topicMainColor:#ff409b;
+$hotelMainColor:#ff5050;
 $mainTextColor:#666666;
 $itemShadow: 0px 0px 20px rgba(104,104,104,0.2);
 $ff_chs: Arial,Verdana,Tahoma,'Hiragino Sans GB',Microsoft YaHei,SimSun,sans-serif;
@@ -4408,6 +4409,215 @@ body{
           }
         }
       }
+    }
+  }
+}
+
+
+
+/*hotel Index*/
+.halo-search.hotel{
+
+  .search-box{
+    background: url("../images/search-bg-hotel.png") $hotelMainColor no-repeat scroll 0 0;
+    background-size: cover;
+    .search-box-input{
+      .search_input{
+        .search_wrapper{
+          .search_button
+          &.hotel:hover{
+            color:$hotelMainColor;
+
+          }
+        }
+      }
+    }
+  }
+  .case-pagination{
+    .pagination.pagination-item{
+      li.active{
+        a{
+          background: $hotelMainColor;
+          border: 1px solid $hotelMainColor;
+        }
+      }
+    }
+  }
+
+
+  .tab-list{
+    .tab-title{
+      .tab-title-left{
+        .category{
+          &.active{
+            border-top: 2px solid $hotelMainColor;
+            background: #fff;
+          }
+        }
+        ul.nav-tabs.nav{
+          li.active{
+            border-top: 2px solid $hotelMainColor;
+          }
+        }
+      }
+    }
+  }
+  .tab-list-content{
+    .tab-list-content-wrapper{
+      padding:36px 42px;
+      .tab-list-content-item{
+        ul{
+          li{
+            a.active{
+              color:$hotelMainColor;
+            }
+          }
+        }
+        .city-list{
+          li a{
+            &:hover{
+              color:$hotelMainColor;
+
+            }
+          }
+        }
+        .area-list{
+          background:#f8f8f8 ;
+          display:none;
+          -webkit-transition: all 300ms ease-in-out 0s;
+          transition: all 300ms ease-in-out 0s;
+          li{
+            a:hover{
+              color:$hotelMainColor;
+
+            }
+          }
+          &.show{
+            display:block;
+          }
+        }
+      }
+    }
+  }
+  .hotel-list-no-content{
+    margin-top: 30px;
+    text-align: center;
+  }
+  .hotel-list-wrapper{
+    margin: 0 -10px;
+
+  }
+  .hotel-list-block{
+    margin-top: 30px;
+    display: block;
+    .hotel-list-item{
+      width:20%;
+      float:left;
+      padding: 0 10px;
+      &.l-first{
+
+      }
+
+    }
+
+    .block-content-item{
+      display: block;
+      overflow: hidden;
+      border-radius: 4px;
+      position: relative;
+      margin-top: 30px;
+      .img-box{
+        background: #fff;
+        width:100%;
+        height: 0;
+        padding-bottom:75%;
+        overflow: hidden;
+        border-bottom: 1px solid #e5e2e4;
+      }
+      transition:all .2s ease-out;
+      &:hover{
+        box-shadow: $itemShadow;
+      }
+      img.hotel-img{
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        height:183px;
+        @include media("<laptop"){
+          height:138px;
+        }
+      }
+
+      .content-item-text{
+        padding: 15px;
+        background: #fff;
+        line-height: 20px;
+        .name{
+          color: $mainTextColor;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .des{
+          margin-top: 5px;
+          font-size: 12px;
+          color: $mainTextColor;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .number{
+          margin-top: 5px;
+          font-size: 12px;
+          color: #9e9e9e;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        h4{
+          line-height: 20px;
+          color:#666666;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          overflow:hidden;
+          margin:0;
+        }
+        p{
+          color:#666666;
+          margin:0;
+          margin-top:5px;
+
+        }
+      }
+    }
+  }
+}
+
+.properties-wrapper{
+  background: #ffffff;
+  padding: 57px 22px 57px 57px;
+  .property{
+    margin-top: 40px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  .property-name{
+    float: left;
+    width: 60px;
+    font-weight: bold;
+  }
+  .property-vals{
+    float: left;
+  }
+  .property-val{
+    float: left;
+    margin-right: 35px;
+    color: $mainTextColor;
+    &:hover,&.active{
+      color: $hotelMainColor;
     }
   }
 }

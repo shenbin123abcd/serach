@@ -82,48 +82,48 @@
                 </div>
             </div>
 
-        <!-- Tab panes -->
-        <div class="tab-list-content ">
-            <div class="tab-content tab-list-content-wrapper">
-                <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listColor'){ %>active<%}%>" id="tab1">
-                    <ul>
-                        <% data.listColor.forEach(function(item,i){ %>
-                        <li>
-                            <% if (i==0){ %>
-                            <a class="<% if (data.query.color==data.listColorHex[i]){ %>active<%}%> f-14"
-                               href="?<%=search(data.query,{page:1},['tag','color'])%>">
-                                <%= item %>
-                            </a>
-                            <%}else{%>
+            <!-- Tab panes -->
+            <div class="tab-list-content ">
+                <div class="tab-content tab-list-content-wrapper">
+                    <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listColor'){ %>active<%}%>" id="tab1">
+                        <ul>
+                            <% data.listColor.forEach(function(item,i){ %>
+                            <li>
+                                <% if (i==0){ %>
+                                <a class="<% if (data.query.color==data.listColorHex[i]){ %>active<%}%> f-14"
+                                   href="?<%=search(data.query,{page:1},['tag','color'])%>">
+                                    <%= item %>
+                                </a>
+                                <%}else{%>
 
-                            <a class="<% if (data.query.color==data.listColorHex[i]){ %>active<%}%>"
-                               href="?<%=search(data.query,{color:data.listColorHex[i],page:1},['tag']) %>">
-                                <%= item %>
-                            </a>
-                            <%}%>
-                        </li>
-                        <% }); %>
-                    </ul>
-                </div>
-                <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listStyle'){ %>active<%}%>" id="tab2">
-                    <ul>
-                        <% data.listStyle.forEach(function(item,i){ %>
-                        <li>
-                            <% if(i==0){ %>
-                            <a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{page:1},['tag','color']) %>">
-                                <%= item %>
-                            </a>
-                            <% }else{ %>
-                            <a class="<% if (data.tag==item){ %>active<%}%>" href="?<%=search(data.query,{tag:item,page:1},['color']) %>">
-                                <%= item %>
-                            </a>
-                            <% } %>
-                        </li>
-                        <% }); %>
-                    </ul>
+                                <a class="<% if (data.query.color==data.listColorHex[i]){ %>active<%}%>"
+                                   href="?<%=search(data.query,{color:data.listColorHex[i],page:1},['tag']) %>">
+                                    <%= item %>
+                                </a>
+                                <%}%>
+                            </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                    <div  class="tab-pane tab-list-content-item <% if (data.activeTab=='listStyle'){ %>active<%}%>" id="tab2">
+                        <ul>
+                            <% data.listStyle.forEach(function(item,i){ %>
+                            <li>
+                                <% if(i==0){ %>
+                                <a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{page:1},['tag','color']) %>">
+                                    <%= item %>
+                                </a>
+                                <% }else{ %>
+                                <a class="<% if (data.tag==item){ %>active<%}%>" href="?<%=search(data.query,{tag:item,page:1},['color']) %>">
+                                    <%= item %>
+                                </a>
+                                <% } %>
+                            </li>
+                            <% }); %>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
     <% } %>
