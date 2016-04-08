@@ -625,13 +625,18 @@ span.tt{float:none;}
     margin:auto;
     width:110px;
     display: block;
+
   }
   .login-bt,.forget-password-bt{
 
     width:110px;
     display: block;
     margin: 10px auto 0;
+    &:focus,&:active{
+      outline:none;
+    }
   }
+
   .get-forget-password-verify-code-bt{
     position: absolute;
     right: 10px;
