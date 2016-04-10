@@ -69,7 +69,7 @@ router.get('/:id', function(req, res, next){
                     xml_cont += xml_scene3.replace("{root_url}", root_url);
                     xml_cont += xml_scene4.replace("{root_url}", root_url);
                     panoinfo.linked.forEach(function(val2, key2){
-                        var temp = xml_scene5.replace("{idx}", key2);
+                        var temp = xml_scene5.replace("{idx}", ""+val.id+"-"+key2);
                         temp = temp.replace("{ath}", val2.ath);
                         temp = temp.replace("{atv}", val2.atv);
                         temp = temp.replace("{id}", val2.id);
