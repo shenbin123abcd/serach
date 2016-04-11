@@ -22,7 +22,7 @@ app.common=(function(){
         $("textarea").on("input",function(){
             var num = 500-parseInt($(this).val().length);
             $(".num").text(num);
-            if(num<0){
+            if(num<=0){
                 $("textarea").val($("textarea").val().substr(0,499));
                 $(".num").text(0);
             }
