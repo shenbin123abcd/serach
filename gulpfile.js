@@ -164,8 +164,13 @@ gulp.task('map', function () {
         .pipe(gulp.dest('dist/css'))
 });
 
+gulp.task('pano', function () {
+    return gulp.src(['app/public/pano/**/*.*'])
+        .pipe(gulp.dest('public/pano'))
+});
 
-gulp.task('build', ['sass','images','haloIcon'], function () {
+
+gulp.task('build', ['sass','images','haloIcon','pano'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
