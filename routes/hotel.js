@@ -4,6 +4,7 @@ var router = express.Router();
 var obj = require('../module/module');
 var token = require('../module/token');
 var _ = require('lodash/collection');
+var Promise = require('bluebird');
 
 // 列表
 router.get('/', function (req, res, next) {
@@ -27,8 +28,6 @@ router.get('/', function (req, res, next) {
         if (body.iRet === 1) {
             var data = body.data;
 
-
-
             //res.json(data);return;
             data.baseUrl = req.baseUrl;
             data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -36,8 +35,7 @@ router.get('/', function (req, res, next) {
             data.keywords = req.query.keywords;
             if (req.query.keywords) {
                 data.pageTitle = `
-                '${req.query.keywords}' 的酒店搜索结果-幻熊婚礼素材开放平台
-            `;
+                '${req.query.keywords}' 的酒店搜索结果-幻熊婚礼素材开放平台`;
             } else {
                 data.pageTitle = '酒店列表 - 幻熊婚礼素材开放平台';
             }
@@ -62,8 +60,6 @@ router.get('/', function (req, res, next) {
             }else{
                 data.activeTab = 'r';
             }
-
-
 
             data.data.forEach(function (n, i) {
                 n.c_cover = `${req.config.url.hotel}/${n.cover||'404.png'}!thumb5`;
@@ -95,10 +91,78 @@ router.get('/', function (req, res, next) {
 
 // 详情
 router.get('/detail/:id', function (req, res, next) {
-    var data={};
-    data.baseUrl = req.baseUrl;
-    res.render('hotel_detail',{data:data});
+    var id = parseInt(req.params.id);
 
+    if (id <= 0 || isNaN(id)) {
+        res.status(404);
+        next();
+        return;
+    }
+
+    // 酒店详情
+    function getInfo(){
+        return obj.getInfo('hotel', id, req).then(function (body) {
+            return body.data;
+        });
+    }
+
+    function getHallList(){
+        return obj.getList('hotelHall', req, {hotel: id, detail: 1}).then(function (body) {
+            return body.data;
+        });
+    }
+
+    Promise.all([getInfo(), getHallList()]).then(function(result){
+        var data=result[0], hall = result[1], hall_format = {};
+        data.baseUrl = req.baseUrl;
+
+        // 格式化厅列表
+        hall.forEach(function(val, index){
+            if(val.cover.length > 0) {
+                val.cover = req.config.url.hotel + '/' + val.cover + '!thumb2';
+            }
+
+            val.attach.forEach(function(val2, index2){
+                hall[index].attach[index2].image_url = req.config.url.hotel + '/' + val2.file_path + '!w800';
+            });
+
+            if(val.is_pano){
+                val.pano_url = "http://open.halobear.com/pano/index.html?hotel=" + val.hotel_id + "&hall=" + val.id;
+            } else {
+               val.pano_url = "";
+            }
+
+            // 内景
+            if(val.indoor_hall == 0){
+                hall_format[val.id] = {in: val, out: {}};
+            }
+
+        });
+
+        // 对应的外景
+        for(var val in hall_format){
+            hall.forEach(function(val2, index2){
+                if(val == val2.indoor_hall){
+                    hall_format[val].out = val2;
+                }
+            });
+        }
+
+        var temp_hall = _.map(hall_format,function(val, key){
+            return val;
+        });
+
+        res.json(data);
+        // res.json(temp_hall);
+        // res.render('hotel_detail',{data:data, hall: temp_hall});
+    }).catch(function(error){
+        if(error.iRet == 0){
+            res.status(404);
+        }else{
+            res.status(500);
+        }
+        next();
+    });
 });
 
 
