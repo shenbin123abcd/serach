@@ -2336,7 +2336,23 @@ body{
                 }
               }
             }
+          .ellipsis{
+            >span{
+              margin-left: 6px;
+              background-color: transparent;
+              border: none;
+
+            }
+          }
         }
+      .pagination-control{
+        .form-control{
+          width: 42px;
+          text-align: center;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
     }
 }
 

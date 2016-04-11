@@ -33,8 +33,9 @@ router.get(['/'], function (req, res, next) {
         // 默认最新
         params['order[isort]'] = 'ASC';
     }
-
+    var start = new Date().getTime();
     obj.getList('picture/tag', req, params).then(function (body) {
+        console.log('pic-list', new Date().getTime() - start);
         if (body.iRet === 1) {
             data = body.data;
 
@@ -55,8 +56,7 @@ router.get(['/'], function (req, res, next) {
 
             if (req.query.tag) {
                 data.pageTitle = `
-                '${req.query.tag}' 的图片搜索结果-幻熊婚礼素材开放平台
-            `;
+                '${req.query.tag}' 的图片搜索结果-幻熊婚礼素材开放平台`;
             } else {
                 data.pageTitle = '图片 - 幻熊婚礼素材开放平台';
             }
