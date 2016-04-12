@@ -115,15 +115,18 @@ router.get('/detail/:id', function (req, res, next) {
     Promise.all([getInfo(), getHallList()]).then(function(result){
         var data=result[0], hall = result[1], hall_format = {};
         data.baseUrl = req.baseUrl;
-
+        data.cover = req.config.url.hotel + '/' + data.cover + '!opencover';
         // 格式化厅列表
         hall.forEach(function(val, index){
             if(val.cover.length > 0) {
                 val.cover = req.config.url.hotel + '/' + val.cover + '!thumb2';
+            }else{
+                val.cover = req.config.url.hotel + '404.png'
             }
 
             val.attach.forEach(function(val2, index2){
-                hall[index].attach[index2].image_url = req.config.url.hotel + '/' + val2.file_path + '!w800';
+                hall[index].attach[index2].image_url = req.config.url.hotel + '/' + val2.file_path + '!thumb6';
+                hall[index].thumb[index2] = req.config.url.hotel + '/' + val2.file_path + '!thumb7';
             });
 
             if(val.is_pano){
@@ -152,9 +155,10 @@ router.get('/detail/:id', function (req, res, next) {
             return val;
         });
 
-        res.json(data);
-        // res.json(temp_hall);
-        // res.render('hotel_detail',{data:data, hall: temp_hall});
+
+        //res.json(data);
+         //res.json(temp_hall);
+         res.render('hotel_detail',{data:data, hall: temp_hall});
     }).catch(function(error){
         if(error.iRet == 0){
             res.status(404);
