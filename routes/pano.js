@@ -63,10 +63,10 @@ var xml_pre2 = '<include url="skin/vtourskin.xml" />\
         if(startactions !== null, startactions() );\
     </action>';
 
-var xml_scene1 = '<scene name="h{id}" title="{title}" onstart="" thumburl="{root_url}/thumb.jpg" lat="" lng="" heading="">';
+var xml_scene1 = '<scene name="h{id}" title="{title}" onstart="" thumburl="{root_url}/thumb.jpg!t1" lat="" lng="" heading="">';
 var xml_scene2 = '<view hlookat="{hlookat}" vlookat="{vlookat}" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />';
-var xml_scene3 = '<preview url="{root_url}/preview.jpg" />';
-var xml_scene4 = '<image><cube url="{root_url}/pano_%s.jpg" /></image>';
+var xml_scene3 = '<preview url="{root_url}/preview.jpg!t2" />';
+var xml_scene4 = '<image><cube url="{root_url}/pano_%s.jpg!p2" /><cube url="{root_url}/pano_%s.jpg!p1" devices="mobile" /></image>';
 var xml_scene5 = '<hotspot name="spot{idx}" style="skin_hotspotstyle" ath="{ath}" atv="{atv}" linkedscene="h{id}" />';
 var xml_scene6 = '</scene>';
 var xml_suf1 = '</krpano>';
@@ -100,7 +100,9 @@ router.get('/:id', function(req, res, next){
                     temp = temp.replace("{vlookat}", panoinfo.vlookat);
                     xml_cont += temp;
                     xml_cont += xml_scene3.replace("{root_url}", root_url);
-                    xml_cont += xml_scene4.replace("{root_url}", root_url);
+                    temp = xml_scene4.replace("{root_url}", root_url);
+                    temp = temp.replace("{root_url}", root_url);
+                    xml_cont += temp;
                     panoinfo.linked.forEach(function(val2, key2){
                         var temp = xml_scene5.replace("{idx}", ""+val.id+"-"+key2);
                         temp = temp.replace("{ath}", val2.ath);
