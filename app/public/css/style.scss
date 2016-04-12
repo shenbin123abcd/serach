@@ -2577,7 +2577,7 @@ body{
                         background: #fff;
                       padding-bottom: 20px;
 
-                        form{
+                        form#commit-form{
                             position: relative;
                             overflow: hidden;
                             padding: 60px 60px;
@@ -3837,8 +3837,17 @@ body{
 
     }
 }
+
 .detail-comments-page{
     text-align: center;
+  .pagination-control{
+    .form-control{
+      width: 44px;
+      text-align: center;
+      
+    }
+
+  }
     .piuture-detail{
         li{
             a{
@@ -3853,6 +3862,16 @@ body{
                     color:#fff;
                 }
             }
+          &.ellipsis{
+            span{
+              border: none;
+              margin-left: 6px;
+              &:hover{
+                background-color: transparent;
+
+              }
+            }
+          }
 
         }
         &.case{
