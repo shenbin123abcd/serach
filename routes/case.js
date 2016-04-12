@@ -239,6 +239,8 @@ router.post('/comment',token.verifyToken, function(req, res, next){
 
 // 获取评论列表
 router.get('/comment/:id', function(req, res){
+    res.setHeader("Expires", "-1");
+    res.setHeader("Cache-Control", "must-revalidate, private");
     var id = req.params.id;
     if(!id){
         res.json({iRet: 0, info: '参数错误'});
