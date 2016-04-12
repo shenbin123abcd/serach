@@ -14,103 +14,120 @@
         <div class="s-container clearfix">
             <div class="wrapper clearfix">
                 <div class="content-left-box detail-content-wrapper">
-                    <div class="detail-hotel-content">
-                        <div class="hotel-content-name">
-                            <i class="line">——————</i><span class="f-20 name"> 千禧海鸥大酒店 · 外景 </span><i class="line">——————</i>
-                        </div>
-                        <div class="detail-hotel-swiper">
-                            <div class="swiper-container gallery-top" id="gallery-top1" >
-                                <a class="swiper-tip">
-                                    <span class="span-style f-14">酒店外景</span>
-                                    <span class="span-style f-14">720度全景</span>
-                                </a>
-                                <div class="swiper-wrapper">
-                                    <% for(var i=0;i<10;i++){%>
-                                    <div class="swiper-slide">
-                                        <img src="/images/img16.jpg" alt="">
+                    <% hall.forEach(function(val,index){%>
+                        <div class="hall-item">
+                            <!--酒店名-->
+                            <div class="hotel-content-name" id="<%= val.in.id%>">
+                                <i class="line">——————</i><span class="f-20 name"> <%= val.in.name%> </span><i class="line">——————</i>
+                            </div>
+                            <!--酒店外-->
+                            <% if(val.out.attach){%>
+                            <div class="detail-hotel-content-outter">
+                                <div class="detail-hotel-swiper">
+                                    <% if(val.out.attach){%>
+                                    <div class="swiper-container gallery-top" id="gallery-top<%= i%>" >
+                                        <a class="swiper-tip" href="<%= val.pano_url%>">
+                                            <span class="span-style f-14">酒店外景</span>
+                                            <span class="span-style f-14">720度全景</span>
+                                        </a>
+                                        <div class="swiper-wrapper">
+                                            <% val.out.attach.forEach(function(n,i){%>
+                                            <div class="swiper-slide">
+                                                <img src="<%= n.image_url%>" alt="" class="swiper-pic">
+                                            </div>
+                                            <%})%>
+                                        </div>
+                                        <!-- Add Arrows -->
+                                        <div class="swiper-button-next swiper-button-white"></div>
+                                        <div class="swiper-button-prev swiper-button-white"></div>
                                     </div>
                                     <%}%>
-                                </div>
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next swiper-button-white"></div>
-                                <div class="swiper-button-prev swiper-button-white"></div>
-                            </div>
-                            <div class="swiper-container-wrapper">
-                                <a class="button-in" button-in>
-                                    <img src="/images/img16.jpg" alt="">
-                                    <p class="p">720全景</p>
-                                </a>
-                                <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs1">
-                                    <div class="swiper-wrapper">
-                                        <% for(var i=0;i<10;i++){%>
-                                        <div class="swiper-slide">
-                                            <img src="/images/img16.jpg" alt="" class="img" swiper-slide-img>
+                                    <div class="swiper-container-wrapper">
+                                        <% if(val.out.thumb){%>
+                                        <a class="button-in" button-in href="<%= val.pano_url%>">
+                                            <img src="<%= val.out.cover%>" alt="" >
+                                            <p class="p">720全景</p>
+                                        </a>
+                                        <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs<%= index%>">
+                                            <div class="swiper-wrapper">
+                                                <% val.out.thumb.forEach(function(n,i){%>
+                                                <div class="swiper-slide">
+                                                    <img src="<%= n%>" alt="" class="img" swiper-slide-img>
+                                                </div>
+                                                <%})%>
+                                            </div>
                                         </div>
                                         <%}%>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="detail-hotel-content" >
-                        <div class="hotel-content-name">
-                            <i class="line">——————</i><span class="f-20 name"> 兴荣宴会厅 · 5F </span><i class="line">——————</i>
-                        </div>
-                        <div class="detail-hotel-swiper">
-                            <div class="swiper-container gallery-top" id="gallery-top2" >
-                                <a class="swiper-tip" >
-                                    <span class="span-style f-14">兴荣宴会厅</span>
-                                    <span class="span-style f-14">720度全景</span>
-                                </a>
-                                <div class="swiper-wrapper">
-                                    <% for(var i=0;i<10;i++){%>
-                                    <div class="swiper-slide">
-                                        <img src="/images/img16.jpg" alt="">
-                                    </div>
-                                    <%}%>
-                                </div>
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next swiper-button-white"></div>
-                                <div class="swiper-button-prev swiper-button-white"></div>
-                            </div>
-                            <div class="swiper-container-wrapper">
-                                <a class="button-in" button-in>
-                                    <img src="/images/img16.jpg" alt="">
-                                    <p class="p">720全景</p>
-                                </a>
-                                <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs2" >
-                                    <div class="swiper-wrapper">
-                                        <% for(var i=0;i<10;i++){%>
-                                        <div class="swiper-slide">
-                                            <img src="/images/img16.jpg" alt="" class="img" swiper-slide-img>
+                            <div class="bottom-line" style="height:1px;width:100%;margin:auto;background:#eeeeee;"></div>
+                            <%}%>
+                            <!--酒店内-->
+                            <% if(val.in.attach){%>
+                            <div class="detail-hotel-content-inner" >
+                                <div class="detail-hotel-swiper">
+                                    <div class="swiper-container gallery-top" id="gallery-top-s<%= index%>" >
+                                        <a class="swiper-tip" href="<%= val.in.pano_url%>">
+                                            <span class="span-style f-14"><%= val.in.name%></span>
+                                            <span class="span-style f-14">720度全景</span>
+                                        </a>
+                                        <% if(val.in.attach){%>
+                                        <div class="swiper-wrapper">
+                                            <% val.in.attach.forEach(function(n,i){%>
+                                            <div class="swiper-slide">
+                                                <img src="<%= n.image_url%>" alt="" class="swiper-pic">
+                                            </div>
+                                            <%})%>
                                         </div>
                                         <%}%>
+                                        <!-- Add Arrows -->
+                                        <div class="swiper-button-next swiper-button-white"></div>
+                                        <div class="swiper-button-prev swiper-button-white"></div>
+                                    </div>
+                                    <div class="swiper-container-wrapper">
+                                        <a class="button-in" button-in href="<%= val.in.pano_url%>">
+                                            <img src="<%= val.in.cover%>" alt="" >
+                                            <p class="p">720全景</p>
+                                        </a>
+                                        <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs-s<%= index%>" >
+                                            <% if(val.in.thumb){%>
+                                            <div class="swiper-wrapper">
+                                                <% val.in.thumb.forEach(function(n,i){%>
+                                                <div class="swiper-slide">
+                                                    <img src="<%= n%>" alt="" class="img" swiper-slide-img>
+                                                </div>
+                                                <%})%>
+                                            </div>
+                                            <%}%>
+                                        </div>
+                                    </div>
+                                    <div class="hotel-info">
+                                        <table class="table table-responsive">
+                                            <tbody>
+                                                <tr class="f-16 tr">
+                                                    <td class="td">面积：<span class="style"><%= parseInt(val.in.room_l)*parseInt(val.in.room_w)%></span></td>
+                                                    <td class="td">层高：<span class="style">?</span></td>
+                                                    <td class="td">形状：<span class="style"><%= val.in.shape%></span></td>
+                                                </tr>
+                                                <tr class="f-16 tr">
+                                                    <td class="td">特色：<span class="style">?中式</span></td>
+                                                    <td class="td">柱子：<span class="style"><%= val.in.pillar_num%></span></td>
+                                                    <td class="td">桌数：<span class="style"><%= val.in.table_num%></span></td>
+                                                </tr>
+                                                <tr class="f-16 tr">
+                                                    <td class="td">投影设备：<span class="style">?音响 LED屏</span></td>
+                                                    <td class="td"></td>
+                                                    <td class="td"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <div class="hotel-info">
-                                <table class="table table-responsive">
-                                    <tbody>
-                                        <tr class="f-16 tr">
-                                            <td class="td">面积：<span class="style">840平</span></td>
-                                            <td class="td">层高：<span class="style">6.7m</span></td>
-                                            <td class="td">形状：<span class="style">长方形</span></td>
-                                        </tr>
-                                        <tr class="f-16 tr">
-                                            <td class="td">特色：<span class="style">中式</span></td>
-                                            <td class="td">柱子：<span class="style">无</span></td>
-                                            <td class="td">桌数：<span class="style">40桌</span></td>
-                                        </tr>
-                                        <tr class="f-16 tr">
-                                            <td class="td">投影设备：<span class="style">音响 LED屏</span></td>
-                                            <td class="td"></td>
-                                            <td class="td"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <% }%>
                         </div>
-                    </div>
+                    <%})%>
                 </div>
                 <div class="content-right-box">
                     <div class="hotel-detail-list">
@@ -119,9 +136,11 @@
                                 <img class="img" src="<%= data.cover%>" alt=""/>
                             </div>
                             <div class="company-desc">
+                                <% if(data.name){%>
                                 <div class="f-16 name">
                                     <%= data.name%>
                                 </div>
+                                <%}%>
                                 <% if(data.address){%>
                                 <div class="f-16 address">
                                     <i class="icon haloIcon haloIcon-address f-22"></i><%= data.address%>
@@ -164,7 +183,7 @@
                                     <% }%>
                                     <div class="case-pic-desc">
                                         <a href="" class="case-pic-a f-14"><%= val.in.name%></a>
-                                        <span class="f-12"><%= val.in.table_num%></span>
+                                        <span class="f-12">最大容纳<%= val.in.table_num%>桌</span>
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +191,7 @@
                         </div>
                     </div>
                     <%}%>
-                    <div class="other-like-case hotelDetail case">
+                    <!--<div class="other-like-case hotelDetail case">
                         <h4 class="f-14">宴会厅真实婚礼</h4>
                         <div class="other-case-block">
                             <% for(var i=0;i<10;i+=2){  %>
@@ -192,7 +211,7 @@
                             </div>
                             <%}%>
                         </div>
-                    </div>
+                    </div>-->
                     <%if(data.description){%>
                     <div class="other-like-case hotelDetail desc">
                         <h4 class="f-14">酒店简介</h4>
@@ -211,13 +230,13 @@
         </div>
     </div>
 </div>
-
 <%- include('Public/ModalDialog'); %>
 <%- include('Public/footer'); %>
 <%- include('Public/common_footer'); %>
 <script>
     $(function(){
         "use strict";
+        window.hallNum = <%= data.hall_num%>
 
         app.index.nav();
 
@@ -232,8 +251,14 @@
 
         app.hotelDetail.seeMore();
         app.hotelDetail.buttonIn();
-        app.hotelDetail.swiper("#gallery-top1","#gallery-thumbs1");
-        app.hotelDetail.swiper("#gallery-top2","#gallery-thumbs2");
+        for(var i=0;i<parseInt(hallNum);i++){
+            var val1="#gallery-top"+i;
+            var val2="#gallery-thumbs"+i;
+            var val1s="#gallery-top-s"+i;
+            var val2s="#gallery-thumbs-s"+i;
+            app.hotelDetail.swiper(val1,val2);
+            app.hotelDetail.swiper(val1s,val2s);
+        }
     })
 
 

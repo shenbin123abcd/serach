@@ -9,7 +9,7 @@ app.hotelDetail = (function () {
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             spaceBetween: 10,
-            //initialSlide :1,
+            initialSlide :1,
             loop:true,
             mousewheelControl:true,
             loopedSlides: 5, //looped slides should be the same
@@ -17,7 +17,7 @@ app.hotelDetail = (function () {
         var galleryThumbs = new Swiper(galleryThumbs, {
             spaceBetween: 5,
             slidesPerView: 5.5,
-            //initialSlide :1,
+            initialSlide :1,
             touchRatio: 0.2,
             loop:true,
             loopedSlides: 5, //looped slides should be the same
@@ -36,7 +36,7 @@ app.hotelDetail = (function () {
             }else{
                 $("#moreText").css("height",175);
                 $("#seeMore").on('click',function(){
-                    $("#moreText").animate({height:height},600);
+                    $("#moreText").animate({height:height},400);
                     $("#seeMore").remove();
                 });
             }
