@@ -26,10 +26,12 @@
                                 <div class="detail-hotel-swiper">
                                     <% if(val.out.attach){%>
                                     <div class="swiper-container gallery-top" id="gallery-top<%= i%>" >
-                                        <a class="swiper-tip" href="<%= val.pano_url%>">
+                                        <% if(val.out.pano_url){%>
+                                        <a class="swiper-tip" href="<%= val.out.pano_url%>">
                                             <span class="span-style f-14">酒店外景</span>
                                             <span class="span-style f-14">720度全景</span>
                                         </a>
+                                        <%}%>
                                         <div class="swiper-wrapper">
                                             <% val.out.attach.forEach(function(n,i){%>
                                             <div class="swiper-slide">
@@ -44,9 +46,9 @@
                                     <%}%>
                                     <div class="swiper-container-wrapper">
                                         <% if(val.out.thumb){%>
-                                        <a class="button-in" button-in href="<%= val.pano_url%>">
+                                        <a class="button-in" button-in href="<%= val.out.pano_url%>">
                                             <img src="<%= val.out.cover%>" alt="" >
-                                            <p class="p">720全景</p>
+                                            <% if(val.out.pano_url){%><p class="p">720全景</p><%}%>
                                         </a>
                                         <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs<%= index%>">
                                             <div class="swiper-wrapper">
@@ -68,10 +70,12 @@
                             <div class="detail-hotel-content-inner" >
                                 <div class="detail-hotel-swiper">
                                     <div class="swiper-container gallery-top" id="gallery-top-s<%= index%>" >
+                                        <% if(val.in.pano_url){%>
                                         <a class="swiper-tip" href="<%= val.in.pano_url%>">
                                             <span class="span-style f-14"><%= val.in.name%></span>
                                             <span class="span-style f-14">720度全景</span>
                                         </a>
+                                        <% }%>
                                         <% if(val.in.attach){%>
                                         <div class="swiper-wrapper">
                                             <% val.in.attach.forEach(function(n,i){%>
@@ -88,7 +92,7 @@
                                     <div class="swiper-container-wrapper">
                                         <a class="button-in" button-in href="<%= val.in.pano_url%>">
                                             <img src="<%= val.in.cover%>" alt="" >
-                                            <p class="p">720全景</p>
+                                            <% if(val.in.pano_url){%><p class="p">720全景</p><%}%>
                                         </a>
                                         <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs-s<%= index%>" >
                                             <% if(val.in.thumb){%>
@@ -106,17 +110,17 @@
                                         <table class="table table-responsive">
                                             <tbody>
                                                 <tr class="f-16 tr">
-                                                    <td class="td">面积：<span class="style"><%= parseInt(val.in.room_l)*parseInt(val.in.room_w)%></span></td>
-                                                    <td class="td">层高：<span class="style"><%= val.in.stage_h%></span></td>
-                                                    <td class="td">形状：<span class="style"><%= val.in.shape%></span></td>
+                                                    <td class="td">面积：<span class="style"><% if(val.in.room_l!=="" && val.in.room_w!==""){%><%= parseInt(val.in.room_l)*parseInt(val.in.room_w)%><%}else{%>不明<%}%></span></td>
+                                                    <td class="td">层高：<span class="style"><% if(val.in.stage_h!==""){%><%= val.in.stage_h%><%}else{%>不明<%}%></span></td>
+                                                    <td class="td">形状：<span class="style"><% if(val.in.shape){%><%= val.in.shape%><%}else{%>不明<%}%></span></td>
                                                 </tr>
                                                 <tr class="f-16 tr">
-                                                    <td class="td">特色：<span class="style"></span></td>
-                                                    <td class="td">柱子：<span class="style"><%= val.in.pillar_num%></span></td>
-                                                    <td class="td">桌数：<span class="style"><%= val.in.table_num%></span></td>
+                                                    <td class="td">特色：<span class="style"><% if(val.in.tese){%><%= val.in.tese%><%}else{%>不明<%}%></span></td>
+                                                    <td class="td">柱子：<span class="style"><% if(val.in.pillar_num!==""){%><%= val.in.pillar_num%><%}else{%>不明<%}%></span></td>
+                                                    <td class="td">桌数：<span class="style"><% if(val.in.table_num!==""){%><%= val.in.table_num%><%}else{%>不明<%}%></span></td>
                                                 </tr>
                                                 <tr class="f-16 tr">
-                                                    <td class="td">投影设备：<span class="style"></span></td>
+                                                    <td class="td">投影设备：<span class="style"><% if(val.in.shebei){%><%= val.in.shebei%><%}else{%>不明<%}%></span></td>
                                                     <td class="td"></td>
                                                     <td class="td"></td>
                                                 </tr>
@@ -177,7 +181,7 @@
                                     <div class="case-pic-img">
                                         <a href="#<%= val.in.id%>" class="case-pic-a">
                                             <img src="<%= val.in.cover%>" alt="" class="img"/>
-                                            <div class="tip f-12">720全景</div>
+                                            <%if(val.in.pano_url){%><div class="tip f-12">720全景</div><%}%>
                                         </a>
                                     </div>
                                     <% }%>

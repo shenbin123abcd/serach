@@ -130,7 +130,7 @@ router.get('/detail/:id', function (req, res, next) {
                 hall[index].thumb[index2] = req.config.url.hotel + '/' + val2.file_path + '!thumb7';
             });
 
-            if(val.is_pano){
+            if(val.has_pano){
                 val.pano_url = "http://open.halobear.com/pano/index.html?hotel=" + val.hotel_id + "&hall=" + val.id;
             } else {
                val.pano_url = "";

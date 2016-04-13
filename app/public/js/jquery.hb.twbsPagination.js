@@ -200,7 +200,7 @@
             return $itemContainer;
         },
         buildPaginationControl: function (totalPages,currentPage) {
-
+            
             if (this.options.paginationControl) {
                 this.$listContainer.addClass('media-middle');
                 var paginationControl=`
