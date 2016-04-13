@@ -4196,7 +4196,7 @@ body{
         }
       }
 
-      .detail-hotel-content-outter{
+      .detail-hotel-content{
         //margin-bottom:90px;
         .detail-hotel-swiper{
           padding:40px;
@@ -4342,168 +4342,12 @@ body{
                 width:(100/3/100)*100%;
                 border-right:1px solid #ddd;
                 &:last-child{
+
                   border-right:0;
-                }
-              }
-            }
-            .style{
-              color:#a0a0a0;
-            }
-          }
-        }
-      }
-      .detail-hotel-content-inner{
-        //margin-bottom:90px;
-        .detail-hotel-swiper{
-          padding:40px;
-          background: #fff;
-          .gallery-thumbs:hover{
-            cursor:e-resize	;
-          }
-          .swiper-container-wrapper{
-            overflow:hidden;
-            position:relative;
-            .button-in{
-              position:absolute;
-              left:0;
-              top:0;
-              width:134px;
-              display: block;
-              .p{
-                position: absolute;
-                left:50%;
-                top:50%;
-                margin:0;
-                color:#fff;
-                transform: translate(-50%,-50%);
-                border:1px solid #fff;
-                padding:4px;
-                border-radius: 3px;
-                font-size: 14px;
-                width:70%;
-                text-align: center;
-
-                @include media("<laptop"){
-                  font-size: 12px;
-                  padding:3px;
-                }
-              }
-              &:before{
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0.5;
-                background: #333333;
-
-              }
-              @include media("<laptop"){
-                width:108.625px;
-              }
-              img{
-                width:100%;
-              }
-            }
-            .swiper-container.gallery-thumbs{
-              left:139px;
-              @include media("<laptop"){
-                left:113.625px;
-              }
-
-            }
-          }
-          /*.slide-cover{
-            position: absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background:#999999;
-            opacity:0.8;
-          }*/
-
-          .swiper-tip{
-            position:absolute;
-            top:20px;
-            right:0;
-            background: #ff5050;
-            padding:10px 20px;
-            z-index:9999999;
-            border-top-left-radius:5px;
-            border-bottom-left-radius:5px;
-            .span-style{
-              display: block;
-              color:#fff;
-              text-align: center;
-            }
-          }
-          .swiper-pic{
-            width:100%;
-
-          }
-          .gallery-top{
-            margin-bottom:15px;
-
-          }
-          .gallery-thumbs{
-            .swiper-slide{
-              &:before{
-                content:'';
-                position: absolute;
-                top:0;
-                left:0;
-                width:100%;
-                height:100%;
-                opacity: 0.5;
-                background: #333333;
-              }
-              .img{
-                width:100%;
-                max-width: 100%;
-                /*height: 96px;*/
-
-              }
-            }
-            .swiper-slide-active{
-              opacity:1;
-              &:before{
-                /*content: "720全景";
-                position: absolute;
-                font-size:14px;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
-                width:auto;
-                height:auto;
-                opacity: 1;
-                background: none;
-                padding:2px 6px;
-                border: 1px solid #fff;
-                color:#fff;
-                border-radius: 3px;*/
-                content:none;
-
-              }
-            }
-          }
-          .hotel-info{
-            padding-top:50px;
-
-            table .tr{
-              text-align: center;
-              border-top:1px solid #ddd;
-              &:first-child{
-                border-top:0;
-              }
-              td.td{
-                padding:32px 0;
-                border-top:0;
-                width:(100/3/100)*100%;
-                border-right:1px solid #ddd;
-                &:last-child{
-                  border-right:0;
+                  /*.col-text{
+                    float:left;
+                    margin-left:52px;
+                  }*/
                 }
               }
             }
