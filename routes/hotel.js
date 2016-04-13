@@ -156,8 +156,8 @@ router.get('/detail/:id', function (req, res, next) {
             return val;
         });
         //res.json(data);
-        res.json(temp_hall);
-        //res.render('hotel_detail',{data:data, hall: temp_hall});
+        //res.json(temp_hall);
+        res.render('hotel_detail',{data:data, hall: temp_hall});
     }).catch(function(error){
         if(error.iRet == 0){
             res.status(404);
