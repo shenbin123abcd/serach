@@ -48,11 +48,11 @@ router.get('/', function (req, res, next) {
                     query:"c",
                     vals:req.config.hotelCate,
                 },
-                {
-                    name:"特色",
-                    query:"f",
-                    vals:req.config.feature,
-                },
+                //{
+                //    name:"特色",
+                //    query:"f",
+                //    vals:req.config.feature,
+                //},
             ];
 
             if(data.query.c||data.query.f){
