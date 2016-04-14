@@ -116,7 +116,12 @@ router.get('/detail/:id', function (req, res, next) {
         var data=result[0], hall = result[1], hall_format = {};
         data.baseUrl = req.baseUrl;
         data.cover = req.config.url.hotel + '/' + data.cover + '!opencover';
-        data.pageTitle='酒店详情 - 幻熊婚礼素材开放平台';
+        if(data.name){
+            data.pageTitle=data.name+' - 酒店详情 - 幻熊婚礼素材开放平台';
+        }else{
+            data.pageTitle='酒店详情 - 幻熊婚礼素材开放平台';
+        }
+
         // 格式化厅列表
         hall.forEach(function(val, index){
             if(val.cover.length > 0) {

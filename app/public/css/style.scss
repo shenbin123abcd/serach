@@ -4221,9 +4221,11 @@ body{
                 color:#fff;
                 transform: translate(-50%,-50%);
                 border:1px solid #fff;
-                padding:6px;
+                padding:4px;
                 border-radius: 3px;
                 font-size: 14px;
+                width:60%;
+                text-align: center;
                 @include media("<laptop"){
                   font-size: 12px;
                   padding:3px;
