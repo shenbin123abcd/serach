@@ -89,6 +89,7 @@ config.route = function (app) {
     app.use('/topic', require('./routes/topic'));
     app.use('/hotel', require('./routes/hotel'));
     app.use('/pano', require('./routes/pano'));
+    app.use('/uc', require('./routes/uc'));
     app.use('/api', require('./routes/api'));
 };
 

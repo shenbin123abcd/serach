@@ -170,7 +170,7 @@ gulp.task('pano', function () {
 });
 
 
-gulp.task('build', ['sass','images','haloIcon','pano'], function () {
+gulp.task('build', ['sass','images','haloIcon'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});

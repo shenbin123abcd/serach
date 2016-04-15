@@ -352,38 +352,40 @@ app.service.picture=(function(){
 
     function getComments(data){
         var deferred = $.Deferred();
+        var options={
+            method: "GET",
+            url: "/picture/comment/"+data.id,
+            data: {},
+            success: function(res, textStatus, errorThrown) {
+                //console.log(res);
+                if(res.iRet==1){
+                    deferred.resolve(res.data);
+                }else{
+                    deferred.reject(res.info);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                //console.log(jqXHR, textStatus, errorThrown);
+                deferred.reject('网络繁忙请稍候再试');
+                //if(t==="timeout") {
+                //	// something went wrong (handle it)
+                //}
+            }
+        };
+        if (Modernizr.ie) {
+            options.cache=false;
+        }
         function init(){
             data=data||{};
             switch (true){
                 default:
                     sendXhr();
             }
-        };
+        }
+
         function sendXhr(){
-
-            $.ajax({
-                method: "GET",
-                url: "/picture/comment/"+data.id,
-                data: {},
-                success: function(res, textStatus, errorThrown) {
-                    //console.log(res);
-                    if(res.iRet==1){
-                        deferred.resolve(res.data);
-                    }else{
-                        deferred.reject(res.info);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
-                }
-            })
-            ;
-
-        };
+            $.ajax(options);
+        }
         init();
         return deferred.promise();
     }
@@ -553,38 +555,40 @@ app.service.case=(function(){
 
     function getComments(data){
         var deferred = $.Deferred();
+        var options={
+            method: "GET",
+            url: "/case/comment/"+data.id,
+            data: {},
+            success: function(res, textStatus, errorThrown) {
+                //console.log(res);
+                if(res.iRet==1){
+                    deferred.resolve(res.data);
+                }else{
+                    deferred.reject(res.info);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                //console.log(jqXHR, textStatus, errorThrown);
+                deferred.reject('网络繁忙请稍候再试');
+                //if(t==="timeout") {
+                //	// something went wrong (handle it)
+                //}
+            }
+        };
+        if (Modernizr.ie) {
+            options.cache=false;
+        }
         function init(){
             data=data||{};
             switch (true){
                 default:
                     sendXhr();
             }
-        };
+        }
+
         function sendXhr(){
-
-            $.ajax({
-                method: "GET",
-                url: "/case/comment/"+data.id,
-                data: {},
-                success: function(res, textStatus, errorThrown) {
-                    //console.log(res);
-                    if(res.iRet==1){
-                        deferred.resolve(res.data);
-                    }else{
-                        deferred.reject(res.info);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
-                }
-            })
-            ;
-
-        };
+            $.ajax(options);
+        }
         init();
         return deferred.promise();
     }
@@ -748,38 +752,40 @@ app.service.topic=(function(){
 
     function getComments(data){
         var deferred = $.Deferred();
+        var options={
+            method: "GET",
+            url: "/topic/comment/"+data.id,
+            data: {},
+            success: function(res, textStatus, errorThrown) {
+                //console.log(res);
+                if(res.iRet==1){
+                    deferred.resolve(res.data);
+                }else{
+                    deferred.reject(res.info);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                //console.log(jqXHR, textStatus, errorThrown);
+                deferred.reject('网络繁忙请稍候再试');
+                //if(t==="timeout") {
+                //	// something went wrong (handle it)
+                //}
+            }
+        };
+        if (Modernizr.ie) {
+            options.cache=false;
+        }
         function init(){
             data=data||{};
             switch (true){
                 default:
                     sendXhr();
             }
-        };
+        }
+
         function sendXhr(){
-
-            $.ajax({
-                method: "GET",
-                url: "/topic/comment/"+data.id,
-                data: {},
-                success: function(res, textStatus, errorThrown) {
-                    //console.log(res);
-                    if(res.iRet==1){
-                        deferred.resolve(res.data);
-                    }else{
-                        deferred.reject(res.info);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    //console.log(jqXHR, textStatus, errorThrown);
-                    deferred.reject('网络繁忙请稍候再试');
-                    //if(t==="timeout") {
-                    //	// something went wrong (handle it)
-                    //}
-                }
-            })
-            ;
-
-        };
+            $.ajax(options);
+        }
         init();
         return deferred.promise();
     }
