@@ -12,6 +12,7 @@
     width: 1000px;
   }
 }
+
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset;
 }
@@ -3234,13 +3235,15 @@ body{
         margin-top:30px;
         .company-left-box{
           padding-top:25px;
+          padding-bottom: 25px;
           width:325px;
           float:left;
           margin:auto;
           position:relative;
+          border-right:1px solid #eeeeee;
+
           &.border-left{
             border-right:1px solid #eeeeee;
-
           }
           @include media('<laptop'){
             width:27%;
@@ -3302,6 +3305,7 @@ body{
         .company-right-box{
           width:875px;
           float:left;
+          margin-left: -1px;
           padding:0 50px;
           padding-top:5px;
           position: relative;
