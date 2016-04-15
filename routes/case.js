@@ -247,7 +247,7 @@ router.get('/comment/:id', function(req, res){
         return false;
     }
 
-    obj.getList('comment', req, {module: 'case', record_id: id, per_page: req.config.perPage.comments}).then(function(body){
+    obj.getList('comment', req, {'filter[module]': 'case', 'filter[record_id]': id, per_page: req.config.perPage.comments}).then(function(body){
         if(body.iRet === 1){
             res.json({iRet: 1, info: 'success', data: body.data});
         }else{

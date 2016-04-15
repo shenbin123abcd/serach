@@ -239,8 +239,8 @@ router.get('/comment/:id', function (req, res) {
     }
 
     obj.getList('comment', req, {
-        module: 'picture',
-        record_id: id,
+        'filter[module]': 'picture',
+        'filter[record_id]': id,
         per_page: req.config.perPage.comments
     }).then(function (body) {
         if (body.iRet === 1) {
