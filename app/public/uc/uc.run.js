@@ -1,0 +1,33 @@
+(function(){
+    "use strict";
+    angular.module('halo').run(['$rootScope','$state','$timeout','$window','$location',
+    function($rootScope, $state, $timeout,$window,$location) {
+        window.appConfig.debug&&console.log('running in debug mode');
+        $rootScope.pageTitle='个人中心 - 开放平台';
+        $rootScope.imgPreload='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC';
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            //console.log(event, toState, toParams, fromState, fromParams);
+            //console.log(toState, toParams,$location.url());
+
+            $rootScope.toState=toState;
+            $rootScope.fromState=fromState;
+            $rootScope.fromParams=fromParams;
+        });
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            //console.log(toState, toParams);
+            _hmt.push(['_trackPageview', $location.url()]);
+        });
+        $rootScope.windowWidth=$($window).width();
+
+        $rootScope.device=hb.agent.device();
+        $rootScope.browser=hb.agent.browser();
+
+        //alert(haloBrowser.device());
+
+        $($window).on('orientationchange',function(){
+            $rootScope.windowWidth=$($window).width();
+        });
+
+
+    }]);
+}());
