@@ -29,7 +29,7 @@ router.get(['/'], function(req, res, next){
         params['order[points]'] = 'DESC';
     }else{
         // 默认最新
-        params['order[id]'] = 'DESC';
+        params['order[isort]'] = 'DESC';
     }
 
     obj.getList('cases', req, params).then(function(body){
