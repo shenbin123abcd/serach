@@ -23,7 +23,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     width: 1000px;
   }
 
-  .html-case-detail &,.html-picture-detail &,.html-company-detail &{
+  .html-case-detail &,.html-picture-detail &,.html-company-detail &,.html-user-center &{
     width: 1200px;
     @include media('<laptop'){
       width: 1000px;

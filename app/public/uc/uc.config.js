@@ -20,7 +20,7 @@
         $stateProvider
             .state('setting', {
                 url: '/',
-                templateUrl: appConfig.staticUrl+'/uc/setting/uc.view.setting.html'+appConfig.bust,
+                templateUrl: appConfig.staticUrl+'/uc/user/uc.view.user.html'+appConfig.bust,
                 data: { pageTitle: '个人中心' },
                 controller: 'settingCtrl'
             })

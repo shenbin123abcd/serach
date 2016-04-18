@@ -1,10 +1,10 @@
 
 @font-face {font-family: "haloIcon";
-  src: url('iconfont.eot?t=1459913954'); /* IE9*/
-  src: url('iconfont.eot?t=1459913954#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1459913954') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1459913954') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1459913954#haloIcon') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1460976691'); /* IE9*/
+  src: url('iconfont.eot?t=1460976691#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1460976691') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1460976691') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1460976691#haloIcon') format('svg'); /* iOS 4.1- */
 }
 
 .haloIcon {
@@ -15,13 +15,19 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.haloIcon-shangchuan:before { content: "\e630"; }
 .haloIcon-fold:before { content: "\e61a"; }
 .haloIcon-unfold:before { content: "\e61b"; }
 .haloIcon-back:before { content: "\e61c"; }
 .haloIcon-right:before { content: "\e61d"; }
+.haloIcon-star-empty:before { content: "\e62c"; }
 .haloIcon-wifi:before { content: "\e612"; }
+.haloIcon-dialog:before { content: "\e62d"; }
 .haloIcon-car:before { content: "\e614"; }
+.haloIcon-trash:before { content: "\e62f"; }
+.haloIcon-wait:before { content: "\e631"; }
 .haloIcon-star:before { content: "\e601"; }
+.haloIcon-person-circle:before { content: "\e62b"; }
 .haloIcon-glass:before { content: "\e604"; }
 .haloIcon-times:before { content: "\e605"; }
 .haloIcon-user:before { content: "\e606"; }
@@ -54,7 +60,9 @@
 .haloIcon-platform:before { content: "\e624"; }
 .haloIcon-match:before { content: "\e625"; }
 .haloIcon-circle:before { content: "\e626"; }
-.haloIcon-dialog:before { content: "\e628"; }
+.haloIcon-dialog1:before { content: "\e628"; }
 .haloIcon-review:before { content: "\e627"; }
 .haloIcon-address:before { content: "\e629"; }
 .haloIcon-phone1:before { content: "\e62a"; }
+.haloIcon-authentication:before { content: "\e62e"; }
+.haloIcon-complete22:before { content: "\e632"; }

@@ -3,5 +3,23 @@
 @import "hbVariables";
 
 .user-center{
-
+  margin-top: 30px;
+  &__main{
+    float: left;
+    width: 934px;
+    background: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(#8e8e8e,0.2);
+    @include media('<laptop'){
+      width: 794px;
+    }
+  }
+  &__side{
+    float: right;
+    width: 240px;
+    background: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(#8e8e8e,0.2);
+    @include media('<laptop'){
+      width: 180px;
+    }
+  }
 }
