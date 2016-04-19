@@ -51,7 +51,7 @@ router.get('/collect', token.verifyToken, function(req, res, next){
 
     var params={
         'filter[uid]':req.user.id,
-        'filter[module]':'case',
+        'filter[module]':req.query.module,
     };
     obj.getList('collect', req, params).then(function(body){
         res.json(body);

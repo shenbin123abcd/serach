@@ -2,42 +2,32 @@
     <div uib-tabset class="uc-box__tabset cf" >
         <div uib-tab classes="tab__li tab__li--main">
             <div uib-tab-heading class="tab-heading">
-                个人设置
+                婚礼案例
             </div>
             <div class="uc-box__content">
-                <div class="uc-user-info">
-                    <table class="uc-user-info__table">
-                        <tr class="tr tr-1">
-                            <td class="td-avatar" rowspan="2">
-                                <img class="avatar" ng-src="{{vm.data.avatar}}" >
-                            </td>
-                            <td class="td-username">
-                                {{vm.user.username}}
-                            </td>
-                            <td>账户等级：<span class="rank">{{vm.data.sid|sid2rank}}</span></td>
-                        </tr>
-                        <tr class="tr tr-2">
-                            <td class="td-edit">
-                                <div>{{vm.c_data.greet}}好~</div>
-                                <a class="edit" target="_blank" href="http://account.halobear.com" >修改个人信息 &gt;</a>
-                            </td>
-                            <td class="td-phone">
-                                <div>手机绑定：{{vm.data.phone}}</div>
-                            </td>
-                        </tr>
-                    </table>
+                <div class="uc-user-collects">
+                    <ul class="list-unstyled">
+                        <li ng-repeat="item in [1,2]"></li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div uib-tab classes="tab__li tab__li--main">
             <div uib-tab-heading class="tab-heading">
-                个人设置2
+                婚礼图片
             </div>
             <div class="uc-box__content">
-                retgre
+                婚礼图片
 
             </div>
-
+        </div>
+        <div uib-tab classes="tab__li tab__li--main">
+            <div uib-tab-heading class="tab-heading">
+                婚礼专题
+            </div>
+            <div class="uc-box__content">
+                婚礼专题
+            </div>
         </div>
 
     </div>
