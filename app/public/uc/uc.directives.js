@@ -27,18 +27,22 @@
                 {
                     ico:'person-circle',
                     title:'个人设置',
+                    state:'user',
                 },
                 {
                     ico:'authentication',
                     title:'申请认证',
+                    state:'collect',
                 },
                 {
                     ico:'star-empty',
                     title:'我的收藏',
+                    state:'collect',
                 },
                 {
                     ico:'dialog',
                     title:'我的评论',
+                    state:'collect',
                 },
             ];
         };

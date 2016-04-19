@@ -94,11 +94,49 @@
 
 .uc-user-info{
   width: 780px;
-  margin: 80px auto 0;
+  margin: 80px auto 260px;
+
   &__table{
     width: 100%;
     .td-avatar{
       width: 140px;
+    }
+    .rank{
+      color: $mainColor;
+    }
+    .tr{
+      td{
+        padding-left: 20px;
+      }
+      .td-username{
+        font-size: 18px;
+        width: 350px;
+      }
+      .td-edit{
+        .edit{
+          font-size: 12px;
+          color: $mainColor;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+      .td-phone{
+        padding-top: 35px;
+      }
+    }
+    .tr-1{
+      td{
+        height: 58px;
+        vertical-align: bottom;
+      }
+    }
+    .tr-2{
+      td{
+        vertical-align: top;
+        padding-top: 20px;
+      }
+
     }
 
   }

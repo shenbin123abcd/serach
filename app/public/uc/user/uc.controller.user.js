@@ -1,14 +1,15 @@
 (function(){
     "use strict";
     angular.module('halo')
-        .controller('settingCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','userService',
+        .controller('userCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','userService',
             function($rootScope,$scope, $timeout,$stateParams,$q, $location,userService) {
                 $scope.vm={};
                 var vm=$scope.vm;
-
+                vm.c_data={
+                    greet:moment().format('a')
+                };
                 userService.getInfo().then(function(res){
-                    vm.user=res.data;
-
+                    vm.data=res.data;
                 });
 
 

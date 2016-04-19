@@ -53,7 +53,7 @@ router.get('/', function(req, res, next){
 });
 
 // 详情
-router.get('/detail/:id', function(req, res, next){
+router.get('/detail/:id',token.getUser, function(req, res, next){
     var id = parseInt(req.params.id);
 
     if(id <= 0 || isNaN(id)){
@@ -61,21 +61,44 @@ router.get('/detail/:id', function(req, res, next){
         return false;
     }
 
-    obj.getInfo('zhuanti',id, req, {if_company: 1}).then(function(body){
-        var data = body.data;
-        data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/q/85'
-        if(data.case.length > 0){
-            data.case.forEach(function(val, index){
-                val.images = [
-                    req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/q/85',
-                    req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/q/85'
-                ];
-            })
-        }
+    function getInfo(){
+        return obj.getInfo('zhuanti',id, req, {if_company: 1}).then(function(body){
+            var data = body.data;
+            data.default_image = req.config.url.case + '/' + data.default_image + '?imageView/1/w/900/q/85'
+            if(data.case.length > 0){
+                data.case.forEach(function(val, index){
+                    val.images = [
+                        req.config.url.case + '/' + val.img1 + '?imageView/1/w/900/q/85',
+                        req.config.url.case + '/' + val.img2 + '?imageView/1/w/900/q/85'
+                    ];
+                })
+            }
+            return data;
+        });
+    }
 
-        return data;
-    }).then(function(data){
-        var data=data;
+    function isCollect(id){
+        // case if collect
+        if(!req.user.id){
+            return 0;
+        }
+        var params={
+            'filter[uid]':req.user.id,
+            'filter[module]':'zhuanti',
+            'filter[record_id]':id,
+        };
+        return obj.getList('collect', req, params).then(function(body){
+            return body.data.total?1:0;
+        }, function(error){
+            return 0;
+        });
+    }
+
+
+    Promise.all([getInfo(), isCollect(id)]).then(function(result){
+        var data = result[0];
+        data.isCollect = result[1];
+
 
         data.case.forEach((n,i)=>{
             n.company.logo=req.config.url.case+'/' +n.company.logo+'?imageView2/1/w/82/h/62';
@@ -108,6 +131,8 @@ router.get('/detail/:id', function(req, res, next){
         }
         next();
     });
+
+
 });
 
 // 新增评论
@@ -184,7 +209,7 @@ router.delete('/collect/:id',token.verifyToken, function(req, res, next){
         res.json({iRet: 0, info: '参数错误'});
     }
 
-    obj.delete('zhuanti', id, req).then(function(body){
+    obj.delete('collect', id, req).then(function(body){
         if(body.iRet === 1){
             res.json({iRet: 1, info: '操作成功'});
         }else if(body.iRet === 0){

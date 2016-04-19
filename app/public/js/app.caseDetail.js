@@ -41,6 +41,7 @@ app.caseDetail=(function(){
             var num = $('#desc-list-item-num-points').text();
             num++;
             $('#desc-list-item-num-points').text(num);
+            $('[collect-points]').text(num);
             $('#markThis-sidebar,#markThis-comment').hide();
             $('#unMarkThis-sidebar,#unMarkThis-comment').show();
         }
@@ -49,6 +50,7 @@ app.caseDetail=(function(){
             var num = $('#desc-list-item-num-points').text();
             num--;
             $('#desc-list-item-num-points').text(num);
+            $('[collect-points]').text(num);
             $('#markThis-sidebar,#markThis-comment').show();
             $('#unMarkThis-sidebar,#unMarkThis-comment').hide();
         }

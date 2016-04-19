@@ -20,12 +20,19 @@
         ]);
 
         $stateProvider
-            .state('setting', {
+            .state('user', {
                 url: '/',
                 templateUrl: appConfig.staticUrl+'/uc/user/uc.view.user.html'+appConfig.bust,
                 data: { pageTitle: '个人中心' },
-                controller: 'settingCtrl'
+                controller: 'userCtrl'
             })
+            .state('collect', {
+                url: '/collect',
+                templateUrl: appConfig.staticUrl+'/uc/collect/uc.view.collect.html'+appConfig.bust,
+                data: { pageTitle: '我的收藏' },
+                controller: 'collectCtrl'
+            })
+
         ;
         $httpProvider.interceptors.push('authInterceptor');
 

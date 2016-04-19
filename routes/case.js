@@ -110,7 +110,7 @@ router.get(['/'], function(req, res, next){
 });
 
 // 详情
-router.get('/detail/:id', function(req, res, next){
+router.get('/detail/:id',token.getUser, function(req, res, next){
     var id = req.params.id;
 
     if(id <= 0 || isNaN(id)){
@@ -157,14 +157,31 @@ router.get('/detail/:id', function(req, res, next){
             return data;
         });
     }
+    function isCollect(id){
+        // case if collect
+        if(!req.user.id){
+            return 0;
+        }
+        var params={
+            'filter[uid]':req.user.id,
+            'filter[module]':'case',
+            'filter[record_id]':id,
+        };
+        return obj.getList('collect', req, params).then(function(body){
+            return body.data.total?1:0;
+        }, function(error){
+            return 0;
+        });
+    }
 
     obj.getInfo('cases', id, req).then(function(body){
         return body.data;
     }).then(function(data){
-        Promise.all([xiangsi(id, data.tag), other(data.company_id), company(data.company_id)]).then(function(result){
+        Promise.all([xiangsi(id, data.tag), other(data.company_id), company(data.company_id),isCollect(data.id)]).then(function(result){
             data.xiangsi = result[0];
             data.other = result[1];
             data.company = result[2];
+            data.isCollect = result[3];
 
             data.baseUrl=req.baseUrl;
             if(data.company.name){
