@@ -5,8 +5,11 @@
             function($rootScope,$scope, $timeout,$stateParams,$q, $location,userService) {
                 $scope.vm={};
                 var vm=$scope.vm;
-                userService.getInfo();
 
+                userService.getInfo().then(function(res){
+                    vm.user=res.data;
+
+                });
 
 
             }])

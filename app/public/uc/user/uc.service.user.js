@@ -8,7 +8,7 @@
                 resource.get(data, function(res){
                     //console.log(data,res);
                     if(res.iRet==1){
-                        deferred.resolve(res.data);
+                        deferred.resolve(res);
                     }else{
                         deferred.reject(res.info);
                     }
@@ -18,7 +18,6 @@
                 });
                 return deferred.promise;
             }
-
             return{
                 getInfo:getInfo
             };

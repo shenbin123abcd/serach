@@ -1,1 +1,47 @@
-<div>rrrrr</div>
+<div class="uc-box--main uc-box--user">
+    <div uib-tabset class="uc-box__tabset cf" >
+        <div uib-tab classes="tab__li tab__li--main">
+            <div uib-tab-heading class="tab-heading">
+                个人设置
+            </div>
+            <div class="uc-box__content">
+                <div class="uc-user-info">
+                    <table class="uc-user-info__table">
+                        <tr>
+                            <td class="td-avatar" rowspan="2">
+                                <img class="avatar" ng-src="{{vm.user.avatar}}" >
+                            </td>
+                            <td>
+                                {{vm.user.username}}
+                            </td>
+                            <td>账户等级：{{vm.user.sid|sid2rank}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>下午好~</div>
+                                <div><a href="">修改个人信息&gt;</a></div>
+                            </td>
+                            <td>
+                                <div><a href="">手机绑定：18516053989</a></div>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div uib-tab classes="tab__li tab__li--main">
+            <div uib-tab-heading class="tab-heading">
+                个人设置2
+            </div>
+            <div class="uc-box__content">
+                retgre
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

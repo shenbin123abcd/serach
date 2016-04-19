@@ -13,9 +13,11 @@
         //    requireBase: false
         //});
         //$locationProvider.hashPrefix('!');
-        //$sceDelegateProvider.resourceUrlWhitelist([
-        //    'http://10.0.1.29:9000/app/public/uc/setting/aa.html'
-        //]);
+
+
+        $sceDelegateProvider.resourceUrlWhitelist([
+            appConfig.staticUrl+'**'
+        ]);
 
         $stateProvider
             .state('setting', {

@@ -6,11 +6,11 @@
   margin-top: 30px;
   &__main{
     float: left;
-    width: 934px;
+    width: 1200-26-240px;
     background: #ffffff;
     box-shadow: 0 0 4px 0 rgba(#8e8e8e,0.2);
     @include media('<laptop'){
-      width: 794px;
+      width: 1000-26-180px;
     }
   }
   &__side{
@@ -21,5 +21,92 @@
     @include media('<laptop'){
       width: 180px;
     }
+  }
+}
+
+
+.uc-box{
+
+}
+.uc-box__tabset{
+
+  .nav-tabs {
+    border-bottom: 0px solid #eee;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    position: relative;
+    left: 50%;
+    > li {
+      float: left;
+      position: relative;
+      left: -50%;
+
+      margin-bottom: -1px;
+      height: 100%;
+
+      > a {
+        margin-right: 0;
+        font-size: 16px;
+        color:$mainTextColor;
+        height: 100%;
+        line-height: 60px;
+        border: 0px solid transparent;
+        border-radius: 0;
+        padding: 0;
+        &:hover {
+          border-color: transparent;
+          background-color: transparent;
+          border-bottom:2px solid #b4b4b4;
+
+        }
+      }
+
+      // Active state, and its :hover to override normal :hover
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          color: $mainTextColor;
+          background-color: transparent;
+          border: 0px solid $nav-tabs-active-link-hover-border-color;
+          border-bottom-color: transparent;
+          border-bottom:2px solid #b4b4b4;
+
+          cursor: default;
+        }
+      }
+    }
+    .tab-heading{
+      height: 100%;
+
+    }
+    .tab__li--main{
+      padding: 0 60px;
+
+    }
+  }
+  .tab-content {
+    clear: both;
+    border-top:1px solid #eee;
+  }
+}
+
+.uc-user-info{
+  width: 780px;
+  margin: 80px auto 0;
+  &__table{
+    width: 100%;
+    .td-avatar{
+      width: 140px;
+    }
+
+  }
+  .avatar{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: 4px;
+    border: 1px solid rgba(#8e8e8e,0.2);
   }
 }
