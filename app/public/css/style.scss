@@ -4663,3 +4663,99 @@ body{
     }
   }
 }
+
+
+
+.s-list-box{
+  padding: 0 40px 70px;
+  &__ul {
+    margin:20px -10px 60px;
+  }
+  &__li{
+    float: left;
+    padding: 10px;
+    width: 25%;
+    .item{
+      display: block;
+      box-shadow:  0 0 8px 0 rgba(#000,0.2);
+      transition: box-shadow 0.4s;
+      &:hover{
+        box-shadow:  0 0 8px 0 rgba($mainColor,0.7);
+      }
+    }
+    .img-wrapper{
+      display: block;
+    }
+    .img{
+      width: 100%;
+    }
+    .info-wrapper{
+      display: block;
+      padding: 20px 15px;
+    }
+    .name,.company{
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link{
+      color: $mainTextColor;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .name{
+
+    }
+    .company{
+      margin-top: 2px;
+      font-size: 12px;
+
+    }
+  }
+}
+
+.s-pagination{
+  text-align: center;
+
+  &__nav{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px 0;
+    @extend .cf;
+    li{
+      float: left;
+      margin-left: 10px;
+      a{
+        display: block;
+        width: 40px;
+        height: 38px;
+        line-height: 38px;
+        border: 1px solid rgba(#8e8e8e,0.2);
+        color: #a8a8a8;
+        border-radius:2px;
+        transition: 0.2s;
+        font-size: 16px;
+      }
+      &.active,&:hover{
+        a{
+          border: 1px solid $mainColor;
+          color: $mainColor;
+        }
+      }
+    }
+  }
+  &__control{
+    margin: 20px 0;
+    display: inline-block;
+    vertical-align: middle;
+    .form-control{
+      display: inline-block;
+      width: 42px;
+      text-align: center;
+    }
+
+  }
+
+}

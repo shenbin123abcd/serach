@@ -53,7 +53,49 @@
             link:linkFunction
         }
     }])
+    .directive('ucUibPagination', ['$timeout','$sce',function($timeout,$sce){
+        var compileFunction=function( $element, $attrs){
+            //console.log('few',$element.children());
+            $element.children().attr("template-url", appConfig.staticUrl+"/uc/views/uc.view.pagination.html"+appConfig.bust);
+        };
+        return{
+            restrict: 'AE',
+            scope: {},
+            compile:compileFunction
+        }
+    }])
+    .directive('ucUibPaginationControl', ['$timeout','$sce',function($timeout,$sce){
+        var linkFunction=function($scope, $element, $attrs){
 
+        };
+        return{
+            restrict: 'AE',
+            scope: {
+                targetPage:'@',
+                currentPage:'=',
+                totalPage:'@',
+            },
+            replace:true,
+            template: `
+             <form class="s-pagination__control form-inline" ng-submit="currentPage=targetPage">
+
+
+                <div class="form-group">
+                    <div class="form-control-static">共{{totalPage}}页 到第</div>
+                  </div>
+                   <div class="form-group">
+                <input class="form-control"  type="text" ng-model="targetPage"  >
+                </div>
+               <div class="form-group">
+                    <div class="form-control-static">页</div>
+                  </div>
+                <button class="btn btn-default"   type="submit" >确定</button>
+            </form>
+
+            `,
+            link:linkFunction
+        }
+    }])
 
 
 
