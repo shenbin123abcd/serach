@@ -176,6 +176,13 @@ gulp.task('pano', function () {
 
 gulp.task('uc', function () {
     return gulp.src(['app/public/uc/**/*.html'])
+        .pipe(plugins.htmlmin({
+            removeComments: true,
+            collapseWhitespace: true,
+            conservativeCollapse: true,
+            minifyJS: true,
+            minifyCSS: true,
+        }))
         .pipe(gulp.dest('public/uc'))
 });
 
@@ -379,8 +386,13 @@ gulp.task('copy:dev:style',['sass'], function () {
 gulp.task('copy:view', function () {
     var ejsFilter = plugins.filter('*.ejs',{restore: true});
     var ejsFilterPublic = plugins.filter('Public/*.ejs',{restore: true});
+    var htmlFilter = plugins.filter('**/*.html',{restore: true});
     return gulp
-        .src('app/views/**/*.ejs')
+        .src(['app/views/**/*.ejs','app/public/uc/**/*.html'])
+
+        .pipe(htmlFilter)
+        .pipe(gulp.dest('public/uc'))
+        .pipe(htmlFilter.restore)
         .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
             defaultCDNBase: "http://"+devip()[0]+":9000/app",
@@ -450,6 +462,7 @@ gulp.task('copy:view', function () {
             ]
         }))
         .pipe(gulp.dest('views'))
+        .pipe(ejsFilterPublic.restore)
 
 
         ;
@@ -497,9 +510,8 @@ gulp.task("watch", function(){
 //});
 
 gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
-    gulp.watch(['app/views/**/*.ejs'],function(event) {
+    gulp.watch(['app/views/**/*.ejs','app/public/uc/**/*.html'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-
         gulp.start('copy:view');
         //gulp.src(['app/views/**/*.ejs'])
         //    .pipe(plugins.cdnizer({

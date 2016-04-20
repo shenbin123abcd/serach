@@ -5,10 +5,37 @@
                 婚礼案例
             </div>
             <div class="uc-box__content">
-                <div class="uc-user-collects">
-                    <ul class="list-unstyled">
-                        <li ng-repeat="item in [1,2]"></li>
+                <div class="uc-user-collects s-list-box s-list-box--main">
+                    <ul class="list-unstyled s-list-box__ul cf">
+                        <li class="s-list-box__li" ng-repeat="item in vm.caseList">
+                            <div class="item" ng-click="$root.go('/case/detail/'+item.record_id)">
+                                <a class="img-wrapper"  ng-href="{{'/case/detail/'+item.record_id}}">
+                                    <img class="img" ng-src="{{item.cover}}">
+                                </a>
+                                <div class="info-wrapper">
+                                    <div class="name">
+                                        <a class="link"
+                                             ng-href="{{'/case/detail/'+item.record_id}}">{{item.title}}</a>
+                                    </div>
+                                    <div class="company">
+                                        <a class="link" ng-click="$event.stopPropagation()" ng-href="{{'/company/detail/'+item.company_id}}">{{item.company_name}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
+
+                    <uib-pagination
+                            boundary-links="true"
+                            total-items="vm.caseList.length"
+                            ng-model="currentPage"
+                            class="pagination-sm"
+                            template-url="/uc/views/uc.view.pagination.html"
+                            previous-text="&lsaquo;"
+                            next-text="&rsaquo;"
+                            first-text="&laquo;"
+                            last-text="&raquo;">
+                    </uib-pagination>
                 </div>
             </div>
         </div>

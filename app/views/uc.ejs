@@ -17,9 +17,9 @@
 <%- include('Public/header'); %>
 <div class="halo-search case uc">
     <%- include('Public/search_nav',{baseUrl:data.baseUrl}); %>
-
     <div class="user-center" ng-app="halo">
         <div class="s-container cf">
+
             <div class="user-center__main" ui-view></div>
             <div class="user-center__side" side-bar></div>
         </div>
@@ -73,10 +73,10 @@
 
 
 <!-- endbuild -->
-
 <script>
     $(function(){
         "use strict";
+//        console.log(app.index.haloAuth().getUser());
         app.index.lazy();
         app.index.nav();
         app.index.indexInit();
@@ -87,7 +87,6 @@
         app.index.forgetPassword();
         app.index.summitHover();
         app.index.loginInit();
-
 
     })
 </script>

@@ -10,6 +10,7 @@
                     vm.getList('case');
                 }
 
+
                 vm.getList= function(module){
                     var para={
                         module:module,
@@ -17,13 +18,13 @@
                     collectService.getInfo(para).then(function(res){
                         switch (module){
                             case 'case':
-                                vm.caseData=res.data;
+                                vm.caseList=res.data.data;
                                 break;
                             case 'picture':
-                                vm.pictureData=res.data;
+                                vm.pictureList=res.data;
                                 break;
                             case 'zhuanti':
-                                vm.topicData=res.data;
+                                vm.topicList=res.data;
                                 break;
                         }
                     });

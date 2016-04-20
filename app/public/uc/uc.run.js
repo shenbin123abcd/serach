@@ -22,6 +22,9 @@
 
         $rootScope.device=hb.agent.device();
         $rootScope.browser=hb.agent.browser();
+        $rootScope.go=function(url){
+            window.location.href=url;
+        };
 
         //alert(haloBrowser.device());
 

@@ -16,7 +16,8 @@
 
 
         $sceDelegateProvider.resourceUrlWhitelist([
-            appConfig.staticUrl+'**'
+            'self',
+            appConfig.staticUrl+'**',
         ]);
 
         $stateProvider

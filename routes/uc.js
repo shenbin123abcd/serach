@@ -52,8 +52,13 @@ router.get('/collect', token.verifyToken, function(req, res, next){
     var params={
         'filter[uid]':req.user.id,
         'filter[module]':req.query.module,
+        'per_page':1000,
     };
     obj.getList('collect', req, params).then(function(body){
+
+        body.data.data.forEach(function(n,i){
+            n.cover = req.config.url.case + '/' + n.cover +"?imageView2/1/w/200/h/150"
+        });
         res.json(body);
 
     }, function(error){
