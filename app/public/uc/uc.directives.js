@@ -37,12 +37,12 @@
                 {
                     ico:'star-empty',
                     title:'我的收藏',
-                    state:'collect',
+                    state:'collect.case',
                 },
                 {
                     ico:'dialog',
                     title:'我的评论',
-                    state:'comment',
+                    state:'comment.user',
                 },
             ];
         };

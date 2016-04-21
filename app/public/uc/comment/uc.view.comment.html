@@ -1,97 +1,20 @@
 <div class="uc-box--main uc-box--user">
-    <div uib-tabset class="uc-box__tabset cf" >
-        <div uib-tab select="vm.getList('user')"   classes="tab__li tab__li--main">
-            <div uib-tab-heading class="tab-heading">
-                我评论的
-            </div>
-            <div class="uc-box__content">
-                <div ng-init="vm.c_per_page=20;" class="uc-user-collects s-list-box s-list-box--second">
-                    <ul class="list-unstyled s-list-box__ul cf">
-                        <li class="s-list-box__li" ng-repeat="item in vm.data.data" ng-if="$index<=(vm.data.current_page*vm.c_per_page-1)&&$index>((vm.data.current_page-1)*vm.c_per_page)-1">
-                            <div class="item">
-                                <a class="img-wrapper"  ng-href="{{item.c_link}}">
-                                    <img class="img" ng-src="{{item.cover}}">
-                                </a>
-                                <div class="info-wrapper">
-                                    <div class="msg-wrapper cf" >
-                                        <span class="msg" ng-bind-html="item.c_msg" ></span>
-                                        <i ng-click="vm.delete(item)" class="haloIcon haloIcon-trash del"></i>
-                                    </div>
-                                    <div class="time">{{item.c_time}}</div>
-                                    <div class="content">{{item.content}}</div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="s-pagination" ng-if="vm.data.total/vm.c_per_page>1"  uc-uib-pagination>
-                        <div uib-pagination
-                             boundary-links="true"
-                             boundary-link-numbers="true"
-                             max-size="5"
-                             total-items="vm.data.data.length"
-                             ng-model="vm.data.current_page"
-                             items-per-page="vm.c_per_page"
-                             previous-text="&lsaquo;"
-                             next-text="&rsaquo;"
-                             first-text="&laquo;"
-                             last-text="&raquo;">
-                        </div>
-                        <div uc-uib-pagination-control
-                             current-page="vm.data.current_page"
-                             target-page="{{vm.data.current_page}}"
-                             total-page="{{vm.data.data.length}}"
-                        ></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div ng-if="$root.user.sid" uib-tab select="vm.getList('company')" classes="tab__li tab__li--main" >
-            <div uib-tab-heading class="tab-heading">
-                给我评论的
-            </div>
-            <div class="uc-box__content">
-                <div ng-init="vm.c_per_page=20;" class="uc-user-collects s-list-box s-list-box--second">
-                    <ul class="list-unstyled s-list-box__ul cf">
-                        <li class="s-list-box__li" ng-repeat="item in vm.data.data" ng-if="$index<=(vm.data.current_page*vm.c_per_page-1)&&$index>((vm.data.current_page-1)*vm.c_per_page)-1">
-                            <div class="item">
 
-                                <a class="img-wrapper"  ng-href="{{item.c_link}}">
-                                    <img class="img" ng-src="{{item.cover}}">
-                                </a>
-                                <div class="info-wrapper">
-                                    <div class="msg-wrapper cf" >
-                                        <span class="msg" ng-bind-html="item.c_msg" ></span>
-                                    </div>
-                                    <div class="time">{{item.c_time}}</div>
-                                    <div class="content">{{item.content}}</div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="s-pagination" ng-if="vm.data.total/vm.c_per_page>1"  uc-uib-pagination>
-                        <div uib-pagination
-                             boundary-links="true"
-                             boundary-link-numbers="true"
-                             max-size="5"
-                             total-items="vm.data.data.length"
-                             ng-model="vm.data.current_page"
-                             items-per-page="vm.c_per_page"
-                             previous-text="&lsaquo;"
-                             next-text="&rsaquo;"
-                             first-text="&laquo;"
-                             last-text="&raquo;">
-                        </div>
-                        <div uc-uib-pagination-control
-                             current-page="vm.data.current_page"
-                             target-page="{{vm.data.current_page}}"
-                             total-page="{{vm.data.data.length}}"
-                        ></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
+    <div class="uc-box__tabset cf">
+        <ul class="nav nav-tabs">
+            <li class="uib-tab nav-item tab__li tab__li--main" ui-sref-active="active" >
+                <a class="nav-link" ui-sref="comment.user">
+                    <div class="tab-heading">我评论的</div>
+                </a>
+            </li>
+            <li  ng-if="$root.user.sid" class="uib-tab nav-item tab__li tab__li--main"  ui-sref-active="active">
+                <a class="nav-link"  ui-sref="comment.company">
+                    <div class="tab-heading">给我评论的</div>
+                </a>
+            </li>
+        </ul>
+        <div ui-view></div>
     </div>
+
+
 </div>

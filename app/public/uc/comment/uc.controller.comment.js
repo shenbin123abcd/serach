@@ -7,9 +7,7 @@
                 var vm=$scope.vm;
                 var listOwner='';
                 function init(){
-
                 }
-
                 vm.getList= function(owner){
                     if(listOwner==owner){
                         return
@@ -53,7 +51,14 @@
                         app.index.DIALOG.error(res);
                     });
                 };
-
                 init()
+            }])
+        .controller('commentUserCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','commentService',
+            function($rootScope,$scope, $timeout,$stateParams,$q, $location,commentService) {
+                $scope.vm.getList('user');
+            }])
+        .controller('commentCompanyCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','commentService',
+            function($rootScope,$scope, $timeout,$stateParams,$q, $location,commentService) {
+                $scope.vm.getList('company');
             }])
 }());

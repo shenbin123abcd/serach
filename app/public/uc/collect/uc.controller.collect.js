@@ -38,4 +38,16 @@
 
                 init()
             }])
+        .controller('collectCaseCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','commentService',
+            function($rootScope,$scope, $timeout,$stateParams,$q, $location,commentService) {
+                $scope.vm.getList('case');
+            }])
+        .controller('collectPictureCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','commentService',
+            function($rootScope,$scope, $timeout,$stateParams,$q, $location,commentService) {
+                $scope.vm.getList('picture');
+            }])
+        .controller('collectTopicCtrl', ['$rootScope','$scope', '$timeout','$stateParams','$q', '$location','commentService',
+            function($rootScope,$scope, $timeout,$stateParams,$q, $location,commentService) {
+                $scope.vm.getList('zhuanti');
+            }])
 }());
