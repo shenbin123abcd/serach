@@ -1,5 +1,10 @@
 <ul class="list-unstyled uc-sidebar">
-    <li class="uc-sidebar__item" ui-sref="{{item.state}}" ng-repeat="item in vm.list" >
-        <i class="haloIcon" ng-class="'haloIcon-{{item.ico}}'"></i><span class="title">{{item.title}}</span>
+    <li class="uc-sidebar__item"  ng-repeat="item in vm.list" >
+        <a  ui-sref="{{item.state}}"  ui-sref-active="active" class="link">
+            <span class="title">
+                 <i class="haloIcon ico" ng-class="'haloIcon-{{item.ico}}'"></i>
+                <span class="text">{{item.title}}</span>
+            </span>
+        </a>
     </li>
 </ul>

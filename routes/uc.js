@@ -68,6 +68,56 @@ router.get('/collect', token.verifyToken, function(req, res, next){
     //res.render('uc', {data:data});
 });
 
+// 我的评论
+router.get('/comment', token.verifyToken, function(req, res, next){
+    var params={
+        //'filter[uid]':req.user.id,
+        //'filter[module]':req.query.module,
+        'per_page':1000,
+    };
+
+
+    switch (req.query.owner){
+        case 'user':
+            params["filter[uid]"]=req.user.id;
+            break;
+        case 'company':
+            params["filter[company_id]"]=req.user.company_id;
+            break;
+    }
+
+    obj.getList('comment', req, params).then(function(body){
+
+        body.data.data.forEach(function(n,i){
+            n.cover = req.config.url.case + '/' + n.cover +"?imageView2/1/w/110/h/81"
+        });
+        res.json(body);
+
+    }, function(error){
+        console.log(error);
+        res.sendStatus(500);
+    });
+    //res.render('uc', {data:data});
+});
+
+// 删除评论
+router.delete('/comment/:id', token.verifyToken, function(req, res, next){
+
+
+    obj.delete('comment',req.params.id, req).then(function(body){
+        if(body.iRet==1){
+            body.info="操作成功";
+            res.json(body);
+        }else{
+            res.json(body);
+        }
+    }, function(error){
+        console.log(error);
+        res.sendStatus(500);
+    });
+
+});
+
 
 
 module.exports = router;

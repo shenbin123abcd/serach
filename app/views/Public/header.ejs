@@ -8,36 +8,61 @@
 <![endif]-->
 
 
-<header class="header newIndex">
-    <div class="head-container cf">
-        <nav class="header-nav newIndex-nav ">
-            <ul class="list-unstyled clearfix">
-                <li><a href="http://www.halobear.com/" target="_blank">幻熊主页</a><span class="line">|</span></li>
-                <li><a href="http://open.halobear.com/">开放平台</a><span class="line">|</span></li>
-                <li><a href="http://www.halobear.com/school" target="_blank">在线学院</a><span class="line">|</span></li>
-                <li><a href="http://www.halobear.com/summit" target="_blank">高峰论坛</a><span class="line">|</span></li>
-                <li><a href="http://www.halobear.com/service" target="_blank">营销系统</a><span class="line">|</span></li>
-                <li><a href="http://www.halobear.com/service" target="_blank">门店系统</a><span class="line">|</span></li>
-                <li><a href="http://ams.halobear.cn/login" target="_blank">管理系统后台</a><span class="line2">|</span></li>
-                <li><a href="http://www.halobear.cn/merchant2/login" target="_blank">幻熊结婚圈后台</a></li>
-                <li class="pull-right rt" nav-before-login style="display: none;">
-                    <button class="link" id="nav-register-btn" data-toggle="modal" data-target="#register-modal">注册</button>
-                </li>
-                <li class="bar pull-right rt" nav-before-login  style="display: none;"><span>|</span></li>
-                <li class="pull-right rt" nav-before-login style="display: none;">
-                    <button class="link" data-toggle="modal" data-target="#login-modal">登录</button>
-                </li>
+<div class="halo-nav-shortcut">
+    <div class="head-container">
+        <ul class="list-unstyled shortcut">
+            <li class="item"><a class="link" href="http://www.halobear.com/" target="_blank">幻熊主页</a></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://open.halobear.com/">开放平台</a></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://www.halobear.com/school" target="_blank">在线学院</a>></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://www.halobear.com/summit" target="_blank">高峰论坛</a></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://www.halobear.com/service" target="_blank">营销系统</a></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://www.halobear.com/service" target="_blank">门店系统</a></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://ams.halobear.cn/login" target="_blank">管理系统后台</a></li><li class="bar">|</li>
+            <li class="item"><a class="link" href="http://www.halobear.cn/merchant2/login" target="_blank">幻熊结婚圈后台</a></li>
+        </ul>
+        <ul class="list-unstyled user user--before-login"  nav-before-login style="display: none;">
+            <li class="item">
+                <button class="link" data-toggle="modal" data-target="#login-modal">登录</button>
+            </li>
+            <li class="bar" ><span>|</span></li>
+            <li class="item">
+                <button class="link" id="nav-register-btn" data-toggle="modal" data-target="#register-modal">
+                    注册
 
-                <li class="pull-right rt" nav-after-login style="display: none;">
-                    <a id="nav-login-btn-logout" >退出</a>
-                </li>
-                <li class="bar pull-right rt" nav-after-login  style="display: none;"><span>|</span></li>
-                <li class="pull-right rt" nav-after-login  style="display: none;">
-                    <a id="nav-login-btn-hidden" ></a>
-                </li>
-
-
-            </ul>
-        </nav>
+                </button>
+            </li>
+        </ul>
+        <ul class="list-unstyled user user--after-login" nav-after-login style="display: none;">
+            <li class="item" >
+                <button class="link"  data-toggle="dropdown">
+                    <span id="nav-login-btn-hidden"></span>
+                    <i class="haloIcon haloIcon-unfold" ></i>
+                </button>
+                <ul class="menu list-unstyled" >
+                   <li class="menu__item">
+                       <a class="menu__link" href="/uc/#/">
+                         <i class="haloIcon haloIcon-person-circle" ></i>
+                        <span class="text">个人设置</span>
+                       </a>
+                   </li>
+                   <li class="menu__item">
+                       <a class="menu__link"  href="/uc/#/collect">
+                         <i class="haloIcon haloIcon-star-empty" ></i>
+                        <span class="text">我的收藏</span>
+                       </a>
+                   </li>
+                   <li class="menu__item">
+                       <a class="menu__link"  href="/uc/#/comment">
+                         <i class="haloIcon haloIcon-dialog" ></i>
+                        <span class="text">我的评论</span>
+                       </a>
+                   </li>
+                </ul>
+            </li>
+            <li class="bar" ><span>|</span></li>
+            <li class="item"  >
+                <a class="link" id="nav-login-btn-logout" >退出</a>
+            </li>
+        </ul>
     </div>
-</header>
+</div>

@@ -1,10 +1,10 @@
 
 @font-face {font-family: "haloIcon";
-  src: url('iconfont.eot?t=1460976691'); /* IE9*/
-  src: url('iconfont.eot?t=1460976691#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1460976691') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1460976691') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1460976691#haloIcon') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1461226474'); /* IE9*/
+  src: url('iconfont.eot?t=1461226474#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1461226474') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1461226474') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1461226474#haloIcon') format('svg'); /* iOS 4.1- */
 }
 
 .haloIcon {
@@ -15,7 +15,7 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.haloIcon-shangchuan:before { content: "\e630"; }
+.haloIcon-upload:before { content: "\e630"; }
 .haloIcon-fold:before { content: "\e61a"; }
 .haloIcon-unfold:before { content: "\e61b"; }
 .haloIcon-back:before { content: "\e61c"; }
@@ -25,7 +25,7 @@
 .haloIcon-dialog:before { content: "\e62d"; }
 .haloIcon-car:before { content: "\e614"; }
 .haloIcon-trash:before { content: "\e62f"; }
-.haloIcon-wait:before { content: "\e631"; }
+.haloIcon-sandglass:before { content: "\e631"; }
 .haloIcon-star:before { content: "\e601"; }
 .haloIcon-person-circle:before { content: "\e62b"; }
 .haloIcon-glass:before { content: "\e604"; }
@@ -65,4 +65,4 @@
 .haloIcon-address:before { content: "\e629"; }
 .haloIcon-phone1:before { content: "\e62a"; }
 .haloIcon-authentication:before { content: "\e62e"; }
-.haloIcon-complete22:before { content: "\e632"; }
+.haloIcon-check-circle:before { content: "\e632"; }

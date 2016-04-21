@@ -71,6 +71,10 @@ app.index=(function(){
                 $("[nav-before-login]").show();
                 $("[nav-after-login]").hide();
                 $('#nav-login-btn-hidden').text('');
+                if(hb.location.url('path').indexOf('/uc')>-1){
+                    window.location.href='/';
+                }
+
             });
         },
         register:function(){

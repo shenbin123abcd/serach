@@ -22,6 +22,11 @@
 
         $rootScope.device=hb.agent.device();
         $rootScope.browser=hb.agent.browser();
+
+
+        $rootScope.user=app.index.haloAuth().getUser();
+        console.log($rootScope.user)
+
         $rootScope.go=function(url){
             window.location.href=url;
         };

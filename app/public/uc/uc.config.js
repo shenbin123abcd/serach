@@ -33,6 +33,12 @@
                 data: { pageTitle: '我的收藏' },
                 controller: 'collectCtrl'
             })
+            .state('comment', {
+                url: '/comment',
+                templateUrl: appConfig.staticUrl+'/uc/comment/uc.view.comment.html'+appConfig.bust,
+                data: { pageTitle: '我的评论' },
+                controller: 'commentCtrl'
+            })
 
         ;
         $httpProvider.interceptors.push('authInterceptor');
