@@ -1,0 +1,20 @@
+<div class="uc-box--main uc-box--user">
+
+    <div class="uc-box__tabset cf">
+        <ul class="nav nav-tabs">
+            <li class="uib-tab nav-item tab__li tab__li--main" ui-sref-active="active" >
+                <a class="nav-link" ui-sref="comment.user">
+                    <div class="tab-heading">我评论的</div>
+                </a>
+            </li>
+            <li  ng-if="$root.user.sid" class="uib-tab nav-item tab__li tab__li--main"  ui-sref-active="active">
+                <a class="nav-link"  ui-sref="comment.company">
+                    <div class="tab-heading">给我评论的</div>
+                </a>
+            </li>
+        </ul>
+        <div ui-view></div>
+    </div>
+
+
+</div>

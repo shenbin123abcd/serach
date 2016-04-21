@@ -13,6 +13,7 @@ router.get('/', function (req, res, next) {
         //per_page: 5,
         // 'filter[if_show]': 1,
         page: req.query.page || 1
+
     };
     var r = req.query.r || 0;
 
@@ -22,6 +23,10 @@ router.get('/', function (req, res, next) {
 
     if (!isNaN(r) && r > 0 && r < 3228) {
         params.region_id = req.query.r;
+    }
+
+    if(req.query.c){
+        params['cate_id'] = req.query.c;
     }
 
     obj.getList('hotel', req, params).then(function (body) {

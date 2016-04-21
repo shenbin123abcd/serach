@@ -9,24 +9,29 @@ var browserSync = require('browser-sync').create();
 var devip = require('dev-ip');
 //console.log(devip());
 gulp.task('generateDistVersion', function () {
-    fs.writeFileSync('app/Public/College/js/config.dist.js',''+
-        '(function(){' +
-        '"use strict";' +
-        'window.appConfig={};' +
-        'window.appConfig.debug=false;' +
-        'window.appConfig.version="' +(new Date().getTime())+'";'+
-        'if(window.appConfig.debug){' +
-        '    window.appConfig.bust="?v="+(new Date().getTime());' +
-        '}else{' +
-        '    window.appConfig.bust="?v="+window.appConfig.version;' +
-        '}' +
-        '}());' +
-        '' +
-        '');
-});
+    var version=(new Date().getTime());
+    fs.writeFileSync('app/public/js/appConfig.dist.js',
+        `
+(function(){
+    "use strict";
 
+    window.appConfig={};
+    window.appConfig.debug=false;
+    window.appConfig.version='1.0.0';
+
+    if(window.appConfig.debug){
+        window.appConfig.bust='?v='+(new Date().getTime());
+        window.appConfig.staticUrl=window.location.protocol+'//'+window.location.hostname+':9000/app/public';
+    }else{
+        window.appConfig.bust='?v='+${version};
+        window.appConfig.staticUrl='';
+    }
+}());
+    `
+    );
+});
 gulp.task('clearDistVersion',['build'], function () {
-    fs.writeFileSync('app/Public/College/js/config.dist.js','');
+    fs.writeFileSync('app/public/js/appConfig.dist.js','');
 });
 
 gulp.task('sass', function () {
@@ -169,8 +174,20 @@ gulp.task('pano', function () {
         .pipe(gulp.dest('public/pano'))
 });
 
+gulp.task('uc', function () {
+    return gulp.src(['app/public/uc/**/*.html'])
+        .pipe(plugins.htmlmin({
+            removeComments: true,
+            collapseWhitespace: true,
+            conservativeCollapse: true,
+            minifyJS: true,
+            minifyCSS: true,
+        }))
+        .pipe(gulp.dest('public/uc'))
+});
 
-gulp.task('build', ['sass','images','haloIcon'], function () {
+
+gulp.task('build', ['sass','images','uc','generateDistVersion'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
@@ -296,6 +313,7 @@ gulp.task('browser-sync', function() {
         ui: false,
         //notify: false,
         port: 9000,
+
         server: {
             baseDir: "./",
             middleware: function (req, res, next) {
@@ -368,8 +386,13 @@ gulp.task('copy:dev:style',['sass'], function () {
 gulp.task('copy:view', function () {
     var ejsFilter = plugins.filter('*.ejs',{restore: true});
     var ejsFilterPublic = plugins.filter('Public/*.ejs',{restore: true});
+    var htmlFilter = plugins.filter('**/*.html',{restore: true});
     return gulp
-        .src('app/views/**/*.ejs')
+        .src(['app/views/**/*.ejs','app/public/uc/**/*.html'])
+
+        .pipe(htmlFilter)
+        .pipe(gulp.dest('public/uc'))
+        .pipe(htmlFilter.restore)
         .pipe(ejsFilter)
         .pipe(plugins.cdnizer({
             defaultCDNBase: "http://"+devip()[0]+":9000/app",
@@ -382,9 +405,26 @@ gulp.task('copy:view', function () {
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'public/css/**/*.css',
                 'public/js/**/*.js',
+                'public/uc/**/*.{js,css,html}',
                 //'public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
+
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://"+devip()[0]+":9000/",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            relativeRoot: 'app/public',
+            files: [
+                // Thi
+                // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
+                'node_modules/**/*.css',
+                'node_modules/**/*.js',
+                //'public/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+
         .pipe(plugins.cdnizer({
             defaultCDNBase: "http://"+devip()[0]+":9000/app/public",
             //defaultCDNBase: "../",
@@ -408,6 +448,7 @@ gulp.task('copy:view', function () {
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'public/css/**/*.css',
                 'public/js/**/*.js',
+                'public/uc/**/*.{js,css,html}',
                 //'public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))
@@ -421,6 +462,7 @@ gulp.task('copy:view', function () {
             ]
         }))
         .pipe(gulp.dest('views'))
+        .pipe(ejsFilterPublic.restore)
 
 
         ;
@@ -439,7 +481,8 @@ gulp.task('clean', require('del').bind(null, [ 'public','views']));
 
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('build');
+    //gulp.start('build');
+    gulp.start('clearDistVersion');
 });
 
 
@@ -467,9 +510,8 @@ gulp.task("watch", function(){
 //});
 
 gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
-    gulp.watch(['app/views/**/*.ejs'],function(event) {
+    gulp.watch(['app/views/**/*.ejs','app/public/uc/**/*.html'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-
         gulp.start('copy:view');
         //gulp.src(['app/views/**/*.ejs'])
         //    .pipe(plugins.cdnizer({

@@ -7,7 +7,8 @@ var config = require('../config');
 var TOKEN_EXPIRATION = 60;
 var TOKEN_EXPIRATION_SEC = TOKEN_EXPIRATION * 60;
 
-var getToken = function(headers) {
+var getToken = function(req) {
+    var headers=req.headers;
     if (headers && headers.authorization) {
         var authorization = headers.authorization;
         var part = authorization.split(' ');
@@ -30,7 +31,7 @@ exports.verifyToken = function (req, res, next) {
     if(config.NOT_CHECK_AUTH.indexOf(path) != -1){
         next();
     }else{
-        var token = getToken(req.headers);
+        var token = getToken(req);
 
         jwt.verify(token,config.JWT_SECRET, function(err, decoded){
             if(err){
@@ -39,6 +40,26 @@ exports.verifyToken = function (req, res, next) {
                 req.user = decoded;
                 next();
             }
+        });
+    }
+};
+// 获取用户信息token
+exports.getUser = function (req, res, next) {
+    var path = req.url.split('/')[1];
+    if(config.NOT_CHECK_AUTH.indexOf(path) != -1){
+        next();
+    }else{
+        var token = req.cookies.halo_token;
+
+
+        jwt.verify(token,config.JWT_SECRET, function(err, decoded){
+            if(err){
+                req.user = {};
+            }else{
+                req.user = decoded;
+
+            }
+            next();
         });
     }
 };
