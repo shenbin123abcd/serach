@@ -75,4 +75,40 @@ router.get('/region/siblings', function(req, res){
     });
 });
 
+
+// 公司列表
+router.get('/company',  function(req, res, next){
+    var params = {
+        per_page: 1000,
+        'filter[if_show]': 1,
+        'filter[cate_id]': 2,
+        page: 1
+    };
+    if (req.query.keywords) {
+        params.name = req.query.keywords;
+    }
+    switch (true){
+        case !data.keywords:
+            deferred.reject('请输入搜索关键字');
+            break;
+        case data.keywords.length<2:
+            deferred.reject('请输入至少两个字符');
+            break;
+        default:
+            sendXhr();
+    }
+    function sendXhr(){
+        obj.getList('company', req, params).then(function(body){
+            //body.data.data.forEach(function(n,i){
+            //    n.cover = req.config.url.case + '/' + n.cover +"?imageView2/1/w/110/h/81"
+            //});
+            res.json(body);
+        }, function(error){
+            console.log(error);
+            res.sendStatus(500);
+        });
+    }
+
+});
+
 module.exports = router;

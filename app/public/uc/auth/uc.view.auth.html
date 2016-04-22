@@ -1,0 +1,16 @@
+<div uib-tabset class="uc-box__tabset cf" >
+    <div uib-tab classes="tab__li tab__li--main">
+        <div uib-tab-heading class="tab-heading">
+            搜索
+        </div>
+        <div class="uc-box__content">
+            <div class="">
+                <form ng-submit="vm.getCompanys(vm.searchPara)">
+
+                    <input type="text" ng-model="vm.searchPara.keywords" class="form-control form-control-color-main form-control-size-lg">
+                    <button type="submit" class="btn btn-color-main">确定</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

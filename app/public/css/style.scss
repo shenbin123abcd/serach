@@ -5,6 +5,23 @@
 @import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/grid';
 @import "hbReset";
 
+
+
+.form-control-main-color{
+  @include form-control-focus($mainColor);
+}
+
+.btn-color-main {
+  @include button-variant(#fff, $mainColor,$mainColor);
+}
+.btn-size {
+  @include button-size(7px, $padding-large-horizontal, 16px, $line-height-large, $btn-border-radius-large);
+}
+.btn-main-size {
+  @include button-size(7px, $padding-large-horizontal, 16px, $line-height-large, $btn-border-radius-large);
+}
+
+
 .head-container{
   width:1300px;
   margin: auto;
