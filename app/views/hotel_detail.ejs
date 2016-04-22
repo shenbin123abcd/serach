@@ -27,7 +27,7 @@
                                     <% if(val.out.attach){%>
                                     <div class="swiper-container gallery-top" id="gallery-top<%= index%>" >
                                         <% if(val.out.pano_url){%>
-                                        <a class="swiper-tip" href="<%= val.out.pano_url%>">
+                                        <a class="swiper-tip" href="<%= val.out.pano_url%>" target="_blank" onclick="window.open('<%= val.out.pano_url%>')">
                                             <span class="span-style f-14">酒店外景</span>
                                             <span class="span-style f-14">720度全景</span>
                                         </a>
@@ -46,7 +46,7 @@
                                     <%}%>
                                     <div class="swiper-container-wrapper">
                                         <% if(val.out.thumb){%>
-                                        <a class="button-in" button-in href="<%= val.out.pano_url%>">
+                                        <a class="button-in" button-in href="<%= val.out.pano_url%>"  target="_blank">
                                             <img src="<%= val.out.cover%>" alt="" >
                                             <% if(val.out.pano_url){%><p class="p">720全景</p><%}%>
                                         </a>
@@ -71,7 +71,7 @@
                                 <div class="detail-hotel-swiper">
                                     <div class="swiper-container gallery-top" id="gallery-top-s<%= index%>" >
                                         <% if(val.in.pano_url){%>
-                                        <a class="swiper-tip" href="<%= val.in.pano_url%>">
+                                        <a class="swiper-tip" href="<%= val.in.pano_url%>" target="_blank" onclick="window.open('<%= val.in.pano_url%>')">
                                             <span class="span-style f-14"><%= val.in.name%></span>
                                             <span class="span-style f-14">720度全景</span>
                                         </a>
@@ -90,7 +90,7 @@
                                         <div class="swiper-button-prev swiper-button-white"></div>
                                     </div>
                                     <div class="swiper-container-wrapper">
-                                        <a class="button-in" button-in href="<%= val.in.pano_url%>">
+                                        <a class="button-in" button-in href="<%= val.in.pano_url%>" target="_blank">
                                             <img src="<%= val.in.cover%>" alt="" >
                                             <% if(val.in.pano_url){%><p class="p">720全景</p><%}%>
                                         </a>
