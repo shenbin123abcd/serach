@@ -14,7 +14,7 @@
                     if(listType==module){
                         return
                     }
-                    vm.data=[];
+                    vm.data=undefined;
                     var para={
                         module:module,
                     };
