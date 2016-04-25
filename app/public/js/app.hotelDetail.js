@@ -16,7 +16,7 @@ app.hotelDetail = (function () {
         });
         var galleryThumbs = new Swiper(galleryThumbs, {
             spaceBetween: 5,
-            slidesPerView: 5.5,
+            slidesPerView: 5,
             initialSlide :1,
             touchRatio: 0.2,
             loop:true,
