@@ -5,7 +5,7 @@ var helper = require('../helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-    // req.redis.clear('search_index_data');
+     //req.redis.clear('search_index_data');
     req.start_time = new Date().getTime();
     req.redis.get('search_index_data').then(function(data){
         if (!data) {
@@ -116,6 +116,9 @@ function getData(req, res){
             n.logo = req.config.url.company + '/' + n.logo + "?imageView2/1/w/200/h/150"
         });
         data.baseUrl = req.baseUrl;
+
+        data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+
         data.pageTitle = '幻熊婚礼素材开放平台-首页';
 
         req.redis.set('search_index_data', JSON.stringify(data), 10800);

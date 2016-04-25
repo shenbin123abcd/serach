@@ -55,7 +55,6 @@
                 controller: 'collectTopicCtrl'
             })
 
-
             .state('comment', {
                 abstract: true,
                 url: '/comment',
@@ -75,6 +74,15 @@
                 data: { pageTitle: '对我的评论' },
                 controller: 'commentCompanyCtrl'
             })
+
+
+            .state('auth', {
+                url: '/auth',
+                templateUrl: appConfig.staticUrl+'/uc/auth/uc.view.auth.html'+appConfig.bust,
+                data: { pageTitle: '我的公司' },
+                controller: 'authCtrl'
+            })
+
 
         ;
         $httpProvider.interceptors.push('authInterceptor');
