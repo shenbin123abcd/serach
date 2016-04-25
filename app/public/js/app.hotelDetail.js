@@ -8,7 +8,7 @@ app.hotelDetail = (function () {
         var galleryTop = new Swiper(galleryTop, {
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
-            spaceBetween: 10,
+            spaceBetween: 5,
             initialSlide :1,
             loop:true,
             mousewheelControl:true,
