@@ -88,10 +88,10 @@ router.get('/company',  function(req, res, next){
         params.name = req.query.keywords;
     }
     switch (true){
-        case !data.keywords:
+        case !params.name:
             deferred.reject('请输入搜索关键字');
             break;
-        case data.keywords.length<2:
+        case params.name.length<2:
             deferred.reject('请输入至少两个字符');
             break;
         default:
@@ -99,9 +99,9 @@ router.get('/company',  function(req, res, next){
     }
     function sendXhr(){
         obj.getList('company', req, params).then(function(body){
-            //body.data.data.forEach(function(n,i){
-            //    n.cover = req.config.url.case + '/' + n.cover +"?imageView2/1/w/110/h/81"
-            //});
+            body.data.data.forEach(function(n,i){
+                n.logo = `${req.config.url.company}/${n.logo||'404.png'}?imageView2/1/w/200/h/150`;
+            });
             res.json(body);
         }, function(error){
             console.log(error);
