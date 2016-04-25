@@ -23,12 +23,12 @@
         <ul class="list-unstyled user user--before-login"  nav-before-login style="display: none;">
             <li class="item">
                 <!--<button class="link" data-toggle="modal" data-target="#login-modal">登录</button>-->
-                <a class="link" href="http://account.halobear.com/public/login/?url=<%=encodeURIComponent(data.absUrl)%>" >登录</a>
+                <a class="link" href="http://account.halobear.com/public/login/?<%=search(data.query,{url:encodeURIComponent(data.absUrl)})%>" >登录</a>
             </li>
             <li class="bar" ><span>|</span></li>
             <li class="item">
                 <!--<button class="link" id="nav-register-btn" data-toggle="modal" data-target="#register-modal">-->
-                <a class="link" href="http://account.halobear.com/public/register/?url=<%=encodeURIComponent(data.absUrl)%>">
+                <a class="link" href="http://account.halobear.com/public/register/?<%=search(data.query,{url:encodeURIComponent(data.absUrl)})%>">
                     注册
                 </a>
             </li>
