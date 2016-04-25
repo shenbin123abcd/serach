@@ -42,7 +42,7 @@
                     <div uc-uib-pagination-control
                          current-page="vm.data.current_page"
                          target-page="{{vm.data.current_page}}"
-                         total-page="{{vm.data.data.length}}"
+                         total-page="{{Math.ceil(vm.data.data.length/vm.c_per_page)}}"
                     ></div>
                 </div>
             </div>

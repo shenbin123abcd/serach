@@ -7,18 +7,32 @@
 
 
 
-.form-control-main-color{
+.form-control-color-main{
   @include form-control-focus($mainColor);
 }
 
+.form-control-size-lg{
+  height: 60px; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  font-size: 18px;
+}
 .btn-color-main {
   @include button-variant(#fff, $mainColor,$mainColor);
 }
-.btn-size {
+//.btn-size {
+//  @include button-size(7px, $padding-large-horizontal, 16px, $line-height-large, $btn-border-radius-large);
+//}
+.btn-size-main {
   @include button-size(7px, $padding-large-horizontal, 16px, $line-height-large, $btn-border-radius-large);
 }
-.btn-main-size {
+.btn-size-lg {
   @include button-size(7px, $padding-large-horizontal, 16px, $line-height-large, $btn-border-radius-large);
+}
+
+.form-control-box{
+  position: relative;
+  &-block{
+    display: block;
+  }
 }
 
 
@@ -1033,7 +1047,6 @@ body{
         text-decoration: none;
         &:hover{
           color: $mainColor;
-
           .halo-search.case &,
           .halo-search.caseDetail &{
             color: $caseMainColor;
@@ -1045,6 +1058,11 @@ body{
           .halo-search.company &,
           .halo-search.companyDetail &{
             color: $companyMainColor;
+          }
+          .halo-search.uc &,
+          .halo-search.hotel &,
+          .halo-search.hotelDetail &{
+            color: $mainColor;
           }
 
         }
@@ -4814,8 +4832,17 @@ body{
       display: block;
       box-shadow:  0 0 8px 0 rgba(#000,0.2);
       transition: box-shadow 0.4s;
-      &:hover{
+      &.no-animate{
+        transition: none;
+      }
+      &:hover,&.active{
         box-shadow:  0 0 8px 0 rgba($mainColor,0.7);
+      }
+      &:hover{
+
+      }
+      &.active{
+
       }
     }
     .img-wrapper{

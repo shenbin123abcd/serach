@@ -6,12 +6,13 @@
                 $scope.vm={};
                 var vm=$scope.vm;
                 vm.searchPara={};
-
+                vm.c_per_page=20;
+                vm.selectedId=undefined;
 
                 vm.getCompanys=function(data){
                     data.keywords=data.keywords||'';
                     companyService.getInfo(data).then(function(res){
-
+                        vm.data=res.data;
                     },function(res){
                         app.index.DIALOG.error(res);
 
