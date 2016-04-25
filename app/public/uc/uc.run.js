@@ -5,6 +5,7 @@
         window.appConfig.debug&&console.log('running in debug mode');
         $rootScope.pageTitle='个人中心 - 开放平台';
         $rootScope.staticUrl=appConfig.staticUrl;
+        $rootScope.Math=Math;
         $rootScope.imgPreload='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC';
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             //console.log(event, toState, toParams, fromState, fromParams);
