@@ -4328,20 +4328,21 @@ body{
                 background: #333333;
 
               }
-              @include media("<laptop"){
+              /*@include media("<laptop"){
                 width:108.625px;
-              }
+              }*/
+
               img{
                 width:100%;
               }
             }
-            .swiper-container.gallery-thumbs{
+            /*.swiper-container.gallery-thumbs{
               left:139px;
               @include media("<laptop"){
                 left:113.625px;
               }
 
-            }
+            }*/
           }
           /*.slide-cover{
             position: absolute;
@@ -4393,27 +4394,46 @@ body{
                 max-width: 100%;
               }
             }
-            .swiper-slide-active{
+            .swiper-slide{
+              display:block;
+              cursor: e-resize;
+
+            }
+            a.swiper-slide-active{
               opacity:1;
               &:before{
-                /*content: "720全景";
+                content: "720全景";
                 position: absolute;
+                background: #333333;
                 font-size:14px;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%,-50%);
-                width:auto;
+                width:80px;
                 height:auto;
                 opacity: 1;
                 background: none;
                 padding:2px 6px;
                 border: 1px solid #fff;
                 color:#fff;
-                border-radius: 3px;*/
-                content:none;
-
+                border-radius: 3px;
+                text-align: center;
+                //content:none;
+              }
+              &:hover{
+                cursor: pointer;
               }
             }
+            div.swiper-slide-active{
+              opacity:1;
+              &:before{
+                content:none;
+              }
+              &:hover{
+                cursor: e-resize;
+              }
+            }
+
           }
           .hotel-info{
             padding-top:50px;
