@@ -179,3 +179,35 @@
     border: 1px solid rgba(#8e8e8e,0.2);
   }
 }
+
+
+.uc-apply-auth{
+  &.search{
+    .bt-wrapper{
+      margin-top: 70px;
+      text-align: center;
+      .btn{
+        width: 112px;
+      }
+    }
+
+    .input-wrapper{
+      .form-control{
+        padding-left: 52px;
+      }
+      .haloIcon{
+        position: absolute;
+        top: 11px;
+        left: 16px;
+        font-size: 26px;
+      }
+    }
+  }
+  .search-form{
+    width: 620px;
+    margin: 130px auto;
+  }
+
+
+}
+

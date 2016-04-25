@@ -241,7 +241,7 @@ gulp.task('build', ['sass','images','uc','generateDistVersion'], function () {
             collapseWhitespace: true,
             conservativeCollapse: true,
             minifyJS: true,
-            minifyCSS: true,
+            minifyCSS: false,
         }))
         //.pipe(ejsFilter.restore)
         .pipe(gulp.dest('views'))
