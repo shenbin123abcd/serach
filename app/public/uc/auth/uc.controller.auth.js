@@ -7,6 +7,7 @@
                 var vm=$scope.vm;
                 vm.searchPara={};
                 vm.c_per_page=20;
+                vm.selectedId=undefined;
 
                 vm.getCompanys=function(data){
                     data.keywords=data.keywords||'';

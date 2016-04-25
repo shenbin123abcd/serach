@@ -29,15 +29,18 @@
                     <div class="loading-box" ng-show="!vm.data">
                         <i class="fa fa-spinner fa-spin fa-2x"></i>
                     </div>
+                    <div class="info-warpper">
+                        以下是有关 <span class="em">{{vm.searchPara.keywords}}</span> 的内容,共 <span class="em">{{vm.data.data.length}}</span> 个。
+                    </div>
                     <ul class="list-unstyled s-list-box__ul cf">
                         <li class="s-list-box__li" ng-repeat="item in vm.data.data" ng-if="$index<=(vm.data.current_page*vm.c_per_page-1)&&$index>((vm.data.current_page-1)*vm.c_per_page)-1">
-                            <div class="item" ng-click="$root.go('/company/detail/'+item.id)">
-                                <a class="img-wrapper"  ng-href="{{'/company/detail/'+item.id}}">
+                            <div class="item no-animate" ng-class="{active:item.id==vm.selectedId}" ng-click="vm.selectedId=item.id;">
+                                <a class="img-wrapper">
                                     <img class="img" ng-src="{{item.logo}}">
                                 </a>
                                 <div class="info-wrapper">
                                     <div class="name">
-                                        <a class="link"
+                                        <a class="link" target="_blank"
                                            ng-href="{{'/company/detail/'+item.id}}">{{item.name}}</a>
                                     </div>
                                     <div class="case-num">
@@ -66,11 +69,21 @@
                              total-page="{{Math.ceil(vm.data.data.length/vm.c_per_page)}}"
                         ></div>
                     </div>
-
+                    <div class="bt-wrapper" >
+                        <button type="button" class="btn btn-color-main">下一步</button>
+                        <button type="button" ng-click="vm.data=undefined" class="btn btn-default">取消</button>
+                    </div>
                 </div>
-
                 <div class="uc-apply-auth no-result"  ng-show="vm.data.data.length==0">
-                    没有找到
+                    <div class="no-result-content-wrapper">
+                        <div class="info-warpper">
+                            很抱歉,没有 <span class="em">{{vm.searchPara.keywords}}</span> 商户,你可以尝试创建一个。
+                        </div>
+                        <div class="bt-wrapper">
+                            <button type="button" class="btn btn-color-main">立即创建</button>
+                            <button type="button" ng-click="vm.data=undefined" class="btn btn-default">取消</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

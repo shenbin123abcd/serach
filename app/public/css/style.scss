@@ -4812,8 +4812,17 @@ body{
       display: block;
       box-shadow:  0 0 8px 0 rgba(#000,0.2);
       transition: box-shadow 0.4s;
-      &:hover{
+      &.no-animate{
+        transition: none;
+      }
+      &:hover,&.active{
         box-shadow:  0 0 8px 0 rgba($mainColor,0.7);
+      }
+      &:hover{
+
+      }
+      &.active{
+
       }
     }
     .img-wrapper{
