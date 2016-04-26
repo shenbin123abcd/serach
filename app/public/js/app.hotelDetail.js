@@ -10,7 +10,7 @@ app.hotelDetail = (function () {
             prevButton: '.swiper-button-prev',
             spaceBetween: 5,
             initialSlide :0,
-            //loop:true,
+            loop:true,
             mousewheelControl:true,
             loopedSlides: 5, //looped slides should be the same
         });
@@ -19,7 +19,7 @@ app.hotelDetail = (function () {
             slidesPerView: 5,
             initialSlide :0,
             touchRatio: 0.2,
-            //loop:true,
+            loop:true,
             loopedSlides: 5, //looped slides should be the same
             slideToClickedSlide: true,
         });
