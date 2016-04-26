@@ -60,14 +60,18 @@ app.hotelDetail = (function () {
     function panoPic(){
         $(window).on("load",function(){
             click();
-            $("[swiper-thumbs]").on("click",function(){
+            $("[swiper-thumbs]").on("click mousedown",function(){
                 click();
             });
             function click(){
-                $(".swiper-slide").on("click",function(event){
+                $("a.swiper-slide").on("click",function(event){
                     event.preventDefault();
                 });
-                $(".swiper-slide-active").off("click");
+                $("a.swiper-slide.swiper-slide-active").off("click");
+                $(".gallery-thumbs a.swiper-slide.swiper-slide-active").on('click',function(){
+                    var href=$(this).attr("href");
+                    window.open(href);
+                })
             }
         });
     }
