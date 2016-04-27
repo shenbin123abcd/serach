@@ -68,10 +68,10 @@ app.hotelDetail = (function () {
                     event.preventDefault();
                 });
                 $("a.swiper-slide.swiper-slide-active").off("click");
-                $(".gallery-thumbs a.swiper-slide.swiper-slide-active").on('click',function(){
+                /*$(".gallery-thumbs a.swiper-slide.swiper-slide-active").on('click',function(){
                     var href=$(this).attr("href");
                     window.open(href);
-                })
+                })*/
             }
         });
     }
