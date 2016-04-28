@@ -123,7 +123,7 @@ router.get('/detail/:id', function (req, res, next) {
         if(data.cover){
             data.cover = req.config.url.hotel + '/' + (data.cover) + '!opencover';
         }else{
-            data.cover = req.config.url.case + '/' + '404.png' +"?imageView2/1/w/320/h/200";
+            data.cover = req.config.url.company + '/' + '404.png' +"?imageView2/1/w/320/h/200";
         }
 
         if(data.name){
