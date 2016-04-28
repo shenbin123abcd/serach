@@ -120,7 +120,12 @@ router.get('/detail/:id', function (req, res, next) {
     Promise.all([getInfo(), getHallList()]).then(function(result){
         var data=result[0], hall = result[1], hall_format = {};
         data.baseUrl = req.baseUrl;
-        data.cover = req.config.url.hotel + '/' + data.cover + '!opencover';
+        if(data.cover){
+            data.cover = req.config.url.hotel + '/' + (data.cover) + '!opencover';
+        }else{
+            data.cover = req.config.url.case + '/' + '404.png' +"?imageView2/1/w/320/h/200";
+        }
+
         if(data.name){
             data.pageTitle=data.name+' - 酒店详情 - 幻熊婚礼素材开放平台';
         }else{
