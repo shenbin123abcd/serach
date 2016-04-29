@@ -16,6 +16,8 @@ router.get('/', function(req, res, next){
 
 // 我的信息
 router.get('/info', token.verifyToken, function(req, res, next){
+    res.setHeader("Expires", "-1");
+    res.setHeader("Cache-Control", "must-revalidate, private");
     //var data = {
     //    iRet: 1,
     //    info: "success",
@@ -47,7 +49,9 @@ router.get('/info', token.verifyToken, function(req, res, next){
 });
 
 // 我的收藏
-router.get('/collect', token.verifyToken, function(req, res, next){
+router.get('/collects', token.verifyToken, function(req, res, next){
+    res.setHeader("Expires", "-1");
+    res.setHeader("Cache-Control", "must-revalidate, private");
 
     var params={
         'filter[uid]':req.user.id,
@@ -69,7 +73,9 @@ router.get('/collect', token.verifyToken, function(req, res, next){
 });
 
 // 我的评论
-router.get('/comment', token.verifyToken, function(req, res, next){
+router.get('/comments', token.verifyToken, function(req, res, next){
+    res.setHeader("Expires", "-1");
+    res.setHeader("Cache-Control", "must-revalidate, private");
     var params={
         //'filter[uid]':req.user.id,
         //'filter[module]':req.query.module,

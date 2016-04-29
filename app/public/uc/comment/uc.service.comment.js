@@ -4,7 +4,7 @@
         .factory('commentService', ["$q", "$rootScope", "$window", "$location","$resource", function($q, $rootScope, $window, $location,$resource){
             function getInfo(data){
                 var deferred = $q.defer();
-                var resource = $resource('/uc/comment');
+                var resource = $resource('/uc/comments');
                 resource.get(data, function(res){
                     //console.log(data,res);
                     if(res.iRet==1){

@@ -68,6 +68,7 @@
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
+    margin-bottom: -1px;
     > li {
       float: left;
       //position: relative;
@@ -88,7 +89,7 @@
         &:hover {
           border-color: transparent;
           background-color: transparent;
-          border-bottom:2px solid #b4b4b4;
+          border-bottom:2px solid $mainColor;
         }
       }
 
@@ -101,7 +102,7 @@
           background-color: transparent;
           border: 0px solid $nav-tabs-active-link-hover-border-color;
           border-bottom-color: transparent;
-          border-bottom:2px solid #b4b4b4;
+          border-bottom:2px solid $mainColor;
           cursor: default;
         }
       }
@@ -123,7 +124,7 @@
           &:hover {
             border-color: transparent;
             background-color: transparent;
-            border-bottom:2px solid #b4b4b4;
+            border-bottom:2px solid $mainColor;
           }
         }
         >a{

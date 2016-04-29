@@ -16,10 +16,18 @@
                             if(config.url.indexOf('.html')>-1){
 
                             }else{
+                                //alert(token)
+                                //alert(config.url)
+
                                 config.headers.Authorization = 'Bearer ' + token;
+                                //config.headers.dddd = 'Bearer ' + token;
+                                //alert(config.headers.Authorization)
                             }
+                        }else{
+                            window.location.href='/';
                         }
                     }
+
                     return config;
                 },
                 'responseError': function(response){

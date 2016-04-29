@@ -115,6 +115,8 @@ router.get('/detail/:id', function (req, res, next) {
         /* res.json(data);*/
         data.baseUrl = req.baseUrl;
 
+        data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
+
         data.pageTitle = data.name + ' - 公司信息 - 幻熊婚礼素材开放平台';
 
         data.websiteLink = data.website.indexOf('http') > -1 ? data.website : ('http://' + data.website);
