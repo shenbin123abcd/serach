@@ -67,7 +67,12 @@ router.get('/', function (req, res, next) {
             }
 
             data.data.forEach(function (n, i) {
-                n.c_cover = `${req.config.url.hotel}/${n.cover||'404.png'}!thumb5`;
+                if(n.cover.length > 0){
+                    n.c_cover = `${req.config.url.hotel}/${n.cover}!thumb5`;
+                }else{
+                    n.c_cover = req.config.url.company + '/' + '404.png' +"?imageView2/1/w/244/h/183";
+                }
+
                 n.c_cate=req.config.hotelCate[n.cate_id];
                 if(_.includes(req.config.region, data.query)){
                     n.c_region_name=n.region_name
@@ -120,7 +125,12 @@ router.get('/detail/:id', function (req, res, next) {
     Promise.all([getInfo(), getHallList()]).then(function(result){
         var data=result[0], hall = result[1], hall_format = {};
         data.baseUrl = req.baseUrl;
-        data.cover = req.config.url.hotel + '/' + data.cover + '!opencover';
+        if(data.cover){
+            data.cover = req.config.url.hotel + '/' + (data.cover) + '!opencover';
+        }else{
+            data.cover = req.config.url.company + '/' + '404.png' +"?imageView2/1/w/320/h/200";
+        }
+
         if(data.name){
             data.pageTitle=data.name+' - 酒店详情 - 幻熊婚礼素材开放平台';
         }else{

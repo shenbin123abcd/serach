@@ -46,16 +46,22 @@
                                     <%}%>
                                     <div class="swiper-container-wrapper">
                                         <% if(val.out.thumb){%>
-                                        <a class="button-in" button-in href="<%= val.out.pano_url%>"  target="_blank">
+                                        <!--<a class="button-in" button-in href="<%= val.out.pano_url%>"  target="_blank">
                                             <img src="<%= val.out.cover%>" alt="" >
                                             <% if(val.out.pano_url){%><p class="p">720全景</p><%}%>
-                                        </a>
+                                        </a>-->
                                         <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs<%= index%>">
                                             <div class="swiper-wrapper">
                                                 <% val.out.thumb.forEach(function(n,i){%>
-                                                <div class="swiper-slide">
-                                                    <img src="<%= n%>" alt="" class="img" swiper-slide-img>
-                                                </div>
+                                                <%if(val.out.pano_url){%>
+                                                    <a class="swiper-slide" href="<%= val.out.pano_url%>" target="_blank">
+                                                        <img src="<%= n%>" alt="" class="img" swiper-slide-img>
+                                                    </a>
+                                                <%}else{%>
+                                                    <div class="swiper-slide">
+                                                        <img src="<%= n%>" alt="" class="img" swiper-slide-img>
+                                                    </div>
+                                                <%}%>
                                                 <%})%>
                                             </div>
                                         </div>
@@ -90,17 +96,23 @@
                                         <div class="swiper-button-prev swiper-button-white"></div>
                                     </div>
                                     <div class="swiper-container-wrapper">
-                                        <a class="button-in" button-in href="<%= val.in.pano_url%>" target="_blank">
+                                        <!--<a class="button-in" button-in href="<%= val.in.pano_url%>" target="_blank">
                                             <img src="<%= val.in.cover%>" alt="" >
                                             <% if(val.in.pano_url){%><p class="p">720全景</p><%}%>
-                                        </a>
+                                        </a>-->
                                         <div class="swiper-container gallery-thumbs" swiper-thumbs id="gallery-thumbs-s<%= index%>" >
-                                            <% if(val.in.thumb){%>
+                                            <% if(val.in.thumb ){%>
                                             <div class="swiper-wrapper">
                                                 <% val.in.thumb.forEach(function(n,i){%>
-                                                <div class="swiper-slide">
-                                                    <img src="<%= n%>" alt="" class="img" swiper-slide-img>
-                                                </div>
+                                                <%if(val.in.pano_url){%>
+                                                    <a class="swiper-slide" href="<%= val.in.pano_url%>" target="_blank">
+                                                        <img src="<%= n%>" alt="" class="img" swiper-slide-img>
+                                                    </a>
+                                                <%}else{%>
+                                                    <div class="swiper-slide">
+                                                        <img src="<%= n%>" alt="" class="img" swiper-slide-img>
+                                                    </div>
+                                                <%}%>
                                                 <%})%>
                                             </div>
                                             <%}%>
@@ -254,7 +266,8 @@
         app.index.loginInit();
 
         app.hotelDetail.seeMore();
-        app.hotelDetail.buttonIn();
+        //app.hotelDetail.buttonIn();
+        app.hotelDetail.panoPic();
         for(var i=0;i<parseInt(hallNum);i++){
             var val1="#gallery-top"+i;
             var val2="#gallery-thumbs"+i;
