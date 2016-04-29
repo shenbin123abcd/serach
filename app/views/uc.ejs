@@ -4,6 +4,7 @@
     <%- include('Public/common_header',{pageTitle: data.pageTitle}); %>
 
     <!-- build:css css/uc.css -->
+    <link href="../../bower_components/Jcrop/css/jquery.Jcrop.css" rel="stylesheet" type="text/css"/>
     <link href="../public/css/uc.css" rel="stylesheet" type="text/css"/>
     <!-- endbuild -->
     <%- include('Public/common_header_end'); %>
@@ -33,14 +34,16 @@
 <%- include('Public/footer'); %>
 <%- include('Public/common_footer'); %>
 
-<!--<script src="//cdn.bootcss.com/angular.js/1.5.0/angular.min.js"></script>-->
-<!--<script src="//cdn.bootcss.com/angular.js/1.5.0/angular-animate.js"></script>-->
-<!--<script src="//cdn.bootcss.com/angular.js/1.5.0/angular-resource.js"></script>-->
-<!--<script src="//cdn.bootcss.com/angular.js/1.5.0/angular-touch.js"></script>-->
-<!--<script src="//cdn.bootcss.com/angular.js/1.5.0/angular-sanitize.js"></script>-->
-<!--<script src="//cdn.bootcss.com/angular.js/1.5.0/angular-messages.js"></script>-->
+
+<script src="http://7xopel.com2.z0.glb.qiniucdn.com/static/js/region.js"></script>
 
 <!-- build:js js/uc.vender.js -->
+<script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+
+<script src="../../bower_components/Jcrop/js/jquery.Jcrop.js"></script>
 
 <script src="../../node_modules/angular/angular.js"></script>
 <script src="../../node_modules/angular-animate/angular-animate.js"></script>
@@ -50,6 +53,8 @@
 <script src="../../node_modules/angular-messages/angular-messages.js"></script>
 <script src="../../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
 <!-- endbuild -->
 
 

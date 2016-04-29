@@ -89,7 +89,6 @@
           border-color: transparent;
           background-color: transparent;
           border-bottom:2px solid #b4b4b4;
-
         }
       }
 
@@ -103,18 +102,59 @@
           border: 0px solid $nav-tabs-active-link-hover-border-color;
           border-bottom-color: transparent;
           border-bottom:2px solid #b4b4b4;
-
           cursor: default;
+        }
+      }
+      &.tab__li{
+
+      }
+      &.tab__li--main{
+        padding: 0 60px;
+
+      }
+      &.tab__li--second{
+        padding: 0 40px;
+        @include media('<laptop'){
+          padding: 0 35px;
+        }
+      }
+      &.tab__li--disable{
+        &.active > a {
+          &:hover {
+            border-color: transparent;
+            background-color: transparent;
+            border-bottom:2px solid #b4b4b4;
+          }
+        }
+        >a{
+          cursor: default;
+          &:hover {
+            border-color: transparent;
+            background-color: transparent;
+            border-bottom:2px solid transparent;
+          }
         }
       }
     }
     .tab-heading{
       height: 100%;
+      .number{
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid $mainTextColor;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      .text{
+        vertical-align: middle;
+        line-height: 1;
 
-    }
-    .tab__li--main{
-      padding: 0 60px;
-
+      }
     }
   }
   .tab-content {
@@ -257,3 +297,186 @@
 
 }
 
+.uc-apply-form{
+  width: 640px;
+  margin: 0 auto;
+  &.step-1{
+    margin-top: 60px;
+    margin-bottom: 145px;
+    .bt-wrapper{
+      margin-top: 38px;
+    }
+  }
+  &.step-2{
+    margin-top: 60px;
+    margin-bottom: 145px;
+  }
+
+  &.step-3{
+    margin-top: 170px;
+    margin-bottom: 300px;
+    text-align: center;
+
+    .bt-wrapper{
+      margin-top: 65px;
+
+      .btn{
+        width: 112px;
+      }
+    }
+    .step-3-1-wrapper{
+
+      .upload-ico-wrapper{
+        height: 100px;
+        color: #e6e6e6;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: -10px;
+        &:hover{
+          color: $mainColor;
+        }
+        .haloIcon{
+          position: relative;
+          top: -59px;
+          font-size: 140px;
+
+        }
+      }
+
+      .success-ico-wrapper{
+        height: 80px;
+        color: #e6e6e6;
+        position: relative;
+        overflow: hidden;
+        .info{
+          position: relative;
+          top: -38px;
+        }
+        .haloIcon{
+          font-size: 104px;
+          vertical-align: middle;
+        }
+        .text{
+          vertical-align: middle;
+          font-size: 18px;
+          color: #b4b4b4;
+          &:hover{
+            color: $mainColor;
+          }
+        }
+      }
+      .link-wrapper{
+        margin-top: 20px;
+        .link{
+          color: #949494;
+          text-decoration: underline;
+          &:hover{
+            color: $mainColor;
+
+          }
+        }
+      }
+      .progress-warpper{
+        margin-top: 20px;
+      }
+    }
+  }
+  &.step-4{
+    margin-top: 170px;
+    margin-bottom: 300px;
+    text-align: center;
+    .ico-wrapper{
+      height: 80px;
+      color: #e6e6e6;
+      position: relative;
+      overflow: hidden;
+      .haloIcon{
+        font-size: 104px;
+        position: relative;
+        top: -38px;
+      }
+    }
+    .message-wrapper{
+      margin-top: 60px;
+      font-size: 16px;
+      .link{
+        color: $mainColor;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .em{
+        color: $mainColor;
+      }
+    }
+
+    .bt-wrapper{
+      margin-top: 65px;
+      .btn{
+        width: 112px;
+      }
+    }
+
+  }
+  .group{
+    margin: 30px 0;
+    @extend %cf;
+  }
+  .form-label{
+    width: 100px;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    float: left;
+    padding-top: 10px;
+
+  }
+  .form-content{
+    padding-left: 20px;
+    width: 540px;
+    float: left;
+    .form-control{
+      width: 360px;
+    }
+  }
+  .select-3-wrapper{
+    .form-control{
+      width: 113px;
+      display: inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+  }
+  .input-file-wrapper{
+    .logo{
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+    }
+  }
+  .id-card-wrapper{
+    position: relative;
+    .input-file-box-img{
+      width: 230px;
+      height: 142px;
+      line-height: 142px;
+      .haloIcon{
+        font-size: 60px;
+      }
+
+    }
+
+    .progress-warpper{
+      position: absolute;
+      top: 20px;
+      left: 230+15px;
+      width: 100px;
+    }
+  }
+  .bt-wrapper{
+    .btn{
+      width: 112px;
+      margin-right: 30px;
+    }
+  }
+}

@@ -421,6 +421,8 @@ gulp.task('copy:view', function () {
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'node_modules/**/*.css',
                 'node_modules/**/*.js',
+                'bower_components/**/*.css',
+                'bower_components/**/*.js',
                 //'public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))

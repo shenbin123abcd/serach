@@ -110,5 +110,18 @@ router.get('/company',  function(req, res, next){
     }
 
 });
+// 公司信息
+
+router.get('/company/:id',  function(req, res, next){
+    obj.getInfo('company', req.params.id, req, {cate_id: 2}).then(function (body) {
+        res.json(body);
+    }, function(error){
+        console.log(error);
+        res.sendStatus(500);
+    });
+
+
+
+});
 
 module.exports = router;

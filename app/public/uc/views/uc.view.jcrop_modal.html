@@ -1,0 +1,47 @@
+<form file-upload="vm.options"  novalidate >
+    <div class="modal-header">
+        <h3 class="modal-title">图片设置</h3>
+    </div>
+    <div class="modal-body">
+        <div class="s-jcrop-wrapper">
+
+
+
+                <div class="bt-warpper" ng-show="queue.length==0">
+                    <div class="input-file-box btn btn-color-main" >
+                        选择图片
+                        <input  type="file" name="file" class="input-file" >
+                    </div>
+
+                    <div class="des">
+                        支持JPG、PNG、GIF <br>大小不超过5M
+                    </div>
+                </div>
+
+                <div class="progress-warpper" >
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="fade" data-ng-class="{in: active()}">
+                            <!-- The global progress bar -->
+                            <div class=" progress progress-striped active" data-file-upload-progress="progress()">
+                                <div class="progress-bar progress-bar-striped progress-bar-color-main"
+                                     data-ng-style="{width: num + '%'}">{{num + '%'}}
+                                </div>
+                            </div>
+                            <!-- The extended global progress state -->
+                            <div class="progress-extended">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-jcrop" s-jcrop s-jcrop-src="vm.imgData.url" s-jcrop-h="vm.imgData.height" s-jcrop-w="vm.imgData.width"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="input-file-box btn btn-default pull-left" >
+            重新上传
+            <input  type="file" name="file" class="input-file" >
+        </div>
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">确定</button>
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</form>
