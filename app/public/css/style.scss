@@ -4543,9 +4543,11 @@ body{
                   -webkit-box-orient: vertical;
                   overflow : hidden;*/
                   overflow: hidden;
+                  //height:175px;
                   /*@include media("<laptop"){
                     height:200px;
                   }*/
+
                 }
                 color:#999999;
                 line-height: 25px;
