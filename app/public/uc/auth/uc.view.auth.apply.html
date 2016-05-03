@@ -1,0 +1,249 @@
+<div class="uc-box__tabset cf">
+    <ul class="nav nav-tabs">
+        <li class="uib-tab nav-item tab__li tab__li--second tab__li--disable" ng-class="{active:vm.currentState=='create'?vm.currentStep==$index+1:vm.currentStep==$index+2}"  ng-repeat="item in vm.step" >
+            <a class="nav-link" >
+                <div class="tab-heading"><span class="number">{{$index+1}}</span><span class="text">{{item}}</span></div>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="uc-box__content">
+                <div class="uc-apply-form step-1" ng-show="vm.currentStep==1">
+                    <form novalidate>
+                        <div class="group">
+                            <label class="form-label control-label">商户名称</label>
+                            <div class="form-content">
+                                <input  type="text" ng-model="vm.companyData.name"  class="form-control form-control-color-main form-control-size-md">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">商户LOGO</label>
+
+                            <div class="form-content input-file-wrapper">
+                                <div ng-if="vm.companyData.logo" class="input-file-box" ng-click="vm.openJcropModel()">
+                                    <img class="logo" ng-src="{{vm.companyData.logo}}" >
+                                </div>
+                                <div ng-if="!vm.companyData.logo">
+                                    <div class="input-file-box input-file-box-img" ng-click="vm.openJcropModel()">
+                                        <i class="haloIcon haloIcon-picture"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">所属地区</label>
+                            <div class="form-content select-3-wrapper">
+                                <select  ng-options="item.region_id as item.region_name for item in vm.region | filter:{ level : '1' }:true"
+                                         ng-model="vm.selectedLevel1"
+                                        class="form-control form-control-color-main form-control-size-md">
+                                    <option value=""></option>
+                                </select>
+                                <select  ng-options="item.region_id as item.region_name for item in vm.region | filter:{ level : '2' }:true | filter:{ parent_id : vm.selectedLevel1 }:true"
+                                         ng-model="vm.selectedLevel2"
+                                         ng-disabled="!vm.selectedLevel1"
+                                         ng-change="vm.getChildren(vm.selectedLevel2)"
+                                        class="form-control form-control-color-main form-control-size-md">
+                                    <option value=""></option>
+                                </select>
+                                <select  ng-options="item.id as item.name for item in vm.region_level3" ng-if="vm.region_level3.length>0"
+                                         ng-model="vm.selectedLevel3"
+                                         ng-disabled="!vm.selectedLevel2"
+                                        class="form-control form-control-color-main form-control-size-md">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">公司电话</label>
+                            <div class="form-content">
+                                <input  type="text" class="form-control form-control-color-main form-control-size-md">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">公司地址</label>
+                            <div class="form-content">
+                                <input  type="text" class="form-control form-control-color-main form-control-size-md">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">新浪微博</label>
+                            <div class="form-content">
+                                <input  type="text" class="form-control form-control-color-main form-control-size-md">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">微信账号</label>
+                            <div class="form-content">
+                                <input  type="text" class="form-control form-control-color-main form-control-size-md">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">公司简介</label>
+                            <div class="form-content">
+                                <textarea rows="4"  type="text" class="form-control form-control-color-main"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="group">
+                            <label class="form-label control-label"></label>
+                            <div class="form-content bt-wrapper">
+                                <button type="submit" ng-click="vm.currentStep=2" class="btn btn-color-main">下一步</button>
+                                <button type="button" ng-click="$root.history.back()" class="btn btn-default">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="uc-apply-form step-2" ng-show="vm.currentStep==2"  >
+                    <div class="loading-box" ng-show="!vm.companyData">
+                        <i class="fa fa-spinner fa-spin fa-2x"></i>
+                    </div>
+                    <div ng-show="vm.companyData">
+                        <div class="group">
+                            <label class="form-label control-label">真实姓名</label>
+                            <div class="form-content">
+                                <input type="text" class="form-control form-control-color-main form-control-size-md">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label">身份证照</label>
+
+                            <div class="form-content input-file-wrapper id-card-wrapper">
+                                <div file-upload="vm.idCardLayerInfoOptions">
+                                    <div ng-show="vm.applyData.idCardLayerInfo" class="input-file-box">
+                                        <img class="logo" ng-src="{{vm.applyData.idCardLayerInfo}}">
+                                        <input type="file" name="file" class="input-file">
+                                    </div>
+                                    <div ng-show="!vm.applyData.idCardLayerInfo">
+                                        <div class="input-file-box input-file-box-img">
+                                            <i class="haloIcon haloIcon-picture"></i>
+                                            <input type="file" name="file" class="input-file">
+                                        </div>
+                                    </div>
+                                    <div class="progress-warpper">
+                                        <div class="fade" data-ng-class="{in: active()}">
+                                            <!-- The global progress bar -->
+                                            <div class=" progress progress-striped active"
+                                                 data-file-upload-progress="progress()">
+                                                <div class="progress-bar progress-bar-striped progress-bar-color-main"
+                                                     data-ng-style="{width: num + '%'}">{{num + '%'}}
+                                                </div>
+                                            </div>
+                                            <!-- The extended global progress state -->
+                                            <div class="progress-extended">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="des">
+                                    个人信息面
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label"></label>
+                            <div class="form-content input-file-wrapper id-card-wrapper">
+                                <div file-upload="vm.idCardLayerInfoOptions">
+                                    <div ng-show="vm.applyData.idCardLayerInfo" class="input-file-box">
+                                        <img class="logo" ng-src="{{vm.applyData.idCardLayerInfo}}">
+                                        <input type="file" name="file" class="input-file">
+                                    </div>
+                                    <div ng-show="!vm.applyData.idCardLayerInfo">
+                                        <div class="input-file-box input-file-box-img">
+                                            <i class="haloIcon haloIcon-picture"></i>
+                                            <input type="file" name="file" class="input-file">
+                                        </div>
+                                    </div>
+                                    <div class="progress-warpper">
+                                        <div class="fade" data-ng-class="{in: active()}">
+                                            <!-- The global progress bar -->
+                                            <div class=" progress progress-striped active"
+                                                 data-file-upload-progress="progress()">
+                                                <div class="progress-bar progress-bar-striped progress-bar-color-main"
+                                                     data-ng-style="{width: num + '%'}">{{num + '%'}}
+                                                </div>
+                                            </div>
+                                            <!-- The extended global progress state -->
+                                            <div class="progress-extended">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="des">
+                                    国徽图案面
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="form-label control-label"></label>
+                            <div class="form-content bt-wrapper">
+                                <button type="button" ng-click="vm.currentStep=3" class="btn btn-color-main">下一步
+                                </button>
+                                <button type="button"
+                                        ng-click="vm.currentState=='create'?vm.currentStep=1:$root.history.back()"
+                                        class="btn btn-default">取消
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uc-apply-form step-3" ng-show="vm.currentStep==3" >
+                    <div file-upload="vm.certificationOptions">
+                        <div class="step-3-1-wrapper" >
+                            <div class="upload-ico-wrapper input-file-box"  ng-show="!vm.applyData.certification">
+                                <i class="haloIcon haloIcon-upload"></i>
+                                <input type="file" name="file" class="input-file">
+                            </div>
+
+                            <div class="success-ico-wrapper" ng-show="vm.applyData.certification">
+                                <div class="info">
+                                    <i class="haloIcon haloIcon-check-circle"></i>
+                                    <div class="input-file-box text" >
+                                        重新上传
+                                        <input type="file" name="file" class="input-file">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="link-wrapper">
+                                <a class="link" ng-href="###" >下载认证说明书</a>
+                            </div>
+
+                            <div class="progress-warpper" ng-show="active()">
+                                <div class="fade" data-ng-class="{in: active()}">
+                                    <!-- The global progress bar -->
+                                    <div class=" progress progress-striped active"
+                                         data-file-upload-progress="progress()">
+                                        <div class="progress-bar progress-bar-striped progress-bar-color-main"
+                                             data-ng-style="{width: num + '%'}">{{num + '%'}}
+                                        </div>
+                                    </div>
+                                    <!-- The extended global progress state -->
+                                    <div class="progress-extended">&nbsp;</div>
+                                </div>
+                            </div>
+                            <div class="bt-wrapper">
+                                <button class="btn btn-color-main" ng-click="vm.currentStep=4">下一步</button>
+                                <button type="button" ng-click="vm.currentStep=2" class="btn btn-default">取消</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="uc-apply-form step-4" ng-show="vm.currentStep==4" >
+
+                    <div class="ico-wrapper">
+                        <i class="haloIcon haloIcon-sandglass"></i>
+                    </div>
+                    <div class="message-wrapper">
+                        恭喜您，您的商户
+                        <a ng-show="vm.currentState=='apply'" ng-href="{{'/company/detail/'+vm.companyData.id}}" class="link">{{vm.companyData.name}}</a>
+                        <span ng-show="vm.currentState=='create'" class="em">{{vm.companyData.name}}</span>
+                        申请成功！ <br>
+                        我们会在3-5个工作日内核实完毕，请您耐心等候
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

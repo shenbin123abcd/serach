@@ -184,6 +184,7 @@ router.get('/detail/:id',token.getUser, function(req, res, next){
             data.isCollect = result[3];
 
             data.baseUrl=req.baseUrl;
+            data.absUrl=req.protocol+'://'+req.get('host')+req.originalUrl;
             if(data.company.name){
                 data.pageTitle = data.title+' - '+ data.company.name+" - 案例详情 - 幻熊婚礼素材开放平台";
             }else{

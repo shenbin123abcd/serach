@@ -187,7 +187,7 @@ gulp.task('uc', function () {
 });
 
 
-gulp.task('build', ['sass','images','uc','generateDistVersion'], function () {
+gulp.task('build', ['sass','images','pano','uc','generateDistVersion'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
@@ -421,6 +421,8 @@ gulp.task('copy:view', function () {
                 // s file is on the default CDN, and will replaced with //my.cdn.host/base/js/app.js
                 'node_modules/**/*.css',
                 'node_modules/**/*.js',
+                'bower_components/**/*.css',
+                'bower_components/**/*.js',
                 //'public/images/**/*.{jpg,png,mp3,mp4}',
             ]
         }))

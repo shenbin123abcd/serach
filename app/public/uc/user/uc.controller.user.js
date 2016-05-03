@@ -10,9 +10,8 @@
                 };
                 userService.getInfo().then(function(res){
                     vm.data=res.data;
+                    vm.data.avatar=vm.data.avatar+'?_='+$rootScope.newBust;
+
                 });
-
-
             }])
-
 }());

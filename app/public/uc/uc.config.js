@@ -18,6 +18,7 @@
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
             appConfig.staticUrl+'**',
+            'http://7kttnj.com2.z0.glb.qiniucdn.com/**',
         ]);
 
         $stateProvider
@@ -75,14 +76,25 @@
                 controller: 'commentCompanyCtrl'
             })
 
-
             .state('auth', {
+                abstract: true,
                 url: '/auth',
                 templateUrl: appConfig.staticUrl+'/uc/auth/uc.view.auth.html'+appConfig.bust,
-                data: { pageTitle: '我的公司' },
+                data: { pageTitle: '我的收藏' },
                 controller: 'authCtrl'
             })
-
+            .state('auth.search', {
+                url: '/search',
+                templateUrl: appConfig.staticUrl+'/uc/auth/uc.view.auth.search.html'+appConfig.bust,
+                data: { pageTitle: '我的公司' },
+                controller: 'authSearchCtrl'
+            })
+            .state('auth.apply', {
+                url: '/apply/:id',
+                templateUrl: appConfig.staticUrl+'/uc/auth/uc.view.auth.apply.html'+appConfig.bust,
+                data: { pageTitle: '我的公司' },
+                controller: 'authApplyCtrl'
+            })
 
         ;
         $httpProvider.interceptors.push('authInterceptor');

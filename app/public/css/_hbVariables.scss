@@ -38,3 +38,8 @@ $itemShadow: 0px 0px 20px rgba(104,104,104,0.2);
 $ff_chs: Arial,Verdana,Tahoma,'Hiragino Sans GB',Microsoft YaHei,SimSun,sans-serif;
 $ff_chs_h: Arial,Verdana,Tahoma,'Hiragino Sans GB',Microsoft YaHei,SimHei,SimSun,sans-serif;
 @import "hbMixin";
+
+
+%cf { *zoom: 1; }
+%cf:before { content: ""; display: table; line-height: 0; }
+%cf:after { content: ""; display: table; line-height: 0; clear: both; }

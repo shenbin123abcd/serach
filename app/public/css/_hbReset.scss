@@ -1,9 +1,7 @@
 .cf { *zoom: 1; }
 .cf:before { content: ""; display: table; line-height: 0; }
 .cf:after { content: ""; display: table; line-height: 0; clear: both; }
-%cf { *zoom: 1; }
-%cf:before { content: ""; display: table; line-height: 0; }
-%cf:after { content: ""; display: table; line-height: 0; clear: both; }
+
 
 .lsn{
   margin: 0;
