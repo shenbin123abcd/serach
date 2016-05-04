@@ -109,29 +109,15 @@
                             <label class="form-label control-label">身份证照</label>
 
                             <div class="form-content input-file-wrapper id-card-wrapper">
-                                <div file-upload="vm.idCardLayerInfoOptions">
-                                    <div ng-show="vm.applyData.idCardLayerInfo" class="input-file-box">
-                                        <img class="logo" ng-src="{{vm.applyData.idCardLayerInfo}}">
-                                        <input type="file" name="file" class="input-file">
-                                    </div>
-                                    <div ng-show="!vm.applyData.idCardLayerInfo">
-                                        <div class="input-file-box input-file-box-img">
-                                            <i class="haloIcon haloIcon-picture"></i>
-                                            <input type="file" name="file" class="input-file">
+                                <div hb-qiniu-file-upload="vm.idCardLayerInfoOptions">
+                                    <div hb-qiniu-file-upload-bt-container hb-qiniu-file-upload-drag-container>
+                                        <div hb-qiniu-file-upload-bt class="input-file-box input-file-box-img">
+                                            <img  ng-show="vm.applyData.idCardLayerInfo" class="logo" ng-src="{{vm.applyData.idCardLayerInfo}}">
+                                            <i  ng-show="!vm.applyData.idCardLayerInfo" class="haloIcon haloIcon-picture"></i>
                                         </div>
                                     </div>
-                                    <div class="progress-warpper">
-                                        <div class="fade" data-ng-class="{in: active()}">
-                                            <!-- The global progress bar -->
-                                            <div class=" progress progress-striped active"
-                                                 data-file-upload-progress="progress()">
-                                                <div class="progress-bar progress-bar-striped progress-bar-color-main"
-                                                     data-ng-style="{width: num + '%'}">{{num + '%'}}
-                                                </div>
-                                            </div>
-                                            <!-- The extended global progress state -->
-                                            <div class="progress-extended">&nbsp;</div>
-                                        </div>
+                                    <div class="progress-warpper" ng-show="qiniuVm.progress<100">
+                                        <div uib-progressbar animate="false" class="progress-striped" type="color-main" value="qiniuVm.progress" ><b>{{qiniuVm.progress}}%</b></div>
                                     </div>
                                 </div>
                                 <div class="des">
@@ -139,39 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="group">
-                            <label class="form-label control-label"></label>
-                            <div class="form-content input-file-wrapper id-card-wrapper">
-                                <div file-upload="vm.idCardLayerInfoOptions">
-                                    <div ng-show="vm.applyData.idCardLayerInfo" class="input-file-box">
-                                        <img class="logo" ng-src="{{vm.applyData.idCardLayerInfo}}">
-                                        <input type="file" name="file" class="input-file">
-                                    </div>
-                                    <div ng-show="!vm.applyData.idCardLayerInfo">
-                                        <div class="input-file-box input-file-box-img">
-                                            <i class="haloIcon haloIcon-picture"></i>
-                                            <input type="file" name="file" class="input-file">
-                                        </div>
-                                    </div>
-                                    <div class="progress-warpper">
-                                        <div class="fade" data-ng-class="{in: active()}">
-                                            <!-- The global progress bar -->
-                                            <div class=" progress progress-striped active"
-                                                 data-file-upload-progress="progress()">
-                                                <div class="progress-bar progress-bar-striped progress-bar-color-main"
-                                                     data-ng-style="{width: num + '%'}">{{num + '%'}}
-                                                </div>
-                                            </div>
-                                            <!-- The extended global progress state -->
-                                            <div class="progress-extended">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="des">
-                                    国徽图案面
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="group">
                             <label class="form-label control-label"></label>
                             <div class="form-content bt-wrapper">
@@ -186,39 +140,32 @@
                     </div>
                 </div>
                 <div class="uc-apply-form step-3" ng-show="vm.currentStep==3" >
-                    <div file-upload="vm.certificationOptions">
+                    <div >
                         <div class="step-3-1-wrapper" >
-                            <div class="upload-ico-wrapper input-file-box"  ng-show="!vm.applyData.certification">
-                                <i class="haloIcon haloIcon-upload"></i>
-                                <input type="file" name="file" class="input-file">
-                            </div>
 
-                            <div class="success-ico-wrapper" ng-show="vm.applyData.certification">
-                                <div class="info">
-                                    <i class="haloIcon haloIcon-check-circle"></i>
-                                    <div class="input-file-box text" >
-                                        重新上传
-                                        <input type="file" name="file" class="input-file">
-                                    </div>
+                            <div hb-qiniu-file-upload="vm.certificationOptions" ng-show="!vm.applyData.certification" >
+                                <div class="upload-ico-wrapper input-file-box" hb-qiniu-file-upload-bt-container hb-qiniu-file-upload-grag-container>
+                                    <i class="haloIcon haloIcon-upload"  hb-qiniu-file-upload-bt></i>
                                 </div>
                             </div>
 
+                            <div class="success-ico-wrapper" ng-class="{'bt-hide':!vm.applyData.certification}" >
+                                <div class="info">
+                                    <i class="haloIcon haloIcon-check-circle"></i>
+                                    <div class="text" hb-qiniu-file-upload="vm.certificationOptions">
+                                        <div hb-qiniu-file-upload-bt-container >
+                                            <a hb-qiniu-file-upload-bt>
+                                                重新上传
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="link-wrapper">
                                 <a class="link" ng-href="###" >下载认证说明书</a>
                             </div>
-
-                            <div class="progress-warpper" ng-show="active()">
-                                <div class="fade" data-ng-class="{in: active()}">
-                                    <!-- The global progress bar -->
-                                    <div class=" progress progress-striped active"
-                                         data-file-upload-progress="progress()">
-                                        <div class="progress-bar progress-bar-striped progress-bar-color-main"
-                                             data-ng-style="{width: num + '%'}">{{num + '%'}}
-                                        </div>
-                                    </div>
-                                    <!-- The extended global progress state -->
-                                    <div class="progress-extended">&nbsp;</div>
-                                </div>
+                            <div class="progress-warpper" ng-show="vm.progress<100">
+                                <div uib-progressbar animate="false" class="progress-striped" type="color-main" value="vm.progress" ><b>{{vm.progress}}%</b></div>
                             </div>
                             <div class="bt-wrapper">
                                 <button class="btn btn-color-main" ng-click="vm.currentStep=4">下一步</button>
