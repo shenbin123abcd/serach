@@ -166,7 +166,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
       width: 970px!important;
       padding-left: 0;
       padding-right: 0;
-
     }
   }
 }
@@ -1163,7 +1162,8 @@ body{
           .halo-search.uc &,
           .halo-search.hotel &,
           .halo-search.hotelDetail &{
-            color: $mainColor;
+            color: $hotelMainColor;
+
           }
 
         }
@@ -2869,6 +2869,7 @@ body{
                                     img{
                                         max-width: 100%;
                                         width:100%;
+                                      border-radius: 50%;
                                     }
                                 }
                                 .item-desc{
@@ -4338,6 +4339,7 @@ body{
               img{
                 max-width: 100%;
                 width:100%;
+                border-radius: 50%;
               }
             }
             .item-desc{
