@@ -72,45 +72,48 @@
                         vm.region_level3=res.data;
                     });
                 };
+                $scope.$watch('vm.currentStep',function(step) {
+                    if(step==2){
+                        vm.idCardLayerInfoOptions={
+                            uptoken: hb.Cookies.getJSON('avatar_token')||'m_bQ6vCqK-1n_myddynLMQxg0rxw3YqRptv5D7_i:vCIekJzZo2aWArOxYqBgPdStgrw=:eyJzY29wZSI6ImhhbG9hdmF0YXIiLCJkZWFkbGluZSI6MTQ2MzI4NjkzNywic2F2ZUtleSI6ImF2YXRhclwvdGVtcFwvJCh5ZWFyKSQobW9uKVwvJHtkYXl9XC8kKGV0YWcpJChzdWZmaXgpIiwiY2FsbGJhY2tVcmwiOiJodHRwOlwvXC9jb2xsZWdlLmhhbG9iZWFyLmNvbVwvYXBpXC9xaW5pdVVwbG9hZCIsImNhbGxiYWNrQm9keSI6ImtleT0kKGtleSkmdz0kKGltYWdlSW5mby53aWR0aCkmaD0kKGltYWdlSW5mby5oZWlnaHQpJmZuYW1lPSQoZm5hbWUpJmZzaXplPSQoZnNpemUpJmZpbGV0eXBlPSR7eDpmaWxldHlwZX0mY29kZT0ke3g6Y29kZX0mbW9kdWxlPWF2YXRhclwvdGVtcCJ9',
+                            domain: 'http://7kttnj.com2.z0.glb.qiniucdn.com/',
+                            max_file_size: '5mb',
+                            init: {
+                                'FileUploaded': function(up, file, info) {
+                                    var res = JSON.parse(info);
+                                    $scope.$apply(function(){
+                                        vm.applyData.idCardLayerInfo=res.url;
+                                    });
+                                },
+                            },
+                        };
+                    }
+                    if(step==3){
+                        vm.certificationOptions={
+                            uptoken: hb.Cookies.getJSON('avatar_token')||'m_bQ6vCqK-1n_myddynLMQxg0rxw3YqRptv5D7_i:vCIekJzZo2aWArOxYqBgPdStgrw=:eyJzY29wZSI6ImhhbG9hdmF0YXIiLCJkZWFkbGluZSI6MTQ2MzI4NjkzNywic2F2ZUtleSI6ImF2YXRhclwvdGVtcFwvJCh5ZWFyKSQobW9uKVwvJHtkYXl9XC8kKGV0YWcpJChzdWZmaXgpIiwiY2FsbGJhY2tVcmwiOiJodHRwOlwvXC9jb2xsZWdlLmhhbG9iZWFyLmNvbVwvYXBpXC9xaW5pdVVwbG9hZCIsImNhbGxiYWNrQm9keSI6ImtleT0kKGtleSkmdz0kKGltYWdlSW5mby53aWR0aCkmaD0kKGltYWdlSW5mby5oZWlnaHQpJmZuYW1lPSQoZm5hbWUpJmZzaXplPSQoZnNpemUpJmZpbGV0eXBlPSR7eDpmaWxldHlwZX0mY29kZT0ke3g6Y29kZX0mbW9kdWxlPWF2YXRhclwvdGVtcCJ9',
+                            domain: 'http://7kttnj.com2.z0.glb.qiniucdn.com/',
+                            max_file_size: '5mb',
+                            init: {
+                                'FileUploaded': function(up, file, info) {
+                                    var res = JSON.parse(info);
+                                    $scope.$apply(function(){
+                                        vm.applyData.certification=res.url;
+                                    });
+                                },
+                                'UploadProgress': function(up, file) {
+                                    $scope.$apply(function(){
+                                        vm.progress=up.total.percent;
+                                    });
+                                },
+                            },
+                        };
+                    }
+                });
 
-                vm.idCardLayerInfoOptions={
-                    url:'http://up.qiniu.com',
-                    formData:{
-                        token:hb.Cookies.getJSON('avatar_token')||'m_bQ6vCqK-1n_myddynLMQxg0rxw3YqRptv5D7_i:vCIekJzZo2aWArOxYqBgPdStgrw=:eyJzY29wZSI6ImhhbG9hdmF0YXIiLCJkZWFkbGluZSI6MTQ2MzI4NjkzNywic2F2ZUtleSI6ImF2YXRhclwvdGVtcFwvJCh5ZWFyKSQobW9uKVwvJHtkYXl9XC8kKGV0YWcpJChzdWZmaXgpIiwiY2FsbGJhY2tVcmwiOiJodHRwOlwvXC9jb2xsZWdlLmhhbG9iZWFyLmNvbVwvYXBpXC9xaW5pdVVwbG9hZCIsImNhbGxiYWNrQm9keSI6ImtleT0kKGtleSkmdz0kKGltYWdlSW5mby53aWR0aCkmaD0kKGltYWdlSW5mby5oZWlnaHQpJmZuYW1lPSQoZm5hbWUpJmZzaXplPSQoZnNpemUpJmZpbGV0eXBlPSR7eDpmaWxldHlwZX0mY29kZT0ke3g6Y29kZX0mbW9kdWxlPWF2YXRhclwvdGVtcCJ9'
-                    },
-                    singleFileUploads:true,
-                    autoUpload: true,
-
-                    done: function (e, data) {
-                        vm.applyData.idCardLayerInfo=data.result.url;
-                    },
-                    fail: function (e, data) {
-                        console.log('fail', data);
-                    },
-                    progressall: function (e, data) {
-
-                    },
-                };
 
 
-                vm.certificationOptions={
-                    url:'http://up.qiniu.com',
-                    formData:{
-                        token:hb.Cookies.getJSON('avatar_token')||'m_bQ6vCqK-1n_myddynLMQxg0rxw3YqRptv5D7_i:vCIekJzZo2aWArOxYqBgPdStgrw=:eyJzY29wZSI6ImhhbG9hdmF0YXIiLCJkZWFkbGluZSI6MTQ2MzI4NjkzNywic2F2ZUtleSI6ImF2YXRhclwvdGVtcFwvJCh5ZWFyKSQobW9uKVwvJHtkYXl9XC8kKGV0YWcpJChzdWZmaXgpIiwiY2FsbGJhY2tVcmwiOiJodHRwOlwvXC9jb2xsZWdlLmhhbG9iZWFyLmNvbVwvYXBpXC9xaW5pdVVwbG9hZCIsImNhbGxiYWNrQm9keSI6ImtleT0kKGtleSkmdz0kKGltYWdlSW5mby53aWR0aCkmaD0kKGltYWdlSW5mby5oZWlnaHQpJmZuYW1lPSQoZm5hbWUpJmZzaXplPSQoZnNpemUpJmZpbGV0eXBlPSR7eDpmaWxldHlwZX0mY29kZT0ke3g6Y29kZX0mbW9kdWxlPWF2YXRhclwvdGVtcCJ9'
-                    },
-                    singleFileUploads:true,
-                    autoUpload: true,
 
-                    done: function (e, data) {
-                        vm.applyData.certification=data.result;
-                    },
-                    fail: function (e, data) {
-                        console.log('fail', data);
-                    },
-                    progressall: function (e, data) {
 
-                    },
-                };
 
 
 

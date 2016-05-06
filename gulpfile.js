@@ -174,6 +174,12 @@ gulp.task('pano', function () {
         .pipe(gulp.dest('public/pano'))
 });
 
+gulp.task('plupload', function () {
+    return gulp.src(['bower_components/plupload/**/*.swf'])
+        .pipe(gulp.dest('public/plupload'))
+});
+
+
 gulp.task('uc', function () {
     return gulp.src(['app/public/uc/**/*.html'])
         .pipe(plugins.htmlmin({
@@ -187,7 +193,7 @@ gulp.task('uc', function () {
 });
 
 
-gulp.task('build', ['sass','images','pano','uc','generateDistVersion'], function () {
+gulp.task('build', ['sass','images','pano','uc','generateDistVersion','plupload'], function () {
     var htmlFilter = plugins.filter('*.html',{restore: true});
     var ejsFilter = plugins.filter('**/*.ejs',{restore: true});
     var jsFilter = plugins.filter('**/*.js',{restore: true});
@@ -511,7 +517,7 @@ gulp.task("watch", function(){
 //    });
 //});
 
-gulp.task("watch:dev", ['browser-sync','copy:view','sass','images'], function(){
+gulp.task("watch:dev", ['browser-sync','copy:view','sass','images','plupload'], function(){
     gulp.watch(['app/views/**/*.ejs','app/public/uc/**/*.html'],function(event) {
         //console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.start('copy:view');

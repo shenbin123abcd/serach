@@ -121,7 +121,7 @@ app.topicDetail = (function () {
                             <div class="text-item-wrapper topic">
                                 <div class="commit-text-item clearfix">
                                     <div class="item-pic">
-                                        <img src="/images/commet-avatar-sample.png" />
+                                        <img src="${n.avatar}" />
                                     </div>
                                     <div class="item-desc">
                                         <p><span class="name f-14">${n.username}</span><span class="f-12">${moment(n.created_at).fromNow()}</span></p>

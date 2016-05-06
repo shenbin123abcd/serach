@@ -2,6 +2,7 @@ var express = require('express');
 var url = require('url');
 var router = express.Router();
 var obj = require('../module/module');
+var region = require('../module/region');
 var token = require('../module/token');
 var _ = require('lodash/collection');
 var Promise = require('bluebird');
@@ -28,75 +29,156 @@ router.get('/', function (req, res, next) {
     if(req.query.c){
         params['cate_id'] = req.query.c;
     }
+    function getInfo(){
+        return obj.getList('hotel', req, params).then(function (body) {
+            if (body.iRet === 1) {
+                return body.data;
 
-    obj.getList('hotel', req, params).then(function (body) {
-        if (body.iRet === 1) {
-            var data = body.data;
-
-            //res.json(data);return;
-            data.baseUrl = req.baseUrl;
-            data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-            data.query = req.query;
-            data.keywords = req.query.keywords;
-            if (req.query.keywords) {
-                data.pageTitle = `
-                '${req.query.keywords}' 的酒店搜索结果-幻熊婚礼素材开放平台`;
             } else {
-                data.pageTitle = '酒店列表 - 幻熊婚礼素材开放平台';
+                res.status(500);
+                next();
             }
-            data.totalPages = Math.ceil(data.total / data.per_page);
-
-            data.region = req.config.region;
-            data.properties = [
-                {
-                    name:"星级",
-                    query:"c",
-                    vals:req.config.hotelCate,
-                },
-                //{
-                //    name:"特色",
-                //    query:"f",
-                //    vals:req.config.feature,
-                //},
-            ];
-
-            if(data.query.c||data.query.f){
-                data.activeTab = 'properties';
-            }else{
-                data.activeTab = 'r';
-            }
-
-            data.data.forEach(function (n, i) {
-                if(n.cover.length > 0){
-                    n.c_cover = `${req.config.url.hotel}/${n.cover}!thumb5`;
-                }else{
-                    n.c_cover = req.config.url.company + '/' + '404.png' +"?imageView2/1/w/244/h/183";
-                }
-
-                n.c_cate=req.config.hotelCate[n.cate_id];
-                if(_.includes(req.config.region, data.query)){
-                    n.c_region_name=n.region_name
-                }else{
-                    n.c_region_name=n.region_name
-                }
-            });
-
-            var appData = {
-                total: data.total,
-                per_page: data.per_page,
-                totalPages: data.totalPages,
-                query: data.query
-            };
-
-            res.render('hotel_index_and_search', {data: data, appData: appData});
-        } else {
+        }, function (error) {
             res.status(500);
             next();
+        });
+    }
+    function getRegionLevel1Name(){
+        return region.getRegionLevel1Name(req).then(function(res){
+            return res;
+        });
+    }
+
+    //obj.getList('hotel', req, params).then(function (body) {
+    //    if (body.iRet === 1) {
+    //        var data = body.data;
+    //
+    //        //res.json(data);return;
+    //        data.baseUrl = req.baseUrl;
+    //        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    //        data.query = req.query;
+    //        data.keywords = req.query.keywords;
+    //        if (req.query.keywords) {
+    //            data.pageTitle = `
+    //            '${req.query.keywords}' 的酒店搜索结果-幻熊婚礼素材开放平台`;
+    //        } else {
+    //            data.pageTitle = '酒店列表 - 幻熊婚礼素材开放平台';
+    //        }
+    //        data.totalPages = Math.ceil(data.total / data.per_page);
+    //
+    //        data.region = req.config.region;
+    //        data.properties = [
+    //            {
+    //                name:"星级",
+    //                query:"c",
+    //                vals:req.config.hotelCate,
+    //            },
+    //            //{
+    //            //    name:"特色",
+    //            //    query:"f",
+    //            //    vals:req.config.feature,
+    //            //},
+    //        ];
+    //
+    //        if(data.query.c||data.query.f){
+    //            data.activeTab = 'properties';
+    //        }else{
+    //            data.activeTab = 'r';
+    //        }
+    //
+    //        data.data.forEach(function (n, i) {
+    //            if(n.cover.length > 0){
+    //                n.c_cover = `${req.config.url.hotel}/${n.cover}!thumb5`;
+    //            }else{
+    //                n.c_cover = req.config.url.company + '/' + '404.png' +"?imageView2/1/w/244/h/183";
+    //            }
+    //
+    //            n.c_cate=req.config.hotelCate[n.cate_id];
+    //            if(_.includes(req.config.region, data.query)){
+    //                n.c_region_name=n.region_name
+    //            }else{
+    //                n.c_region_name=n.region_name
+    //            }
+    //        });
+    //
+    //        var appData = {
+    //            total: data.total,
+    //            per_page: data.per_page,
+    //            totalPages: data.totalPages,
+    //            query: data.query
+    //        };
+    //
+    //        res.render('hotel_index_and_search', {data: data, appData: appData});
+    //    } else {
+    //        res.status(500);
+    //        next();
+    //    }
+    //}, function (error) {
+    //    res.status(500);
+    //    next();
+    //});
+
+    Promise.all([getInfo(),getRegionLevel1Name()]).then(function(result){
+
+        var data=result[0];
+        var regionLevel1Name=result[1];
+        //res.json(data);return;
+        data.baseUrl = req.baseUrl;
+        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        data.query = req.query;
+        data.keywords = req.query.keywords;
+        if (req.query.keywords) {
+            data.pageTitle = `
+                '${req.query.keywords}' 的酒店搜索结果-幻熊婚礼素材开放平台`;
+        } else {
+            data.pageTitle = `${regionLevel1Name?regionLevel1Name+' - ':''}酒店列表 - 幻熊婚礼素材开放平台`;
         }
-    }, function (error) {
-        res.status(500);
-        next();
-    });
+        data.totalPages = Math.ceil(data.total / data.per_page);
+
+        data.region = req.config.region;
+        data.properties = [
+            {
+                name:"星级",
+                query:"c",
+                vals:req.config.hotelCate,
+            },
+            //{
+            //    name:"特色",
+            //    query:"f",
+            //    vals:req.config.feature,
+            //},
+        ];
+
+        if(data.query.c||data.query.f){
+            data.activeTab = 'properties';
+        }else{
+            data.activeTab = 'r';
+        }
+
+        data.data.forEach(function (n, i) {
+            if(n.cover.length > 0){
+                n.c_cover = `${req.config.url.hotel}/${n.cover}!thumb5`;
+            }else{
+                n.c_cover = req.config.url.company + '/' + '404.png' +"?imageView2/1/w/244/h/183";
+            }
+
+            n.c_cate=req.config.hotelCate[n.cate_id];
+            if(_.includes(req.config.region, data.query)){
+                n.c_region_name=n.region_name
+            }else{
+                n.c_region_name=n.region_name
+            }
+        });
+
+        var appData = {
+            total: data.total,
+            per_page: data.per_page,
+            totalPages: data.totalPages,
+            query: data.query
+        };
+
+        res.render('hotel_index_and_search', {data: data, appData: appData});
+    })
 });
 
 // 详情

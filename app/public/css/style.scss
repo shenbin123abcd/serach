@@ -166,7 +166,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
       width: 970px!important;
       padding-left: 0;
       padding-right: 0;
-
     }
   }
 }
@@ -187,6 +186,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    &.bt-hide{
+      z-index: -1;
+    }
+
     .btn{
       width: 140px;
       padding: 9px 12px;
@@ -1159,7 +1162,8 @@ body{
           .halo-search.uc &,
           .halo-search.hotel &,
           .halo-search.hotelDetail &{
-            color: $mainColor;
+            color: $hotelMainColor;
+
           }
 
         }
@@ -2867,6 +2871,7 @@ body{
                                     img{
                                         max-width: 100%;
                                         width:100%;
+                                      border-radius: 50%;
                                     }
                                 }
                                 .item-desc{
@@ -4337,6 +4342,7 @@ body{
               img{
                 max-width: 100%;
                 width:100%;
+                border-radius: 50%;
               }
             }
             .item-desc{

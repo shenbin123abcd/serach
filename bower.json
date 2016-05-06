@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "Jcrop": "0.9.12"
+    "Jcrop": "0.9.12",
+    "qiniu": "^1.0.15-beta"
   }
 }
