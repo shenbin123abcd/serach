@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var obj = require('../module/module');
+var region = require('../module/region');
+var Promise = require('bluebird');
 
 // 列表
 router.get('/', function (req, res, next) {
@@ -20,54 +22,118 @@ router.get('/', function (req, res, next) {
         params.region_id = req.query.r;
     }
 
-    obj.getList('company', req, params).then(function (body) {
-        if (body.iRet === 1) {
-            var data = body.data;
-
-            if (data.data.length > 0) {
-                data.data.forEach(function (val, index) {
-                    if (val.logo.length > 0) {
-                        val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/150";
-                    } else {
-                        val.logo = '/images/company-logo-sample.png';
-                    }
-                });
-            }
-            //res.json(data);return;
-            data.baseUrl = req.baseUrl;
-            data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-            data.query = req.query;
-            data.keywords = req.query.keywords;
-            if (req.query.keywords) {
-                data.pageTitle = `
-                '${req.query.keywords}' 的公司搜索结果-幻熊婚礼素材开放平台
-            `;
+    function getInfo(){
+        return obj.getList('company', req, params).then(function (body) {
+            if (body.iRet === 1) {
+                return body.data;
             } else {
-                data.pageTitle = '公司列表 - 幻熊婚礼素材开放平台';
+                res.status(500);
+                next();
             }
-            data.totalPages = Math.ceil(data.total / data.per_page);
-
-            data.region = req.config.region;
-            data.data.forEach(function (n, i) {
-                n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
-            });
-
-            var appData = {
-                total: data.total,
-                per_page: data.per_page,
-                totalPages: data.totalPages,
-                query: data.query
-            };
-
-            res.render('company_index', {data: data, appData: appData});
-        } else {
+        }, function (error) {
             res.status(500);
             next();
+        });
+    }
+
+
+    function getRegionLevel1Name(){
+        return region.getRegionLevel1Name(req).then(function(res){
+            return res;
+        });
+    }
+
+
+    Promise.all([getInfo(),getRegionLevel1Name()]).then(function(result){
+        var data=result[0];
+        var regionLevel1Name=result[1];
+
+        if (data.data.length > 0) {
+            data.data.forEach(function (val, index) {
+                if (val.logo.length > 0) {
+                    val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/150";
+                } else {
+                    val.logo = '/images/company-logo-sample.png';
+                }
+            });
         }
-    }, function (error) {
-        res.status(500);
-        next();
+        //res.json(data);return;
+        data.baseUrl = req.baseUrl;
+        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        data.query = req.query;
+        data.keywords = req.query.keywords;
+        if (req.query.keywords) {
+            data.pageTitle = `
+                '${req.query.keywords}' 的公司搜索结果-幻熊婚礼素材开放平台
+            `;
+        } else {
+            data.pageTitle = `${regionLevel1Name?regionLevel1Name+' - ':''}公司列表 - 幻熊婚礼素材开放平台`;
+        }
+        data.totalPages = Math.ceil(data.total / data.per_page);
+
+        data.region = req.config.region;
+        data.data.forEach(function (n, i) {
+            n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
+        });
+
+        var appData = {
+            total: data.total,
+            per_page: data.per_page,
+            totalPages: data.totalPages,
+            query: data.query
+        };
+
+        res.render('company_index', {data: data, appData: appData});
     });
+
+    //obj.getList('company', req, params).then(function (body) {
+    //    if (body.iRet === 1) {
+    //        var data = body.data;
+    //
+    //        if (data.data.length > 0) {
+    //            data.data.forEach(function (val, index) {
+    //                if (val.logo.length > 0) {
+    //                    val.logo = req.config.url.company + '/' + val.logo + "?imageView2/1/w/200/h/150";
+    //                } else {
+    //                    val.logo = '/images/company-logo-sample.png';
+    //                }
+    //            });
+    //        }
+    //        //res.json(data);return;
+    //        data.baseUrl = req.baseUrl;
+    //        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    //        data.query = req.query;
+    //        data.keywords = req.query.keywords;
+    //        if (req.query.keywords) {
+    //            data.pageTitle = `
+    //            '${req.query.keywords}' 的公司搜索结果-幻熊婚礼素材开放平台
+    //        `;
+    //        } else {
+    //            data.pageTitle = '公司列表 - 幻熊婚礼素材开放平台';
+    //        }
+    //        data.totalPages = Math.ceil(data.total / data.per_page);
+    //
+    //        data.region = req.config.region;
+    //        data.data.forEach(function (n, i) {
+    //            n.cover = req.config.url.company + '/' + n.cover + "?imageView2/1/w/200/h/200";
+    //        });
+    //
+    //        var appData = {
+    //            total: data.total,
+    //            per_page: data.per_page,
+    //            totalPages: data.totalPages,
+    //            query: data.query
+    //        };
+    //
+    //        res.render('company_index', {data: data, appData: appData});
+    //    } else {
+    //        res.status(500);
+    //        next();
+    //    }
+    //}, function (error) {
+    //    res.status(500);
+    //    next();
+    //});
 });
 
 // 详情
