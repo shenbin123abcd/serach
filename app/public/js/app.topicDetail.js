@@ -17,7 +17,11 @@ app.topicDetail = (function () {
                     return
                 }
                 if(res.iRet==-1){
-                    $('#login-modal').modal('show');
+                    hb.account.login(function(res){
+                        $("[nav-before-login]").hide();
+                        $("[nav-after-login]").show();
+                        $('#nav-login-btn-hidden').text(res.data.user.username);
+                    });
                 }
             });
         });
@@ -33,7 +37,11 @@ app.topicDetail = (function () {
                     return
                 }
                 if(res.iRet==-1){
-                    $('#login-modal').modal('show');
+                    hb.account.login(function(res){
+                        $("[nav-before-login]").hide();
+                        $("[nav-after-login]").show();
+                        $('#nav-login-btn-hidden').text(res.data.user.username);
+                    });
                 }
             });
         });
@@ -75,7 +83,11 @@ app.topicDetail = (function () {
                     return
                 }
                 if(res.iRet==-1){
-                    $('#login-modal').modal('show');
+                    hb.account.login(function(res){
+                        $("[nav-before-login]").hide();
+                        $("[nav-after-login]").show();
+                        $('#nav-login-btn-hidden').text(res.data.user.username);
+                    });
                 }
             });
         });
