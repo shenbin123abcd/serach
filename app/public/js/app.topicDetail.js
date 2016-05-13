@@ -4,6 +4,13 @@
 app.topicDetail = (function () {
     "use strict";
 
+    function afterDialogLoginSuccess(res){
+        window.app.index.DIALOG.success(res.info);
+        $("[nav-before-login]").hide();
+        $("[nav-after-login]").show();
+        $('#nav-login-btn-hidden').text(res.data.user.username);
+    }
+
     function collect() {
         $('#markThis-sidebar,#markThis-comment').on('click', function () {
             hb.util.loading.show();
@@ -18,9 +25,7 @@ app.topicDetail = (function () {
                 }
                 if(res.iRet==-1){
                     hb.account.login(function(res){
-                        $("[nav-before-login]").hide();
-                        $("[nav-after-login]").show();
-                        $('#nav-login-btn-hidden').text(res.data.user.username);
+                        afterDialogLoginSuccess(res);
                     });
                 }
             });
@@ -38,9 +43,7 @@ app.topicDetail = (function () {
                 }
                 if(res.iRet==-1){
                     hb.account.login(function(res){
-                        $("[nav-before-login]").hide();
-                        $("[nav-after-login]").show();
-                        $('#nav-login-btn-hidden').text(res.data.user.username);
+                        afterDialogLoginSuccess(res);
                     });
                 }
             });
@@ -84,9 +87,7 @@ app.topicDetail = (function () {
                 }
                 if(res.iRet==-1){
                     hb.account.login(function(res){
-                        $("[nav-before-login]").hide();
-                        $("[nav-after-login]").show();
-                        $('#nav-login-btn-hidden').text(res.data.user.username);
+                        afterDialogLoginSuccess(res);
                     });
                 }
             });
