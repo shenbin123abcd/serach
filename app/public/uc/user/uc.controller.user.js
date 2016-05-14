@@ -6,7 +6,7 @@
                 $scope.vm={};
                 var vm=$scope.vm;
                 vm.c_data={
-                    greet:moment().format('a')
+                    greet:moment().utcOffset(8).format('a')
                 };
                 userService.getInfo().then(function(res){
                     vm.data=res.data;
