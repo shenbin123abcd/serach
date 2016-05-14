@@ -2606,7 +2606,6 @@ body{
               @include media('<laptop'){
                 width:27%;
               }
-
             }
             .detail-content-wrapper {
                 .detail-content-topic {
@@ -2871,11 +2870,15 @@ body{
                                     float:left;
                                     width:60px;
                                     height:60px;
-                                    border-radius: 50%;
+
                                     /*overflow: hidden;*/
                                     img{
                                         max-width: 100%;
-                                        width:100%;
+                                      width: 60px;
+                                      height: 60px;
+                                      border-radius: 50%;
+                                      padding: 2px;
+                                      border: 1px solid rgba(142, 142, 142, 0.2);
                                     }
                                 }
                                 .item-desc{
@@ -4341,11 +4344,14 @@ body{
               float: left;
               width: 60px;
               height: 60px;
-              border-radius: 50%;
-
+              //border-radius: 50%;
               img{
                 max-width: 100%;
-                width:100%;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                padding: 2px;
+                border: 1px solid rgba(142, 142, 142, 0.2);
               }
             }
             .item-desc{
@@ -5042,7 +5048,6 @@ body{
 
 .s-pagination{
   text-align: center;
-
   &__nav{
     display: inline-block;
     vertical-align: middle;
@@ -5062,6 +5067,20 @@ body{
         transition: 0.2s;
         font-size: 16px;
       }
+      &.disabled{
+        &.pagination-prev,
+        &.pagination-next,
+        &.pagination-first,
+        &.pagination-last{
+          a{
+            cursor: default;
+
+            border: 1px solid rgba(#8e8e8e,0.2);
+            color: #a8a8a8;
+          }
+
+        }
+      }
       &.active,&:hover{
         a{
           border: 1px solid $mainColor;
@@ -5079,7 +5098,5 @@ body{
       width: 42px;
       text-align: center;
     }
-
   }
-
 }

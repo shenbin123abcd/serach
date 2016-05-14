@@ -4,6 +4,12 @@
 app.picureDetail = (function () {
     "use strict";
 
+    function afterDialogLoginSuccess(res){
+        window.app.index.DIALOG.success(res.info);
+        $("[nav-before-login]").hide();
+        $("[nav-after-login]").show();
+        $('#nav-login-btn-hidden').text(res.data.user.username);
+    }
     function collect() {
         $('#markThis-sidebar,#markThis-comment').on('click', function () {
             hb.util.loading.show();
@@ -17,7 +23,9 @@ app.picureDetail = (function () {
                     return
                 }
                 if(res.iRet==-1){
-                    $('#login-modal').modal('show');
+                    hb.account.login(function(res){
+                        afterDialogLoginSuccess(res);
+                    });
                 }
             });
         });
@@ -33,7 +41,9 @@ app.picureDetail = (function () {
                     return
                 }
                 if(res.iRet==-1){
-                    $('#login-modal').modal('show');
+                    hb.account.login(function(res) {
+                        afterDialogLoginSuccess(res);
+                    });
                 }
             });
         });
@@ -76,7 +86,9 @@ app.picureDetail = (function () {
                     return
                 }
                 if(res.iRet==-1){
-                    $('#login-modal').modal('show');
+                    hb.account.login(function(res) {
+                        afterDialogLoginSuccess(res);
+                    });
                 }
             });
         });
