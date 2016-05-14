@@ -43,3 +43,9 @@ $ff_chs_h: Arial,Verdana,Tahoma,'Hiragino Sans GB',Microsoft YaHei,SimHei,SimSun
 %cf { *zoom: 1; }
 %cf:before { content: ""; display: table; line-height: 0; }
 %cf:after { content: ""; display: table; line-height: 0; clear: both; }
+
+%removeButtonOutline{
+  &:active,&:focus{
+    outline: none;
+  }
+}
