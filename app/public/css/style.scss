@@ -1345,9 +1345,13 @@ body{
                             -moz-transition:all 0.3s ease-in;
                             -o-transition:all 0.3s ease-in;
                             -ms-transition:all 0.3s ease-in; z-index: 52;
+                            outline:none;
                             &:hover{
                                 background: #fd5ab0;
                                 color:#fff;
+                            }
+                            &:focus{
+                              outline:none;
                             }
                         }
                     }
