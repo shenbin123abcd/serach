@@ -3022,6 +3022,13 @@ body{
                 h4{
                     margin-bottom: 10px;
                     color:#666666;
+                  a{
+                    color: $caseMainColor;
+                    &:hover{
+                      color: darken($caseMainColor,8%);
+
+                    }
+                  }
                 }
                 .other-case-block{
                     display: block;
