@@ -2977,7 +2977,20 @@ body{
                     margin-bottom: 0;
 
                   }
-                  &:hover{
+                  &.picture:hover{
+                    cursor: pointer;
+                    p{
+                      color: $pictureMainColor;
+                    }
+                  }
+                  &.case:hover{
+                    cursor: pointer;
+                    p{
+                      color: $caseMainColor;
+                    }
+                  }
+
+                  /*&:hover{
                     cursor: pointer;
                     &.piuture{
                       p{
@@ -2990,7 +3003,7 @@ body{
 
                       }
                     }
-                  }
+                  }*/
                 }
                 .desc-comment{
                   p{
