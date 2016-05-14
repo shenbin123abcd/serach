@@ -3120,6 +3120,13 @@ body{
                 }
             }
         }
+        .search-result{
+            p{
+              .keyword{
+                color:$companyMainColor;
+                }
+            }
+        }
         .case-pagination{
             .pagination.pagination-item{
                 li.active{
@@ -3540,7 +3547,8 @@ body{
                 color:#666666;
                 padding-top:60px;
                 .keyword{
-                    color:#b08dfd;
+                    color:$pictureMainColor;
+
                 }
               .color{
                 display: inline-block;
