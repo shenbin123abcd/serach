@@ -44,6 +44,7 @@
                     hb.util.loading.show();
                     commentService.delete(data).then(function(res){
                         app.index.DIALOG.success(res.info);
+                        vm.data.total--;
                         hb.util.loading.hide();
                         _.remove(vm.data.data,{id:data.id});
                     },function(res){
