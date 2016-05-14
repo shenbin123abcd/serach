@@ -4977,6 +4977,9 @@ body{
     }
     .img-wrapper{
       display: block;
+      height: 0;
+      padding-bottom: 75%;
+      overflow: hidden;
     }
     .img{
       width: 100%;
@@ -4998,12 +5001,13 @@ body{
       }
     }
     .name{
+      height: 21px;
 
     }
     .company{
       margin-top: 2px;
       font-size: 12px;
-
+      height: 18px;
     }
   }
 }
