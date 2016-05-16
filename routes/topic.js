@@ -25,7 +25,7 @@ router.get('/', function(req, res, next){
         var data=data;
 
         data.data.forEach((n,i)=>{
-            n.default_image=req.config.url.case+'/' +n.default_image+'?imageView2/1/w/900/h/482';
+            n.default_image=req.config.url.case+'/' +n.default_image+'?imageView2/1/w/420/h/226';
         });
 
         data.baseUrl=req.baseUrl;
