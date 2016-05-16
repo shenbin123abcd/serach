@@ -1310,10 +1310,7 @@ body{
                         font-size: 20px;
                         color:#b5b5b5;
                         &.act{
-                            transform: rotateX(-180deg);
-                            -webkit-transform: rotateX(-180deg);
-                            -moz-transform: rotateX(-180deg);
-                            -ms-transform: rotateX(-180deg);
+                            transform: rotate(-180deg);
                             z-index: 51;
                         }
                     }
@@ -2383,7 +2380,9 @@ body{
                     li{
                         text-align: center;
                         display:inline-block;
-                        padding:0 15px;
+                        padding:0px;
+                      width: 85px;
+                      text-align: left;
                         height:60px;
                         line-height: 60px;
                         a{
@@ -4900,6 +4899,11 @@ body{
       display: inline-block;
       width: 42px;
       text-align: center;
+    }
+    .btn{
+      &:active,&:focus{
+        outline: none;
+      }
     }
   }
 }
