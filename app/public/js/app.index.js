@@ -5,7 +5,7 @@ app.index=(function(){
 
     function topicEllipsis(){
         //console.log($('#topic-list').find("[topic-des]"))
-        $('#topic-list').find("[topic-des]").ellipsis();
+        $('#topic-list').find("[topic-des]").hb_ellipsis();
     }
     function resizeLogo(){
 

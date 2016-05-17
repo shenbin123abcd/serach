@@ -46,31 +46,37 @@
             </div>
         </div>
     </div>
-    <div class="topic-list">
-         <div class="s-container wrapper">
-             <div class="inner">
+    <div class="topic-list-v2" id="topic-list-v2">
+         <div class="s-container cf">
 
+             <div class="topic-list-v2-inner">
                  <% data.data.forEach(function(item){ %>
-                 <div class="list-content-item">
-                     <div class="item-pic">
-                         <a href="topic/detail/<%=item.id%>"><img data-original="<%=item.default_image%>" class="lazy" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC"></a>
-                     </div>
-                     <div class="item-text">
-                         <h4 class="f-18"><a href="topic/detail/<%=item.id%>"><%=item.title%></a></h4>
-                         <p class="item-text-p f-14"><%=item.description%></p>
-                         <div class="title-desc-icon inline-style">
-                             <ul class="desc-list">
-                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-eye"></span><span class="desc-list-item-num"><%=item.views%></span></li>
-                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-heart2"></span><span class="desc-list-item-num"><%=item.points%></span></li>
-                                 <li class="desc-list-item f-12"><span class="haloIcon haloIcon-message"></span><span class="desc-list-item-num"><%=item.comments%></span></li>
+                 <div class="col-md-3 col-sm-3 col-xs-3">
+                     <div class="item">
+                         <a class="img-wrapper" href="topic/detail/<%= item.id %>">
+                             <img data-original="<%= item.default_image %>" class="lazy img" alt=""
+                                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURfDw8Lu/XasAAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC">
+                         </a>
+                         <div class="content-wrapper">
+                             <a class="title" href="topic/detail/<%= item.id %>"><%= item.title %></a>
+                             <div class="description" topic-des >
+                                 <%= item.description %>
+                             </div>
+                             <ul class="list-unstyled statistics cf">
+                                 <li class="statistics-item">
+                                     <span class="haloIcon haloIcon-eye"></span><span class="num"><%= item.views %></span>
+                                 </li>
+                                 <li class="statistics-item">
+                                     <span class="haloIcon haloIcon-heart2"></span><span class="num"><%= item.points %></span>
+                                 </li>
+                                 <li class="statistics-item">
+                                     <span class="haloIcon haloIcon-message"></span><span class="num"><%= item.comments %></span>
+                                 </li>
                              </ul>
                          </div>
                      </div>
                  </div>
-                 <%})%>
-
-
-
+                 <% }) %>
              </div>
          </div>
     </div>
@@ -105,6 +111,7 @@
 
             app.topicIndex.alignCenter("wrapper","inner");
             app.topicIndex.pagActive();
+            app.topicIndex.topicEllipsis();
 
 
 

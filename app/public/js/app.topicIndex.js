@@ -1,6 +1,7 @@
 app.topicIndex=(function(){
     "use strict";
     var searchPara = hb.location.url("?") || {};
+
     function pagActive(){
         //$(".pagination-item>li>a").on("click",function(event){
         //
@@ -35,8 +36,16 @@ app.topicIndex=(function(){
         $("."+inner).css("position","relative").css("left",num);
     };
 
+
+    var topicEllipsis=function(){
+        $('#topic-list-v2').find("[topic-des]").hb_ellipsis();
+
+
+    };
+
     return{
         alignCenter:alignCenter,
+        topicEllipsis:topicEllipsis,
         pagActive:pagActive
     };
 }())

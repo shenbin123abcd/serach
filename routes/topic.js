@@ -6,7 +6,7 @@ var url = require('url');
 
 // 列表
 router.get('/', function(req, res, next){
-    var params = {per_page: req.config.perPage.picture};
+    var params = {per_page: req.config.perPage.topic};
 
     obj.getList('zhuanti', req, params).then(function(body){
         if (body.iRet === 1) {
@@ -25,7 +25,7 @@ router.get('/', function(req, res, next){
         var data=data;
 
         data.data.forEach((n,i)=>{
-            n.default_image=req.config.url.case+'/' +n.default_image+'?imageView2/1/w/900/h/482';
+            n.default_image=req.config.url.case+'/' +n.default_image+'?imageView2/1/w/420/h/226';
         });
 
         data.baseUrl=req.baseUrl;
