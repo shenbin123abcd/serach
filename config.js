@@ -21,7 +21,7 @@ config.perPage = {
     picture: 60,
     company: 60,
     hotel: 30,
-    topic: 12,
+    topic: 40,
     comments: 9999
 };
 

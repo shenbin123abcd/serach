@@ -121,7 +121,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
     }
   }
-  .html-topic-index &,.html-topic-detail &{
+  .html-topic-detail &{
     width: 840px;
     @include media('<laptop'){
       width: 840px;
@@ -3810,7 +3810,11 @@ body{
         .img{
           border-radius: 4px 4px 0 0;
           width: 100%;
-          height: 139px;
+          height: 166.797px;
+          @include media("<laptop"){
+            height: 126.438px;
+          }
+
           //transition: transform 0.8s;
           &:hover{
             //transform: scale(1.3);

@@ -6,7 +6,7 @@ var url = require('url');
 
 // 列表
 router.get('/', function(req, res, next){
-    var params = {per_page: req.config.perPage.picture};
+    var params = {per_page: req.config.perPage.topic};
 
     obj.getList('zhuanti', req, params).then(function(body){
         if (body.iRet === 1) {
