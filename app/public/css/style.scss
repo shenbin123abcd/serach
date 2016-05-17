@@ -3792,6 +3792,7 @@ body{
     }
     .topic-list-v2{
       margin-top: 30px;
+      
 
       .topic-list-v2-inner{
         margin: 0 -10px;
@@ -3804,7 +3805,6 @@ body{
         &:hover{
           box-shadow: $itemShadow;
         }
-
       }
 
       .img-wrapper{
