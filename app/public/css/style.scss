@@ -3800,6 +3800,10 @@ body{
         border-radius: 4px;
         color: #666666;
         margin-top: 30px;
+        &:hover{
+          box-shadow: $itemShadow;
+        }
+
       }
 
       .img-wrapper{
