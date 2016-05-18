@@ -10,7 +10,6 @@ app.caseDetail=(function(){
         $('#nav-login-btn-hidden').text(res.data.user.username);
     }
 
-
     function collect() {
         $('#markThis-sidebar,#markThis-comment').on('click', function () {
             hb.util.loading.show();
