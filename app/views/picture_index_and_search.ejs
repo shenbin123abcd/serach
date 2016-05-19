@@ -71,11 +71,11 @@
             <div class="tab-title">
                 <div class="tab-title-left clearfix">
                     <% if (data.query.color){ %>
-                    <style>
-                        .halo-search.case.picture .tab-list .tab-title .tab-title-left .nav.nav-tabs li.active {
-                            border-top: 2px solid <%= '#'+data.query.color %>!important;
-                        }
-                    </style>
+                    <!--<style>-->
+                        <!--.halo-search.case.picture .tab-list .tab-title .tab-title-left .nav.nav-tabs li.active {-->
+                            <!--border-top: 2px solid <%= '#'+data.query.color %>!important;-->
+                        <!--}-->
+                    <!--</style>-->
                     <%}%>
                     <ul class="nav nav-tabs" role="tablist">
                         <li
@@ -105,7 +105,7 @@
                         <% data.element.forEach(function(item,i){ %>
                         <li>
                             <% if (i==0){ %>
-                                <a class="<% if (data.tag==item){ %>active<%}%>"
+                                <a class="<% if (!data.tag){ %>active<%}%>"
                                    href="?<%=search(data.query,{page:1},['tag','color'])%>">
                                     <%= item %>
                                 </a>

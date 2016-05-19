@@ -2404,6 +2404,7 @@ body{
                         text-align: center;
                         display:inline-block;
                         padding:0px;
+                      padding-left: 15px;
                       width: 85px;
                       text-align: left;
                         height:60px;
@@ -2412,11 +2413,22 @@ body{
                           color:$mainTextColor;
                           &:hover,&.active{
                             color:#f3903e;
-
                           }
                         }
                     }
+                  &.area-list{
+
+                    li{
+                      display:inline-block;
+                      width: auto;
+                      min-width: 85px;
+                      padding:0px 15px;
+
+                    }
+
+                  }
                 }
+
             }
         }
 
@@ -3335,7 +3347,7 @@ body{
               color: #337ab7;
               &:hover{
                 color:darken(#337ab7,5%);
-
+                text-decoration: underline;
               }
             }
           }
@@ -3799,6 +3811,7 @@ body{
                     padding:0;
 
                     .desc-list-item{
+
                         display: inline-block;
                         color: #999999;
                         margin-right: 30px;
@@ -4983,8 +4996,7 @@ body{
         &.pagination-first,
         &.pagination-last{
           a{
-            cursor: default;
-
+            cursor: not-allowed;
             border: 1px solid rgba(#8e8e8e,0.2);
             color: #a8a8a8;
           }

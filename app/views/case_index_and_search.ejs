@@ -64,11 +64,11 @@
             <div class="tab-title">
                 <div class="tab-title-left clearfix">
                     <% if (data.query.color){ %>
-                    <style>
-                        .halo-search.case .tab-list .tab-title .tab-title-left ul.nav-tabs.nav li.active {
-                            border-top: 2px solid <%= '#'+data.query.color %>!important;
-                        }
-                    </style>
+                    <!--<style>-->
+                        <!--.halo-search.case .tab-list .tab-title .tab-title-left ul.nav-tabs.nav li.active {-->
+                            <!--border-top: 2px solid <%= '#'+data.query.color %>!important;-->
+                        <!--}-->
+                    <!--</style>-->
                     <%}%>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="<% if (data.activeTab=='listColor'){ %>active<%}%>"><a href="#tab1"  data-toggle="tab" class="category f-16">颜色</a></li>
@@ -90,7 +90,7 @@
                             <% data.listColor.forEach(function(item,i){ %>
                             <li>
                                 <% if (i==0){ %>
-                                <a class="<% if (data.query.color==data.listColorHex[i]){ %>active<%}%> f-14"
+                                <a class="<% if (!data.query.color){ %>active<%}%> f-14"
                                    href="?<%=search(data.query,{page:1},['tag','color'])%>">
                                     <%= item %>
                                 </a>
@@ -110,7 +110,7 @@
                             <% data.listStyle.forEach(function(item,i){ %>
                             <li>
                                 <% if(i==0){ %>
-                                <a  class="<% if (data.tag==item){ %>active<%}%>" href="?<%= search(data.query,{page:1},['tag','color']) %>">
+                                <a  class="<% if (!data.tag){ %>active<%}%>" href="?<%= search(data.query,{page:1},['tag','color']) %>">
                                     <%= item %>
                                 </a>
                                 <% }else{ %>
