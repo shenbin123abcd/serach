@@ -1156,12 +1156,13 @@ body{
           .halo-search.companyDetail &{
             color: $companyMainColor;
           }
-          .halo-search.uc &,
-          .halo-search.hotel &,
-          .halo-search.hotelDetail &{
+          .halo-search.uc &{
             color: $mainColor;
           }
-
+          .halo-search.hotel &,
+          .halo-search.hotelDetail & {
+            color: $hotelMainColor;
+          }
         }
 
       }
