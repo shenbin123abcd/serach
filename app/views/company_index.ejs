@@ -72,7 +72,7 @@
                     <ul  class="city-list">
                         <% data.region.forEach(function(n,i){ %>
                         <% if (i==0){ %>
-                        <li><a href="?" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
+                        <li><a href="?" class="<% if (!data.query.r){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
                         <%}else{%>
                         <li><a href="?r=<%= n.id %>" class="<% if (data.query.r==n.id){ %>active<%}%>" id="area-item-<%= n.id %>"><%= n.city %></a></li>
                         <%}%>
