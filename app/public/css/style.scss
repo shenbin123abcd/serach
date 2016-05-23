@@ -398,6 +398,26 @@ a{
             display: block;
             color: #949494;
             &:hover{
+
+              .html-topic-detail &,
+              .html-topic-index &,
+              .html-case-detail &,
+              .html-case-index &{
+                background: $caseMainColor;
+              }
+              .html-company-detail &,
+              .html-company-index &{
+                background: $companyMainColor;
+              }
+              .html-picture-detail &,
+              .html-picture-index &{
+                background: $pictureMainColor;
+              }
+
+              .html-hotel-detail &,
+              .html-hotel-index &{
+                background: $hotelMainColor;
+              }
               background: $mainColor;
               color: #fff;
             }
@@ -1156,12 +1176,13 @@ body{
           .halo-search.companyDetail &{
             color: $companyMainColor;
           }
-          .halo-search.uc &,
-          .halo-search.hotel &,
-          .halo-search.hotelDetail &{
+          .halo-search.uc &{
             color: $mainColor;
           }
-
+          .halo-search.hotel &,
+          .halo-search.hotelDetail & {
+            color: $hotelMainColor;
+          }
         }
 
       }
@@ -3706,6 +3727,7 @@ body{
                 padding-left: 10px;
             }
             .block-special-item{
+
                 overflow: hidden;
                 border-radius: 4px;
                 display: block;
