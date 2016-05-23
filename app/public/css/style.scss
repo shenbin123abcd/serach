@@ -4534,8 +4534,10 @@ body{
             .case-pic{
               display:table;
               width:100%;
+              table-layout: fixed;
               .case-pic-img{
                 display: table-cell;
+                width:50%;
                 .case-pic-a{
                   position:relative;
                   .tip{
