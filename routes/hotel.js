@@ -224,7 +224,7 @@ router.get('/detail/:id', function (req, res, next) {
             if(val.cover.length > 0) {
                 val.cover = req.config.url.hotel + '/' + val.cover + '!thumb8';
             }else{
-                val.cover = req.config.url.hotel + '404.png'
+                val.cover = req.config.url.company + '/' + '404.png'+"?imageView2/1/w/147/h/93";
             }
             val.thumb=[];
             val.attach.forEach(function(val2, index2){
