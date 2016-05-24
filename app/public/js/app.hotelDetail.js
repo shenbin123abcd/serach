@@ -100,7 +100,7 @@ app.hotelDetail = (function () {
 
     function noIe9(){
         var DIALOG=window.app.index.DIALOG;
-        if(navigator.appName == "Microsoft Internet Explorer"){
+        if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/9./i)=="9."){
             $("#ie-update").show();
             $(".swiper-tip").on("click",function(event){
                 event.preventDefault();
