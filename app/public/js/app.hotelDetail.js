@@ -27,6 +27,29 @@ app.hotelDetail = (function () {
         galleryThumbs.params.control = galleryTop;
     };
 
+    function slick(galleryTop,galleryThumbs){
+
+        $(galleryTop).slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: true,
+            asNavFor: galleryThumbs,
+            infinite:false,
+            touchMove:true,
+        });
+        $(galleryThumbs).slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            asNavFor: galleryTop,
+            dots: false,
+            centerMode: false,
+            focusOnSelect: true,
+            infinite:false,
+            touchMove:true,
+        });
+    };
+
     function seeMore(){
         $(window).on("load",function(){
             var height=parseInt($("#moreText").css("height"));
@@ -60,18 +83,17 @@ app.hotelDetail = (function () {
     function panoPic(){
         $(window).on("load",function(){
             click();
-            $("[swiper-thumbs]").on("click mousedown",function(){
-                click();
-            });
+
             function click(){
-                $("a.swiper-slide").on("click",function(event){
+                $(".swiper-thumbs a.swiper-slide.slick-slide").on("click",function(event){
                     event.preventDefault();
                 });
-                $("a.swiper-slide.swiper-slide-active").off("click");
-                /*$(".gallery-thumbs a.swiper-slide.swiper-slide-active").on('click',function(){
+                /*$("a.swiper-slide.slick-current").off("click");*/
+               $(".swiper-thumbs a.swiper-slide.slick-slide.slick-current.slick-active").on('click',function(){
                     var href=$(this).attr("href");
                     window.open(href);
-                })*/
+                    //alert(href)
+                });
             }
         });
     }
@@ -81,6 +103,7 @@ app.hotelDetail = (function () {
         seeMore:seeMore,
         buttonIn:buttonIn,
         panoPic:panoPic,
+        slick:slick,
     }
 
 
