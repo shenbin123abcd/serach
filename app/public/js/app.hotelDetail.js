@@ -98,12 +98,24 @@ app.hotelDetail = (function () {
         });
     }
 
+    function noIe9(){
+        var DIALOG=window.app.index.DIALOG;
+        if(navigator.appName == "Microsoft Internet Explorer"){
+            $("#ie-update").show();
+            $(".swiper-tip").on("click",function(event){
+                event.preventDefault();
+                DIALOG.error("浏览器版本过低，无法观看全景图，请更换浏览器");
+            })
+        }
+    }
+
     return {
         swiper: swiper,
         seeMore:seeMore,
         buttonIn:buttonIn,
         panoPic:panoPic,
         slick:slick,
+        noIe9:noIe9,
     }
 
 
