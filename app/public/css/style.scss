@@ -4350,6 +4350,7 @@ body{
               float:left;
               width: 152px;
               padding: 0 2.5px;
+
               img {
                 width:100%;
               }
@@ -4387,6 +4388,8 @@ body{
           }
           .swiper-thumbs{
               cursor: e-resize;
+              //float:left;
+
             .slick-track{
               .swiper-slide{
                 position: relative;

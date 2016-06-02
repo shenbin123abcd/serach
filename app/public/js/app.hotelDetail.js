@@ -49,6 +49,7 @@ app.hotelDetail = (function () {
             touchMove:true,
             arrows: false,
         });
+
     };
 
     function seeMore(){
@@ -71,8 +72,8 @@ app.hotelDetail = (function () {
         $(window).on("load",function() {
             function init() {
                 var swiperWidth = parseInt($("[swiper-slide-img]").css("width"));
-                $("[swiper-thumbs]").css("left", swiperWidth + 5);
-                $("[button-in]").css("width", swiperWidth);
+                console.log(swiperWidth)
+                $("[swiper-thumbs]").css("margin-left", swiperWidth);
             };
             $(window).on("resize", function () {
                 init();

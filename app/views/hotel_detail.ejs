@@ -41,11 +41,18 @@
                                         <%})%>
                                     </div>
                                     <%}%>
-                                    <a href="<%= val.out.pano_url%>" class="fake-pic-wrapper" target="_blank">
-                                        <div class="text">720全景</div>
-                                        <div class="wrapper"></div>
-                                        <img src="<%= val.in.cover%>" alt="">
-                                    </a>
+                                    <% if(val.out.pano_url){%>
+                                        <a href="<%= val.out.pano_url%>" class="fake-pic-wrapper" target="_blank">
+                                            <div class="text">720全景</div>
+                                            <div class="wrapper"></div>
+                                            <img src="<%= val.in.cover%>" alt="">
+                                        </a>
+                                    <% }else{ %>
+                                        <div class="fake-pic-wrapper" >
+                                            <div class="wrapper"></div>
+                                            <img src="<%= val.in.cover%>" alt="">
+                                        </div>
+                                    <%}%>
                                     <% if(val.out.thumb ){%>
                                     <div class="swiper-wrapper slider swiper-thumbs" swiper-thumbs id="gallery-thumbs<%= index%>">
                                         <% val.out.thumb.forEach(function(n,i){%>
@@ -81,11 +88,18 @@
                                         <%})%>
                                     </div>
                                     <%}%>
-                                    <a href="<%= val.in.pano_url%>" class="fake-pic-wrapper" target="_blank">
-                                        <div class="text">720全景</div>
-                                        <div class="wrapper"></div>
-                                        <img src="<%= val.in.cover%>" alt="">
-                                    </a>
+                                    <% if(val.in.pano_url){ %>
+                                        <a href="<%= val.in.pano_url%>" class="fake-pic-wrapper" target="_blank">
+                                            <div class="text">720全景</div>
+                                            <div class="wrapper"></div>
+                                            <img src="<%= val.in.cover%>" alt="">
+                                        </a>
+                                    <% }else{ %>
+                                        <div class="fake-pic-wrapper">
+                                            <div class="wrapper"></div>
+                                            <img src="<%= val.in.cover%>" alt="">
+                                        </div>
+                                    <%}%>
                                     <% if(val.in.thumb ){%>
                                     <div class="swiper-wrapper slider swiper-thumbs" swiper-thumbs id="gallery-thumbs-s<%= index%>">
                                         <% val.in.thumb.forEach(function(n,i){%>
