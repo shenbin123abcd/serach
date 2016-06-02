@@ -39,7 +39,7 @@ app.hotelDetail = (function () {
             touchMove:true,
         });
         $(galleryThumbs).slick({
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1,
             asNavFor: galleryTop,
             dots: false,
@@ -47,6 +47,7 @@ app.hotelDetail = (function () {
             focusOnSelect: true,
             infinite:false,
             touchMove:true,
+            arrows: false,
         });
     };
 

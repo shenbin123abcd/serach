@@ -4342,6 +4342,38 @@ body{
           padding:40px;
           background: #fff;
           position: relative;
+          .swiper-container{
+            overflow:hidden;
+            .fake-pic-wrapper{
+              position: relative;
+              display:block;
+              float:left;
+              width: 154px;
+              padding: 0 2.5px;
+              .wrapper{
+                position: absolute;
+                top: 0;
+                left: 3px;
+                width: 96.4%;
+                height: 100%;
+                opacity: .5;
+                background: #333;
+                z-index:2;
+              }
+              .text{
+                position: absolute;
+                top: 50%;
+                left:50%;
+                z-index:3;
+                color:#fff;
+                background:#ff5050 ;
+                padding: 3px 8px;
+                transform:translate(-50%,-50%);
+                border-radius: 4px;
+
+              }
+            }
+          }
           .swiper-thumbs{
               cursor: e-resize;
             .slick-track{
