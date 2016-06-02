@@ -4348,8 +4348,16 @@ body{
               position: relative;
               display:block;
               float:left;
-              width: 154px;
+              width: 152px;
               padding: 0 2.5px;
+              img {
+                width:100%;
+              }
+
+              @include media("<laptop"){
+                width:124px;
+
+              }
               .wrapper{
                 position: absolute;
                 top: 0;
@@ -4367,9 +4375,12 @@ body{
                 z-index:3;
                 color:#fff;
                 background:#ff5050 ;
-                padding: 3px 8px;
+                padding: 5px 12px;
                 transform:translate(-50%,-50%);
                 border-radius: 4px;
+                @include media("<laptop"){
+                  padding: 3px 5px;
+                }
 
               }
             }
