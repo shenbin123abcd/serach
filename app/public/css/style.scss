@@ -2237,6 +2237,10 @@ body{
                     &.picture:hover{
                       color:#b08dfd;
                     }
+                    &.hotel:hover{
+                      color:#ff5050;
+                      
+                    }
                     img{
                       position: absolute;
                       top: 14px;
@@ -4777,7 +4781,6 @@ body{
           .search_button
           &.hotel:hover{
             color:$hotelMainColor;
-
 
           }
         }
