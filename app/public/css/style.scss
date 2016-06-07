@@ -2239,7 +2239,7 @@ body{
                     }
                     &.hotel:hover{
                       color:#ff5050;
-                      
+
                     }
                     img{
                       position: absolute;
@@ -4398,6 +4398,10 @@ body{
               .swiper-slide{
                 position: relative;
                 padding:0 2.5px;
+                &:focus{
+                  outline:none;
+                  
+                }
                 img{
                   width:100%;
                 }
