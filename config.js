@@ -7,6 +7,9 @@ config.JWT_SECRET = 'sdDjkGpskdjflj3289324w98#@$%^';
 config.redis = {port: 6379, host: '10.0.1.88', password: '123456'};
 config.NOT_CHECK_AUTH = ['', 'login', 'public'];
 
+// 可查看全景的用户组
+config.panoGroup = ['all', 'base'];
+
 config.url = {
     company: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
     case: 'http://7ktsyl.com2.z0.glb.qiniucdn.com',
