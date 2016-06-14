@@ -72,9 +72,12 @@ var xml_scene5 = '<hotspot name="spot{idx}" style="skin_hotspotstyle" ath="{ath}
 var xml_scene6 = '</scene>';
 var xml_suf1 = '</krpano>';
 
+router.get('/index.html', token.getUser, checkAuth, function(req, res, next){
+    res.render('pano_index');
+});
 
 // 酒店全景
-router.get('/:id', token.getUser, checkAuth, function(req, res, next){
+router.get('/:id', function(req, res, next){// , token.getUser, checkAuth
     var id = req.params.id;
     if(id <= 0){
         res.json({iRet: 0, info: 'invalid param'});
@@ -132,7 +135,7 @@ router.get('/:id', token.getUser, checkAuth, function(req, res, next){
 });
 
 function checkAuth(req, res, next){
-    // console.log('-------', req.user);
+    console.log('-------', req.user);
     next();
     /*if(!req.user.priv){
         res.redirect('http://account.halobear.com?url=http://open.halobear.com/pano/' + req.params.id);
