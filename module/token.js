@@ -50,8 +50,8 @@ exports.getUser = function (req, res, next) {
         next();
     }else{
         var token = req.cookies.halo_token;
-
-
+        token = token ? token : getToken(req);
+        
         jwt.verify(token,config.JWT_SECRET, function(err, decoded){
             if(err){
                 req.user = {};
