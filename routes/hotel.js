@@ -146,6 +146,8 @@ router.get('/detail/:id', token.getUser, function(req, res, next){
     Promise.all([getInfo(), getHallList()]).then(function(result){
         var data = result[0], hall = result[1], hall_format = {};
         data.baseUrl = req.baseUrl;
+        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        data.query = req.query;
         if (data.cover) {
             data.cover = req.config.url.hotel + '/' + (data.cover) + '!opencover';
         } else {
