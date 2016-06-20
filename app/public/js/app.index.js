@@ -67,6 +67,7 @@ app.index=(function(){
             }
 
             $("#nav-login-btn-logout").on('click',function(){
+
                 haloAuth.clear();
                 $("[nav-before-login]").show();
                 $("[nav-after-login]").hide();
@@ -74,6 +75,11 @@ app.index=(function(){
                 if(hb.location.url('path').indexOf('/uc')>-1){
                     window.location.href='/';
                 }
+                if(hb.location.url('path').indexOf('/hotel/detail')>-1){
+
+                    window.location.reload();
+                }
+
 
             });
         },
