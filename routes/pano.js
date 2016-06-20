@@ -135,15 +135,13 @@ router.get('/:id', function(req, res, next){// , token.getUser, checkAuth
 });
 
 function checkAuth(req, res, next){
-    console.log('-------', req.user);
-    next();
-    /*if(!req.user.priv){
+    if(!req.user.priv){
         res.redirect('http://account.halobear.com?url=http://open.halobear.com/pano/' + req.params.id);
     }else if(req.config.panoGroup.indexOf(req.user.priv.privs) == -1){
         res.send('抱歉，你没有查看酒店全景的权限');
     }else{
         next();
-    }*/
+    }
 }
 
 module.exports = router;
