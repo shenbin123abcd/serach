@@ -15,6 +15,14 @@
             $rootScope.toState=toState;
             $rootScope.fromState=fromState;
             $rootScope.fromParams=fromParams;
+
+
+        });
+        $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+            if (to.redirectTo) {
+                evt.preventDefault();
+                $state.go(to.redirectTo, params)
+            }
         });
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             //console.log(toState, toParams);
