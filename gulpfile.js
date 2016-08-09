@@ -397,6 +397,16 @@ gulp.task('copy:view', function () {
         .src(['app/views/**/*.ejs','app/public/uc/**/*.html'])
 
         .pipe(htmlFilter)
+        .pipe(plugins.cdnizer({
+            defaultCDNBase: "http://"+devip()[0]+":9000/app/public",
+            //defaultCDNBase: "../",
+            allowRev: true,
+            allowMin: true,
+            files: [
+                '/images/**/*.{jpg,png,mp3,mp4}',
+            ]
+        }))
+
         .pipe(gulp.dest('public/uc'))
         .pipe(htmlFilter.restore)
         .pipe(ejsFilter)

@@ -31,7 +31,8 @@
 
 
             .state('collect', {
-                abstract: true,
+                //abstract: true,
+                redirectTo: 'collect.case',
                 url: '/collect',
                 templateUrl: appConfig.staticUrl+'/uc/collect/uc.view.collect.html'+appConfig.bust,
                 data: { pageTitle: '我的收藏' },
@@ -57,7 +58,8 @@
             })
 
             .state('comment', {
-                abstract: true,
+                //abstract: true,
+                redirectTo: 'comment.user',
                 url: '/comment',
                 templateUrl: appConfig.staticUrl+'/uc/comment/uc.view.comment.html'+appConfig.bust,
                 data: { pageTitle: '我的评论' },

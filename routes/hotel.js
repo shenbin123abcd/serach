@@ -121,7 +121,7 @@ router.get('/', function(req, res, next){
 });
 
 // 详情
-router.get('/detail/:id', function(req, res, next){
+router.get('/detail/:id', token.getUser, function(req, res, next){
     var id = parseInt(req.params.id);
 
     if (id <= 0 || isNaN(id)) {
@@ -146,6 +146,8 @@ router.get('/detail/:id', function(req, res, next){
     Promise.all([getInfo(), getHallList()]).then(function(result){
         var data = result[0], hall = result[1], hall_format = {};
         data.baseUrl = req.baseUrl;
+        data.absUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        data.query = req.query;
         if (data.cover) {
             data.cover = req.config.url.hotel + '/' + (data.cover) + '!opencover';
         } else {
@@ -159,6 +161,7 @@ router.get('/detail/:id', function(req, res, next){
         }
 
         // 格式化厅列表
+        var is_auth = (req.user && req.user.priv && req.config.panoGroup.indexOf(req.user.priv.privs) != -1) ? 1 : 0;
         hall.forEach(function(val, index){
             if (val.cover.length > 0) {
                 val.cover = req.config.url.hotel + '/' + val.cover + '!thumb8';
@@ -170,8 +173,10 @@ router.get('/detail/:id', function(req, res, next){
                 hall[index].attach[index2].image_url = req.config.url.hotel + '/' + val2.file_path + '!thumb6';
                 hall[index].thumb[index2] = req.config.url.hotel + '/' + val2.file_path + '!thumb7';
             });
+            
+            // 是否有查看全景的权限
 
-            if (val.has_pano) {
+            if (val.has_pano && is_auth) {
                 val.pano_url = "http://open.halobear.com/pano/index.html?hotel=" + val.hotel_id + "&hall=" + val.id;
             } else {
                 val.pano_url = "";

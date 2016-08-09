@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('../config');
 var obj = require('../module/module');
+var token = require('../module/token');
 
 
 var xml_pre1 = '<krpano version="1.19" title="{title}">';
@@ -71,9 +72,12 @@ var xml_scene5 = '<hotspot name="spot{idx}" style="skin_hotspotstyle" ath="{ath}
 var xml_scene6 = '</scene>';
 var xml_suf1 = '</krpano>';
 
+router.get('/index.html', token.getUser, checkAuth, function(req, res, next){
+    res.render('pano_index');
+});
 
 // 酒店全景
-router.get('/:id', function(req, res, next){
+router.get('/:id', function(req, res, next){// , token.getUser, checkAuth
     var id = req.params.id;
     if(id <= 0){
         res.json({iRet: 0, info: 'invalid param'});
@@ -129,5 +133,15 @@ router.get('/:id', function(req, res, next){
         next();
     });
 });
+
+function checkAuth(req, res, next){
+    if(!req.user.priv){
+        res.redirect('http://account.halobear.com?url=http://open.halobear.com/pano/' + req.params.id);
+    }else if(req.config.panoGroup.indexOf(req.user.priv.privs) == -1){
+        res.send('抱歉，你没有查看酒店全景的权限');
+    }else{
+        next();
+    }
+}
 
 module.exports = router;
