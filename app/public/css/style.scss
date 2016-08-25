@@ -2882,8 +2882,9 @@ body{
                                     }
                                     span{
                                         color:#9e9e9e;
+                                      vertical-align: middle;
                                         &:last-child{
-                                            vertical-align: top;
+                                            vertical-align: middle;
                                             margin-left:5px;
                                         }
                                     }
@@ -4229,9 +4230,10 @@ body{
                 color:$topicMainColor;
               }
               span{
+                vertical-align: middle;
                 color:#9e9e9e;
                 &:last-child{
-                  vertical-align: top;
+                  vertical-align: middle;
                   margin-left:5px;
                 }
               }
