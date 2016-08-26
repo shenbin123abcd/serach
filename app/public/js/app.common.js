@@ -6,6 +6,7 @@ app.common=(function(){
             $(".company-desc").css("height",imgHeight);
         }
         init();
+
         $(window).resize(function() {
             init();
         });
@@ -97,6 +98,25 @@ app.common=(function(){
             }
         });
     }
+    //function dropdownFix(){
+        //$('.dropdown-toggle, .nav-dropdown-submenu a').on('touchstart', function(e) {
+        //    alert(1)
+        //    e.stopPropagation();
+        //});
+        //alert(2)
+        //$('.nav-dropdown-submenu  a:not(a[href="#"])').on('click', function() {
+        //    alert(1)
+        //    self.location = $(this).attr('href');
+        //});
+        //$('.dropdown-toggle').click(function(e) {
+        //    e.preventDefault();
+        //    setTimeout($.proxy(function() {
+        //        if ('ontouchstart' in document.documentElement) {
+        //            $(this).siblings('.dropdown-backdrop').off().remove();
+        //        }
+        //    }, this), 0);
+        //});
+    //}
     return {
         companyDesc:companyDesc,
         verticalMiddle:verticalMiddle,
@@ -106,5 +126,6 @@ app.common=(function(){
         resizeLogo:resizeLogo,
         sameHeight:sameHeight,
         navScroll:navScroll,
+        dropdownFix:dropdownFix,
     }
 }());

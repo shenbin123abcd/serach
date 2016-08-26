@@ -396,17 +396,28 @@ a{
       &.open{
         .menu{
           display: block;
+          font-size: 12px;
+
           margin: 0;
           width: 134px;
           text-align: center;
+          min-width: 0px;
+          padding: 0px 0;
+
+          border: 0px solid rgba(0,0,0,.15);
+          border-radius: 0;
+          box-shadow: none;
+
           &__item{
 
           }
           &__link{
             height: 36px;
             line-height: 36px;
+            padding: 0;
             display: block;
             color: #949494;
+            font-weight: normal;
             &:hover{
 
               .html-topic-detail &,
